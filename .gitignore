@@ -1,0 +1,10 @@
+*.class
+build/
+android*
+xcuserdata
+parameters/com
+parameters/org
+parameters/java
+parameters/javax
+parameters/classes
+parameters/launcher

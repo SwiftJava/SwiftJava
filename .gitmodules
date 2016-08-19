@@ -1,0 +1,33 @@
+[submodule "CJavaVM"]
+	path = CJavaVM
+	url = https://github.com/SwiftJava/CJavaVM.git
+[submodule "java_swift"]
+	path = java_swift
+	url = https://github.com/SwiftJava/java_swift.git
+[submodule "java_lang"]
+	path = java_lang
+	url = https://github.com/SwiftJava/java_lang.git
+[submodule "java_util"]
+	path = java_util
+	url = https://github.com/SwiftJava/java_util.git
+[submodule "java_sql"]
+	path = java_sql
+	url = https://github.com/SwiftJava/java_sql.git
+[submodule "java_awt"]
+	path = java_awt
+	url = https://github.com/SwiftJava/java_awt.git
+[submodule "javax_swing"]
+	path = javax_swing
+	url = https://github.com/SwiftJava/javax_swing.git
+[submodule "examples"]
+	path = examples
+	url = https://github.com/SwiftJava/examples.git
+[submodule "swift-android-gradle"]
+	path = swift-android-gradle
+	url = https://github.com/SwiftJava/swift-android-gradle.git
+[submodule "swift-android-samples"]
+	path = swift-android-samples
+	url = https://github.com/SwiftJava/swift-android-samples.git
+[submodule "com_apple"]
+	path = com_apple
+	url = https://github.com/SwiftJava/com_apple.git
