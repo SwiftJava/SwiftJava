@@ -10,7 +10,7 @@ to Java but there are a number of use cases:
 
 3. Making business logic in Swift available to Android apps.
  
-![](http://johnholdsworth.com/Linux2.png)
+![](http://johnholdsworth.com/Linux.png) ![](http://johnholdsworth.com/Android.png)
 
 SwiftJava is a Swift code generator along with a small framework of supporting code written in 
 the Xcode beta6 vintage of Swift 3.0. The starting point was Boris Bügling's talk on
