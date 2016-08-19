@@ -10,8 +10,11 @@ to Java but there are a number of use cases:
 
 3. Making business logic in Swift available to Android apps.
  
-SwiftJava is a Swift code generator along with a small framework of supporting code.
-The starting point was Boris Bügling's excellent [cross platform swift](https://realm.io/news/altconf-boris-bugling-cross-platform-swift/) talk.
+![](http://johnholdsworth.com/Linux.png)
+
+SwiftJava is a Swift code generator along with a small framework of supporting code written in 
+the Xcode beta6 vintage of Swift 3.0. The starting point was Boris Bügling's talk on
+[Cross Platform Swift](https://realm.io/news/altconf-boris-bugling-cross-platform-swift/).
 The code generator takes a java class, interface or package and generates Swift classes
 that interface to corresponding Java methods using the Java Native Interface "JNI".
 These generated methods on the corresponding Swift class look something like this:
@@ -38,7 +41,9 @@ Swift to Java saving the developer the chore of a lot of error prone manual stub
 
 To use, clone this project using the following command:
 
+```Shell
     git clone https://github.com/SwiftJava/SwiftJava.git --recurse-submodules
+```
 
 This project contains the pre-generated java frameworks and an example macOS app using 
 JDBC and a command line project with assorted AWT and Swing source. Development inside
@@ -54,17 +59,21 @@ When using the Swift package manager to build code from the command line, instal
 latest Oracle JDK and locate the directory containing the file libjvm.so or .dylib in
 the jre. Use this directory to build using the following commands:
 
+```Shell
     git clone https://github.com/SwiftJava/examples.git
     cd examples
 
     export JVM_LIBRARY_PATH=$JAVA_HOME/jre/lib/server # macOS
     export JVM_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64/server # Linux
 
+    ulimit -n 10000 # increase file descriptors for link
+
     swift build -Xlinker -L$JVM_LIBRARY_PATH -Xlinker -rpath -Xlinker $JVM_LIBRARY_PATH -Xlinker -ljvm
+```
 
 Builds on Linux need to be made with the latest preview 6. The swing source in
 "examples/Sources" shows how to receive events and subclass a Java class to have certain
-methods such as java.awt.Canvas.paint() be implemented in Swift. More on thhis later.
+methods such as java.awt.Canvas.paint() be implemented in Swift. More on this later.
 
 ### Android
 
@@ -78,24 +87,30 @@ but hopefully the scripts in the modified gradle plugin take most of the pain ou
 
 Once you have a toolchain you should be able to type the following commands:
 
+```Shell
     cd swift-android-gradle
     ./gradlew install
+```
 
 This install of gradle plugin will tell you which environment variables need to be set up.
 Now, connect the Android phone and type:
 
+```Shell
     cd ../swift-android-samples/swifthello
     ./gradlew installDebug
+```
 
 For a new application define two Java interfaces, one for messaging from Java to Swift
 with it's name ending in "Listener" and one for messaging back into Java from Swift.
 You then use ./genswift.sh from this project to generate the Swift binding code:
 
+```Shell
     ./genswift.sh your.package your.jar
+```
 
 This generates Swift classes and a third Java source src/org/genie/your_package/<YourApp>Proxy.java
-that also needs to be included in your project. Consult the "swift-android-samples/swifthello"
-for details. The source "swift-android-samples/swifthello/src/main/swift/Sources/main.swift"
+that also needs to be included in your project. Consult the script genhello.sh and project
+"swift-android-samples/swifthello" for details. The source "swift-android-samples/swifthello/src/main/swift/Sources/main.swift"
 shows how to set this up with a native method called from the main activity.
 
 ```Swift
@@ -144,6 +159,7 @@ ending in "Listener", "Manager" or "Handler" also have "Base" classes generated
 for subclassing along with Java Proxy classes. On macOS and Linux these classes
 are compiled into a jar file ~/genie.jar using the genjar.sh script for this to work.
 
+```Swift
     class MyActionListener: ActionListenerBase {
         override func actionPerformed(e event: ActionEvent?) {
             System.exit(0);
@@ -151,6 +167,7 @@ are compiled into a jar file ~/genie.jar using the genjar.sh script for this to 
     }
 
     quitButton.addActionListener(MyActionListener());
+```
 
 Some event processing is also done by subclassing concrete classes that have names
 ending in "Adapter". Slightly modified Swift "Base" classes and Java Proxies are also
@@ -159,7 +176,7 @@ of the subclasses such as java.awt.Canvas.paint(). A list of these methods needs
 maintained in the code generator unfortunately. If one of these methods encountered
 a Base class and Proxy is generated for the concrete class that can be subclassed.
 
-As these "Base" subclasses cant close over variable in your progam you may want to
+As these "Base" subclasses cant close over variable in your program you may want to
 have an initialiser to capture these instead. There is a bit of a standard dance
 that needs to be performed. First instantiate the "Base" superclass and pass this 
 to the designated initialiser of your superclass. Due to the use of generics you'll
@@ -197,7 +214,7 @@ PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
 FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-This License does not apply to any generated code in the java* subprojects which
+This License does not apply to any generated code in the java* submodules which
 are provided under the provisions of "Fair Use" but your use is ultimately subject
 to the Oracle Binary Code License Agreement available here:
 
