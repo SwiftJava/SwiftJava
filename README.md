@@ -1,4 +1,3 @@
-
 ## SwiftJava - bridging Swift to a JavaVM
 
 I know what you've been thinking.. what I really need is a way to bridge Swift
@@ -20,15 +19,15 @@ that interface to corresponding Java methods using the Java Native Interface "JN
 These generated methods on the corresponding Swift class look something like this:
 
 ```Swift
-    /// public java.lang.String java.lang.Object.toString()
+/// public java.lang.String java.lang.Object.toString()
 
-    private static var toString_MethodID_7: jmethodID?
+private static var toString_MethodID_7: jmethodID?
 
-    open func toString() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toString", methodSig: "()Ljava/lang/String;", methodCache: &JavaObject.toString_MethodID_7, args: &__args, locals: nil )
-        return JNIType.decode( type: String(), from: __return )
-    }
+open func toString() -> String! {
+    var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toString", methodSig: "()Ljava/lang/String;", methodCache: &JavaObject.toString_MethodID_7, args: &__args, locals: nil )
+    return JNIType.decode( type: String(), from: __return )
+}
 ```
 
 On macOS, this has been used to generate frameworks bridging the java.lang, java.util,
@@ -42,7 +41,7 @@ Swift to Java saving the developer the chore of a lot of error prone manual stub
 To use, clone this project using the following command:
 
 ```Shell
-    git clone https://github.com/SwiftJava/SwiftJava.git --recurse-submodules
+git clone https://github.com/SwiftJava/SwiftJava.git --recurse-submodules
 ```
 
 This project contains the pre-generated java frameworks and an example macOS app using 
@@ -60,15 +59,15 @@ latest Oracle JDK and locate the directory containing the file libjvm.so or .dyl
 the jre. Use this directory to build using the following commands:
 
 ```Shell
-    git clone https://github.com/SwiftJava/examples.git
-    cd examples
+git clone https://github.com/SwiftJava/examples.git
+cd examples
 
-    export JVM_LIBRARY_PATH=$JAVA_HOME/jre/lib/server # macOS
-    export JVM_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64/server # Linux
+export JVM_LIBRARY_PATH=$JAVA_HOME/jre/lib/server # macOS
+export JVM_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64/server # Linux
 
-    ulimit -n 10000 # increase file descriptors for link
+ulimit -n 10000 # increase file descriptors for link
 
-    swift build -Xlinker -L$JVM_LIBRARY_PATH -Xlinker -rpath -Xlinker $JVM_LIBRARY_PATH -Xlinker -ljvm
+swift build -Xlinker -L$JVM_LIBRARY_PATH -Xlinker -rpath -Xlinker $JVM_LIBRARY_PATH -Xlinker -ljvm
 ```
 
 Builds on Linux need to be made with the latest preview 6. The swing source in
@@ -88,16 +87,16 @@ but hopefully the scripts in the modified gradle plugin take most of the pain ou
 Once you have a toolchain you should be able to type the following commands:
 
 ```Shell
-    cd swift-android-gradle
-    ./gradlew install
+cd swift-android-gradle
+./gradlew install
 ```
 
 This install of gradle plugin will tell you which environment variables need to be set up.
 Now, connect the Android phone and type:
 
 ```Shell
-    cd ../swift-android-samples/swifthello
-    ./gradlew installDebug
+cd ../swift-android-samples/swifthello
+./gradlew installDebug
 ```
 
 For a new application define two Java interfaces, one for messaging from Java to Swift
@@ -105,7 +104,7 @@ with it's name ending in "Listener" and one for messaging back into Java from Sw
 You then use ./genswift.sh from this project to generate the Swift binding code:
 
 ```Shell
-    ./genswift.sh your.package your.jar
+./genswift.sh your.package your.jar
 ```
 
 This generates Swift classes and a third Java source src/org/genie/your_package/<YourApp>Proxy.java
@@ -114,31 +113,31 @@ that also needs to be included in your project. Consult the script genhello.sh a
 shows how to set this up with a native method called from the main activity.
 
 ```Swift
-    import java_swift
+import java_swift
 
-    var responder: SwiftHelloResponderForward!
+var responder: SwiftHelloResponderForward!
 
-    class ListenerImpl: SwiftHelloListenerBase {
+class ListenerImpl: SwiftHelloListenerBase {
 
-        override func processNumber( number: Double ) {
-            responder.processedNumber( number+42.0 )
-        }
-
-        override func processText( text: String? ) {
-            var out = String()
-            for _ in 0..<100 {
-                out += "Hello "+text!+"! "
-            }
-            responder.processedText( out )
-        }
-
-    }	
-
-    @_silgen_name("Java_net_zhuoweizhang_swifthello_SwiftHello_bind")
-    public func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?, __self: jobject? )-> jobject? {
-        responder = SwiftHelloResponderForward( javaObject: __self )
-        return ListenerImpl().javaObject
+    override func processNumber( number: Double ) {
+        responder.processedNumber( number+42.0 )
     }
+
+    override func processText( text: String? ) {
+        var out = String()
+        for _ in 0..<100 {
+            out += "Hello "+text!+"! "
+        }
+        responder.processedText( out )
+    }
+
+} 
+
+@_silgen_name("Java_net_zhuoweizhang_swifthello_SwiftHello_bind")
+public func bind( __env: UnsafeMutablePointer<JNIEnv?>, __this: jobject?, __self: jobject? )-> jobject? {
+    responder = SwiftHelloResponderForward( javaObject: __self )
+    return ListenerImpl().javaObject
+}
 ```
 
 ### Forward, Runnable, Listener, Adapter, subclass responsibility and Base classes.
@@ -160,13 +159,13 @@ for subclassing along with Java Proxy classes. On macOS and Linux these classes
 are compiled into a jar file ~/genie.jar using the genjar.sh script for this to work.
 
 ```Swift
-    class MyActionListener: ActionListenerBase {
-        override func actionPerformed(e event: ActionEvent?) {
-            System.exit(0);
-        }
+class MyActionListener: ActionListenerBase {
+    override func actionPerformed(e event: ActionEvent?) {
+        System.exit(0);
     }
+}
 
-    quitButton.addActionListener(MyActionListener());
+quitButton.addActionListener(MyActionListener());
 ```
 
 Some event processing is also done by subclassing concrete classes that have names
@@ -183,14 +182,14 @@ to the designated initialiser of your superclass. Due to the use of generics you
 also be prompted to provide a null implementation of the required initialiser.
 
 ```Swift
-    init(imageProducer:ImageProducer) {
-        super.init( javaObject: CanvasBase().javaObject )
-        image = createImage(imageProducer)
-    }
+init(imageProducer:ImageProducer) {
+    super.init( javaObject: CanvasBase().javaObject )
+    image = createImage(imageProducer)
+}
 
-    required init(javaObject: jobject?) {
-        fatalError("init(javaObject:) has not been implemented")
-    }
+required init(javaObject: jobject?) {
+    fatalError("init(javaObject:) has not been implemented")
+}
 ```
 
 Consult the Swing examples code for further details.
@@ -219,4 +218,3 @@ are provided under the provisions of "Fair Use" but your use is ultimately subje
 to the Oracle Binary Code License Agreement available here:
 
 [http://www.oracle.com/technetwork/java/javase/terms/license/index.html](http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
-
