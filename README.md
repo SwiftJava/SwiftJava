@@ -1,20 +1,20 @@
 
 ## SwiftJava - bridging Swift to a JavaVM
 
-I know what you've been thinking.. what I really need is a way to bridge Swift
-to Java but there are a number of use cases:
+I know you've been thinking.. "What I really need is a way to bridge Swift to Java"
+but there are a number of use cases:
 
 1. Making Java technologies such as JDBC available to macOS applications.
 
-2. Giving Swift applications on Linux a portable user interface.
+2. Giving Swift applications on Linux a portable user interface using Swing.
 
-3. Making business logic in Swift available to Android apps.
+3. Making business logic in written in Swift available to Android apps.
  
 ![](http://johnholdsworth.com/Linux.png) ![](http://johnholdsworth.com/Android.png)
 
 SwiftJava is a Swift code generator along with a small framework of supporting code written in 
-the Xcode beta6 vintage of Swift 3.0. The starting point was Boris Bügling's talk on
-[Cross Platform Swift](https://realm.io/news/altconf-boris-bugling-cross-platform-swift/).
+the Xcode beta6 vintage of Swift 3.0. The starting point was Boris Bügling's
+[Cross Platform Swift](https://realm.io/news/altconf-boris-bugling-cross-platform-swift/) talk.
 The code generator takes a java class, interface or package and generates Swift classes
 that interface to corresponding Java methods using the Java Native Interface "JNI".
 These generated methods on the corresponding Swift class look something like this:
@@ -34,7 +34,7 @@ These generated methods on the corresponding Swift class look something like thi
 On macOS, this has been used to generate frameworks bridging the java.lang, java.util,
 java.sql, java.awt and javax.swing packages along with the Apple specific additions
 in the com.apple package. This makes the Java apis available with auto-completion in
-the Xcode source editor. The final application can be a ".app" or command line utility
+the Xcode source editor. The final application can be a ".app" or a command line utility
 which should be portable to Linux using the Swift Package manager. For Android, the code
 generator can generate JNI code for a pair of interfaces from Java to Swift and from
 Swift to Java saving the developer the chore of a lot of error prone manual stubbing.
@@ -45,7 +45,7 @@ To use, clone this project using the following command:
     git clone https://github.com/SwiftJava/SwiftJava.git --recurse-submodules
 ```
 
-This project contains the pre-generated java frameworks and an example macOS app using 
+This project contains the pre-generated java frameworks, an example macOS app using 
 JDBC and a command line project with assorted AWT and Swing source. Development inside
 Xcode uses the legacy "JavaVM" framework which requires Apple's JVM downloadable from:
 
@@ -57,7 +57,7 @@ runloop. Use the JNI.background and JNI.run methods to achieve this in a portabl
 
 When using the Swift package manager to build code from the command line, install the
 latest Oracle JDK and locate the directory containing the file libjvm.so or .dylib in
-the jre. Use this directory to build using the following commands:
+the jre. Use the examples. directory to build using the following commands:
 
 ```Shell
     git clone https://github.com/SwiftJava/examples.git
@@ -108,7 +108,7 @@ You then use ./genswift.sh from this project to generate the Swift binding code:
     ./genswift.sh your.package your.jar
 ```
 
-This generates Swift classes and a third Java source src/org/genie/your_package/<YourApp>Proxy.java
+This generates Swift classes and a third Java source src/org/genie/your_package/YourAppProxy.java
 that also needs to be included in your project. Consult the script genhello.sh and project
 "swift-android-samples/swifthello" for details. The source "swift-android-samples/swifthello/src/main/swift/Sources/main.swift"
 shows how to set this up with a native method called from the main activity.
@@ -144,12 +144,12 @@ shows how to set this up with a native method called from the main activity.
 ### Forward, Runnable, Listener, Adapter, subclass responsibility and Base classes.
 
 For every Java interface the code generator generates a Swift Protocol along
-with a <Protocol>Forward class in instance of which conforms to the protocol and
+with a ProtocolForward class an instance of which conforms to the protocol and
 can be used to message Java instances conforming to the interface/protocol.
 
 For the Runnable interface used in threading the converse needs to be possible
 where Java code can call through to Swift code. This is performed using a Java
-proxy class which has a pointer to the associated Swift object and a "native"e
+proxy class which has a pointer to the associated Swift object and a "native"
 implementation of the "run()" method that calls through to Swift. On the Swift
 side this is surfaced as the "RunnableBase" class which can be subclassed to
 provide a Swift implementation of the "run()" method callable from Java.
@@ -176,11 +176,11 @@ of the subclasses such as java.awt.Canvas.paint(). A list of these methods needs
 maintained in the code generator unfortunately. If one of these methods encountered
 a Base class and Proxy is generated for the concrete class that can be subclassed.
 
-As these "Base" subclasses cant close over variable in your program you may want to
+As these "Base" subclasses can't close over variables in your program you may want to
 have an initialiser to capture these instead. There is a bit of a standard dance
-that needs to be performed. First instantiate the "Base" superclass and pass this 
+that needs to be performed. First, instantiate the "Base" superclass and pass this 
 to the designated initialiser of your superclass. Due to the use of generics you'll
-also be prompted to provide a null implementation of the required initialiser.
+also be prompted to provide a null implementation of the "required" initialiser.
 
 ```Swift
     init(imageProducer:ImageProducer) {

@@ -35,17 +35,17 @@ public class DefaultTableModelProxy extends javax.swing.table.DefaultTableModel 
         this.swiftObject = swiftObject;
     }
 
-    /// public javax.swing.table.DefaultTableModel(int,int)
-
-    DefaultTableModelProxy( int rowCount, int columnCount , long swiftObject ) {
-        super( rowCount, columnCount );
-        this.swiftObject = swiftObject;
-    }
-
     /// public javax.swing.table.DefaultTableModel()
 
     DefaultTableModelProxy( long swiftObject ) {
         super( );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.table.DefaultTableModel(int,int)
+
+    DefaultTableModelProxy( int rowCount, int columnCount , long swiftObject ) {
+        super( rowCount, columnCount );
         this.swiftObject = swiftObject;
     }
 

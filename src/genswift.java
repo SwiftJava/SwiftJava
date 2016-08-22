@@ -13,6 +13,33 @@
 //  the ordering is found by processing all files then re-processing
 //  after reordering to minimise the number of forward references in
 //  the generated code.
+//
+//  For Java classes a Swift class of the same name is generated in
+//  a framework derived from the first two packages of the classes
+//  full name (e.g. java_lang, java_util.) For Java interfaces a
+//  Swift protocol is generated along with a concrete class with
+//  "Forward" added that can be used to message to instances of
+//  the protocol from Swift.
+//
+//  Where the interface is java.lang.Runnable or the interface name
+//  ends in "Listener", "Handler" or "Manager" an additional "Base"
+//  class is generated, instances of which can be passed to Java and
+//  have Swift methods in a subclass called from Java. This is used
+//  in threading and in event processing in Swift. These "Base" classes
+//  are also generated for concrete classes with names ending in "Adapter".
+//
+//  A variation on this forwarding of Java methods into Swift is where
+//  a method is generally a subclasses responsibility to implement such
+//  as the method java.awt.Canvas.paint(). A list of these methods is
+//  maintained in this source and where one is encountered a "Base"
+//  class is generated allowing the method to be implemented in Swift.
+//
+//  For this proxy of Java methods into Swift support is required on
+//  the Java side of the divide. Proxy classes delegating to "native"
+//  implementations of the relevant method are generated and must be
+//  available to the application. On UNIX this is through the jar file
+//  ~/.genie.jar built from these generated sources using ../genjar.sh.
+//
 
 import java.io.*;
 import java.util.HashMap;
@@ -682,6 +709,7 @@ class genswift {
 			interfaceMethods.remove(methodKey);
 
 			boolean createBody = !isListenerBase || !isInterface;
+			boolean notVoid = notVoid(method.getReturnType());
 
 			if ( !(isProtocol && argumentsOfProtocolRenamed( clazz )) ) {
 				if ( !isProtocol && (!isListenerBase || !isInterface) )
@@ -703,7 +731,7 @@ class genswift {
                         code.append( functionHeader( method.getParameters(), interfaceMethod, 0 ) );
 
                         code.append( "        " );
-                        if ( notVoid(method.getReturnType()) ) 
+                        if ( notVoid ) 
                             code.append( "let __return = " );
 
                     	String methodArgs = 
@@ -718,20 +746,17 @@ class genswift {
                     	if ( canThrow )
                     		addThrowCode( method );
 
-                    	if (notVoid(method.getReturnType()))
+                    	if ( notVoid )
                     		code.append("        return "+decoder( "__return", method.getReturnType())+"\n");
                     }
-                    else if ( createsNameless ) {
+					else if ( notVoid(method.getReturnType()) ) {
                     	String passthrough = "";
                     	for ( Parameter param : method.getParameters() )
-                    		passthrough += (passthrough==""?" ":", ")+safe(param.getName());
-                    	String extra = "";
-                    	if ( notVoid(method.getReturnType()) )
-                    		extra += "return ";
-                    	if ( canThrow )
-                    		extra += "try! ";
-                    	code.append("        "+extra+method.getName()+"("+passthrough+" )\n");
-                    }
+                    		passthrough += (passthrough==""?" ":", ")+safe(param.getName())+": _"+safe(param.getName());
+						code.append("        return "+ (clazz.isInterface() ?
+								method.getReturnType().isPrimitive() ? "0" : "nil" :
+								"super."+methodName+"("+passthrough+" )")+"\n");
+					}
 
                     code.append("    }\n\n");
                 }
@@ -752,17 +777,8 @@ class genswift {
 					code.append("\n");
 				else {
 					code.append(" {\n");
-					if ( createBody )
-						code.append("        "+(notVoid(method.getReturnType())?"return ":"")+(canThrow?"try ":"")+
+					code.append("        "+(notVoid?"return ":"") + (canThrow?"try ":"") +
 								safe(method.getName()) + "("+passthroughArguments(method, interfaceMethod)+" )\n");
-					else if ( notVoid(method.getReturnType()) ) {
-                    	String passthrough = "";
-                    	for ( Parameter param : method.getParameters() )
-                    		passthrough += (passthrough==""?" ":", ")+safe(param.getName())+": _"+safe(param.getName());
-						code.append("        return "+ (clazz.isInterface() ?
-								method.getReturnType().isPrimitive() ? "0" : "nil" :
-								"super."+methodName+"("+passthrough+" )")+"\n");
-					}
 					code.append("    }\n" );
 				}
 			}
@@ -796,8 +812,8 @@ class genswift {
 			code.append("private func " + jniName(method, i) + jniDecl(method, "_ ") + " {\n");
 			String passthrough = "";
 			for (Parameter param : method.getParameters())
-				passthrough += (passthrough == ""?" ":", ") + safe(param.getName())+
-				": "+decoder( safe(param.getName()), param.getType() );//+(!p.getType().isPrimitive()?"!":"");
+				passthrough += (passthrough == ""?" ":", ") + //safe(param.getName())+": " +
+						decoder( safe(param.getName()), param.getType() );//+(!p.getType().isPrimitive()?"!":"");
 			String call = classSuffix + "Base.swiftObject( jniEnv: __env, javaObject: __this )."
 					+ method.getName() + "(" + passthrough + " )";
 			if ( method.getExceptionTypes().length != 0 )
@@ -810,7 +826,7 @@ class genswift {
 			if ( notVoid(returnType) )
 				code.append("    return "+(returnType.isPrimitive() || returnType == java.lang.String.class ?
 						encoder("__return", returnType, "nil") + encodeSuffix(returnType) :
-						"JNI.api.NewWeakGlobalRef( JNI.env, __return?.javaObject )")+"\n");
+						"/*JNI.api.NewWeakGlobalRef( JNI.env,*/ __return?.javaObject /*)*/")+"\n");
 
 			code.append("}\n");
 			if ( crashesCompilerOnLinx( method ) )

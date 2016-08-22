@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTab
             return
         }
 
-        // Use Thread class to run in background to get the correct class loaderwith& classpath
+        // Use Thread class to run in background to get the correct class loader & classpath
         Thread( {
 
             do {

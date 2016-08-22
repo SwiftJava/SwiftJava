@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB19B4421D673986002F5586 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BB19B4411D673986002F5586 /* README.md */; };
 		BB31E20F1D4FF13400779860 /* genpkg.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB31E20E1D4FF13400779860 /* genpkg.sh */; };
 		BB4AF49E1D4C1F80001DCA63 /* java_sql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBF2E8E1D49A0C3004142AE /* java_sql.framework */; };
 		BB4AF4A61D4C2CE2001DCA63 /* java_lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC13EBC1D4997FB0035A039 /* java_lang.framework */; };
@@ -720,7 +719,6 @@
 				BBBF3A691D4BCE36004142AE /* main.swift in Sources */,
 				BBBF3A671D4B1B95004142AE /* PopupTest.swift in Sources */,
 				BBBF3A611D4AC24F004142AE /* TableColumnColor.swift in Sources */,
-				BB19B4421D673986002F5586 /* README.md in Sources */,
 				BBBF3A731D4BF8CF004142AE /* AWTGraphicsDemo.swift in Sources */,
 				BBAD3EDA1D59DDBC0091D139 /* TableColorSelection.swift in Sources */,
 				BBBF3A5D1D4AA59E004142AE /* TextText.swift in Sources */,

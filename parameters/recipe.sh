@@ -5,7 +5,7 @@
 
 # unzip $JAVA_HOME/src.zip
 # find . -name '*.java' > sources.txt
-# $JAVA_HOME/bin/jvac -d classes -g -parameters @sources.txt 2>&1 | tee log.txt
+# $JAVA_HOME/bin/javac -d classes -g -parameters @sources.txt 2>&1 | tee log.txt
 
 # unfortunately this gives errors and you have to repeat the folowing steps
 
