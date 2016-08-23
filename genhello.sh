@@ -20,4 +20,6 @@ cd .. && ./genswift.sh com.jh /tmp/hello.jar "" &&
 mkdir -p swift-android-samples/swifthello/src/main/java/{com/jh,org/genie/com_jh} &&
 
 \cp -v src/com/jh/*.java swift-android-samples/swifthello/src/main/java/com/jh &&
-\cp -v src/org/genie/com_jh/*.java swift-android-samples/swifthello/src/main/java/org/genie/com_jh
+\cp -v src/org/genie/com_jh/*.java swift-android-samples/swifthello/src/main/java/org/genie/com_jh &&
+
+\cp -v com_jh/Sources/SwiftHello*.swift swift-android-samples/swifthello/src/main/swift/Sources

@@ -57,13 +57,13 @@ open class SwiftHelloListenerForward: JNIObjectForward, SwiftHelloListener {
 private typealias SwiftHelloListener_processNumber_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jdouble ) -> ()
 
 private func SwiftHelloListener_processNumber_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ number: jdouble ) -> () {
-    SwiftHelloListenerBase.swiftObject( jniEnv: __env, javaObject: __this ).processNumber( number: JNIType.decode( type: Double(), from: number ) )
+    SwiftHelloListenerBase.swiftObject( jniEnv: __env, javaObject: __this ).processNumber( JNIType.decode( type: Double(), from: number ) )
 }
 
 private typealias SwiftHelloListener_processText_1_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jobject? ) -> ()
 
 private func SwiftHelloListener_processText_1( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ text: jobject? ) -> () {
-    SwiftHelloListenerBase.swiftObject( jniEnv: __env, javaObject: __this ).processText( text: JNIType.decode( type: String(), from: text ) )
+    SwiftHelloListenerBase.swiftObject( jniEnv: __env, javaObject: __this ).processText( JNIType.decode( type: String(), from: text ) )
 }
 
 open class SwiftHelloListenerBase: JNIObjectProxy, SwiftHelloListener {
@@ -109,19 +109,19 @@ open class SwiftHelloListenerBase: JNIObjectProxy, SwiftHelloListener {
     /// public abstract void com.jh.SwiftHelloListener.processNumber(double)
 
     open func processNumber( number: Double ) /**/ {
-        processNumber( number )
     }
 
     open func processNumber( _ _number: Double ) /**/ {
+        processNumber( number: _number )
     }
 
     /// public abstract void com.jh.SwiftHelloListener.processText(java.lang.String)
 
     open func processText( text: String? ) /**/ {
-        processText( text )
     }
 
     open func processText( _ _text: String? ) /**/ {
+        processText( text: _text )
     }
 
 }
