@@ -535,7 +535,7 @@ class genswift {
 	    	if ( ! isInterface )
 	    		code.append( "    private static var "+fieldIDVar+": jfieldID?\n\n" );
 	
-	    	if ( !Modifier.isStatic(mods) )
+	    	if ( !isStatic )
 	    		fieldIDVar = classSuffix+"."+fieldIDVar;
 	
 			code.append( "    "+(fieldOverride(field,superclazz)&&!isLost?"override ":"")+(isInterface?"":visibility)+
@@ -546,20 +546,23 @@ class genswift {
 				code.append((isStatic ? isFinal ?" { get }" : " { get set }" : "")+"\n");
             else {
 		    	String fieldArgs = "fieldName: \""+field.getName()+"\", fieldType: \""+jniEncoding(field.getType())+"\", fieldCache: &"+fieldIDVar+
-		    			(Modifier.isStatic(mods)?
+		    			(isStatic?
 		    					", className: \""+pathToClass+"\", classCache: &"+classCacheVar :
 		    					", object: javaObject");
 		
                 code.append( " {\n" );
                 code.append( "        get {\n" );
-                code.append( "            let value = JNIField.Get"+funcType( fieldType, mods )+"Field( "+fieldArgs+" )\n" );
-                code.append( "            return "+decoder( "value", fieldType )+"\n" );
+                if ( !isStatic )
+                	code.append("            var __locals = [jobject]()\n");
+                code.append( "            let __value = JNIField.Get"+funcType( fieldType, mods )+"Field( "+fieldArgs+(isStatic?"":", locals: &__locals")+" )\n" );
+                code.append( "            return "+decoder( "__value", fieldType )+"\n" );
                 code.append( "        }\n" );
                 if (!isFinal) {
                     code.append("        set(newValue) {\n");
-                    code.append("            let value = " + encoder("newValue", fieldType, "nil") + "\n");
+                    code.append("            var __locals = [jobject]()\n");
+                    code.append("            let __value = " + encoder("newValue", fieldType, "&__locals") + "\n");
                     code.append("            JNIField.Set" + funcType(fieldType, mods) + "Field( " + fieldArgs
-                            + ", value: value" + encodeSuffix(fieldType) + " )\n");
+                            + ", value: __value" + encodeSuffix(fieldType) + ", locals: &__locals )\n");
                     code.append("        }\n");
                 }
                 code.append( "    }\n" );
@@ -687,11 +690,6 @@ class genswift {
 				continue;
 			methodsSeen.put(namedSignature, true );
 
-			String methodIDVar = methodName+"_MethodID_"+(++idcount), methodIDVarRef = methodIDVar;
-			if ( !isStatic )
-				methodIDVarRef = outputClassName+"."+methodIDVarRef;
-
-
 	    	boolean arrayType = crashesCompilerOnLinx( method );
 	    	boolean canThrow = method.getExceptionTypes().length != 0;
 			String unnamedSignature = swiftSignatureFor( method, isProtocol, true, false);
@@ -712,6 +710,10 @@ class genswift {
 			boolean notVoid = notVoid(method.getReturnType());
 
 			if ( !(isProtocol && argumentsOfProtocolRenamed( clazz )) ) {
+				String methodIDVar = methodName+"_MethodID_"+(++idcount), methodIDVarRef = methodIDVar;
+				if ( !isStatic )
+					methodIDVarRef = outputClassName+"."+methodIDVarRef;
+
 				if ( !isProtocol && (!isListenerBase || !isInterface) )
                 	code.append("    private static var "+methodIDVar+": jmethodID?\n\n" );
 

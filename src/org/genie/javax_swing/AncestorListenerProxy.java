@@ -11,6 +11,14 @@ public class AncestorListenerProxy implements javax.swing.event.AncestorListener
         this.swiftObject = swiftObject;
     }
 
+    /// public abstract void javax.swing.event.AncestorListener.ancestorMoved(javax.swing.event.AncestorEvent)
+
+    public native void __ancestorMoved( javax.swing.event.AncestorEvent event );
+
+    public void ancestorMoved( javax.swing.event.AncestorEvent event ) {
+        __ancestorMoved( event );
+    }
+
     /// public abstract void javax.swing.event.AncestorListener.ancestorAdded(javax.swing.event.AncestorEvent)
 
     public native void __ancestorAdded( javax.swing.event.AncestorEvent event );
@@ -25,14 +33,6 @@ public class AncestorListenerProxy implements javax.swing.event.AncestorListener
 
     public void ancestorRemoved( javax.swing.event.AncestorEvent event ) {
         __ancestorRemoved( event );
-    }
-
-    /// public abstract void javax.swing.event.AncestorListener.ancestorMoved(javax.swing.event.AncestorEvent)
-
-    public native void __ancestorMoved( javax.swing.event.AncestorEvent event );
-
-    public void ancestorMoved( javax.swing.event.AncestorEvent event ) {
-        __ancestorMoved( event );
     }
 
 }

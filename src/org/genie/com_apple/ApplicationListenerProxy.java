@@ -11,6 +11,22 @@ public class ApplicationListenerProxy implements com.apple.eawt.ApplicationListe
         this.swiftObject = swiftObject;
     }
 
+    /// public abstract void com.apple.eawt.ApplicationListener.handleAbout(com.apple.eawt.ApplicationEvent)
+
+    public native void __handleAbout( com.apple.eawt.ApplicationEvent arg0 );
+
+    public void handleAbout( com.apple.eawt.ApplicationEvent arg0 ) {
+        __handleAbout( arg0 );
+    }
+
+    /// public abstract void com.apple.eawt.ApplicationListener.handlePreferences(com.apple.eawt.ApplicationEvent)
+
+    public native void __handlePreferences( com.apple.eawt.ApplicationEvent arg0 );
+
+    public void handlePreferences( com.apple.eawt.ApplicationEvent arg0 ) {
+        __handlePreferences( arg0 );
+    }
+
     /// public abstract void com.apple.eawt.ApplicationListener.handleOpenApplication(com.apple.eawt.ApplicationEvent)
 
     public native void __handleOpenApplication( com.apple.eawt.ApplicationEvent arg0 );
@@ -49,22 +65,6 @@ public class ApplicationListenerProxy implements com.apple.eawt.ApplicationListe
 
     public void handleReOpenApplication( com.apple.eawt.ApplicationEvent arg0 ) {
         __handleReOpenApplication( arg0 );
-    }
-
-    /// public abstract void com.apple.eawt.ApplicationListener.handleAbout(com.apple.eawt.ApplicationEvent)
-
-    public native void __handleAbout( com.apple.eawt.ApplicationEvent arg0 );
-
-    public void handleAbout( com.apple.eawt.ApplicationEvent arg0 ) {
-        __handleAbout( arg0 );
-    }
-
-    /// public abstract void com.apple.eawt.ApplicationListener.handlePreferences(com.apple.eawt.ApplicationEvent)
-
-    public native void __handlePreferences( com.apple.eawt.ApplicationEvent arg0 );
-
-    public void handlePreferences( com.apple.eawt.ApplicationEvent arg0 ) {
-        __handlePreferences( arg0 );
     }
 
 }

@@ -111,5 +111,6 @@ SWIFT
 end
 
 java.puts( "}\n" )
+java.close()
 
 system( "./genjar.sh && ./genswift.sh org/genie/SwiftTest genie.jar" );

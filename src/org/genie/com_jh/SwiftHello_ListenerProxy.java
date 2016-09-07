@@ -1,17 +1,17 @@
 
-/// interface com.jh.SwiftHelloListener ///
+/// interface com.jh.SwiftHello$Listener ///
 
 package org.genie.com_jh;
 
-public class SwiftHelloListenerProxy implements com.jh.SwiftHelloListener {
+public class SwiftHello_ListenerProxy implements com.jh.SwiftHello.Listener {
 
     long swiftObject;
 
-    SwiftHelloListenerProxy( long swiftObject ) {
+    SwiftHello_ListenerProxy( long swiftObject ) {
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract void com.jh.SwiftHelloListener.processNumber(double)
+    /// public abstract void com.jh.SwiftHello$Listener.processNumber(double)
 
     public native void __processNumber( double number );
 
@@ -19,7 +19,7 @@ public class SwiftHelloListenerProxy implements com.jh.SwiftHelloListener {
         __processNumber( number );
     }
 
-    /// public abstract void com.jh.SwiftHelloListener.processText(java.lang.String)
+    /// public abstract void com.jh.SwiftHello$Listener.processText(java.lang.String)
 
     public native void __processText( java.lang.String text );
 
