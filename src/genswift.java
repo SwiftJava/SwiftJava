@@ -621,7 +621,7 @@ class genswift {
 
 			code.append( "        let __object = JNIMethod.NewObject( className: \""+pathToClass+"\", classCache: &"+
 					classSuffix+"."+classSuffix+"JNIClass, methodSig: \""+signature+"V\", methodCache: &"+classSuffix+"."+methodIDVar+
-					", args: &__args, locals: "+(constructor.getParameters().length != 0?"&__locals":"nil")+" )\n" );
+					", args: &__args, locals: "+(constructor.getParameters().length != 0 || true?"&__locals":"nil")+" )\n" );
 
 			if ( canThrow )
 				addThrowCode( constructor );
@@ -743,7 +743,7 @@ class genswift {
                     			", methodName: \""+methodName+"\", methodSig: \""+jniSignature(method)+"\", methodCache: &"+methodIDVarRef;
 
                     	code.append( "JNIMethod.Call"+funcType( method.getReturnType(), mods )+"Method( "+methodArgs+
-                    			", args: &__args, locals: "+(method.getParameters().length != 0?"&__locals":"nil")+" )\n" );
+                    			", args: &__args, locals: "+(method.getParameters().length != 0 || true?"&__locals":"nil")+" )\n" );
 
                     	if ( canThrow )
                     		addThrowCode( method );
@@ -1091,7 +1091,7 @@ class genswift {
     String functionHeader( Parameter parameters[], Method interfaceMethod, int extra ) {
     	StringBuilder setup = new StringBuilder();
     	setup.append( "        var __args = [jvalue]( repeating: jvalue(), count: "+Math.max(1,parameters.length+extra)+" )\n" );
-    	if ( parameters.length != 0 )
+    	//if ( parameters.length != 0 )
     		setup.append( "        var __locals = [jobject]()\n" );
     	for ( int i=0 ; i<parameters.length ; i++ ) {
     		String name = interfaceMethod!=null ? interfaceMethod.getParameters()[i].getName() : parameters[i].getName();
