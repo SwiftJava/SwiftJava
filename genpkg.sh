@@ -5,7 +5,7 @@
 
 cd `dirname $0`
 
-XCODEBUILD=/Applications/Xcode-beta6.app/Contents/Developer/usr/bin/xcodebuild
+XCODEBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 
 for i in $*; do
     ./genswift.sh $i

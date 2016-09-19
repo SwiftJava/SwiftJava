@@ -6,6 +6,12 @@
 
 cd `dirname $0`/src &&
 
+\rm `find com/jh -name '*.class'` 2>/dev/null
+
+\rm `find ../com_jh -name '*.swift'` 2>/dev/null
+
+\rm `find ../swift-android-samples/swifthello/src/main/swift/Sources -name 'SwiftHello*.swift'` 2>/dev/null
+
 $JAVA_HOME/bin/javac -parameters com/jh/*.java &&
 
 $JAVA_HOME/bin/jar cf /tmp/hello.jar com/jh/*.class &&

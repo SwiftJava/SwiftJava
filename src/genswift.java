@@ -478,9 +478,11 @@ class genswift {
 			fieldsSeen = new HashMap<String,Boolean>();
 			generateFields( fieldsSeen, false, clazz );
 
-			generateMethods( clazz.getMethods(), false, fieldsSeen, classSuffix+"Forward", false );
-
-			addAnyMethodsDeclaredInProtocolsButNotDefined( false, fieldsSeen, classSuffix+"Forward" );
+			boolean subinterface = clazz.getInterfaces().length == 1 && clazz.getDeclaredMethods().length == 0;
+			if ( !subinterface ) {
+				generateMethods( clazz.getMethods(), false, fieldsSeen, classSuffix+"Forward", false );
+				addAnyMethodsDeclaredInProtocolsButNotDefined( false, fieldsSeen, classSuffix+"Forward" );
+			}
 
 			code.append( "}\n\n\n" );
 		}
@@ -630,6 +632,7 @@ class genswift {
 				code.append( "        self.javaObject = __object\n" );
 			else
 				code.append( "        self.init( javaObject: __object )\n" );
+            code.append( "        JNI.DeleteLocalRef( __object )\n" );
 			code.append( "    }\n" );
 
 	    	String unnamedSigature = argsFor( constructor, true, false );
@@ -690,11 +693,12 @@ class genswift {
 				continue;
 			methodsSeen.put(namedSignature, true );
 
+        	Class <?> returnType = method.getReturnType();
 	    	boolean arrayType = crashesCompilerOnLinx( method );
 	    	boolean canThrow = method.getExceptionTypes().length != 0;
 			String unnamedSignature = swiftSignatureFor( method, isProtocol, true, false);
 	    	boolean createsNameless = !methodsSeen.containsKey(unnamedSignature) && !fieldExists &&
-					!(isInterface && lostType(method.getReturnType())) && method.getParameterCount() != 0;
+					!(isInterface && lostType(returnType)) && method.getParameterCount() != 0;
 	
 	    	if ( arrayType )
 	    		code.append( "    #if !os(Linux)\n");
@@ -707,7 +711,7 @@ class genswift {
 			interfaceMethods.remove(methodKey);
 
 			boolean createBody = !isListenerBase || !isInterface;
-			boolean notVoid = notVoid(method.getReturnType());
+			boolean notVoid = notVoid(returnType);
 
 			if ( !(isProtocol && argumentsOfProtocolRenamed( clazz )) ) {
 				String methodIDVar = methodName+"_MethodID_"+(++idcount), methodIDVarRef = methodIDVar;
@@ -742,21 +746,24 @@ class genswift {
                     					"object: javaObject")+
                     			", methodName: \""+methodName+"\", methodSig: \""+jniSignature(method)+"\", methodCache: &"+methodIDVarRef;
 
-                    	code.append( "JNIMethod.Call"+funcType( method.getReturnType(), mods )+"Method( "+methodArgs+
+                    	code.append( "JNIMethod.Call"+funcType( returnType, mods )+"Method( "+methodArgs+
                     			", args: &__args, locals: "+(method.getParameters().length != 0 || true?"&__locals":"nil")+" )\n" );
+
+                    	if ( isObjectType( returnType ) ) 
+                            code.append( "        defer { JNI.DeleteLocalRef( __return ) }\n" );
 
                     	if ( canThrow )
                     		addThrowCode( method );
 
                     	if ( notVoid )
-                    		code.append("        return "+decoder( "__return", method.getReturnType())+"\n");
+                    		code.append("        return "+decoder( "__return", returnType)+"\n");
                     }
-					else if ( notVoid(method.getReturnType()) ) {
+					else if ( notVoid(returnType) ) {
                     	String passthrough = "";
                     	for ( Parameter param : method.getParameters() )
                     		passthrough += (passthrough==""?" ":", ")+safe(param.getName())+": _"+safe(param.getName());
 						code.append("        return "+ (clazz.isInterface() ?
-								method.getReturnType().isPrimitive() ? "0" : "nil" :
+								returnType.isPrimitive() ? returnType.getName() == "boolean" ? "false" : "0" : "nil" :
 								"super."+methodName+"("+passthrough+" )")+"\n");
 					}
 
@@ -826,9 +833,9 @@ class genswift {
 				call = "let __return = "+call;
 			code.append("    " + call + "\n");
 			if ( notVoid(returnType) )
-				code.append("    return "+(returnType.isPrimitive() || returnType == java.lang.String.class ?
+				code.append("    return "+(!isObjectType( returnType ) ? //returnType.isPrimitive() || returnType == java.lang.String.class ?
 						encoder("__return", returnType, "nil") + encodeSuffix(returnType) :
-						"/*JNI.api.NewWeakGlobalRef( JNI.env,*/ __return?.javaObject /*)*/")+"\n");
+						"/*JNI.api.NewWeakGlobalRef( JNI.env,*/ __return?.takeJavaObject /*)*/")+"\n");
 
 			code.append("}\n");
 			if ( crashesCompilerOnLinx( method ) )
@@ -952,11 +959,12 @@ class genswift {
 //				continue;
 
 			String args = longJavaArgs(method);
-			java.append("    public native "+returnType.getName()+" __"+methodName+"("+args+");\n\n");
+			String returnTypeName = longJavaType( returnType );
+			java.append("    public native "+returnTypeName+" __"+methodName+"("+args+");\n\n");
 
 			boolean notVoid = notVoid(returnType);
 			String retrn = notVoid ? "return " : "";
-			String assign = notVoid ? returnType.getName() + " __return = " : "";
+			String assign = notVoid ? returnTypeName + " __return = " : "";
 
 			String enteredName = "entered_"+methodName+"_"+i;
 			if ( !isInterface )
@@ -965,7 +973,7 @@ class genswift {
 			String throwz = "";
 			for ( Class<?> type : method.getExceptionTypes() )
 				throwz += (throwz==""?" throws ":", ")+type.getName();
-			java.append("    public "+returnType.getName()+" "+methodName+"("+args+")"+throwz+" {\n");
+			java.append("    public "+returnTypeName+" "+methodName+"("+args+")"+throwz+" {\n");
 
 			args = "";
 			for (Parameter param : method.getParameters())
@@ -1003,19 +1011,23 @@ class genswift {
 		for ( Class<?> secondLevel : intrface.getInterfaces() )
 			generateInterfaceFields( fieldsSeen, secondLevel );									
     }
+    
+    String longJavaType( Class<?> type ) {
+    	return type.isArray() ? longJavaType( type.getComponentType() )+"[]" : type.getName().replace('$', '.');
+    }
 
 	String longJavaArgs( Executable executable ) {
 		String args = "";
 		for (Parameter param : executable.getParameters()) {
-			Class<?> type = param.getType();
-			String subs = "";
-			String javaType = type.getName();
-			while ( type.isArray() ) {
-				type = type.getComponentType();
-				subs += "[]";
-				javaType = type.getName()+subs;
-			}
-			args += (args == ""?" ":", ")+javaType.replace('$', '.')+" "+safe(param.getName());
+			String javaType = longJavaType( param.getType() );
+//			Class<?> type = ;
+//			String subs = "";
+//			while ( type.isArray() ) {
+//				type = type.getComponentType();
+//				subs += "[]";
+//				javaType = type.getName()+subs;
+//			}
+			args += (args == ""?" ":", ")+javaType+" "+safe(param.getName());
 		}
 		return args == "" ? "" : args + " ";
 	}
@@ -1181,9 +1193,9 @@ class genswift {
     	if ( type == java.lang.Float.class )
     		return "JNIType.encodeFloat( value: "+var+" )";
     	else if ( type.isInterface() )
-    		return "jvalue( l: "+var+"?.javaObject )";
+    		return "jvalue( l: "+var+"?.localJavaObject( "+locals+" ) )";
     	else if ( type.isArray() && type.getComponentType().isInterface() )
-    		var += "?.map { $0.javaObject }";
+    		var += "?.map { $0.localJavaObject( "+locals+" ) }";
     	return "JNIType.encode( value: "+var+", locals: "+locals+" )";
     }
 
@@ -1202,9 +1214,12 @@ class genswift {
     		swiftType += "Forward";
     	if ( type.isArray() && type.getComponentType().isInterface() )
     		swiftType = "["+swiftTypeFor(type.getComponentType(), false, false, false, false)+"Forward]";
-    	boolean isObjectType = !type.isPrimitive() && type != String.class && !type.isArray();
-    	return isObjectType ? var + " != nil ? " + swiftType+"( javaObject: " + var + " ) : nil" :
+    	return isObjectType( type ) ? var + " != nil ? " + swiftType+"( javaObject: " + var + " ) : nil" :
     		"JNIType.decode( type: "+swiftType+"(), from: " + var + " )";
+    }
+    
+    boolean isObjectType( Class<?> type ) {
+    	return !type.isPrimitive() && type != String.class && !type.isArray();
     }
 
     String argsFor( Executable e, boolean anon, boolean named ) {
@@ -1411,7 +1426,7 @@ class genswift {
     }
 
     boolean lostType( Class<?> type ) {
-    	return forwardReference( currentFramework, classPrefix( type.getName() ) );
+    	return !type.isArray() && forwardReference( currentFramework, classPrefix( type.getName() ) );
     }
 
     static int prefixLength( String className ) {

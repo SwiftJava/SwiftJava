@@ -912,8 +912,10 @@ open class SwiftTest: java_lang.JavaObject {
 
     public convenience init() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __object = JNIMethod.NewObject( className: "org/genie/SwiftTest", classCache: &SwiftTest.SwiftTestJNIClass, methodSig: "()V", methodCache: &SwiftTest.new_MethodID_1, args: &__args, locals: nil )
+        var __locals = [jobject]()
+        let __object = JNIMethod.NewObject( className: "org/genie/SwiftTest", classCache: &SwiftTest.SwiftTestJNIClass, methodSig: "()V", methodCache: &SwiftTest.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
     }
 
     /// public static boolean org.genie.SwiftTest.booleanMethodStatic(boolean)

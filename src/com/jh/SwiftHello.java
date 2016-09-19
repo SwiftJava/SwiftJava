@@ -17,7 +17,9 @@ public interface SwiftHello {
 
         public void processedText( String text );
 
-        public void debug( String msg );
+        public String[] debug( String msg );
+
+        public SwiftHelloTest.TestListener testResponder();
 
     }
 

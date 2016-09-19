@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 
 types = ["boolean", "byte", "char", "short", "int", "long", "float", "double", "String"];
 
@@ -24,6 +24,7 @@ referenceException = {
 }
 
 java = File.open( "src/org/genie/SwiftTest.java", "w" )
+java2 = File.open( "src/com/jh/SwiftHelloTest.java", "w" )
 
 java.puts( <<JAVA )
 
@@ -35,8 +36,29 @@ public class SwiftTest {
     }
 
 JAVA
+    
+java2.puts( <<JAVA )
+
+package com.jh;
+
+public interface SwiftHelloTest {
+
+    public interface TestListener {
+
+JAVA
+        
 
 swift = File.open( "org_genie/test_body.swift", "w" )
+swift2 = File.open( "swift-android-samples/swifthello/src/main/swift/Sources/SwiftHelloTestImpl.swift", "w" )
+
+swift2.puts( <<SWIFT )
+
+import java_swift
+import Foundation
+
+public class SwiftTestListener: SwiftHelloTest_TestListenerBase {
+
+SWIFT
 
 for type in types
 
@@ -76,6 +98,13 @@ for type in types
 
 JAVA
 
+    java2.puts( <<JAVA )
+        public #{type} #{type}Method( #{type} arg );
+        public #{type}[] #{type}ArrayMethod( #{type} arg[] );
+        public #{type}[][] #{type}2dArrayMethod( #{type} arg[][] );
+
+JAVA
+
     swift.puts( <<SWIFT )
 
         if true {
@@ -108,7 +137,87 @@ JAVA
             XCTAssertEqual( instance.#{type}2dArrayMethod( reference2dArray )[0], reference2dArray[0] )
         }
 SWIFT
+
+    opt = type == "String" ? "?" : ""
+    atype = arrayException[type] || swiftTypes[type]
+    swift2.puts( <<SWIFT )
+    override public func #{type}Method( arg: #{swiftTypes[type]}#{opt} ) -> #{swiftTypes[type]}#{opt} {
+        return arg
+    }
+
+    override public func #{type}ArrayMethod( arg: [#{atype}]? ) -> [#{atype}]? {
+        return arg
+    }
+
+    override public func #{type}2dArrayMethod( arg: [[#{atype}]]? ) -> [[#{atype}]]? {
+        return arg
+    }
+
+SWIFT
 end
+
+java2.puts( <<JAVA )
+    }
+
+    public static class TestResponderImpl implements TestListener {
+
+JAVA
+
+swift2.puts( <<SWIFT )
+}
+
+public class SwiftTestResponder {
+
+    static var tcount = 0
+
+    public func respond( to responder: SwiftHelloTest_TestListener ) {
+        SwiftTestResponder.tcount += 1
+        NSLog("Testing \\(SwiftTestResponder.tcount)...")
+
+SWIFT
+
+for type in types
+    java2.puts( <<JAVA )
+        public #{type} #{type}Method( #{type} arg ) {
+            return arg;
+        }
+
+        public #{type}[] #{type}ArrayMethod( #{type} arg[] ) {
+            return arg;
+        }
+
+        public #{type}[][] #{type}2dArrayMethod( #{type} arg[][] ) {
+            return arg;
+        }
+
+JAVA
+
+    swift2.puts( <<SWIFT )
+        if true {
+            let reference: #{swiftTypes[type]} = #{referenceException[type] || '123'}
+            let referenceArray = [#{arrayException[type] || ''}(reference)]
+            //let reference2dArray = [referenceArray]
+
+            let response = responder.#{type}Method( reference )
+            if response != reference {
+                NSLog("#{swiftTypes[type]}: \\(response) != \\(reference)")
+            }
+            let responseArray = responder.#{type}ArrayMethod( referenceArray )!
+            if responseArray != referenceArray {
+                NSLog("#{swiftTypes[type]}: \\(responseArray) != \\(referenceArray)")
+            }
+            //_ = responder.#{type}2dArrayMethod( reference2dArray )
+        }
+
+SWIFT
+end
+
+swift2.puts( "    }\n\n}\n" )
+swift2.close()
+swift.close()
+
+java2.puts( "    }\n\n}\n" )
+java2.close()
 
 java.puts( "}\n" )
 java.close()

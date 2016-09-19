@@ -184,7 +184,7 @@ also be prompted to provide a null implementation of the "required" initialiser.
 
 ```Swift
     init(imageProducer:ImageProducer) {
-        super.init( javaObject: CanvasBase().javaObject )
+        super.init( javaObject: CanvasBase().takeJavaObject )
         image = createImage(imageProducer)
     }
 
