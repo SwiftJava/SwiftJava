@@ -178,13 +178,16 @@ a Base class and Proxy is generated for the concrete class that can be subclasse
 
 As these "Base" subclasses can't close over variables in your program you may want to
 have an initialiser to capture these instead. There is a bit of a standard dance
-that needs to be performed. First, instantiate the "Base" superclass and pass this 
-to the designated initialiser of your superclass. Due to the use of generics you'll
+that needs to be performed. Instantiate the "Base" superclass and assign it's
+javaObject to your classes' javaObject. Due to the use of generics you'll
 also be prompted to provide a null implementation of the "required" initialiser.
 
 ```Swift
     init(imageProducer:ImageProducer) {
-        super.init( javaObject: CanvasBase().takeJavaObject )
+        super.init(javaObject: nil)
+        withExtendedLifetime(CanvasBase()) {
+            javaObject = $0.javaObject
+        }
         image = createImage(imageProducer)
     }
 

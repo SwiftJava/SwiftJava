@@ -431,9 +431,14 @@ class genswift {
 
 		if ( !isInterface ) {
 			code.append("    public convenience init?( casting object: "+swiftTypeFor( java.lang.Object.class, false, true )+", _ file: StaticString = #file, _ line: Int = #line ) {\n");
-			code.append("        self.init( javaObject: object.javaObject )\n" );
+			code.append("        self.init( javaObject: nil )\n" );
 			code.append("        if !object.validDownCast( toJavaClass: \""+className+"\", file, line ) {\n" );
-			code.append("            return nil\n        }\n    }\n\n" );
+			code.append("            return nil\n");
+			code.append("        }\n");
+			code.append("        withExtendedLifetime( object ) {\n");
+			code.append("            javaObject = object.javaObject\n");
+			code.append("        }\n");
+			code.append("    }\n\n" );
 		}
 
 		classCacheVar = classSuffix+"JNIClass";
