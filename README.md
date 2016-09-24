@@ -185,8 +185,8 @@ also be prompted to provide a null implementation of the "required" initialiser.
 ```Swift
     init(imageProducer:ImageProducer) {
         super.init(javaObject: nil)
-        withExtendedLifetime(CanvasBase()) {
-            javaObject = $0.javaObject
+        CanvasBase().withJavaObject {
+            self.javaObject = $0
         }
         image = createImage(imageProducer)
     }

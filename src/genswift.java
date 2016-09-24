@@ -435,8 +435,8 @@ class genswift {
 			code.append("        if !object.validDownCast( toJavaClass: \""+className+"\", file, line ) {\n" );
 			code.append("            return nil\n");
 			code.append("        }\n");
-			code.append("        withExtendedLifetime( object ) {\n");
-			code.append("            javaObject = object.javaObject\n");
+			code.append("        object.withJavaObject {\n");
+			code.append("            self.javaObject = $0\n");
 			code.append("        }\n");
 			code.append("    }\n\n" );
 		}
@@ -838,7 +838,7 @@ class genswift {
 				call = "let __return = "+call;
 			code.append("    " + call + "\n");
 			if ( notVoid(returnType) )
-				code.append("    return "+(!isObjectType( returnType ) ? //returnType.isPrimitive() || returnType == java.lang.String.class ?
+				code.append("    return "+(!isObjectType( returnType ) || true ? //returnType.isPrimitive() || returnType == java.lang.String.class ?
 						encoder("__return", returnType, "nil") + encodeSuffix(returnType) :
 						"/*JNI.api.NewWeakGlobalRef( JNI.env,*/ __return?.takeJavaObject /*)*/")+"\n");
 
@@ -898,14 +898,25 @@ class genswift {
 //			code.append("        self.init( javaObject: object?.javaObject )\n");
 			code.append("    }\n\n");
 		}
+		
+		if ( !isInterface ) {
+			code.append("    override open var javaObject: jobject? {\n");
+			code.append("        get {\n");
+			code.append("            return super.javaObject\n");
+			code.append("        }\n");
+			code.append("        set(newValue) {\n");
+			code.append("            super.javaObject = newValue\n");
+			code.append("            "+classSuffix+"Base.registerNatives()\n");
+			code.append("            updateSwiftObject()\n");
+			code.append("        }\n    }\n\n");
+		}
 
-		code.append("    public required init( javaObject: jobject! ) {\n");
+		code.append("    public required init( javaObject: jobject? ) {\n");
 		code.append("        super.init( javaObject: javaObject )\n");
-		code.append("        "+classSuffix+"Base.registerNatives()\n");
-		if ( isInterface )
+		if ( isInterface ) {
+			code.append("        "+classSuffix+"Base.registerNatives()\n");
 			code.append("        createProxy( javaClassName: \""+proxyClass+"\" )\n");
-		else
-			code.append("        updateSwiftObject()\n");
+		}
 		code.append("    }\n\n");
 		code.append("    static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject? ) -> " + classSuffix + "Base {\n");
 		code.append("        return unsafeBitCast( swiftPointer( jniEnv: jniEnv, object: javaObject ), to: " + classSuffix + "Base.self )\n    }\n\n");

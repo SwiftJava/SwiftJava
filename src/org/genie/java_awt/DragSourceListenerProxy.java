@@ -11,14 +11,6 @@ public class DragSourceListenerProxy implements java.awt.dnd.DragSourceListener 
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract void java.awt.dnd.DragSourceListener.dragDropEnd(java.awt.dnd.DragSourceDropEvent)
-
-    public native void __dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde );
-
-    public void dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde ) {
-        __dragDropEnd( dsde );
-    }
-
     /// public abstract void java.awt.dnd.DragSourceListener.dragEnter(java.awt.dnd.DragSourceDragEvent)
 
     public native void __dragEnter( java.awt.dnd.DragSourceDragEvent dsde );
@@ -49,6 +41,14 @@ public class DragSourceListenerProxy implements java.awt.dnd.DragSourceListener 
 
     public void dragExit( java.awt.dnd.DragSourceEvent dse ) {
         __dragExit( dse );
+    }
+
+    /// public abstract void java.awt.dnd.DragSourceListener.dragDropEnd(java.awt.dnd.DragSourceDropEvent)
+
+    public native void __dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde );
+
+    public void dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde ) {
+        __dragDropEnd( dsde );
     }
 
 }

@@ -14,49 +14,17 @@ public class DragSourceAdapterProxy extends java.awt.dnd.DragSourceAdapter {
         this.swiftObject = swiftObject;
     }
 
-    /// public void java.awt.dnd.DragSourceAdapter.dragDropEnd(java.awt.dnd.DragSourceDropEvent)
-
-    public native void __dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde );
-
-    boolean entered_dragDropEnd_0;
-
-    public void dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde ) {
-        if ( !entered_dragDropEnd_0 ) {
-            entered_dragDropEnd_0 = true;
-            __dragDropEnd( dsde );
-            entered_dragDropEnd_0 = false;
-        }
-        else
-            super.dragDropEnd( dsde );
-    }
-
-    /// public void java.awt.dnd.DragSourceAdapter.dragMouseMoved(java.awt.dnd.DragSourceDragEvent)
-
-    public native void __dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde );
-
-    boolean entered_dragMouseMoved_1;
-
-    public void dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde ) {
-        if ( !entered_dragMouseMoved_1 ) {
-            entered_dragMouseMoved_1 = true;
-            __dragMouseMoved( dsde );
-            entered_dragMouseMoved_1 = false;
-        }
-        else
-            super.dragMouseMoved( dsde );
-    }
-
     /// public void java.awt.dnd.DragSourceAdapter.dragEnter(java.awt.dnd.DragSourceDragEvent)
 
     public native void __dragEnter( java.awt.dnd.DragSourceDragEvent dsde );
 
-    boolean entered_dragEnter_2;
+    boolean entered_dragEnter_0;
 
     public void dragEnter( java.awt.dnd.DragSourceDragEvent dsde ) {
-        if ( !entered_dragEnter_2 ) {
-            entered_dragEnter_2 = true;
+        if ( !entered_dragEnter_0 ) {
+            entered_dragEnter_0 = true;
             __dragEnter( dsde );
-            entered_dragEnter_2 = false;
+            entered_dragEnter_0 = false;
         }
         else
             super.dragEnter( dsde );
@@ -66,13 +34,13 @@ public class DragSourceAdapterProxy extends java.awt.dnd.DragSourceAdapter {
 
     public native void __dragOver( java.awt.dnd.DragSourceDragEvent dsde );
 
-    boolean entered_dragOver_3;
+    boolean entered_dragOver_1;
 
     public void dragOver( java.awt.dnd.DragSourceDragEvent dsde ) {
-        if ( !entered_dragOver_3 ) {
-            entered_dragOver_3 = true;
+        if ( !entered_dragOver_1 ) {
+            entered_dragOver_1 = true;
             __dragOver( dsde );
-            entered_dragOver_3 = false;
+            entered_dragOver_1 = false;
         }
         else
             super.dragOver( dsde );
@@ -82,13 +50,13 @@ public class DragSourceAdapterProxy extends java.awt.dnd.DragSourceAdapter {
 
     public native void __dropActionChanged( java.awt.dnd.DragSourceDragEvent dsde );
 
-    boolean entered_dropActionChanged_4;
+    boolean entered_dropActionChanged_2;
 
     public void dropActionChanged( java.awt.dnd.DragSourceDragEvent dsde ) {
-        if ( !entered_dropActionChanged_4 ) {
-            entered_dropActionChanged_4 = true;
+        if ( !entered_dropActionChanged_2 ) {
+            entered_dropActionChanged_2 = true;
             __dropActionChanged( dsde );
-            entered_dropActionChanged_4 = false;
+            entered_dropActionChanged_2 = false;
         }
         else
             super.dropActionChanged( dsde );
@@ -98,16 +66,48 @@ public class DragSourceAdapterProxy extends java.awt.dnd.DragSourceAdapter {
 
     public native void __dragExit( java.awt.dnd.DragSourceEvent dse );
 
-    boolean entered_dragExit_5;
+    boolean entered_dragExit_3;
 
     public void dragExit( java.awt.dnd.DragSourceEvent dse ) {
-        if ( !entered_dragExit_5 ) {
-            entered_dragExit_5 = true;
+        if ( !entered_dragExit_3 ) {
+            entered_dragExit_3 = true;
             __dragExit( dse );
-            entered_dragExit_5 = false;
+            entered_dragExit_3 = false;
         }
         else
             super.dragExit( dse );
+    }
+
+    /// public void java.awt.dnd.DragSourceAdapter.dragDropEnd(java.awt.dnd.DragSourceDropEvent)
+
+    public native void __dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde );
+
+    boolean entered_dragDropEnd_4;
+
+    public void dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde ) {
+        if ( !entered_dragDropEnd_4 ) {
+            entered_dragDropEnd_4 = true;
+            __dragDropEnd( dsde );
+            entered_dragDropEnd_4 = false;
+        }
+        else
+            super.dragDropEnd( dsde );
+    }
+
+    /// public void java.awt.dnd.DragSourceAdapter.dragMouseMoved(java.awt.dnd.DragSourceDragEvent)
+
+    public native void __dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde );
+
+    boolean entered_dragMouseMoved_5;
+
+    public void dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde ) {
+        if ( !entered_dragMouseMoved_5 ) {
+            entered_dragMouseMoved_5 = true;
+            __dragMouseMoved( dsde );
+            entered_dragMouseMoved_5 = false;
+        }
+        else
+            super.dragMouseMoved( dsde );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)
