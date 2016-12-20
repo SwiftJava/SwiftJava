@@ -13,10 +13,10 @@ public class TextListenerProxy implements java.awt.event.TextListener {
 
     /// public abstract void java.awt.event.TextListener.textValueChanged(java.awt.event.TextEvent)
 
-    public native void __textValueChanged( java.awt.event.TextEvent e );
+    public native void __textValueChanged( java.awt.event.TextEvent arg0 );
 
-    public void textValueChanged( java.awt.event.TextEvent e ) {
-        __textValueChanged( e );
+    public void textValueChanged( java.awt.event.TextEvent arg0 ) {
+        __textValueChanged( arg0 );
     }
 
 }

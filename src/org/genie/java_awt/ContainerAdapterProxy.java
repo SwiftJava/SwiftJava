@@ -16,34 +16,34 @@ public class ContainerAdapterProxy extends java.awt.event.ContainerAdapter {
 
     /// public void java.awt.event.ContainerAdapter.componentAdded(java.awt.event.ContainerEvent)
 
-    public native void __componentAdded( java.awt.event.ContainerEvent e );
+    public native void __componentAdded( java.awt.event.ContainerEvent arg0 );
 
     boolean entered_componentAdded_0;
 
-    public void componentAdded( java.awt.event.ContainerEvent e ) {
+    public void componentAdded( java.awt.event.ContainerEvent arg0 ) {
         if ( !entered_componentAdded_0 ) {
             entered_componentAdded_0 = true;
-            __componentAdded( e );
+            __componentAdded( arg0 );
             entered_componentAdded_0 = false;
         }
         else
-            super.componentAdded( e );
+            super.componentAdded( arg0 );
     }
 
     /// public void java.awt.event.ContainerAdapter.componentRemoved(java.awt.event.ContainerEvent)
 
-    public native void __componentRemoved( java.awt.event.ContainerEvent e );
+    public native void __componentRemoved( java.awt.event.ContainerEvent arg0 );
 
     boolean entered_componentRemoved_1;
 
-    public void componentRemoved( java.awt.event.ContainerEvent e ) {
+    public void componentRemoved( java.awt.event.ContainerEvent arg0 ) {
         if ( !entered_componentRemoved_1 ) {
             entered_componentRemoved_1 = true;
-            __componentRemoved( e );
+            __componentRemoved( arg0 );
             entered_componentRemoved_1 = false;
         }
         else
-            super.componentRemoved( e );
+            super.componentRemoved( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

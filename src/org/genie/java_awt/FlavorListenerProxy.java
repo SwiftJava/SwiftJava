@@ -13,10 +13,10 @@ public class FlavorListenerProxy implements java.awt.datatransfer.FlavorListener
 
     /// public abstract void java.awt.datatransfer.FlavorListener.flavorsChanged(java.awt.datatransfer.FlavorEvent)
 
-    public native void __flavorsChanged( java.awt.datatransfer.FlavorEvent e );
+    public native void __flavorsChanged( java.awt.datatransfer.FlavorEvent arg0 );
 
-    public void flavorsChanged( java.awt.datatransfer.FlavorEvent e ) {
-        __flavorsChanged( e );
+    public void flavorsChanged( java.awt.datatransfer.FlavorEvent arg0 ) {
+        __flavorsChanged( arg0 );
     }
 
 }

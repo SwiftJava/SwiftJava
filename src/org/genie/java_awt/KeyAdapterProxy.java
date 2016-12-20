@@ -16,50 +16,50 @@ public class KeyAdapterProxy extends java.awt.event.KeyAdapter {
 
     /// public void java.awt.event.KeyAdapter.keyTyped(java.awt.event.KeyEvent)
 
-    public native void __keyTyped( java.awt.event.KeyEvent e );
+    public native void __keyTyped( java.awt.event.KeyEvent arg0 );
 
     boolean entered_keyTyped_0;
 
-    public void keyTyped( java.awt.event.KeyEvent e ) {
+    public void keyTyped( java.awt.event.KeyEvent arg0 ) {
         if ( !entered_keyTyped_0 ) {
             entered_keyTyped_0 = true;
-            __keyTyped( e );
+            __keyTyped( arg0 );
             entered_keyTyped_0 = false;
         }
         else
-            super.keyTyped( e );
+            super.keyTyped( arg0 );
     }
 
     /// public void java.awt.event.KeyAdapter.keyPressed(java.awt.event.KeyEvent)
 
-    public native void __keyPressed( java.awt.event.KeyEvent e );
+    public native void __keyPressed( java.awt.event.KeyEvent arg0 );
 
     boolean entered_keyPressed_1;
 
-    public void keyPressed( java.awt.event.KeyEvent e ) {
+    public void keyPressed( java.awt.event.KeyEvent arg0 ) {
         if ( !entered_keyPressed_1 ) {
             entered_keyPressed_1 = true;
-            __keyPressed( e );
+            __keyPressed( arg0 );
             entered_keyPressed_1 = false;
         }
         else
-            super.keyPressed( e );
+            super.keyPressed( arg0 );
     }
 
     /// public void java.awt.event.KeyAdapter.keyReleased(java.awt.event.KeyEvent)
 
-    public native void __keyReleased( java.awt.event.KeyEvent e );
+    public native void __keyReleased( java.awt.event.KeyEvent arg0 );
 
     boolean entered_keyReleased_2;
 
-    public void keyReleased( java.awt.event.KeyEvent e ) {
+    public void keyReleased( java.awt.event.KeyEvent arg0 ) {
         if ( !entered_keyReleased_2 ) {
             entered_keyReleased_2 = true;
-            __keyReleased( e );
+            __keyReleased( arg0 );
             entered_keyReleased_2 = false;
         }
         else
-            super.keyReleased( e );
+            super.keyReleased( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

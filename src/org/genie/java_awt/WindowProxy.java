@@ -7,6 +7,17 @@ public class WindowProxy extends java.awt.Window {
 
     long swiftObject;
 
+    /// public java.awt.Window(java.awt.Window,java.awt.GraphicsConfiguration)
+
+    WindowProxy( java.awt.Window arg0, java.awt.GraphicsConfiguration arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// java.awt.Window(java.awt.GraphicsConfiguration)
+
+    /// java.awt.Window() throws java.awt.HeadlessException
+
     /// public java.awt.Window(java.awt.Frame)
 
     WindowProxy( java.awt.Frame arg0 , long swiftObject ) {
@@ -20,17 +31,6 @@ public class WindowProxy extends java.awt.Window {
         super( arg0 );
         this.swiftObject = swiftObject;
     }
-
-    /// public java.awt.Window(java.awt.Window,java.awt.GraphicsConfiguration)
-
-    WindowProxy( java.awt.Window arg0, java.awt.GraphicsConfiguration arg1 , long swiftObject ) {
-        super( arg0, arg1 );
-        this.swiftObject = swiftObject;
-    }
-
-    /// java.awt.Window(java.awt.GraphicsConfiguration)
-
-    /// java.awt.Window() throws java.awt.HeadlessException
 
     /// public void java.awt.Window.paint(java.awt.Graphics)
 

@@ -13,18 +13,18 @@ public class HierarchyBoundsListenerProxy implements java.awt.event.HierarchyBou
 
     /// public abstract void java.awt.event.HierarchyBoundsListener.ancestorMoved(java.awt.event.HierarchyEvent)
 
-    public native void __ancestorMoved( java.awt.event.HierarchyEvent e );
+    public native void __ancestorMoved( java.awt.event.HierarchyEvent arg0 );
 
-    public void ancestorMoved( java.awt.event.HierarchyEvent e ) {
-        __ancestorMoved( e );
+    public void ancestorMoved( java.awt.event.HierarchyEvent arg0 ) {
+        __ancestorMoved( arg0 );
     }
 
     /// public abstract void java.awt.event.HierarchyBoundsListener.ancestorResized(java.awt.event.HierarchyEvent)
 
-    public native void __ancestorResized( java.awt.event.HierarchyEvent e );
+    public native void __ancestorResized( java.awt.event.HierarchyEvent arg0 );
 
-    public void ancestorResized( java.awt.event.HierarchyEvent e ) {
-        __ancestorResized( e );
+    public void ancestorResized( java.awt.event.HierarchyEvent arg0 ) {
+        __ancestorResized( arg0 );
     }
 
 }

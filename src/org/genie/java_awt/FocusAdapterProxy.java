@@ -16,34 +16,34 @@ public class FocusAdapterProxy extends java.awt.event.FocusAdapter {
 
     /// public void java.awt.event.FocusAdapter.focusGained(java.awt.event.FocusEvent)
 
-    public native void __focusGained( java.awt.event.FocusEvent e );
+    public native void __focusGained( java.awt.event.FocusEvent arg0 );
 
     boolean entered_focusGained_0;
 
-    public void focusGained( java.awt.event.FocusEvent e ) {
+    public void focusGained( java.awt.event.FocusEvent arg0 ) {
         if ( !entered_focusGained_0 ) {
             entered_focusGained_0 = true;
-            __focusGained( e );
+            __focusGained( arg0 );
             entered_focusGained_0 = false;
         }
         else
-            super.focusGained( e );
+            super.focusGained( arg0 );
     }
 
     /// public void java.awt.event.FocusAdapter.focusLost(java.awt.event.FocusEvent)
 
-    public native void __focusLost( java.awt.event.FocusEvent e );
+    public native void __focusLost( java.awt.event.FocusEvent arg0 );
 
     boolean entered_focusLost_1;
 
-    public void focusLost( java.awt.event.FocusEvent e ) {
+    public void focusLost( java.awt.event.FocusEvent arg0 ) {
         if ( !entered_focusLost_1 ) {
             entered_focusLost_1 = true;
-            __focusLost( e );
+            __focusLost( arg0 );
             entered_focusLost_1 = false;
         }
         else
-            super.focusLost( e );
+            super.focusLost( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

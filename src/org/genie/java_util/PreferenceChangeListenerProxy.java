@@ -13,10 +13,10 @@ public class PreferenceChangeListenerProxy implements java.util.prefs.Preference
 
     /// public abstract void java.util.prefs.PreferenceChangeListener.preferenceChange(java.util.prefs.PreferenceChangeEvent)
 
-    public native void __preferenceChange( java.util.prefs.PreferenceChangeEvent evt );
+    public native void __preferenceChange( java.util.prefs.PreferenceChangeEvent arg0 );
 
-    public void preferenceChange( java.util.prefs.PreferenceChangeEvent evt ) {
-        __preferenceChange( evt );
+    public void preferenceChange( java.util.prefs.PreferenceChangeEvent arg0 ) {
+        __preferenceChange( arg0 );
     }
 
 }

@@ -13,10 +13,10 @@ public class CaretListenerProxy implements javax.swing.event.CaretListener {
 
     /// public abstract void javax.swing.event.CaretListener.caretUpdate(javax.swing.event.CaretEvent)
 
-    public native void __caretUpdate( javax.swing.event.CaretEvent e );
+    public native void __caretUpdate( javax.swing.event.CaretEvent arg0 );
 
-    public void caretUpdate( javax.swing.event.CaretEvent e ) {
-        __caretUpdate( e );
+    public void caretUpdate( javax.swing.event.CaretEvent arg0 ) {
+        __caretUpdate( arg0 );
     }
 
 }

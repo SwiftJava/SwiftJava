@@ -13,10 +13,10 @@ public class HierarchyListenerProxy implements java.awt.event.HierarchyListener 
 
     /// public abstract void java.awt.event.HierarchyListener.hierarchyChanged(java.awt.event.HierarchyEvent)
 
-    public native void __hierarchyChanged( java.awt.event.HierarchyEvent e );
+    public native void __hierarchyChanged( java.awt.event.HierarchyEvent arg0 );
 
-    public void hierarchyChanged( java.awt.event.HierarchyEvent e ) {
-        __hierarchyChanged( e );
+    public void hierarchyChanged( java.awt.event.HierarchyEvent arg0 ) {
+        __hierarchyChanged( arg0 );
     }
 
 }

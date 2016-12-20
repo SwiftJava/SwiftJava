@@ -16,98 +16,98 @@ public class DragSourceAdapterProxy extends java.awt.dnd.DragSourceAdapter {
 
     /// public void java.awt.dnd.DragSourceAdapter.dragEnter(java.awt.dnd.DragSourceDragEvent)
 
-    public native void __dragEnter( java.awt.dnd.DragSourceDragEvent dsde );
+    public native void __dragEnter( java.awt.dnd.DragSourceDragEvent arg0 );
 
     boolean entered_dragEnter_0;
 
-    public void dragEnter( java.awt.dnd.DragSourceDragEvent dsde ) {
+    public void dragEnter( java.awt.dnd.DragSourceDragEvent arg0 ) {
         if ( !entered_dragEnter_0 ) {
             entered_dragEnter_0 = true;
-            __dragEnter( dsde );
+            __dragEnter( arg0 );
             entered_dragEnter_0 = false;
         }
         else
-            super.dragEnter( dsde );
+            super.dragEnter( arg0 );
     }
 
     /// public void java.awt.dnd.DragSourceAdapter.dragOver(java.awt.dnd.DragSourceDragEvent)
 
-    public native void __dragOver( java.awt.dnd.DragSourceDragEvent dsde );
+    public native void __dragOver( java.awt.dnd.DragSourceDragEvent arg0 );
 
     boolean entered_dragOver_1;
 
-    public void dragOver( java.awt.dnd.DragSourceDragEvent dsde ) {
+    public void dragOver( java.awt.dnd.DragSourceDragEvent arg0 ) {
         if ( !entered_dragOver_1 ) {
             entered_dragOver_1 = true;
-            __dragOver( dsde );
+            __dragOver( arg0 );
             entered_dragOver_1 = false;
         }
         else
-            super.dragOver( dsde );
+            super.dragOver( arg0 );
     }
 
     /// public void java.awt.dnd.DragSourceAdapter.dropActionChanged(java.awt.dnd.DragSourceDragEvent)
 
-    public native void __dropActionChanged( java.awt.dnd.DragSourceDragEvent dsde );
+    public native void __dropActionChanged( java.awt.dnd.DragSourceDragEvent arg0 );
 
     boolean entered_dropActionChanged_2;
 
-    public void dropActionChanged( java.awt.dnd.DragSourceDragEvent dsde ) {
+    public void dropActionChanged( java.awt.dnd.DragSourceDragEvent arg0 ) {
         if ( !entered_dropActionChanged_2 ) {
             entered_dropActionChanged_2 = true;
-            __dropActionChanged( dsde );
+            __dropActionChanged( arg0 );
             entered_dropActionChanged_2 = false;
         }
         else
-            super.dropActionChanged( dsde );
+            super.dropActionChanged( arg0 );
     }
 
     /// public void java.awt.dnd.DragSourceAdapter.dragExit(java.awt.dnd.DragSourceEvent)
 
-    public native void __dragExit( java.awt.dnd.DragSourceEvent dse );
+    public native void __dragExit( java.awt.dnd.DragSourceEvent arg0 );
 
     boolean entered_dragExit_3;
 
-    public void dragExit( java.awt.dnd.DragSourceEvent dse ) {
+    public void dragExit( java.awt.dnd.DragSourceEvent arg0 ) {
         if ( !entered_dragExit_3 ) {
             entered_dragExit_3 = true;
-            __dragExit( dse );
+            __dragExit( arg0 );
             entered_dragExit_3 = false;
         }
         else
-            super.dragExit( dse );
+            super.dragExit( arg0 );
     }
 
     /// public void java.awt.dnd.DragSourceAdapter.dragDropEnd(java.awt.dnd.DragSourceDropEvent)
 
-    public native void __dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde );
+    public native void __dragDropEnd( java.awt.dnd.DragSourceDropEvent arg0 );
 
     boolean entered_dragDropEnd_4;
 
-    public void dragDropEnd( java.awt.dnd.DragSourceDropEvent dsde ) {
+    public void dragDropEnd( java.awt.dnd.DragSourceDropEvent arg0 ) {
         if ( !entered_dragDropEnd_4 ) {
             entered_dragDropEnd_4 = true;
-            __dragDropEnd( dsde );
+            __dragDropEnd( arg0 );
             entered_dragDropEnd_4 = false;
         }
         else
-            super.dragDropEnd( dsde );
+            super.dragDropEnd( arg0 );
     }
 
     /// public void java.awt.dnd.DragSourceAdapter.dragMouseMoved(java.awt.dnd.DragSourceDragEvent)
 
-    public native void __dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde );
+    public native void __dragMouseMoved( java.awt.dnd.DragSourceDragEvent arg0 );
 
     boolean entered_dragMouseMoved_5;
 
-    public void dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde ) {
+    public void dragMouseMoved( java.awt.dnd.DragSourceDragEvent arg0 ) {
         if ( !entered_dragMouseMoved_5 ) {
             entered_dragMouseMoved_5 = true;
-            __dragMouseMoved( dsde );
+            __dragMouseMoved( arg0 );
             entered_dragMouseMoved_5 = false;
         }
         else
-            super.dragMouseMoved( dsde );
+            super.dragMouseMoved( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

@@ -7,83 +7,6 @@ public class JDialogProxy extends javax.swing.JDialog {
 
     long swiftObject;
 
-    /// public javax.swing.JDialog(java.awt.Window)
-
-    JDialogProxy( java.awt.Window owner , long swiftObject ) {
-        super( owner );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Dialog,java.lang.String,boolean,java.awt.GraphicsConfiguration)
-
-    JDialogProxy( java.awt.Dialog owner, java.lang.String title, boolean modal, java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( owner, title, modal, gc );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Dialog,java.lang.String,boolean)
-
-    JDialogProxy( java.awt.Dialog owner, java.lang.String title, boolean modal , long swiftObject ) {
-        super( owner, title, modal );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Dialog,java.lang.String)
-
-    JDialogProxy( java.awt.Dialog owner, java.lang.String title , long swiftObject ) {
-        super( owner, title );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Window,java.lang.String,java.awt.Dialog$ModalityType,java.awt.GraphicsConfiguration)
-
-    JDialogProxy( java.awt.Window owner, java.lang.String title, java.awt.Dialog.ModalityType modalityType, java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( owner, title, modalityType, gc );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Window,java.lang.String,java.awt.Dialog$ModalityType)
-
-    JDialogProxy( java.awt.Window owner, java.lang.String title, java.awt.Dialog.ModalityType modalityType , long swiftObject ) {
-        super( owner, title, modalityType );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Window,java.lang.String)
-
-    JDialogProxy( java.awt.Window owner, java.lang.String title , long swiftObject ) {
-        super( owner, title );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Window,java.awt.Dialog$ModalityType)
-
-    JDialogProxy( java.awt.Window owner, java.awt.Dialog.ModalityType modalityType , long swiftObject ) {
-        super( owner, modalityType );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Frame,java.lang.String)
-
-    JDialogProxy( java.awt.Frame owner, java.lang.String title , long swiftObject ) {
-        super( owner, title );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Frame,boolean)
-
-    JDialogProxy( java.awt.Frame owner, boolean modal , long swiftObject ) {
-        super( owner, modal );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JDialog(java.awt.Frame)
-
-    JDialogProxy( java.awt.Frame owner , long swiftObject ) {
-        super( owner );
-        this.swiftObject = swiftObject;
-    }
-
     /// public javax.swing.JDialog()
 
     JDialogProxy( long swiftObject ) {
@@ -91,31 +14,108 @@ public class JDialogProxy extends javax.swing.JDialog {
         this.swiftObject = swiftObject;
     }
 
-    /// public javax.swing.JDialog(java.awt.Dialog,boolean)
+    /// public javax.swing.JDialog(java.awt.Frame)
 
-    JDialogProxy( java.awt.Dialog owner, boolean modal , long swiftObject ) {
-        super( owner, modal );
+    JDialogProxy( java.awt.Frame arg0 , long swiftObject ) {
+        super( arg0 );
         this.swiftObject = swiftObject;
     }
 
-    /// public javax.swing.JDialog(java.awt.Dialog)
+    /// public javax.swing.JDialog(java.awt.Frame,boolean)
 
-    JDialogProxy( java.awt.Dialog owner , long swiftObject ) {
-        super( owner );
+    JDialogProxy( java.awt.Frame arg0, boolean arg1 , long swiftObject ) {
+        super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }
 
-    /// public javax.swing.JDialog(java.awt.Frame,java.lang.String,boolean,java.awt.GraphicsConfiguration)
+    /// public javax.swing.JDialog(java.awt.Frame,java.lang.String)
 
-    JDialogProxy( java.awt.Frame owner, java.lang.String title, boolean modal, java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( owner, title, modal, gc );
+    JDialogProxy( java.awt.Frame arg0, java.lang.String arg1 , long swiftObject ) {
+        super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }
 
     /// public javax.swing.JDialog(java.awt.Frame,java.lang.String,boolean)
 
-    JDialogProxy( java.awt.Frame owner, java.lang.String title, boolean modal , long swiftObject ) {
-        super( owner, title, modal );
+    JDialogProxy( java.awt.Frame arg0, java.lang.String arg1, boolean arg2 , long swiftObject ) {
+        super( arg0, arg1, arg2 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Frame,java.lang.String,boolean,java.awt.GraphicsConfiguration)
+
+    JDialogProxy( java.awt.Frame arg0, java.lang.String arg1, boolean arg2, java.awt.GraphicsConfiguration arg3 , long swiftObject ) {
+        super( arg0, arg1, arg2, arg3 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Dialog)
+
+    JDialogProxy( java.awt.Dialog arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Dialog,boolean)
+
+    JDialogProxy( java.awt.Dialog arg0, boolean arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Dialog,java.lang.String)
+
+    JDialogProxy( java.awt.Dialog arg0, java.lang.String arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Dialog,java.lang.String,boolean)
+
+    JDialogProxy( java.awt.Dialog arg0, java.lang.String arg1, boolean arg2 , long swiftObject ) {
+        super( arg0, arg1, arg2 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Dialog,java.lang.String,boolean,java.awt.GraphicsConfiguration)
+
+    JDialogProxy( java.awt.Dialog arg0, java.lang.String arg1, boolean arg2, java.awt.GraphicsConfiguration arg3 , long swiftObject ) {
+        super( arg0, arg1, arg2, arg3 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Window)
+
+    JDialogProxy( java.awt.Window arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Window,java.awt.Dialog$ModalityType)
+
+    JDialogProxy( java.awt.Window arg0, java.awt.Dialog.ModalityType arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Window,java.lang.String)
+
+    JDialogProxy( java.awt.Window arg0, java.lang.String arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Window,java.lang.String,java.awt.Dialog$ModalityType)
+
+    JDialogProxy( java.awt.Window arg0, java.lang.String arg1, java.awt.Dialog.ModalityType arg2 , long swiftObject ) {
+        super( arg0, arg1, arg2 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JDialog(java.awt.Window,java.lang.String,java.awt.Dialog$ModalityType,java.awt.GraphicsConfiguration)
+
+    JDialogProxy( java.awt.Window arg0, java.lang.String arg1, java.awt.Dialog.ModalityType arg2, java.awt.GraphicsConfiguration arg3 , long swiftObject ) {
+        super( arg0, arg1, arg2, arg3 );
         this.swiftObject = swiftObject;
     }
 

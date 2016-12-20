@@ -13,10 +13,10 @@ public class AWTEventListenerProxy implements java.awt.event.AWTEventListener {
 
     /// public abstract void java.awt.event.AWTEventListener.eventDispatched(java.awt.AWTEvent)
 
-    public native void __eventDispatched( java.awt.AWTEvent event );
+    public native void __eventDispatched( java.awt.AWTEvent arg0 );
 
-    public void eventDispatched( java.awt.AWTEvent event ) {
-        __eventDispatched( event );
+    public void eventDispatched( java.awt.AWTEvent arg0 ) {
+        __eventDispatched( arg0 );
     }
 
 }

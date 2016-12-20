@@ -13,10 +13,10 @@ public class DragGestureListenerProxy implements java.awt.dnd.DragGestureListene
 
     /// public abstract void java.awt.dnd.DragGestureListener.dragGestureRecognized(java.awt.dnd.DragGestureEvent)
 
-    public native void __dragGestureRecognized( java.awt.dnd.DragGestureEvent dge );
+    public native void __dragGestureRecognized( java.awt.dnd.DragGestureEvent arg0 );
 
-    public void dragGestureRecognized( java.awt.dnd.DragGestureEvent dge ) {
-        __dragGestureRecognized( dge );
+    public void dragGestureRecognized( java.awt.dnd.DragGestureEvent arg0 ) {
+        __dragGestureRecognized( arg0 );
     }
 
 }

@@ -13,10 +13,10 @@ public class ChangeListenerProxy implements javax.swing.event.ChangeListener {
 
     /// public abstract void javax.swing.event.ChangeListener.stateChanged(javax.swing.event.ChangeEvent)
 
-    public native void __stateChanged( javax.swing.event.ChangeEvent e );
+    public native void __stateChanged( javax.swing.event.ChangeEvent arg0 );
 
-    public void stateChanged( javax.swing.event.ChangeEvent e ) {
-        __stateChanged( e );
+    public void stateChanged( javax.swing.event.ChangeEvent arg0 ) {
+        __stateChanged( arg0 );
     }
 
 }

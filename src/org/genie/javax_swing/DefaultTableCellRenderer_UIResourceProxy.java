@@ -16,19 +16,19 @@ public class DefaultTableCellRenderer_UIResourceProxy extends javax.swing.table.
 
     /// public java.awt.Component javax.swing.table.DefaultTableCellRenderer.getTableCellRendererComponent(javax.swing.JTable,java.lang.Object,boolean,boolean,int,int)
 
-    public native java.awt.Component __getTableCellRendererComponent( javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column );
+    public native java.awt.Component __getTableCellRendererComponent( javax.swing.JTable arg0, java.lang.Object arg1, boolean arg2, boolean arg3, int arg4, int arg5 );
 
     boolean entered_getTableCellRendererComponent_0;
 
-    public java.awt.Component getTableCellRendererComponent( javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
+    public java.awt.Component getTableCellRendererComponent( javax.swing.JTable arg0, java.lang.Object arg1, boolean arg2, boolean arg3, int arg4, int arg5 ) {
         if ( !entered_getTableCellRendererComponent_0 ) {
             entered_getTableCellRendererComponent_0 = true;
-            java.awt.Component __return = __getTableCellRendererComponent( table, value, isSelected, hasFocus, row, column );
+            java.awt.Component __return = __getTableCellRendererComponent( arg0, arg1, arg2, arg3, arg4, arg5 );
             entered_getTableCellRendererComponent_0 = false;
             return __return;
         }
         else
-            return super.getTableCellRendererComponent( table, value, isSelected, hasFocus, row, column );
+            return super.getTableCellRendererComponent( arg0, arg1, arg2, arg3, arg4, arg5 );
     }
 
 }

@@ -16,34 +16,34 @@ public class MouseMotionAdapterProxy extends java.awt.event.MouseMotionAdapter {
 
     /// public void java.awt.event.MouseMotionAdapter.mouseMoved(java.awt.event.MouseEvent)
 
-    public native void __mouseMoved( java.awt.event.MouseEvent e );
+    public native void __mouseMoved( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseMoved_0;
 
-    public void mouseMoved( java.awt.event.MouseEvent e ) {
+    public void mouseMoved( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseMoved_0 ) {
             entered_mouseMoved_0 = true;
-            __mouseMoved( e );
+            __mouseMoved( arg0 );
             entered_mouseMoved_0 = false;
         }
         else
-            super.mouseMoved( e );
+            super.mouseMoved( arg0 );
     }
 
     /// public void java.awt.event.MouseMotionAdapter.mouseDragged(java.awt.event.MouseEvent)
 
-    public native void __mouseDragged( java.awt.event.MouseEvent e );
+    public native void __mouseDragged( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseDragged_1;
 
-    public void mouseDragged( java.awt.event.MouseEvent e ) {
+    public void mouseDragged( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseDragged_1 ) {
             entered_mouseDragged_1 = true;
-            __mouseDragged( e );
+            __mouseDragged( arg0 );
             entered_mouseDragged_1 = false;
         }
         else
-            super.mouseDragged( e );
+            super.mouseDragged( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

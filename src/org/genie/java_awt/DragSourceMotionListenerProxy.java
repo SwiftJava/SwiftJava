@@ -13,10 +13,10 @@ public class DragSourceMotionListenerProxy implements java.awt.dnd.DragSourceMot
 
     /// public abstract void java.awt.dnd.DragSourceMotionListener.dragMouseMoved(java.awt.dnd.DragSourceDragEvent)
 
-    public native void __dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde );
+    public native void __dragMouseMoved( java.awt.dnd.DragSourceDragEvent arg0 );
 
-    public void dragMouseMoved( java.awt.dnd.DragSourceDragEvent dsde ) {
-        __dragMouseMoved( dsde );
+    public void dragMouseMoved( java.awt.dnd.DragSourceDragEvent arg0 ) {
+        __dragMouseMoved( arg0 );
     }
 
 }

@@ -13,18 +13,18 @@ public class InputMethodListenerProxy implements java.awt.event.InputMethodListe
 
     /// public abstract void java.awt.event.InputMethodListener.inputMethodTextChanged(java.awt.event.InputMethodEvent)
 
-    public native void __inputMethodTextChanged( java.awt.event.InputMethodEvent event );
+    public native void __inputMethodTextChanged( java.awt.event.InputMethodEvent arg0 );
 
-    public void inputMethodTextChanged( java.awt.event.InputMethodEvent event ) {
-        __inputMethodTextChanged( event );
+    public void inputMethodTextChanged( java.awt.event.InputMethodEvent arg0 ) {
+        __inputMethodTextChanged( arg0 );
     }
 
     /// public abstract void java.awt.event.InputMethodListener.caretPositionChanged(java.awt.event.InputMethodEvent)
 
-    public native void __caretPositionChanged( java.awt.event.InputMethodEvent event );
+    public native void __caretPositionChanged( java.awt.event.InputMethodEvent arg0 );
 
-    public void caretPositionChanged( java.awt.event.InputMethodEvent event ) {
-        __caretPositionChanged( event );
+    public void caretPositionChanged( java.awt.event.InputMethodEvent arg0 ) {
+        __caretPositionChanged( arg0 );
     }
 
 }

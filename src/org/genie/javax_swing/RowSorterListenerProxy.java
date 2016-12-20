@@ -13,10 +13,10 @@ public class RowSorterListenerProxy implements javax.swing.event.RowSorterListen
 
     /// public abstract void javax.swing.event.RowSorterListener.sorterChanged(javax.swing.event.RowSorterEvent)
 
-    public native void __sorterChanged( javax.swing.event.RowSorterEvent e );
+    public native void __sorterChanged( javax.swing.event.RowSorterEvent arg0 );
 
-    public void sorterChanged( javax.swing.event.RowSorterEvent e ) {
-        __sorterChanged( e );
+    public void sorterChanged( javax.swing.event.RowSorterEvent arg0 ) {
+        __sorterChanged( arg0 );
     }
 
 }

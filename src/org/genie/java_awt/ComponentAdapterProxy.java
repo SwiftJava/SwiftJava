@@ -16,66 +16,66 @@ public class ComponentAdapterProxy extends java.awt.event.ComponentAdapter {
 
     /// public void java.awt.event.ComponentAdapter.componentResized(java.awt.event.ComponentEvent)
 
-    public native void __componentResized( java.awt.event.ComponentEvent e );
+    public native void __componentResized( java.awt.event.ComponentEvent arg0 );
 
     boolean entered_componentResized_0;
 
-    public void componentResized( java.awt.event.ComponentEvent e ) {
+    public void componentResized( java.awt.event.ComponentEvent arg0 ) {
         if ( !entered_componentResized_0 ) {
             entered_componentResized_0 = true;
-            __componentResized( e );
+            __componentResized( arg0 );
             entered_componentResized_0 = false;
         }
         else
-            super.componentResized( e );
+            super.componentResized( arg0 );
     }
 
     /// public void java.awt.event.ComponentAdapter.componentMoved(java.awt.event.ComponentEvent)
 
-    public native void __componentMoved( java.awt.event.ComponentEvent e );
+    public native void __componentMoved( java.awt.event.ComponentEvent arg0 );
 
     boolean entered_componentMoved_1;
 
-    public void componentMoved( java.awt.event.ComponentEvent e ) {
+    public void componentMoved( java.awt.event.ComponentEvent arg0 ) {
         if ( !entered_componentMoved_1 ) {
             entered_componentMoved_1 = true;
-            __componentMoved( e );
+            __componentMoved( arg0 );
             entered_componentMoved_1 = false;
         }
         else
-            super.componentMoved( e );
+            super.componentMoved( arg0 );
     }
 
     /// public void java.awt.event.ComponentAdapter.componentShown(java.awt.event.ComponentEvent)
 
-    public native void __componentShown( java.awt.event.ComponentEvent e );
+    public native void __componentShown( java.awt.event.ComponentEvent arg0 );
 
     boolean entered_componentShown_2;
 
-    public void componentShown( java.awt.event.ComponentEvent e ) {
+    public void componentShown( java.awt.event.ComponentEvent arg0 ) {
         if ( !entered_componentShown_2 ) {
             entered_componentShown_2 = true;
-            __componentShown( e );
+            __componentShown( arg0 );
             entered_componentShown_2 = false;
         }
         else
-            super.componentShown( e );
+            super.componentShown( arg0 );
     }
 
     /// public void java.awt.event.ComponentAdapter.componentHidden(java.awt.event.ComponentEvent)
 
-    public native void __componentHidden( java.awt.event.ComponentEvent e );
+    public native void __componentHidden( java.awt.event.ComponentEvent arg0 );
 
     boolean entered_componentHidden_3;
 
-    public void componentHidden( java.awt.event.ComponentEvent e ) {
+    public void componentHidden( java.awt.event.ComponentEvent arg0 ) {
         if ( !entered_componentHidden_3 ) {
             entered_componentHidden_3 = true;
-            __componentHidden( e );
+            __componentHidden( arg0 );
             entered_componentHidden_3 = false;
         }
         else
-            super.componentHidden( e );
+            super.componentHidden( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

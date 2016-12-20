@@ -7,31 +7,31 @@ public class FrameProxy extends java.awt.Frame {
 
     long swiftObject;
 
-    /// public java.awt.Frame(java.lang.String,java.awt.GraphicsConfiguration)
+    /// public java.awt.Frame() throws java.awt.HeadlessException
 
-    FrameProxy( java.lang.String title, java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( title, gc );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public java.awt.Frame(java.lang.String) throws java.awt.HeadlessException
-
-    FrameProxy( java.lang.String title , long swiftObject ) {
-        super( title );
+    FrameProxy( long swiftObject ) {
+        super( );
         this.swiftObject = swiftObject;
     }
 
     /// public java.awt.Frame(java.awt.GraphicsConfiguration)
 
-    FrameProxy( java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( gc );
+    FrameProxy( java.awt.GraphicsConfiguration arg0 , long swiftObject ) {
+        super( arg0 );
         this.swiftObject = swiftObject;
     }
 
-    /// public java.awt.Frame() throws java.awt.HeadlessException
+    /// public java.awt.Frame(java.lang.String) throws java.awt.HeadlessException
 
-    FrameProxy( long swiftObject ) {
-        super( );
+    FrameProxy( java.lang.String arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public java.awt.Frame(java.lang.String,java.awt.GraphicsConfiguration)
+
+    FrameProxy( java.lang.String arg0, java.awt.GraphicsConfiguration arg1 , long swiftObject ) {
+        super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }
 

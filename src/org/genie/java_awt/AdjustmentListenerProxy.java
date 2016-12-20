@@ -13,10 +13,10 @@ public class AdjustmentListenerProxy implements java.awt.event.AdjustmentListene
 
     /// public abstract void java.awt.event.AdjustmentListener.adjustmentValueChanged(java.awt.event.AdjustmentEvent)
 
-    public native void __adjustmentValueChanged( java.awt.event.AdjustmentEvent e );
+    public native void __adjustmentValueChanged( java.awt.event.AdjustmentEvent arg0 );
 
-    public void adjustmentValueChanged( java.awt.event.AdjustmentEvent e ) {
-        __adjustmentValueChanged( e );
+    public void adjustmentValueChanged( java.awt.event.AdjustmentEvent arg0 ) {
+        __adjustmentValueChanged( arg0 );
     }
 
 }

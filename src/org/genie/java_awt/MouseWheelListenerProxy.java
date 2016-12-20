@@ -13,10 +13,10 @@ public class MouseWheelListenerProxy implements java.awt.event.MouseWheelListene
 
     /// public abstract void java.awt.event.MouseWheelListener.mouseWheelMoved(java.awt.event.MouseWheelEvent)
 
-    public native void __mouseWheelMoved( java.awt.event.MouseWheelEvent e );
+    public native void __mouseWheelMoved( java.awt.event.MouseWheelEvent arg0 );
 
-    public void mouseWheelMoved( java.awt.event.MouseWheelEvent e ) {
-        __mouseWheelMoved( e );
+    public void mouseWheelMoved( java.awt.event.MouseWheelEvent arg0 ) {
+        __mouseWheelMoved( arg0 );
     }
 
 }

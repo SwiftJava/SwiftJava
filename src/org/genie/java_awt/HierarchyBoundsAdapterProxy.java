@@ -16,34 +16,34 @@ public class HierarchyBoundsAdapterProxy extends java.awt.event.HierarchyBoundsA
 
     /// public void java.awt.event.HierarchyBoundsAdapter.ancestorMoved(java.awt.event.HierarchyEvent)
 
-    public native void __ancestorMoved( java.awt.event.HierarchyEvent e );
+    public native void __ancestorMoved( java.awt.event.HierarchyEvent arg0 );
 
     boolean entered_ancestorMoved_0;
 
-    public void ancestorMoved( java.awt.event.HierarchyEvent e ) {
+    public void ancestorMoved( java.awt.event.HierarchyEvent arg0 ) {
         if ( !entered_ancestorMoved_0 ) {
             entered_ancestorMoved_0 = true;
-            __ancestorMoved( e );
+            __ancestorMoved( arg0 );
             entered_ancestorMoved_0 = false;
         }
         else
-            super.ancestorMoved( e );
+            super.ancestorMoved( arg0 );
     }
 
     /// public void java.awt.event.HierarchyBoundsAdapter.ancestorResized(java.awt.event.HierarchyEvent)
 
-    public native void __ancestorResized( java.awt.event.HierarchyEvent e );
+    public native void __ancestorResized( java.awt.event.HierarchyEvent arg0 );
 
     boolean entered_ancestorResized_1;
 
-    public void ancestorResized( java.awt.event.HierarchyEvent e ) {
+    public void ancestorResized( java.awt.event.HierarchyEvent arg0 ) {
         if ( !entered_ancestorResized_1 ) {
             entered_ancestorResized_1 = true;
-            __ancestorResized( e );
+            __ancestorResized( arg0 );
             entered_ancestorResized_1 = false;
         }
         else
-            super.ancestorResized( e );
+            super.ancestorResized( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

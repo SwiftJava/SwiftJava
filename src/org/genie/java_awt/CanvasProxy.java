@@ -16,41 +16,41 @@ public class CanvasProxy extends java.awt.Canvas {
 
     /// public java.awt.Canvas(java.awt.GraphicsConfiguration)
 
-    CanvasProxy( java.awt.GraphicsConfiguration config , long swiftObject ) {
-        super( config );
+    CanvasProxy( java.awt.GraphicsConfiguration arg0 , long swiftObject ) {
+        super( arg0 );
         this.swiftObject = swiftObject;
     }
 
     /// public void java.awt.Canvas.update(java.awt.Graphics)
 
-    public native void __update( java.awt.Graphics g );
+    public native void __update( java.awt.Graphics arg0 );
 
     boolean entered_update_0;
 
-    public void update( java.awt.Graphics g ) {
+    public void update( java.awt.Graphics arg0 ) {
         if ( !entered_update_0 ) {
             entered_update_0 = true;
-            __update( g );
+            __update( arg0 );
             entered_update_0 = false;
         }
         else
-            super.update( g );
+            super.update( arg0 );
     }
 
     /// public void java.awt.Canvas.paint(java.awt.Graphics)
 
-    public native void __paint( java.awt.Graphics g );
+    public native void __paint( java.awt.Graphics arg0 );
 
     boolean entered_paint_1;
 
-    public void paint( java.awt.Graphics g ) {
+    public void paint( java.awt.Graphics arg0 ) {
         if ( !entered_paint_1 ) {
             entered_paint_1 = true;
-            __paint( g );
+            __paint( arg0 );
             entered_paint_1 = false;
         }
         else
-            super.paint( g );
+            super.paint( arg0 );
     }
 
 }

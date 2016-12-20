@@ -13,10 +13,10 @@ public class ItemListenerProxy implements java.awt.event.ItemListener {
 
     /// public abstract void java.awt.event.ItemListener.itemStateChanged(java.awt.event.ItemEvent)
 
-    public native void __itemStateChanged( java.awt.event.ItemEvent e );
+    public native void __itemStateChanged( java.awt.event.ItemEvent arg0 );
 
-    public void itemStateChanged( java.awt.event.ItemEvent e ) {
-        __itemStateChanged( e );
+    public void itemStateChanged( java.awt.event.ItemEvent arg0 ) {
+        __itemStateChanged( arg0 );
     }
 
 }

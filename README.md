@@ -217,9 +217,6 @@ PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
 FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-This License does not apply to any generated code in the java* submodules which
-are provided under the provisions of "Fair Use" but your use is ultimately subject
-to the Oracle Binary Code License Agreement available here:
-
-[http://www.oracle.com/technetwork/java/javase/terms/license/index.html](http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
-
+This License does not apply to the code generated from the Apple distribution of the Java VM
+which are provided under the provisions of "Fair Use" but your use is ultimately subject
+to the original License Agreement.

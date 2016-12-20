@@ -13,10 +13,10 @@ public class TreeSelectionListenerProxy implements javax.swing.event.TreeSelecti
 
     /// public abstract void javax.swing.event.TreeSelectionListener.valueChanged(javax.swing.event.TreeSelectionEvent)
 
-    public native void __valueChanged( javax.swing.event.TreeSelectionEvent e );
+    public native void __valueChanged( javax.swing.event.TreeSelectionEvent arg0 );
 
-    public void valueChanged( javax.swing.event.TreeSelectionEvent e ) {
-        __valueChanged( e );
+    public void valueChanged( javax.swing.event.TreeSelectionEvent arg0 ) {
+        __valueChanged( arg0 );
     }
 
 }

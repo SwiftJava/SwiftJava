@@ -13,26 +13,26 @@ public class DocumentListenerProxy implements javax.swing.event.DocumentListener
 
     /// public abstract void javax.swing.event.DocumentListener.insertUpdate(javax.swing.event.DocumentEvent)
 
-    public native void __insertUpdate( javax.swing.event.DocumentEvent e );
+    public native void __insertUpdate( javax.swing.event.DocumentEvent arg0 );
 
-    public void insertUpdate( javax.swing.event.DocumentEvent e ) {
-        __insertUpdate( e );
+    public void insertUpdate( javax.swing.event.DocumentEvent arg0 ) {
+        __insertUpdate( arg0 );
     }
 
     /// public abstract void javax.swing.event.DocumentListener.removeUpdate(javax.swing.event.DocumentEvent)
 
-    public native void __removeUpdate( javax.swing.event.DocumentEvent e );
+    public native void __removeUpdate( javax.swing.event.DocumentEvent arg0 );
 
-    public void removeUpdate( javax.swing.event.DocumentEvent e ) {
-        __removeUpdate( e );
+    public void removeUpdate( javax.swing.event.DocumentEvent arg0 ) {
+        __removeUpdate( arg0 );
     }
 
     /// public abstract void javax.swing.event.DocumentListener.changedUpdate(javax.swing.event.DocumentEvent)
 
-    public native void __changedUpdate( javax.swing.event.DocumentEvent e );
+    public native void __changedUpdate( javax.swing.event.DocumentEvent arg0 );
 
-    public void changedUpdate( javax.swing.event.DocumentEvent e ) {
-        __changedUpdate( e );
+    public void changedUpdate( javax.swing.event.DocumentEvent arg0 ) {
+        __changedUpdate( arg0 );
     }
 
 }

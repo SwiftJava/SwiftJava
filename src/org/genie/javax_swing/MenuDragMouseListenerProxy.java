@@ -13,34 +13,34 @@ public class MenuDragMouseListenerProxy implements javax.swing.event.MenuDragMou
 
     /// public abstract void javax.swing.event.MenuDragMouseListener.menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent)
 
-    public native void __menuDragMouseEntered( javax.swing.event.MenuDragMouseEvent e );
+    public native void __menuDragMouseEntered( javax.swing.event.MenuDragMouseEvent arg0 );
 
-    public void menuDragMouseEntered( javax.swing.event.MenuDragMouseEvent e ) {
-        __menuDragMouseEntered( e );
+    public void menuDragMouseEntered( javax.swing.event.MenuDragMouseEvent arg0 ) {
+        __menuDragMouseEntered( arg0 );
     }
 
     /// public abstract void javax.swing.event.MenuDragMouseListener.menuDragMouseExited(javax.swing.event.MenuDragMouseEvent)
 
-    public native void __menuDragMouseExited( javax.swing.event.MenuDragMouseEvent e );
+    public native void __menuDragMouseExited( javax.swing.event.MenuDragMouseEvent arg0 );
 
-    public void menuDragMouseExited( javax.swing.event.MenuDragMouseEvent e ) {
-        __menuDragMouseExited( e );
+    public void menuDragMouseExited( javax.swing.event.MenuDragMouseEvent arg0 ) {
+        __menuDragMouseExited( arg0 );
     }
 
     /// public abstract void javax.swing.event.MenuDragMouseListener.menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent)
 
-    public native void __menuDragMouseDragged( javax.swing.event.MenuDragMouseEvent e );
+    public native void __menuDragMouseDragged( javax.swing.event.MenuDragMouseEvent arg0 );
 
-    public void menuDragMouseDragged( javax.swing.event.MenuDragMouseEvent e ) {
-        __menuDragMouseDragged( e );
+    public void menuDragMouseDragged( javax.swing.event.MenuDragMouseEvent arg0 ) {
+        __menuDragMouseDragged( arg0 );
     }
 
     /// public abstract void javax.swing.event.MenuDragMouseListener.menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent)
 
-    public native void __menuDragMouseReleased( javax.swing.event.MenuDragMouseEvent e );
+    public native void __menuDragMouseReleased( javax.swing.event.MenuDragMouseEvent arg0 );
 
-    public void menuDragMouseReleased( javax.swing.event.MenuDragMouseEvent e ) {
-        __menuDragMouseReleased( e );
+    public void menuDragMouseReleased( javax.swing.event.MenuDragMouseEvent arg0 ) {
+        __menuDragMouseReleased( arg0 );
     }
 
 }

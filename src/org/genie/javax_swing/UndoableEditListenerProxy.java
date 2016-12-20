@@ -13,10 +13,10 @@ public class UndoableEditListenerProxy implements javax.swing.event.UndoableEdit
 
     /// public abstract void javax.swing.event.UndoableEditListener.undoableEditHappened(javax.swing.event.UndoableEditEvent)
 
-    public native void __undoableEditHappened( javax.swing.event.UndoableEditEvent e );
+    public native void __undoableEditHappened( javax.swing.event.UndoableEditEvent arg0 );
 
-    public void undoableEditHappened( javax.swing.event.UndoableEditEvent e ) {
-        __undoableEditHappened( e );
+    public void undoableEditHappened( javax.swing.event.UndoableEditEvent arg0 ) {
+        __undoableEditHappened( arg0 );
     }
 
 }

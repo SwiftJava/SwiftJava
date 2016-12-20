@@ -16,25 +16,25 @@ public class PlainDocumentProxy extends javax.swing.text.PlainDocument {
 
     /// public javax.swing.text.PlainDocument(javax.swing.text.AbstractDocument$Content)
 
-    PlainDocumentProxy( javax.swing.text.AbstractDocument.Content c , long swiftObject ) {
-        super( c );
+    PlainDocumentProxy( javax.swing.text.AbstractDocument.Content arg0 , long swiftObject ) {
+        super( arg0 );
         this.swiftObject = swiftObject;
     }
 
     /// public void javax.swing.text.PlainDocument.insertString(int,java.lang.String,javax.swing.text.AttributeSet) throws javax.swing.text.BadLocationException
 
-    public native void __insertString( int offs, java.lang.String str, javax.swing.text.AttributeSet a );
+    public native void __insertString( int arg0, java.lang.String arg1, javax.swing.text.AttributeSet arg2 );
 
     boolean entered_insertString_0;
 
-    public void insertString( int offs, java.lang.String str, javax.swing.text.AttributeSet a ) throws javax.swing.text.BadLocationException {
+    public void insertString( int arg0, java.lang.String arg1, javax.swing.text.AttributeSet arg2 ) throws javax.swing.text.BadLocationException {
         if ( !entered_insertString_0 ) {
             entered_insertString_0 = true;
-            __insertString( offs, str, a );
+            __insertString( arg0, arg1, arg2 );
             entered_insertString_0 = false;
         }
         else
-            super.insertString( offs, str, a );
+            super.insertString( arg0, arg1, arg2 );
     }
 
 }

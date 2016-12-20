@@ -13,26 +13,26 @@ public class MenuKeyListenerProxy implements javax.swing.event.MenuKeyListener {
 
     /// public abstract void javax.swing.event.MenuKeyListener.menuKeyPressed(javax.swing.event.MenuKeyEvent)
 
-    public native void __menuKeyPressed( javax.swing.event.MenuKeyEvent e );
+    public native void __menuKeyPressed( javax.swing.event.MenuKeyEvent arg0 );
 
-    public void menuKeyPressed( javax.swing.event.MenuKeyEvent e ) {
-        __menuKeyPressed( e );
+    public void menuKeyPressed( javax.swing.event.MenuKeyEvent arg0 ) {
+        __menuKeyPressed( arg0 );
     }
 
     /// public abstract void javax.swing.event.MenuKeyListener.menuKeyReleased(javax.swing.event.MenuKeyEvent)
 
-    public native void __menuKeyReleased( javax.swing.event.MenuKeyEvent e );
+    public native void __menuKeyReleased( javax.swing.event.MenuKeyEvent arg0 );
 
-    public void menuKeyReleased( javax.swing.event.MenuKeyEvent e ) {
-        __menuKeyReleased( e );
+    public void menuKeyReleased( javax.swing.event.MenuKeyEvent arg0 ) {
+        __menuKeyReleased( arg0 );
     }
 
     /// public abstract void javax.swing.event.MenuKeyListener.menuKeyTyped(javax.swing.event.MenuKeyEvent)
 
-    public native void __menuKeyTyped( javax.swing.event.MenuKeyEvent e );
+    public native void __menuKeyTyped( javax.swing.event.MenuKeyEvent arg0 );
 
-    public void menuKeyTyped( javax.swing.event.MenuKeyEvent e ) {
-        __menuKeyTyped( e );
+    public void menuKeyTyped( javax.swing.event.MenuKeyEvent arg0 ) {
+        __menuKeyTyped( arg0 );
     }
 
 }

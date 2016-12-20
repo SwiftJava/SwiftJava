@@ -14,116 +14,116 @@ public class InternalFrameAdapterProxy extends javax.swing.event.InternalFrameAd
         this.swiftObject = swiftObject;
     }
 
-    /// public void javax.swing.event.InternalFrameAdapter.internalFrameOpened(javax.swing.event.InternalFrameEvent)
-
-    public native void __internalFrameOpened( javax.swing.event.InternalFrameEvent e );
-
-    boolean entered_internalFrameOpened_0;
-
-    public void internalFrameOpened( javax.swing.event.InternalFrameEvent e ) {
-        if ( !entered_internalFrameOpened_0 ) {
-            entered_internalFrameOpened_0 = true;
-            __internalFrameOpened( e );
-            entered_internalFrameOpened_0 = false;
-        }
-        else
-            super.internalFrameOpened( e );
-    }
-
     /// public void javax.swing.event.InternalFrameAdapter.internalFrameClosing(javax.swing.event.InternalFrameEvent)
 
-    public native void __internalFrameClosing( javax.swing.event.InternalFrameEvent e );
+    public native void __internalFrameClosing( javax.swing.event.InternalFrameEvent arg0 );
 
-    boolean entered_internalFrameClosing_1;
+    boolean entered_internalFrameClosing_0;
 
-    public void internalFrameClosing( javax.swing.event.InternalFrameEvent e ) {
-        if ( !entered_internalFrameClosing_1 ) {
-            entered_internalFrameClosing_1 = true;
-            __internalFrameClosing( e );
-            entered_internalFrameClosing_1 = false;
+    public void internalFrameClosing( javax.swing.event.InternalFrameEvent arg0 ) {
+        if ( !entered_internalFrameClosing_0 ) {
+            entered_internalFrameClosing_0 = true;
+            __internalFrameClosing( arg0 );
+            entered_internalFrameClosing_0 = false;
         }
         else
-            super.internalFrameClosing( e );
+            super.internalFrameClosing( arg0 );
+    }
+
+    /// public void javax.swing.event.InternalFrameAdapter.internalFrameOpened(javax.swing.event.InternalFrameEvent)
+
+    public native void __internalFrameOpened( javax.swing.event.InternalFrameEvent arg0 );
+
+    boolean entered_internalFrameOpened_1;
+
+    public void internalFrameOpened( javax.swing.event.InternalFrameEvent arg0 ) {
+        if ( !entered_internalFrameOpened_1 ) {
+            entered_internalFrameOpened_1 = true;
+            __internalFrameOpened( arg0 );
+            entered_internalFrameOpened_1 = false;
+        }
+        else
+            super.internalFrameOpened( arg0 );
     }
 
     /// public void javax.swing.event.InternalFrameAdapter.internalFrameClosed(javax.swing.event.InternalFrameEvent)
 
-    public native void __internalFrameClosed( javax.swing.event.InternalFrameEvent e );
+    public native void __internalFrameClosed( javax.swing.event.InternalFrameEvent arg0 );
 
     boolean entered_internalFrameClosed_2;
 
-    public void internalFrameClosed( javax.swing.event.InternalFrameEvent e ) {
+    public void internalFrameClosed( javax.swing.event.InternalFrameEvent arg0 ) {
         if ( !entered_internalFrameClosed_2 ) {
             entered_internalFrameClosed_2 = true;
-            __internalFrameClosed( e );
+            __internalFrameClosed( arg0 );
             entered_internalFrameClosed_2 = false;
         }
         else
-            super.internalFrameClosed( e );
+            super.internalFrameClosed( arg0 );
     }
 
     /// public void javax.swing.event.InternalFrameAdapter.internalFrameIconified(javax.swing.event.InternalFrameEvent)
 
-    public native void __internalFrameIconified( javax.swing.event.InternalFrameEvent e );
+    public native void __internalFrameIconified( javax.swing.event.InternalFrameEvent arg0 );
 
     boolean entered_internalFrameIconified_3;
 
-    public void internalFrameIconified( javax.swing.event.InternalFrameEvent e ) {
+    public void internalFrameIconified( javax.swing.event.InternalFrameEvent arg0 ) {
         if ( !entered_internalFrameIconified_3 ) {
             entered_internalFrameIconified_3 = true;
-            __internalFrameIconified( e );
+            __internalFrameIconified( arg0 );
             entered_internalFrameIconified_3 = false;
         }
         else
-            super.internalFrameIconified( e );
+            super.internalFrameIconified( arg0 );
     }
 
     /// public void javax.swing.event.InternalFrameAdapter.internalFrameDeiconified(javax.swing.event.InternalFrameEvent)
 
-    public native void __internalFrameDeiconified( javax.swing.event.InternalFrameEvent e );
+    public native void __internalFrameDeiconified( javax.swing.event.InternalFrameEvent arg0 );
 
     boolean entered_internalFrameDeiconified_4;
 
-    public void internalFrameDeiconified( javax.swing.event.InternalFrameEvent e ) {
+    public void internalFrameDeiconified( javax.swing.event.InternalFrameEvent arg0 ) {
         if ( !entered_internalFrameDeiconified_4 ) {
             entered_internalFrameDeiconified_4 = true;
-            __internalFrameDeiconified( e );
+            __internalFrameDeiconified( arg0 );
             entered_internalFrameDeiconified_4 = false;
         }
         else
-            super.internalFrameDeiconified( e );
+            super.internalFrameDeiconified( arg0 );
     }
 
     /// public void javax.swing.event.InternalFrameAdapter.internalFrameActivated(javax.swing.event.InternalFrameEvent)
 
-    public native void __internalFrameActivated( javax.swing.event.InternalFrameEvent e );
+    public native void __internalFrameActivated( javax.swing.event.InternalFrameEvent arg0 );
 
     boolean entered_internalFrameActivated_5;
 
-    public void internalFrameActivated( javax.swing.event.InternalFrameEvent e ) {
+    public void internalFrameActivated( javax.swing.event.InternalFrameEvent arg0 ) {
         if ( !entered_internalFrameActivated_5 ) {
             entered_internalFrameActivated_5 = true;
-            __internalFrameActivated( e );
+            __internalFrameActivated( arg0 );
             entered_internalFrameActivated_5 = false;
         }
         else
-            super.internalFrameActivated( e );
+            super.internalFrameActivated( arg0 );
     }
 
     /// public void javax.swing.event.InternalFrameAdapter.internalFrameDeactivated(javax.swing.event.InternalFrameEvent)
 
-    public native void __internalFrameDeactivated( javax.swing.event.InternalFrameEvent e );
+    public native void __internalFrameDeactivated( javax.swing.event.InternalFrameEvent arg0 );
 
     boolean entered_internalFrameDeactivated_6;
 
-    public void internalFrameDeactivated( javax.swing.event.InternalFrameEvent e ) {
+    public void internalFrameDeactivated( javax.swing.event.InternalFrameEvent arg0 ) {
         if ( !entered_internalFrameDeactivated_6 ) {
             entered_internalFrameDeactivated_6 = true;
-            __internalFrameDeactivated( e );
+            __internalFrameDeactivated( arg0 );
             entered_internalFrameDeactivated_6 = false;
         }
         else
-            super.internalFrameDeactivated( e );
+            super.internalFrameDeactivated( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

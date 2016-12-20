@@ -13,10 +13,10 @@ public class WindowStateListenerProxy implements java.awt.event.WindowStateListe
 
     /// public abstract void java.awt.event.WindowStateListener.windowStateChanged(java.awt.event.WindowEvent)
 
-    public native void __windowStateChanged( java.awt.event.WindowEvent e );
+    public native void __windowStateChanged( java.awt.event.WindowEvent arg0 );
 
-    public void windowStateChanged( java.awt.event.WindowEvent e ) {
-        __windowStateChanged( e );
+    public void windowStateChanged( java.awt.event.WindowEvent arg0 ) {
+        __windowStateChanged( arg0 );
     }
 
 }

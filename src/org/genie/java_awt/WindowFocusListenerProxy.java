@@ -13,18 +13,18 @@ public class WindowFocusListenerProxy implements java.awt.event.WindowFocusListe
 
     /// public abstract void java.awt.event.WindowFocusListener.windowGainedFocus(java.awt.event.WindowEvent)
 
-    public native void __windowGainedFocus( java.awt.event.WindowEvent e );
+    public native void __windowGainedFocus( java.awt.event.WindowEvent arg0 );
 
-    public void windowGainedFocus( java.awt.event.WindowEvent e ) {
-        __windowGainedFocus( e );
+    public void windowGainedFocus( java.awt.event.WindowEvent arg0 ) {
+        __windowGainedFocus( arg0 );
     }
 
     /// public abstract void java.awt.event.WindowFocusListener.windowLostFocus(java.awt.event.WindowEvent)
 
-    public native void __windowLostFocus( java.awt.event.WindowEvent e );
+    public native void __windowLostFocus( java.awt.event.WindowEvent arg0 );
 
-    public void windowLostFocus( java.awt.event.WindowEvent e ) {
-        __windowLostFocus( e );
+    public void windowLostFocus( java.awt.event.WindowEvent arg0 ) {
+        __windowLostFocus( arg0 );
     }
 
 }

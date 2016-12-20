@@ -9,36 +9,8 @@ public class DefaultTableModelProxy extends javax.swing.table.DefaultTableModel 
 
     /// public javax.swing.table.DefaultTableModel(java.util.Vector,int)
 
-    DefaultTableModelProxy( java.util.Vector columnNames, int rowCount , long swiftObject ) {
-        super( columnNames, rowCount );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.table.DefaultTableModel(java.lang.Object[],int)
-
-    DefaultTableModelProxy( java.lang.Object[] columnNames, int rowCount , long swiftObject ) {
-        super( columnNames, rowCount );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.table.DefaultTableModel(java.util.Vector,java.util.Vector)
-
-    DefaultTableModelProxy( java.util.Vector data, java.util.Vector columnNames , long swiftObject ) {
-        super( data, columnNames );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.table.DefaultTableModel(java.lang.Object[][],java.lang.Object[])
-
-    DefaultTableModelProxy( java.lang.Object[][] data, java.lang.Object[] columnNames , long swiftObject ) {
-        super( data, columnNames );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.table.DefaultTableModel(int,int)
-
-    DefaultTableModelProxy( int rowCount, int columnCount , long swiftObject ) {
-        super( rowCount, columnCount );
+    DefaultTableModelProxy( java.util.Vector arg0, int arg1 , long swiftObject ) {
+        super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }
 
@@ -49,21 +21,49 @@ public class DefaultTableModelProxy extends javax.swing.table.DefaultTableModel 
         this.swiftObject = swiftObject;
     }
 
+    /// public javax.swing.table.DefaultTableModel(int,int)
+
+    DefaultTableModelProxy( int arg0, int arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.table.DefaultTableModel(java.lang.Object[][],java.lang.Object[])
+
+    DefaultTableModelProxy( java.lang.Object[][] arg0, java.lang.Object[] arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.table.DefaultTableModel(java.lang.Object[],int)
+
+    DefaultTableModelProxy( java.lang.Object[] arg0, int arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.table.DefaultTableModel(java.util.Vector,java.util.Vector)
+
+    DefaultTableModelProxy( java.util.Vector arg0, java.util.Vector arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
     /// public boolean javax.swing.table.DefaultTableModel.isCellEditable(int,int)
 
-    public native boolean __isCellEditable( int row, int column );
+    public native boolean __isCellEditable( int arg0, int arg1 );
 
     boolean entered_isCellEditable_0;
 
-    public boolean isCellEditable( int row, int column ) {
+    public boolean isCellEditable( int arg0, int arg1 ) {
         if ( !entered_isCellEditable_0 ) {
             entered_isCellEditable_0 = true;
-            boolean __return = __isCellEditable( row, column );
+            boolean __return = __isCellEditable( arg0, arg1 );
             entered_isCellEditable_0 = false;
             return __return;
         }
         else
-            return super.isCellEditable( row, column );
+            return super.isCellEditable( arg0, arg1 );
     }
 
 }

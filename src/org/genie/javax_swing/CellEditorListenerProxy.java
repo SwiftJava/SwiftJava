@@ -13,18 +13,18 @@ public class CellEditorListenerProxy implements javax.swing.event.CellEditorList
 
     /// public abstract void javax.swing.event.CellEditorListener.editingStopped(javax.swing.event.ChangeEvent)
 
-    public native void __editingStopped( javax.swing.event.ChangeEvent e );
+    public native void __editingStopped( javax.swing.event.ChangeEvent arg0 );
 
-    public void editingStopped( javax.swing.event.ChangeEvent e ) {
-        __editingStopped( e );
+    public void editingStopped( javax.swing.event.ChangeEvent arg0 ) {
+        __editingStopped( arg0 );
     }
 
     /// public abstract void javax.swing.event.CellEditorListener.editingCanceled(javax.swing.event.ChangeEvent)
 
-    public native void __editingCanceled( javax.swing.event.ChangeEvent e );
+    public native void __editingCanceled( javax.swing.event.ChangeEvent arg0 );
 
-    public void editingCanceled( javax.swing.event.ChangeEvent e ) {
-        __editingCanceled( e );
+    public void editingCanceled( javax.swing.event.ChangeEvent arg0 ) {
+        __editingCanceled( arg0 );
     }
 
 }

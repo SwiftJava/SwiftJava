@@ -7,6 +7,27 @@ public class JTableProxy extends javax.swing.JTable {
 
     long swiftObject;
 
+    /// public javax.swing.JTable()
+
+    JTableProxy( long swiftObject ) {
+        super( );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JTable(javax.swing.table.TableModel)
+
+    JTableProxy( javax.swing.table.TableModel arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JTable(javax.swing.table.TableModel,javax.swing.table.TableColumnModel)
+
+    JTableProxy( javax.swing.table.TableModel arg0, javax.swing.table.TableColumnModel arg1 , long swiftObject ) {
+        super( arg0, arg1 );
+        this.swiftObject = swiftObject;
+    }
+
     /// public javax.swing.JTable(javax.swing.table.TableModel,javax.swing.table.TableColumnModel,javax.swing.ListSelectionModel)
 
     JTableProxy( javax.swing.table.TableModel arg0, javax.swing.table.TableColumnModel arg1, javax.swing.ListSelectionModel arg2 , long swiftObject ) {
@@ -31,27 +52,6 @@ public class JTableProxy extends javax.swing.JTable {
     /// public javax.swing.JTable(java.lang.Object[][],java.lang.Object[])
 
     JTableProxy( java.lang.Object[][] arg0, java.lang.Object[] arg1 , long swiftObject ) {
-        super( arg0, arg1 );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JTable()
-
-    JTableProxy( long swiftObject ) {
-        super( );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JTable(javax.swing.table.TableModel)
-
-    JTableProxy( javax.swing.table.TableModel arg0 , long swiftObject ) {
-        super( arg0 );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JTable(javax.swing.table.TableModel,javax.swing.table.TableColumnModel)
-
-    JTableProxy( javax.swing.table.TableModel arg0, javax.swing.table.TableColumnModel arg1 , long swiftObject ) {
         super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }

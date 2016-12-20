@@ -13,10 +13,10 @@ public class HyperlinkListenerProxy implements javax.swing.event.HyperlinkListen
 
     /// public abstract void javax.swing.event.HyperlinkListener.hyperlinkUpdate(javax.swing.event.HyperlinkEvent)
 
-    public native void __hyperlinkUpdate( javax.swing.event.HyperlinkEvent e );
+    public native void __hyperlinkUpdate( javax.swing.event.HyperlinkEvent arg0 );
 
-    public void hyperlinkUpdate( javax.swing.event.HyperlinkEvent e ) {
-        __hyperlinkUpdate( e );
+    public void hyperlinkUpdate( javax.swing.event.HyperlinkEvent arg0 ) {
+        __hyperlinkUpdate( arg0 );
     }
 
 }

@@ -13,18 +13,18 @@ public class NodeChangeListenerProxy implements java.util.prefs.NodeChangeListen
 
     /// public abstract void java.util.prefs.NodeChangeListener.childAdded(java.util.prefs.NodeChangeEvent)
 
-    public native void __childAdded( java.util.prefs.NodeChangeEvent evt );
+    public native void __childAdded( java.util.prefs.NodeChangeEvent arg0 );
 
-    public void childAdded( java.util.prefs.NodeChangeEvent evt ) {
-        __childAdded( evt );
+    public void childAdded( java.util.prefs.NodeChangeEvent arg0 ) {
+        __childAdded( arg0 );
     }
 
     /// public abstract void java.util.prefs.NodeChangeListener.childRemoved(java.util.prefs.NodeChangeEvent)
 
-    public native void __childRemoved( java.util.prefs.NodeChangeEvent evt );
+    public native void __childRemoved( java.util.prefs.NodeChangeEvent arg0 );
 
-    public void childRemoved( java.util.prefs.NodeChangeEvent evt ) {
-        __childRemoved( evt );
+    public void childRemoved( java.util.prefs.NodeChangeEvent arg0 ) {
+        __childRemoved( arg0 );
     }
 
 }

@@ -7,38 +7,38 @@ public class JWindowProxy extends javax.swing.JWindow {
 
     long swiftObject;
 
-    /// public javax.swing.JWindow(java.awt.Window,java.awt.GraphicsConfiguration)
+    /// public javax.swing.JWindow()
 
-    JWindowProxy( java.awt.Window owner, java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( owner, gc );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JWindow(java.awt.Window)
-
-    JWindowProxy( java.awt.Window owner , long swiftObject ) {
-        super( owner );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JWindow(java.awt.Frame)
-
-    JWindowProxy( java.awt.Frame owner , long swiftObject ) {
-        super( owner );
+    JWindowProxy( long swiftObject ) {
+        super( );
         this.swiftObject = swiftObject;
     }
 
     /// public javax.swing.JWindow(java.awt.GraphicsConfiguration)
 
-    JWindowProxy( java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( gc );
+    JWindowProxy( java.awt.GraphicsConfiguration arg0 , long swiftObject ) {
+        super( arg0 );
         this.swiftObject = swiftObject;
     }
 
-    /// public javax.swing.JWindow()
+    /// public javax.swing.JWindow(java.awt.Frame)
 
-    JWindowProxy( long swiftObject ) {
-        super( );
+    JWindowProxy( java.awt.Frame arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JWindow(java.awt.Window)
+
+    JWindowProxy( java.awt.Window arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JWindow(java.awt.Window,java.awt.GraphicsConfiguration)
+
+    JWindowProxy( java.awt.Window arg0, java.awt.GraphicsConfiguration arg1 , long swiftObject ) {
+        super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }
 

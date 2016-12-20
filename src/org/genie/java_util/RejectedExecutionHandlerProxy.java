@@ -13,10 +13,10 @@ public class RejectedExecutionHandlerProxy implements java.util.concurrent.Rejec
 
     /// public abstract void java.util.concurrent.RejectedExecutionHandler.rejectedExecution(java.lang.Runnable,java.util.concurrent.ThreadPoolExecutor)
 
-    public native void __rejectedExecution( java.lang.Runnable r, java.util.concurrent.ThreadPoolExecutor executor );
+    public native void __rejectedExecution( java.lang.Runnable arg0, java.util.concurrent.ThreadPoolExecutor arg1 );
 
-    public void rejectedExecution( java.lang.Runnable r, java.util.concurrent.ThreadPoolExecutor executor ) {
-        __rejectedExecution( r, executor );
+    public void rejectedExecution( java.lang.Runnable arg0, java.util.concurrent.ThreadPoolExecutor arg1 ) {
+        __rejectedExecution( arg0, arg1 );
     }
 
 }

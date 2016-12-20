@@ -14,97 +14,17 @@ public class ApplicationAdapterProxy extends com.apple.eawt.ApplicationAdapter {
         this.swiftObject = swiftObject;
     }
 
-    /// public void com.apple.eawt.ApplicationAdapter.handleOpenApplication(com.apple.eawt.ApplicationEvent)
-
-    public native void __handleOpenApplication( com.apple.eawt.ApplicationEvent arg0 );
-
-    boolean entered_handleOpenApplication_0;
-
-    public void handleOpenApplication( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handleOpenApplication_0 ) {
-            entered_handleOpenApplication_0 = true;
-            __handleOpenApplication( arg0 );
-            entered_handleOpenApplication_0 = false;
-        }
-        else
-            super.handleOpenApplication( arg0 );
-    }
-
-    /// public void com.apple.eawt.ApplicationAdapter.handleOpenFile(com.apple.eawt.ApplicationEvent)
-
-    public native void __handleOpenFile( com.apple.eawt.ApplicationEvent arg0 );
-
-    boolean entered_handleOpenFile_1;
-
-    public void handleOpenFile( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handleOpenFile_1 ) {
-            entered_handleOpenFile_1 = true;
-            __handleOpenFile( arg0 );
-            entered_handleOpenFile_1 = false;
-        }
-        else
-            super.handleOpenFile( arg0 );
-    }
-
-    /// public void com.apple.eawt.ApplicationAdapter.handlePrintFile(com.apple.eawt.ApplicationEvent)
-
-    public native void __handlePrintFile( com.apple.eawt.ApplicationEvent arg0 );
-
-    boolean entered_handlePrintFile_2;
-
-    public void handlePrintFile( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handlePrintFile_2 ) {
-            entered_handlePrintFile_2 = true;
-            __handlePrintFile( arg0 );
-            entered_handlePrintFile_2 = false;
-        }
-        else
-            super.handlePrintFile( arg0 );
-    }
-
-    /// public void com.apple.eawt.ApplicationAdapter.handleQuit(com.apple.eawt.ApplicationEvent)
-
-    public native void __handleQuit( com.apple.eawt.ApplicationEvent arg0 );
-
-    boolean entered_handleQuit_3;
-
-    public void handleQuit( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handleQuit_3 ) {
-            entered_handleQuit_3 = true;
-            __handleQuit( arg0 );
-            entered_handleQuit_3 = false;
-        }
-        else
-            super.handleQuit( arg0 );
-    }
-
-    /// public void com.apple.eawt.ApplicationAdapter.handleReOpenApplication(com.apple.eawt.ApplicationEvent)
-
-    public native void __handleReOpenApplication( com.apple.eawt.ApplicationEvent arg0 );
-
-    boolean entered_handleReOpenApplication_4;
-
-    public void handleReOpenApplication( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handleReOpenApplication_4 ) {
-            entered_handleReOpenApplication_4 = true;
-            __handleReOpenApplication( arg0 );
-            entered_handleReOpenApplication_4 = false;
-        }
-        else
-            super.handleReOpenApplication( arg0 );
-    }
-
     /// public void com.apple.eawt.ApplicationAdapter.handleAbout(com.apple.eawt.ApplicationEvent)
 
     public native void __handleAbout( com.apple.eawt.ApplicationEvent arg0 );
 
-    boolean entered_handleAbout_5;
+    boolean entered_handleAbout_0;
 
     public void handleAbout( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handleAbout_5 ) {
-            entered_handleAbout_5 = true;
+        if ( !entered_handleAbout_0 ) {
+            entered_handleAbout_0 = true;
             __handleAbout( arg0 );
-            entered_handleAbout_5 = false;
+            entered_handleAbout_0 = false;
         }
         else
             super.handleAbout( arg0 );
@@ -114,16 +34,96 @@ public class ApplicationAdapterProxy extends com.apple.eawt.ApplicationAdapter {
 
     public native void __handlePreferences( com.apple.eawt.ApplicationEvent arg0 );
 
-    boolean entered_handlePreferences_6;
+    boolean entered_handlePreferences_1;
 
     public void handlePreferences( com.apple.eawt.ApplicationEvent arg0 ) {
-        if ( !entered_handlePreferences_6 ) {
-            entered_handlePreferences_6 = true;
+        if ( !entered_handlePreferences_1 ) {
+            entered_handlePreferences_1 = true;
             __handlePreferences( arg0 );
-            entered_handlePreferences_6 = false;
+            entered_handlePreferences_1 = false;
         }
         else
             super.handlePreferences( arg0 );
+    }
+
+    /// public void com.apple.eawt.ApplicationAdapter.handleOpenApplication(com.apple.eawt.ApplicationEvent)
+
+    public native void __handleOpenApplication( com.apple.eawt.ApplicationEvent arg0 );
+
+    boolean entered_handleOpenApplication_2;
+
+    public void handleOpenApplication( com.apple.eawt.ApplicationEvent arg0 ) {
+        if ( !entered_handleOpenApplication_2 ) {
+            entered_handleOpenApplication_2 = true;
+            __handleOpenApplication( arg0 );
+            entered_handleOpenApplication_2 = false;
+        }
+        else
+            super.handleOpenApplication( arg0 );
+    }
+
+    /// public void com.apple.eawt.ApplicationAdapter.handleOpenFile(com.apple.eawt.ApplicationEvent)
+
+    public native void __handleOpenFile( com.apple.eawt.ApplicationEvent arg0 );
+
+    boolean entered_handleOpenFile_3;
+
+    public void handleOpenFile( com.apple.eawt.ApplicationEvent arg0 ) {
+        if ( !entered_handleOpenFile_3 ) {
+            entered_handleOpenFile_3 = true;
+            __handleOpenFile( arg0 );
+            entered_handleOpenFile_3 = false;
+        }
+        else
+            super.handleOpenFile( arg0 );
+    }
+
+    /// public void com.apple.eawt.ApplicationAdapter.handlePrintFile(com.apple.eawt.ApplicationEvent)
+
+    public native void __handlePrintFile( com.apple.eawt.ApplicationEvent arg0 );
+
+    boolean entered_handlePrintFile_4;
+
+    public void handlePrintFile( com.apple.eawt.ApplicationEvent arg0 ) {
+        if ( !entered_handlePrintFile_4 ) {
+            entered_handlePrintFile_4 = true;
+            __handlePrintFile( arg0 );
+            entered_handlePrintFile_4 = false;
+        }
+        else
+            super.handlePrintFile( arg0 );
+    }
+
+    /// public void com.apple.eawt.ApplicationAdapter.handleQuit(com.apple.eawt.ApplicationEvent)
+
+    public native void __handleQuit( com.apple.eawt.ApplicationEvent arg0 );
+
+    boolean entered_handleQuit_5;
+
+    public void handleQuit( com.apple.eawt.ApplicationEvent arg0 ) {
+        if ( !entered_handleQuit_5 ) {
+            entered_handleQuit_5 = true;
+            __handleQuit( arg0 );
+            entered_handleQuit_5 = false;
+        }
+        else
+            super.handleQuit( arg0 );
+    }
+
+    /// public void com.apple.eawt.ApplicationAdapter.handleReOpenApplication(com.apple.eawt.ApplicationEvent)
+
+    public native void __handleReOpenApplication( com.apple.eawt.ApplicationEvent arg0 );
+
+    boolean entered_handleReOpenApplication_6;
+
+    public void handleReOpenApplication( com.apple.eawt.ApplicationEvent arg0 ) {
+        if ( !entered_handleReOpenApplication_6 ) {
+            entered_handleReOpenApplication_6 = true;
+            __handleReOpenApplication( arg0 );
+            entered_handleReOpenApplication_6 = false;
+        }
+        else
+            super.handleReOpenApplication( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

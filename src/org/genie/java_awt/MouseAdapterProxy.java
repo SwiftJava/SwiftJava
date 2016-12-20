@@ -16,130 +16,130 @@ public class MouseAdapterProxy extends java.awt.event.MouseAdapter {
 
     /// public void java.awt.event.MouseAdapter.mousePressed(java.awt.event.MouseEvent)
 
-    public native void __mousePressed( java.awt.event.MouseEvent e );
+    public native void __mousePressed( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mousePressed_0;
 
-    public void mousePressed( java.awt.event.MouseEvent e ) {
+    public void mousePressed( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mousePressed_0 ) {
             entered_mousePressed_0 = true;
-            __mousePressed( e );
+            __mousePressed( arg0 );
             entered_mousePressed_0 = false;
         }
         else
-            super.mousePressed( e );
+            super.mousePressed( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseReleased(java.awt.event.MouseEvent)
 
-    public native void __mouseReleased( java.awt.event.MouseEvent e );
+    public native void __mouseReleased( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseReleased_1;
 
-    public void mouseReleased( java.awt.event.MouseEvent e ) {
+    public void mouseReleased( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseReleased_1 ) {
             entered_mouseReleased_1 = true;
-            __mouseReleased( e );
+            __mouseReleased( arg0 );
             entered_mouseReleased_1 = false;
         }
         else
-            super.mouseReleased( e );
+            super.mouseReleased( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseClicked(java.awt.event.MouseEvent)
 
-    public native void __mouseClicked( java.awt.event.MouseEvent e );
+    public native void __mouseClicked( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseClicked_2;
 
-    public void mouseClicked( java.awt.event.MouseEvent e ) {
+    public void mouseClicked( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseClicked_2 ) {
             entered_mouseClicked_2 = true;
-            __mouseClicked( e );
+            __mouseClicked( arg0 );
             entered_mouseClicked_2 = false;
         }
         else
-            super.mouseClicked( e );
+            super.mouseClicked( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseExited(java.awt.event.MouseEvent)
 
-    public native void __mouseExited( java.awt.event.MouseEvent e );
+    public native void __mouseExited( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseExited_3;
 
-    public void mouseExited( java.awt.event.MouseEvent e ) {
+    public void mouseExited( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseExited_3 ) {
             entered_mouseExited_3 = true;
-            __mouseExited( e );
+            __mouseExited( arg0 );
             entered_mouseExited_3 = false;
         }
         else
-            super.mouseExited( e );
+            super.mouseExited( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseEntered(java.awt.event.MouseEvent)
 
-    public native void __mouseEntered( java.awt.event.MouseEvent e );
+    public native void __mouseEntered( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseEntered_4;
 
-    public void mouseEntered( java.awt.event.MouseEvent e ) {
+    public void mouseEntered( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseEntered_4 ) {
             entered_mouseEntered_4 = true;
-            __mouseEntered( e );
+            __mouseEntered( arg0 );
             entered_mouseEntered_4 = false;
         }
         else
-            super.mouseEntered( e );
+            super.mouseEntered( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseMoved(java.awt.event.MouseEvent)
 
-    public native void __mouseMoved( java.awt.event.MouseEvent e );
+    public native void __mouseMoved( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseMoved_5;
 
-    public void mouseMoved( java.awt.event.MouseEvent e ) {
+    public void mouseMoved( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseMoved_5 ) {
             entered_mouseMoved_5 = true;
-            __mouseMoved( e );
+            __mouseMoved( arg0 );
             entered_mouseMoved_5 = false;
         }
         else
-            super.mouseMoved( e );
+            super.mouseMoved( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseDragged(java.awt.event.MouseEvent)
 
-    public native void __mouseDragged( java.awt.event.MouseEvent e );
+    public native void __mouseDragged( java.awt.event.MouseEvent arg0 );
 
     boolean entered_mouseDragged_6;
 
-    public void mouseDragged( java.awt.event.MouseEvent e ) {
+    public void mouseDragged( java.awt.event.MouseEvent arg0 ) {
         if ( !entered_mouseDragged_6 ) {
             entered_mouseDragged_6 = true;
-            __mouseDragged( e );
+            __mouseDragged( arg0 );
             entered_mouseDragged_6 = false;
         }
         else
-            super.mouseDragged( e );
+            super.mouseDragged( arg0 );
     }
 
     /// public void java.awt.event.MouseAdapter.mouseWheelMoved(java.awt.event.MouseWheelEvent)
 
-    public native void __mouseWheelMoved( java.awt.event.MouseWheelEvent e );
+    public native void __mouseWheelMoved( java.awt.event.MouseWheelEvent arg0 );
 
     boolean entered_mouseWheelMoved_7;
 
-    public void mouseWheelMoved( java.awt.event.MouseWheelEvent e ) {
+    public void mouseWheelMoved( java.awt.event.MouseWheelEvent arg0 ) {
         if ( !entered_mouseWheelMoved_7 ) {
             entered_mouseWheelMoved_7 = true;
-            __mouseWheelMoved( e );
+            __mouseWheelMoved( arg0 );
             entered_mouseWheelMoved_7 = false;
         }
         else
-            super.mouseWheelMoved( e );
+            super.mouseWheelMoved( arg0 );
     }
 
     /// public boolean java.lang.Object.equals(java.lang.Object)

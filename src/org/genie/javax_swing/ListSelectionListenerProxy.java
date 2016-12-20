@@ -13,10 +13,10 @@ public class ListSelectionListenerProxy implements javax.swing.event.ListSelecti
 
     /// public abstract void javax.swing.event.ListSelectionListener.valueChanged(javax.swing.event.ListSelectionEvent)
 
-    public native void __valueChanged( javax.swing.event.ListSelectionEvent e );
+    public native void __valueChanged( javax.swing.event.ListSelectionEvent arg0 );
 
-    public void valueChanged( javax.swing.event.ListSelectionEvent e ) {
-        __valueChanged( e );
+    public void valueChanged( javax.swing.event.ListSelectionEvent arg0 ) {
+        __valueChanged( arg0 );
     }
 
 }

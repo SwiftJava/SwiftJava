@@ -13,10 +13,10 @@ public class ActionListenerProxy implements java.awt.event.ActionListener {
 
     /// public abstract void java.awt.event.ActionListener.actionPerformed(java.awt.event.ActionEvent)
 
-    public native void __actionPerformed( java.awt.event.ActionEvent e );
+    public native void __actionPerformed( java.awt.event.ActionEvent arg0 );
 
-    public void actionPerformed( java.awt.event.ActionEvent e ) {
-        __actionPerformed( e );
+    public void actionPerformed( java.awt.event.ActionEvent arg0 ) {
+        __actionPerformed( arg0 );
     }
 
 }

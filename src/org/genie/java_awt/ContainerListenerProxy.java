@@ -13,18 +13,18 @@ public class ContainerListenerProxy implements java.awt.event.ContainerListener 
 
     /// public abstract void java.awt.event.ContainerListener.componentAdded(java.awt.event.ContainerEvent)
 
-    public native void __componentAdded( java.awt.event.ContainerEvent e );
+    public native void __componentAdded( java.awt.event.ContainerEvent arg0 );
 
-    public void componentAdded( java.awt.event.ContainerEvent e ) {
-        __componentAdded( e );
+    public void componentAdded( java.awt.event.ContainerEvent arg0 ) {
+        __componentAdded( arg0 );
     }
 
     /// public abstract void java.awt.event.ContainerListener.componentRemoved(java.awt.event.ContainerEvent)
 
-    public native void __componentRemoved( java.awt.event.ContainerEvent e );
+    public native void __componentRemoved( java.awt.event.ContainerEvent arg0 );
 
-    public void componentRemoved( java.awt.event.ContainerEvent e ) {
-        __componentRemoved( e );
+    public void componentRemoved( java.awt.event.ContainerEvent arg0 ) {
+        __componentRemoved( arg0 );
     }
 
 }

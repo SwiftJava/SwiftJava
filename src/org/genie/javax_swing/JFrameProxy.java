@@ -7,31 +7,31 @@ public class JFrameProxy extends javax.swing.JFrame {
 
     long swiftObject;
 
-    /// public javax.swing.JFrame(java.lang.String,java.awt.GraphicsConfiguration)
+    /// public javax.swing.JFrame() throws java.awt.HeadlessException
 
-    JFrameProxy( java.lang.String title, java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( title, gc );
-        this.swiftObject = swiftObject;
-    }
-
-    /// public javax.swing.JFrame(java.lang.String) throws java.awt.HeadlessException
-
-    JFrameProxy( java.lang.String title , long swiftObject ) {
-        super( title );
+    JFrameProxy( long swiftObject ) {
+        super( );
         this.swiftObject = swiftObject;
     }
 
     /// public javax.swing.JFrame(java.awt.GraphicsConfiguration)
 
-    JFrameProxy( java.awt.GraphicsConfiguration gc , long swiftObject ) {
-        super( gc );
+    JFrameProxy( java.awt.GraphicsConfiguration arg0 , long swiftObject ) {
+        super( arg0 );
         this.swiftObject = swiftObject;
     }
 
-    /// public javax.swing.JFrame() throws java.awt.HeadlessException
+    /// public javax.swing.JFrame(java.lang.String) throws java.awt.HeadlessException
 
-    JFrameProxy( long swiftObject ) {
-        super( );
+    JFrameProxy( java.lang.String arg0 , long swiftObject ) {
+        super( arg0 );
+        this.swiftObject = swiftObject;
+    }
+
+    /// public javax.swing.JFrame(java.lang.String,java.awt.GraphicsConfiguration)
+
+    JFrameProxy( java.lang.String arg0, java.awt.GraphicsConfiguration arg1 , long swiftObject ) {
+        super( arg0, arg1 );
         this.swiftObject = swiftObject;
     }
 

@@ -11,20 +11,20 @@ public class TreeExpansionListenerProxy implements javax.swing.event.TreeExpansi
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract void javax.swing.event.TreeExpansionListener.treeExpanded(javax.swing.event.TreeExpansionEvent)
-
-    public native void __treeExpanded( javax.swing.event.TreeExpansionEvent event );
-
-    public void treeExpanded( javax.swing.event.TreeExpansionEvent event ) {
-        __treeExpanded( event );
-    }
-
     /// public abstract void javax.swing.event.TreeExpansionListener.treeCollapsed(javax.swing.event.TreeExpansionEvent)
 
-    public native void __treeCollapsed( javax.swing.event.TreeExpansionEvent event );
+    public native void __treeCollapsed( javax.swing.event.TreeExpansionEvent arg0 );
 
-    public void treeCollapsed( javax.swing.event.TreeExpansionEvent event ) {
-        __treeCollapsed( event );
+    public void treeCollapsed( javax.swing.event.TreeExpansionEvent arg0 ) {
+        __treeCollapsed( arg0 );
+    }
+
+    /// public abstract void javax.swing.event.TreeExpansionListener.treeExpanded(javax.swing.event.TreeExpansionEvent)
+
+    public native void __treeExpanded( javax.swing.event.TreeExpansionEvent arg0 );
+
+    public void treeExpanded( javax.swing.event.TreeExpansionEvent arg0 ) {
+        __treeExpanded( arg0 );
     }
 
 }
