@@ -11,20 +11,20 @@ public class SwiftHello_ListenerProxy implements com.jh.SwiftHello.Listener {
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract void com.jh.SwiftHello$Listener.processNumber(double)
-
-    public native void __processNumber( double arg0 );
-
-    public void processNumber( double arg0 ) {
-        __processNumber( arg0 );
-    }
-
     /// public abstract void com.jh.SwiftHello$Listener.processText(java.lang.String)
 
-    public native void __processText( java.lang.String arg0 );
+    public native void __processText( java.lang.String text );
 
-    public void processText( java.lang.String arg0 ) {
-        __processText( arg0 );
+    public void processText( java.lang.String text ) {
+        __processText( text );
+    }
+
+    /// public abstract void com.jh.SwiftHello$Listener.processNumber(double)
+
+    public native void __processNumber( double number );
+
+    public void processNumber( double number ) {
+        __processNumber( number );
     }
 
 }

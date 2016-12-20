@@ -43,6 +43,7 @@
 
 import java.io.*;
 import java.util.HashMap;
+
 import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -60,7 +61,8 @@ class genswift {
 		}
 
 		public String getName() {
-			return "arg"+number;
+			return executable.parameterNames != null ?
+					executable.parameterNames[number] : "arg"+number;
 		}
 	}
 
@@ -68,6 +70,7 @@ class genswift {
 		java.lang.reflect.Constructor<?> constructor;		
 		java.lang.reflect.Method method;
 		Parameter parameters[];
+		String parameterNames[];
 
 		public int getModifiers() {
 			return constructor != null ? 
@@ -75,23 +78,41 @@ class genswift {
 					method.getModifiers();
 		}
 
-		public Parameter [] getParameters() {
-			if ( parameters == null ) {
-				int size = getParameterCount();
-				parameters = new Parameter[size];
-				for ( int i=0 ; i<size ; i++ ) {
-					Parameter next = parameters[i] = new Parameter();
-					next.executable = this;
-					next.number = i;
-				}
-			}
-			return parameters;
-		}
-
 		public int getParameterCount() {
 			return constructor != null ? 
 					constructor.getParameterTypes().length : 
 					method.getParameterTypes().length;
+		}
+
+		public Parameter [] getParameters() {
+			if ( parameters == null ) {
+				int size = getParameterCount();
+				parameters = new Parameter[size];
+				if ( size != 0 ) {
+					for ( int i=0 ; i<size ; i++ ) {
+						Parameter next = parameters[i] = new Parameter();
+						next.executable = this;
+						next.number = i;
+					}
+
+					try {
+						Object executable = constructor != null ? constructor : method;
+						Class<?> executableClass = executable.getClass();
+						java.lang.reflect.Method paramsMethod = executableClass.getMethod("getParameters", new Class<?>[] {});
+						
+						Object realParameters[] = (Object []) paramsMethod.invoke(executable, new Object[] {});
+						Class<?> parametersClass = realParameters[0].getClass();
+						java.lang.reflect.Method nameMethod = parametersClass.getMethod("getName", new Class<?>[] {});
+
+						parameterNames = new String[size];
+						for ( int i=0 ; i<size ; i++ )
+							parameterNames[i] = (String) nameMethod.invoke(realParameters[i], new Object[] {});
+					}
+					catch ( Exception e ) {
+					}
+				}
+			}
+			return parameters;
 		}
 
 		public Class<?> [] getExceptionTypes() {
