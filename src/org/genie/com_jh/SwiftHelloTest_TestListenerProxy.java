@@ -11,22 +11,6 @@ public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.T
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract byte[] com.jh.SwiftHelloTest$TestListener.byteArrayMethod(byte[])
-
-    public native byte[] __byteArrayMethod( byte[] arg );
-
-    public byte[] byteArrayMethod( byte[] arg ) {
-        return __byteArrayMethod( arg );
-    }
-
-    /// public abstract byte[][] com.jh.SwiftHelloTest$TestListener.byte2dArrayMethod(byte[][])
-
-    public native byte[][] __byte2dArrayMethod( byte[][] arg );
-
-    public byte[][] byte2dArrayMethod( byte[][] arg ) {
-        return __byte2dArrayMethod( arg );
-    }
-
     /// public abstract boolean com.jh.SwiftHelloTest$TestListener.booleanMethod(boolean)
 
     public native boolean __booleanMethod( boolean arg );
@@ -57,6 +41,22 @@ public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.T
 
     public byte byteMethod( byte arg ) {
         return __byteMethod( arg );
+    }
+
+    /// public abstract byte[] com.jh.SwiftHelloTest$TestListener.byteArrayMethod(byte[])
+
+    public native byte[] __byteArrayMethod( byte[] arg );
+
+    public byte[] byteArrayMethod( byte[] arg ) {
+        return __byteArrayMethod( arg );
+    }
+
+    /// public abstract byte[][] com.jh.SwiftHelloTest$TestListener.byte2dArrayMethod(byte[][])
+
+    public native byte[][] __byte2dArrayMethod( byte[][] arg );
+
+    public byte[][] byte2dArrayMethod( byte[][] arg ) {
+        return __byte2dArrayMethod( arg );
     }
 
     /// public abstract char com.jh.SwiftHelloTest$TestListener.charMethod(char)
