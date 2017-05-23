@@ -51,6 +51,13 @@ Xcode uses the legacy "JavaVM" framework which requires Apple's JVM downloadable
 
 [https://support.apple.com/kb/dl1572?locale=en_US](https://support.apple.com/kb/dl1572?locale=en_US)
 
+Development inside Xcode with the Oracle JVM is a little more complicated. It seems
+that JNI_CreateJavaVM generates a SIGSEGV internally as part of normal operation
+which is trapped using a signal handler so it can proceed on the command line.
+Unfortunately, this is caught by Xcode debugger lldb and it suspends and will not
+continue until you enter "pr h -s false SIGSEGV" into the debug console each time
+you run the program. The alternative is to not use the debugger at all in your scheme.
+
 Perversely, with AWT and Swing on macOS the JVM needs to be created on the main thread
 while setup code needs to be off the main thread to leave it available for AWT's own
 runloop. Use the JNI.background and JNI.run methods to achieve this in a portable manner.
