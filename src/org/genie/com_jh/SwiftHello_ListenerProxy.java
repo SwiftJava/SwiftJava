@@ -11,6 +11,14 @@ public class SwiftHello_ListenerProxy implements com.jh.SwiftHello.Listener {
         this.swiftObject = swiftObject;
     }
 
+    /// public abstract void com.jh.SwiftHello$Listener.setCacheDir(java.lang.String)
+
+    public native void __setCacheDir( java.lang.String cacheDir );
+
+    public void setCacheDir( java.lang.String cacheDir ) {
+        __setCacheDir( cacheDir );
+    }
+
     /// public abstract void com.jh.SwiftHello$Listener.processNumber(double)
 
     public native void __processNumber( double number );

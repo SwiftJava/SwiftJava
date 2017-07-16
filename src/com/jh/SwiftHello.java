@@ -5,6 +5,8 @@ public interface SwiftHello {
 
     public interface Listener {
 
+        public void setCacheDir( String cacheDir );
+
         public void processNumber( double number );
 
         public void processText( String text );

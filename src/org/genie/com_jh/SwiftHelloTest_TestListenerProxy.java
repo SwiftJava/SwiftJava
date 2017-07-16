@@ -11,12 +11,20 @@ public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.T
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract byte[] com.jh.SwiftHelloTest$TestListener.byteArrayMethod(byte[])
+    /// public abstract boolean com.jh.SwiftHelloTest$TestListener.booleanMethod(boolean)
 
-    public native byte[] __byteArrayMethod( byte[] arg );
+    public native boolean __booleanMethod( boolean arg );
 
-    public byte[] byteArrayMethod( byte[] arg ) {
-        return __byteArrayMethod( arg );
+    public boolean booleanMethod( boolean arg ) {
+        return __booleanMethod( arg );
+    }
+
+    /// public abstract boolean[] com.jh.SwiftHelloTest$TestListener.booleanArrayMethod(boolean[])
+
+    public native boolean[] __booleanArrayMethod( boolean[] arg );
+
+    public boolean[] booleanArrayMethod( boolean[] arg ) {
+        return __booleanArrayMethod( arg );
     }
 
     /// public abstract boolean[][] com.jh.SwiftHelloTest$TestListener.boolean2dArrayMethod(boolean[][])
@@ -35,20 +43,12 @@ public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.T
         return __byteMethod( arg );
     }
 
-    /// public abstract boolean com.jh.SwiftHelloTest$TestListener.booleanMethod(boolean)
+    /// public abstract byte[] com.jh.SwiftHelloTest$TestListener.byteArrayMethod(byte[])
 
-    public native boolean __booleanMethod( boolean arg );
+    public native byte[] __byteArrayMethod( byte[] arg );
 
-    public boolean booleanMethod( boolean arg ) {
-        return __booleanMethod( arg );
-    }
-
-    /// public abstract boolean[] com.jh.SwiftHelloTest$TestListener.booleanArrayMethod(boolean[])
-
-    public native boolean[] __booleanArrayMethod( boolean[] arg );
-
-    public boolean[] booleanArrayMethod( boolean[] arg ) {
-        return __booleanArrayMethod( arg );
+    public byte[] byteArrayMethod( byte[] arg ) {
+        return __byteArrayMethod( arg );
     }
 
     /// public abstract byte[][] com.jh.SwiftHelloTest$TestListener.byte2dArrayMethod(byte[][])
