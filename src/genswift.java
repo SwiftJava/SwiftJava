@@ -973,42 +973,38 @@ class genswift {
 		if ( !isInterface )
 			code.append( "    private static var "+classSuffix+"BaseJNIClass: jclass?\n" );
 		
-		code.append("    private static var nativesRegistered = false\n\n");
-
-		code.append("    private static func registerNatives() {\n");
-		code.append("        if ( !nativesRegistered ) {\n");
-		code.append("            var natives = [JNINativeMethod]()\n\n");
+		code.append("    private static let proxyClass: jclass = {\n");
+		code.append("        var natives = [JNINativeMethod]()\n\n");
 
 		for (int i = 0; i < methods.length; i++) {
 			Method method = newMethod( methods[i] );
 			if ( skipCallbackMethod( method ) )
 				continue;
 			if ( crashesCompilerOnLinx( method ) )
-				code.append("            #if !os(Linux)\n");
+				code.append("        #if !os(Linux)\n");
 
 			String jniName = jniName(method, i);
-			code.append("            let " + jniName + "_thunk: " + jniName + "_type = " + jniName + "\n");
-			code.append("            natives.append( JNINativeMethod( name: strdup(\"__" + method.getName() + "\")"
+			code.append("        let " + jniName + "_thunk: " + jniName + "_type = " + jniName + "\n");
+			code.append("        natives.append( JNINativeMethod( name: strdup(\"__" + method.getName() + "\")"
 					+ ", signature: strdup(\"" + jniSignature(method) + "\"), fnPtr: unsafeBitCast( " + jniName
 					+ "_thunk, to: UnsafeMutableRawPointer.self ) ) )\n");
 
 			if ( crashesCompilerOnLinx( method ) )
-				code.append("            #endif\n");
+				code.append("        #endif\n");
 			code.append("\n");
 		}
 
 		String proxyClass = "org/genie/" + currentFramework + "/" + classSuffix + "Proxy";
+		code.append("        let clazz = JNI.FindClass( \"" + proxyClass + "\" )\n");
 
-		code.append("            withUnsafePointer(to: &natives[0]) {\n");
-		code.append("                nativesPtr in\n");
-		code.append("                let clazz = JNI.FindClass( \"" + proxyClass + "\" )\n");
-		code.append("                if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {\n");
-		code.append("                    JNI.report( \"Unable to register java natives\" )\n");
-		code.append("                }\n");
-		code.append("            }\n\n");
-		code.append("            nativesRegistered = true\n");
-		code.append("        }\n");
-		code.append("    }\n\n");
+		code.append("        withUnsafePointer(to: &natives[0]) {\n");
+		code.append("            nativesPtr in\n");
+		code.append("            if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {\n");
+		code.append("                JNI.report( \"Unable to register java natives\" )\n");
+		code.append("            }\n");
+		code.append("        }\n\n");
+		code.append("        return JNI.api.NewGlobalRef( JNI.env, clazz )!\n");
+		code.append("    }()\n\n");
 
 		if ( isInterface ) {
 			code.append("    public convenience init() {\n");
@@ -1026,7 +1022,7 @@ class genswift {
 			code.append("        }\n");
 			code.append("        set(newValue) {\n");
 			code.append("            super.javaObject = newValue\n");
-			code.append("            "+classSuffix+"Base.registerNatives()\n");
+			code.append("            _ = "+classSuffix+"Base.proxyClass\n");
 			code.append("            updateSwiftObject()\n");
 			code.append("        }\n    }\n\n");
 		}
@@ -1034,8 +1030,7 @@ class genswift {
 		code.append("    public required init( javaObject: jobject? ) {\n");
 		code.append("        super.init( javaObject: javaObject )\n");
 		if ( isInterface ) {
-			code.append("        "+classSuffix+"Base.registerNatives()\n");
-			code.append("        createProxy( javaClassName: \""+proxyClass+"\" )\n");
+			code.append("        createProxy( className: \""+proxyClass+"\", classObject: "+classSuffix+"Base.proxyClass )\n");
 		}
 		code.append("    }\n\n");
 		code.append("    static func swiftObject( jniEnv: UnsafeMutablePointer<JNIEnv?>?, javaObject: jobject? ) -> " + classSuffix + "Base {\n");

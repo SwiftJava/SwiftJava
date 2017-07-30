@@ -12,14 +12,6 @@ public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.T
         this.swiftObject = swiftObject;
     }
 
-    /// public abstract boolean com.jh.SwiftHelloTest$TestListener.booleanMethod(boolean)
-
-    public native boolean __booleanMethod( boolean arg );
-
-    public boolean booleanMethod( boolean arg ) {
-        return __booleanMethod( arg );
-    }
-
     /// public abstract boolean[] com.jh.SwiftHelloTest$TestListener.booleanArrayMethod(boolean[])
 
     public native boolean[] __booleanArrayMethod( boolean[] arg );
@@ -34,6 +26,14 @@ public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.T
 
     public boolean[][] boolean2dArrayMethod( boolean[][] arg ) {
         return __boolean2dArrayMethod( arg );
+    }
+
+    /// public abstract boolean com.jh.SwiftHelloTest$TestListener.booleanMethod(boolean)
+
+    public native boolean __booleanMethod( boolean arg );
+
+    public boolean booleanMethod( boolean arg ) {
+        return __booleanMethod( arg );
     }
 
     /// public abstract byte com.jh.SwiftHelloTest$TestListener.byteMethod(byte)
