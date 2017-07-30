@@ -1,6 +1,5 @@
 *.class
 build/
-android*
 xcuserdata
 parameters/com
 parameters/org

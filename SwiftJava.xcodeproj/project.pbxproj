@@ -15,6 +15,7 @@
 		BB5ACFE41D35B09900E2386A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5ACFE21D35B09900E2386A /* MainMenu.xib */; };
 		BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */ = {isa = PBXBuildFile; fileRef = BB6651301F2E39F6004EFD5F /* swift-android-kotlin */; };
 		BB6651341F2E3A8E004EFD5F /* swift-android-gradle in Resources */ = {isa = PBXBuildFile; fileRef = BB6651331F2E3A8D004EFD5F /* swift-android-gradle */; };
+		BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */ = {isa = PBXBuildFile; fileRef = BB6651351F2E3F50004EFD5F /* android_toolchain */; };
 		BB9CF8931D619D1C004781B9 /* genhello.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8921D619D1C004781B9 /* genhello.sh */; };
 		BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8971D61BAF4004781B9 /* swift-android-samples */; };
 		BBAD3EDA1D59DDBC0091D139 /* TableColorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD3ED91D59DDBC0091D139 /* TableColorSelection.swift */; };
@@ -214,6 +215,7 @@
 		BB5ACFE51D35B09900E2386A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB6651301F2E39F6004EFD5F /* swift-android-kotlin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-kotlin"; sourceTree = "<group>"; };
 		BB6651331F2E3A8D004EFD5F /* swift-android-gradle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-gradle"; sourceTree = "<group>"; };
+		BB6651351F2E3F50004EFD5F /* android_toolchain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = android_toolchain; sourceTree = "<group>"; };
 		BB8A70511D5AF7AC00840B9E /* build_macos.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_macos.sh; sourceTree = "<group>"; };
 		BB8A70531D5B164300840B9E /* build_linux.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_linux.sh; sourceTree = "<group>"; };
 		BB8AC4391D3F035700BD5B0F /* libswiftCore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCore.tbd; path = System/Library/PrivateFrameworks/Swift/libswiftCore.tbd; sourceTree = SDKROOT; };
@@ -315,6 +317,7 @@
 				BB8AC4631D3F11E600BD5B0F /* examples */,
 				BBC13DB71D48FDCE0035A039 /* org_genie */,
 				BBF280D81D64BC6100A7AF5D /* src */,
+				BB6651351F2E3F50004EFD5F /* android_toolchain */,
 				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
 				BB9CF8971D61BAF4004781B9 /* swift-android-samples */,
 				BB6651331F2E3A8D004EFD5F /* swift-android-gradle */,
@@ -684,6 +687,7 @@
 				BB5ACFE11D35B09900E2386A /* Assets.xcassets in Resources */,
 				BBAD3EE41D5A84700091D139 /* genall.sh in Resources */,
 				BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */,
+				BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */,
 				BB31E20F1D4FF13400779860 /* genpkg.sh in Resources */,
 				BBF280D91D64BC6100A7AF5D /* src in Resources */,
 				BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */,

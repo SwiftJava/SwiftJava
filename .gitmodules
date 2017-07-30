@@ -34,3 +34,6 @@
 [submodule "swift-android-kotlin"]
 	path = swift-android-kotlin
 	url = https://github.com/SwiftJava/swift-android-kotlin
+[submodule "android_toolchain"]
+	path = android_toolchain
+	url = https://github.com/SwiftJava/android_toolchain
