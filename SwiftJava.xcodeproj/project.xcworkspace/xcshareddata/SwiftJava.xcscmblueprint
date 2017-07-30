@@ -1,0 +1,100 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "878C2603E03822D160043D9D16A36206CED4E0CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "919E7FD20BEE11F783ACA7E8733E036FFD3CC2A7" : 9223372036854775807,
+    "975F9120751D6C438E9A5C85C38DE132AC6185DA" : 9223372036854775807,
+    "34073D21618405EACC233186A25025AB1438DB71" : 9223372036854775807,
+    "D69ED636B0A47DAAE52D01130A54526F3F08576F" : 9223372036854775807,
+    "F35EB971E2A3FAC98274059126C5879BB91B08C3" : 9223372036854775807,
+    "88C7909D14364BE1B34BD9FA7515C938F2799EDA" : 9223372036854775807,
+    "F5602BE39D3BC51A40E8B26B29F3243856A652CB" : 9223372036854775807,
+    "878C2603E03822D160043D9D16A36206CED4E0CA" : 9223372036854775807,
+    "89DEE779F8BFE1CE8DDEF7AB113FB6B93E7D55C6" : 9223372036854775807,
+    "03D674EFBA86A077C658C74B9BF7405C80AD6E58" : 9223372036854775807,
+    "7FD9F53F3E97DB446A68FCFF0B1331098D829EA6" : 9223372036854775807,
+    "685A538D4847A574735DC1EA392743F80472F6DF" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6BFDE20B-CFCB-4CEC-B3D1-A0DEAE5DDDC0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "919E7FD20BEE11F783ACA7E8733E036FFD3CC2A7" : "SwiftJava\/java_swift\/",
+    "975F9120751D6C438E9A5C85C38DE132AC6185DA" : "SwiftJava\/java_sql\/",
+    "34073D21618405EACC233186A25025AB1438DB71" : "SwiftJava\/javax_swing\/",
+    "D69ED636B0A47DAAE52D01130A54526F3F08576F" : "SwiftJava\/swift-android-samples\/",
+    "F35EB971E2A3FAC98274059126C5879BB91B08C3" : "SwiftJava\/java_lang\/",
+    "88C7909D14364BE1B34BD9FA7515C938F2799EDA" : "SwiftJava\/com_apple\/",
+    "F5602BE39D3BC51A40E8B26B29F3243856A652CB" : "SwiftJava\/java_awt\/",
+    "878C2603E03822D160043D9D16A36206CED4E0CA" : "SwiftJava\/",
+    "89DEE779F8BFE1CE8DDEF7AB113FB6B93E7D55C6" : "SwiftJava\/examples\/",
+    "03D674EFBA86A077C658C74B9BF7405C80AD6E58" : "SwiftJava\/CJavaVM\/",
+    "7FD9F53F3E97DB446A68FCFF0B1331098D829EA6" : "SwiftJava\/swift-android-gradle\/",
+    "685A538D4847A574735DC1EA392743F80472F6DF" : "SwiftJava\/java_util\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftJava",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftJava.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/CJavaVM.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "03D674EFBA86A077C658C74B9BF7405C80AD6E58"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/javax_swing.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "34073D21618405EACC233186A25025AB1438DB71"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/java_util.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "685A538D4847A574735DC1EA392743F80472F6DF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/swift-android-gradle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7FD9F53F3E97DB446A68FCFF0B1331098D829EA6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/github.com\/SwiftJava\/SwiftJava",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "878C2603E03822D160043D9D16A36206CED4E0CA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/com_apple.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "88C7909D14364BE1B34BD9FA7515C938F2799EDA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/examples.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "89DEE779F8BFE1CE8DDEF7AB113FB6B93E7D55C6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/java_swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "919E7FD20BEE11F783ACA7E8733E036FFD3CC2A7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/java_sql.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "975F9120751D6C438E9A5C85C38DE132AC6185DA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/swift-android-samples.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D69ED636B0A47DAAE52D01130A54526F3F08576F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/java_lang.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F35EB971E2A3FAC98274059126C5879BB91B08C3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftJava\/java_awt.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F5602BE39D3BC51A40E8B26B29F3243856A652CB"
+    }
+  ]
+}

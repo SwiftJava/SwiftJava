@@ -31,3 +31,6 @@
 [submodule "com_apple"]
 	path = com_apple
 	url = https://github.com/SwiftJava/com_apple.git
+[submodule "swift-android-kotlin"]
+	path = swift-android-kotlin
+	url = https://github.com/SwiftJava/swift-android-kotlin

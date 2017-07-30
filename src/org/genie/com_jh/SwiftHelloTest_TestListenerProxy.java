@@ -3,6 +3,7 @@
 
 package org.genie.com_jh;
 
+@SuppressWarnings("JniMissingFunction")
 public class SwiftHelloTest_TestListenerProxy implements com.jh.SwiftHelloTest.TestListener {
 
     long swiftObject;

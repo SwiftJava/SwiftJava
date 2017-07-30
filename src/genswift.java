@@ -1059,7 +1059,9 @@ class genswift {
 		
 		java.append("\n/// "+clazz+" ///\n\n");
 
-		java.append("package "+organisation+currentFramework+";\n\npublic class "+classSuffix+ "Proxy "+
+        java.append("package "+organisation+currentFramework+";\n\n"+
+                    "@SuppressWarnings(\"JniMissingFunction\")\n"+
+                    "public class "+classSuffix+ "Proxy "+
 				(isInterface?"implements ":"extends ")+className.replace('$', '.')+" {\n\n");
 
 		java.append("    long swiftObject;\n\n");

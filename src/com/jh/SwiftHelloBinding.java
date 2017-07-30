@@ -1,7 +1,7 @@
 
 package com.jh;
 
-public interface SwiftHello {
+public interface SwiftHelloBinding {
 
     public interface Listener {
 
