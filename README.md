@@ -55,7 +55,7 @@ Development inside Xcode with the Oracle JVM is a little more complicated. It se
 that JNI_CreateJavaVM generates a SIGSEGV internally as part of normal operation
 which is trapped using a signal handler so it can proceed on the command line.
 Unfortunately, this is caught by Xcode debugger lldb and it suspends and will not
-continue until you enter "pr h -s false SIGSEGV" into the debug console each time
+continue until you enter `pr h -s false SIGSEGV` into the debug console each time
 you run the program. The alternative is to not use the debugger at all in your scheme.
 
 Perversely, with AWT and Swing on macOS the JVM needs to be created on the main thread
@@ -78,36 +78,28 @@ the jre. Use the examples. directory to build using the following commands:
     swift build -Xlinker -L$JVM_LIBRARY_PATH -Xlinker -rpath -Xlinker $JVM_LIBRARY_PATH -Xlinker -ljvm
 ```
 
-Builds on Linux need to be made with the latest preview 6. The swing source in
+The swing source in
 "examples/Sources" shows how to receive events and subclass a Java class to have certain
 methods such as java.awt.Canvas.paint() be implemented in Swift. More on this later.
 
-### Android
+### Android Development
 
 For Android, consult the modified versions of the swift-android-samples and the associated
-gradle build system plugin swift-android-gradle from the [original Android port](https://github.com/SwiftAndroid).
-This requires a Ubuntu 15 system or VM, a Lollipop (api 21) or better device and a Swift-3.0
-toolchain built with Android support. Instructions for this process are available in the
+gradle build system plugin from the [Android Toochain](https://github.com/SwiftJava/android_toolchain).
+This run on macOS or Ubuntu 16.04, and requires a Lollipop (api 21) or better device.
+More detaills and context are available in the
 [Swift README for Android](https://github.com/apple/swift/blob/master/docs/Android.md)
 and [this comprehensive tutorial](https://medium.com/@ephemer/how-we-put-an-app-in-the-android-play-store-using-swift-67bd99573e3c)
 but hopefully the scripts in the modified gradle plugin take most of the pain out of it.
 
-Once you have a toolchain you should be able to type the following commands:
+Once you have a toolchain and run its setup.sh script you should be able to type the following commands:
 
 ```Shell
-    cd swift-android-gradle
-    ./gradlew install
-```
-
-This install of gradle plugin will tell you which environment variables need to be set up.
-Now, connect the Android phone and type:
-
-```Shell
-    cd ../swift-android-samples/swifthello
+    cd swift-android-samples/swifthello
     ./gradlew installDebug
 ```
 
-For a new application define two Java interfaces, one for messaging from Java to Swift
+For a new application, define two Java interfaces, one for messaging from Java to Swift
 with it's name ending in "Listener" and one for messaging back into Java from Swift.
 You then use ./genswift.sh from this project to generate the Swift binding code:
 
@@ -115,7 +107,7 @@ You then use ./genswift.sh from this project to generate the Swift binding code:
     ./genswift.sh your.package your.jar
 ```
 
-This generates Swift classes and a third Java source src/org/genie/your_package/YourAppProxy.java
+This generates Swift classes and a third Java source src/org/swiftjava/your_package/YourAppProxy.java
 that also needs to be included in your project. Consult the script genhello.sh and project
 "swift-android-samples/swifthello" for details. The source "swift-android-samples/swifthello/src/main/swift/Sources/main.swift"
 shows how to set this up with a native method called from the main activity.
@@ -164,7 +156,7 @@ provide a Swift implementation of the "run()" method callable from Java.
 This approach is also taken for processing events and all interfaces with names
 ending in "Listener", "Manager" or "Handler" also have "Base" classes generated
 for subclassing along with Java Proxy classes. On macOS and Linux these classes
-are compiled into a jar file ~/genie.jar using the genjar.sh script for this to work.
+are compiled into a jar file ~/swiftjava.jar using the genjar.sh script for this to work.
 
 ```Swift
     class MyActionListener: ActionListenerBase {
@@ -175,6 +167,11 @@ are compiled into a jar file ~/genie.jar using the genjar.sh script for this to 
 
     quitButton.addActionListener(MyActionListener());
 ```
+
+Any interface/protocol from a Java interface can be added to a class to enable it to
+be passed to Java provide it's name ends in `Listener`. The implementation is a little
+complex but does not have an appreciable overhead. structs can also be made accesable
+to Java in this way but the object will no be live i.e. a coy of the struct will be taken.
 
 Some event processing is also done by subclassing concrete classes that have names
 ending in "Adapter". Slightly modified Swift "Base" classes and Java Proxies are also
@@ -190,17 +187,19 @@ javaObject to your classes' javaObject. Due to the use of generics you'll
 also be prompted to provide a null implementation of the "required" initialiser.
 
 ```Swift
+class MyCanvas: CanvasBase {
+
     init(imageProducer:ImageProducer) {
         super.init(javaObject: nil)
-        CanvasBase().withJavaObject {
-            self.javaObject = $0
-        }
+        inherit(CanvasBase())
         image = createImage(imageProducer)
     }
 
     required init(javaObject: jobject?) {
         fatalError("init(javaObject:) has not been implemented")
     }
+
+    ...
 ```
 
 Consult the Swing examples code for further details.
@@ -225,5 +224,5 @@ FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TOR
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 This License does not apply to the code generated from the Apple distribution of the Java VM
-which are provided under the provisions of "Fair Use" but your use is ultimately subject
+which are provided under the provisions of "Fair Use" and your use is ultimately subject
 to the original License Agreement.

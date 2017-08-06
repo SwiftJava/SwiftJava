@@ -23,12 +23,11 @@ foreach my $log (@ARGV) {
     while ( $text =~ /([^\n:]+):.*? error: overriding declaration requires an 'override' keyword\n    ([^{]*\{)/gm ) {
         my ($source, $key) = ($1, $2);
 
-        warn ">>$1<<\n";
-        warn ">>$2<<\n";
+        warn ">>$1 $2<<\n";
 
         next if !-f $source;
         my $code = join '', IO::File->new( "< $source" )->getlines();
-        if ( $code =~ s/(?<!override )\Q$key\E/override $key/ or warn "missed" and 0 ) {
+        if ( $code =~ s/(?<!override )\Q$key\E/override $key/ ) {
             IO::File->new( "> $source" )->print( $code );
         }
     }

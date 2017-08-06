@@ -1,0 +1,203 @@
+
+/// class javax.swing.event.MouseInputAdapter ///
+
+package org.swiftjava.javax_swing;
+
+@SuppressWarnings("JniMissingFunction")
+public class MouseInputAdapterProxy extends javax.swing.event.MouseInputAdapter {
+
+    long __swiftObject;
+
+    /// public javax.swing.event.MouseInputAdapter()
+
+    MouseInputAdapterProxy( long __swiftObject ) {
+        super( );
+        this.__swiftObject = __swiftObject;
+    }
+
+    /// public void java.awt.event.MouseAdapter.mousePressed(java.awt.event.MouseEvent)
+
+    public native void __mousePressed( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mousePressed_0;
+
+    public void mousePressed( java.awt.event.MouseEvent e ) {
+        if ( !entered_mousePressed_0 ) {
+            entered_mousePressed_0 = true;
+            __mousePressed( __swiftObject, e);
+            entered_mousePressed_0 = false;
+        }
+        else
+            super.mousePressed( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseReleased(java.awt.event.MouseEvent)
+
+    public native void __mouseReleased( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mouseReleased_1;
+
+    public void mouseReleased( java.awt.event.MouseEvent e ) {
+        if ( !entered_mouseReleased_1 ) {
+            entered_mouseReleased_1 = true;
+            __mouseReleased( __swiftObject, e);
+            entered_mouseReleased_1 = false;
+        }
+        else
+            super.mouseReleased( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseClicked(java.awt.event.MouseEvent)
+
+    public native void __mouseClicked( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mouseClicked_2;
+
+    public void mouseClicked( java.awt.event.MouseEvent e ) {
+        if ( !entered_mouseClicked_2 ) {
+            entered_mouseClicked_2 = true;
+            __mouseClicked( __swiftObject, e);
+            entered_mouseClicked_2 = false;
+        }
+        else
+            super.mouseClicked( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseExited(java.awt.event.MouseEvent)
+
+    public native void __mouseExited( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mouseExited_3;
+
+    public void mouseExited( java.awt.event.MouseEvent e ) {
+        if ( !entered_mouseExited_3 ) {
+            entered_mouseExited_3 = true;
+            __mouseExited( __swiftObject, e);
+            entered_mouseExited_3 = false;
+        }
+        else
+            super.mouseExited( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseEntered(java.awt.event.MouseEvent)
+
+    public native void __mouseEntered( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mouseEntered_4;
+
+    public void mouseEntered( java.awt.event.MouseEvent e ) {
+        if ( !entered_mouseEntered_4 ) {
+            entered_mouseEntered_4 = true;
+            __mouseEntered( __swiftObject, e);
+            entered_mouseEntered_4 = false;
+        }
+        else
+            super.mouseEntered( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseMoved(java.awt.event.MouseEvent)
+
+    public native void __mouseMoved( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mouseMoved_5;
+
+    public void mouseMoved( java.awt.event.MouseEvent e ) {
+        if ( !entered_mouseMoved_5 ) {
+            entered_mouseMoved_5 = true;
+            __mouseMoved( __swiftObject, e);
+            entered_mouseMoved_5 = false;
+        }
+        else
+            super.mouseMoved( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseDragged(java.awt.event.MouseEvent)
+
+    public native void __mouseDragged( long __swiftObject, java.awt.event.MouseEvent e );
+
+    boolean entered_mouseDragged_6;
+
+    public void mouseDragged( java.awt.event.MouseEvent e ) {
+        if ( !entered_mouseDragged_6 ) {
+            entered_mouseDragged_6 = true;
+            __mouseDragged( __swiftObject, e);
+            entered_mouseDragged_6 = false;
+        }
+        else
+            super.mouseDragged( e );
+    }
+
+    /// public void java.awt.event.MouseAdapter.mouseWheelMoved(java.awt.event.MouseWheelEvent)
+
+    public native void __mouseWheelMoved( long __swiftObject, java.awt.event.MouseWheelEvent e );
+
+    boolean entered_mouseWheelMoved_7;
+
+    public void mouseWheelMoved( java.awt.event.MouseWheelEvent e ) {
+        if ( !entered_mouseWheelMoved_7 ) {
+            entered_mouseWheelMoved_7 = true;
+            __mouseWheelMoved( __swiftObject, e);
+            entered_mouseWheelMoved_7 = false;
+        }
+        else
+            super.mouseWheelMoved( e );
+    }
+
+    /// public boolean java.lang.Object.equals(java.lang.Object)
+
+    public native boolean __equals( long __swiftObject, java.lang.Object arg0 );
+
+    boolean entered_equals_8;
+
+    public boolean equals( java.lang.Object arg0 ) {
+        if ( !entered_equals_8 ) {
+            entered_equals_8 = true;
+            boolean __return = __equals( __swiftObject, arg0);
+            entered_equals_8 = false;
+            return __return;
+        }
+        else
+            return super.equals( arg0 );
+    }
+
+    /// public java.lang.String java.lang.Object.toString()
+
+    public native java.lang.String __toString( long __swiftObject );
+
+    boolean entered_toString_9;
+
+    public java.lang.String toString() {
+        if ( !entered_toString_9 ) {
+            entered_toString_9 = true;
+            java.lang.String __return = __toString( __swiftObject );
+            entered_toString_9 = false;
+            return __return;
+        }
+        else
+            return super.toString( );
+    }
+
+    /// public native int java.lang.Object.hashCode()
+
+    public native int __hashCode( long __swiftObject );
+
+    boolean entered_hashCode_10;
+
+    public int hashCode() {
+        if ( !entered_hashCode_10 ) {
+            entered_hashCode_10 = true;
+            int __return = __hashCode( __swiftObject );
+            entered_hashCode_10 = false;
+            return __return;
+        }
+        else
+            return super.hashCode( );
+    }
+
+    public native void __finalize( long __swiftObject );
+
+    public void finalize() {
+        __finalize( __swiftObject );
+    }
+
+}

@@ -1,0 +1,107 @@
+
+/// class java.awt.event.HierarchyBoundsAdapter ///
+
+package org.swiftjava.java_awt;
+
+@SuppressWarnings("JniMissingFunction")
+public class HierarchyBoundsAdapterProxy extends java.awt.event.HierarchyBoundsAdapter {
+
+    long __swiftObject;
+
+    /// public java.awt.event.HierarchyBoundsAdapter()
+
+    HierarchyBoundsAdapterProxy( long __swiftObject ) {
+        super( );
+        this.__swiftObject = __swiftObject;
+    }
+
+    /// public void java.awt.event.HierarchyBoundsAdapter.ancestorMoved(java.awt.event.HierarchyEvent)
+
+    public native void __ancestorMoved( long __swiftObject, java.awt.event.HierarchyEvent e );
+
+    boolean entered_ancestorMoved_0;
+
+    public void ancestorMoved( java.awt.event.HierarchyEvent e ) {
+        if ( !entered_ancestorMoved_0 ) {
+            entered_ancestorMoved_0 = true;
+            __ancestorMoved( __swiftObject, e);
+            entered_ancestorMoved_0 = false;
+        }
+        else
+            super.ancestorMoved( e );
+    }
+
+    /// public void java.awt.event.HierarchyBoundsAdapter.ancestorResized(java.awt.event.HierarchyEvent)
+
+    public native void __ancestorResized( long __swiftObject, java.awt.event.HierarchyEvent e );
+
+    boolean entered_ancestorResized_1;
+
+    public void ancestorResized( java.awt.event.HierarchyEvent e ) {
+        if ( !entered_ancestorResized_1 ) {
+            entered_ancestorResized_1 = true;
+            __ancestorResized( __swiftObject, e);
+            entered_ancestorResized_1 = false;
+        }
+        else
+            super.ancestorResized( e );
+    }
+
+    /// public boolean java.lang.Object.equals(java.lang.Object)
+
+    public native boolean __equals( long __swiftObject, java.lang.Object arg0 );
+
+    boolean entered_equals_2;
+
+    public boolean equals( java.lang.Object arg0 ) {
+        if ( !entered_equals_2 ) {
+            entered_equals_2 = true;
+            boolean __return = __equals( __swiftObject, arg0);
+            entered_equals_2 = false;
+            return __return;
+        }
+        else
+            return super.equals( arg0 );
+    }
+
+    /// public java.lang.String java.lang.Object.toString()
+
+    public native java.lang.String __toString( long __swiftObject );
+
+    boolean entered_toString_3;
+
+    public java.lang.String toString() {
+        if ( !entered_toString_3 ) {
+            entered_toString_3 = true;
+            java.lang.String __return = __toString( __swiftObject );
+            entered_toString_3 = false;
+            return __return;
+        }
+        else
+            return super.toString( );
+    }
+
+    /// public native int java.lang.Object.hashCode()
+
+    public native int __hashCode( long __swiftObject );
+
+    boolean entered_hashCode_4;
+
+    public int hashCode() {
+        if ( !entered_hashCode_4 ) {
+            entered_hashCode_4 = true;
+            int __return = __hashCode( __swiftObject );
+            entered_hashCode_4 = false;
+            return __return;
+        }
+        else
+            return super.hashCode( );
+    }
+
+    public native void __finalize( long __swiftObject );
+
+    public void finalize() {
+        __finalize( __swiftObject );
+    }
+
+}

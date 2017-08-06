@@ -65,7 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTab
         Thread( {
 
             do {
-                if try Class.forName( self.driverClass.stringValue ) == nil {
+                if try JavaClass.forName( self.driverClass.stringValue ) == nil {
                     return self.alert( "Could not load driver class" );
                 }
 
@@ -77,7 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTab
                     else { return self.alert( "Unable to connect using information supplied, consult console" ) }
 
                 let statement = try connection.createStatement()!
-                if !(try statement.execute( self.SQL.stringValue )) {
+                if !(try statement.execute( sql: self.SQL.stringValue )) {
                     return self.alert( "Could not execute SQL: \(self.SQL.stringValue)" );
                 }
 
@@ -88,13 +88,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTab
                     if let result = try statement.getResultSet(), let md = try result.getMetaData() {
                         let ncols = try md.getColumnCount()
                         for i in 1...ncols {
-                            model.columnNames.append( try md.getColumnName(i) ?? "Column \(i)" )
+                            model.columnNames.append( try md.getColumnName(column: i) ?? "Column \(i)" )
                         }
 
                         while try result.next() {
                             var row = [String]()
                             for i in 1...ncols {
-                                row.append( try result.getString( i ) ?? "null" )
+                                row.append( try result.getString( columnIndex: i ) ?? "null" )
                             }
                             model.data.append( row )
                         }
