@@ -3,10 +3,6 @@
 
 package com.johnholdsworth.bindings;
 
-import com.johnholdsworth.bindings.SwiftHelloTypes.TextListener;
-import com.johnholdsworth.bindings.SwiftHelloTypes.ListenerMap;
-import com.johnholdsworth.bindings.SwiftHelloTypes.ListenerMapList;
-
 import java.util.HashMap;
 
 public interface SwiftHelloTypes {

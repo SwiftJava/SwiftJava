@@ -15,17 +15,50 @@ public class SwiftHelloTest_TestResponderAdapterProxy extends com.johnholdsworth
         this.__swiftObject = __swiftObject;
     }
 
+    /// public void com.johnholdsworth.bindings.SwiftHelloTest$TestResponderAdapter.setLoopback(com.johnholdsworth.bindings.SwiftHelloTest$TestListener)
+
+    public native void __setLoopback( long __swiftObject, com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback );
+
+    boolean entered_setLoopback_0;
+
+    public void setLoopback( com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback ) {
+        if ( !entered_setLoopback_0 ) {
+            entered_setLoopback_0 = true;
+            __setLoopback( __swiftObject, loopback);
+            entered_setLoopback_0 = false;
+        }
+        else
+            super.setLoopback( loopback );
+    }
+
+    /// public boolean com.johnholdsworth.bindings.SwiftHelloTest$TestResponderAdapter.booleanMethod(boolean)
+
+    public native boolean __booleanMethod( long __swiftObject, boolean arg );
+
+    boolean entered_booleanMethod_1;
+
+    public boolean booleanMethod( boolean arg ) {
+        if ( !entered_booleanMethod_1 ) {
+            entered_booleanMethod_1 = true;
+            boolean __return = __booleanMethod( __swiftObject, arg);
+            entered_booleanMethod_1 = false;
+            return __return;
+        }
+        else
+            return super.booleanMethod( arg );
+    }
+
     /// public boolean[] com.johnholdsworth.bindings.SwiftHelloTest$TestResponderAdapter.booleanArrayMethod(boolean[])
 
     public native boolean[] __booleanArrayMethod( long __swiftObject, boolean[] arg );
 
-    boolean entered_booleanArrayMethod_0;
+    boolean entered_booleanArrayMethod_2;
 
     public boolean[] booleanArrayMethod( boolean[] arg ) {
-        if ( !entered_booleanArrayMethod_0 ) {
-            entered_booleanArrayMethod_0 = true;
+        if ( !entered_booleanArrayMethod_2 ) {
+            entered_booleanArrayMethod_2 = true;
             boolean[] __return = __booleanArrayMethod( __swiftObject, arg);
-            entered_booleanArrayMethod_0 = false;
+            entered_booleanArrayMethod_2 = false;
             return __return;
         }
         else
@@ -36,13 +69,13 @@ public class SwiftHelloTest_TestResponderAdapterProxy extends com.johnholdsworth
 
     public native boolean[][] __boolean2dArrayMethod( long __swiftObject, boolean[][] arg );
 
-    boolean entered_boolean2dArrayMethod_1;
+    boolean entered_boolean2dArrayMethod_3;
 
     public boolean[][] boolean2dArrayMethod( boolean[][] arg ) {
-        if ( !entered_boolean2dArrayMethod_1 ) {
-            entered_boolean2dArrayMethod_1 = true;
+        if ( !entered_boolean2dArrayMethod_3 ) {
+            entered_boolean2dArrayMethod_3 = true;
             boolean[][] __return = __boolean2dArrayMethod( __swiftObject, arg);
-            entered_boolean2dArrayMethod_1 = false;
+            entered_boolean2dArrayMethod_3 = false;
             return __return;
         }
         else
@@ -53,13 +86,13 @@ public class SwiftHelloTest_TestResponderAdapterProxy extends com.johnholdsworth
 
     public native byte __byteMethod( long __swiftObject, byte arg );
 
-    boolean entered_byteMethod_2;
+    boolean entered_byteMethod_4;
 
     public byte byteMethod( byte arg ) {
-        if ( !entered_byteMethod_2 ) {
-            entered_byteMethod_2 = true;
+        if ( !entered_byteMethod_4 ) {
+            entered_byteMethod_4 = true;
             byte __return = __byteMethod( __swiftObject, arg);
-            entered_byteMethod_2 = false;
+            entered_byteMethod_4 = false;
             return __return;
         }
         else
@@ -70,50 +103,17 @@ public class SwiftHelloTest_TestResponderAdapterProxy extends com.johnholdsworth
 
     public native byte[] __byteArrayMethod( long __swiftObject, byte[] arg );
 
-    boolean entered_byteArrayMethod_3;
+    boolean entered_byteArrayMethod_5;
 
     public byte[] byteArrayMethod( byte[] arg ) {
-        if ( !entered_byteArrayMethod_3 ) {
-            entered_byteArrayMethod_3 = true;
+        if ( !entered_byteArrayMethod_5 ) {
+            entered_byteArrayMethod_5 = true;
             byte[] __return = __byteArrayMethod( __swiftObject, arg);
-            entered_byteArrayMethod_3 = false;
+            entered_byteArrayMethod_5 = false;
             return __return;
         }
         else
             return super.byteArrayMethod( arg );
-    }
-
-    /// public void com.johnholdsworth.bindings.SwiftHelloTest$TestResponderAdapter.setLoopback(com.johnholdsworth.bindings.SwiftHelloTest$TestListener)
-
-    public native void __setLoopback( long __swiftObject, com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback );
-
-    boolean entered_setLoopback_4;
-
-    public void setLoopback( com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback ) {
-        if ( !entered_setLoopback_4 ) {
-            entered_setLoopback_4 = true;
-            __setLoopback( __swiftObject, loopback);
-            entered_setLoopback_4 = false;
-        }
-        else
-            super.setLoopback( loopback );
-    }
-
-    /// public boolean com.johnholdsworth.bindings.SwiftHelloTest$TestResponderAdapter.booleanMethod(boolean)
-
-    public native boolean __booleanMethod( long __swiftObject, boolean arg );
-
-    boolean entered_booleanMethod_5;
-
-    public boolean booleanMethod( boolean arg ) {
-        if ( !entered_booleanMethod_5 ) {
-            entered_booleanMethod_5 = true;
-            boolean __return = __booleanMethod( __swiftObject, arg);
-            entered_booleanMethod_5 = false;
-            return __return;
-        }
-        else
-            return super.booleanMethod( arg );
     }
 
     /// public byte[][] com.johnholdsworth.bindings.SwiftHelloTest$TestResponderAdapter.byte2dArrayMethod(byte[][])

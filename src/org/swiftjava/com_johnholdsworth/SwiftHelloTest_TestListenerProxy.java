@@ -12,6 +12,22 @@ public class SwiftHelloTest_TestListenerProxy implements com.johnholdsworth.bind
         this.__swiftObject = __swiftObject;
     }
 
+    /// public abstract void com.johnholdsworth.bindings.SwiftHelloTest$TestListener.setLoopback(com.johnholdsworth.bindings.SwiftHelloTest$TestListener)
+
+    public native void __setLoopback( long __swiftObject, com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback );
+
+    public void setLoopback( com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback ) {
+        __setLoopback( __swiftObject, loopback );
+    }
+
+    /// public abstract boolean com.johnholdsworth.bindings.SwiftHelloTest$TestListener.booleanMethod(boolean)
+
+    public native boolean __booleanMethod( long __swiftObject, boolean arg );
+
+    public boolean booleanMethod( boolean arg ) {
+        return __booleanMethod( __swiftObject, arg );
+    }
+
     /// public abstract boolean[] com.johnholdsworth.bindings.SwiftHelloTest$TestListener.booleanArrayMethod(boolean[])
 
     public native boolean[] __booleanArrayMethod( long __swiftObject, boolean[] arg );
@@ -42,22 +58,6 @@ public class SwiftHelloTest_TestListenerProxy implements com.johnholdsworth.bind
 
     public byte[] byteArrayMethod( byte[] arg ) {
         return __byteArrayMethod( __swiftObject, arg );
-    }
-
-    /// public abstract void com.johnholdsworth.bindings.SwiftHelloTest$TestListener.setLoopback(com.johnholdsworth.bindings.SwiftHelloTest$TestListener)
-
-    public native void __setLoopback( long __swiftObject, com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback );
-
-    public void setLoopback( com.johnholdsworth.bindings.SwiftHelloTest.TestListener loopback ) {
-        __setLoopback( __swiftObject, loopback );
-    }
-
-    /// public abstract boolean com.johnholdsworth.bindings.SwiftHelloTest$TestListener.booleanMethod(boolean)
-
-    public native boolean __booleanMethod( long __swiftObject, boolean arg );
-
-    public boolean booleanMethod( boolean arg ) {
-        return __booleanMethod( __swiftObject, arg );
     }
 
     /// public abstract byte[][] com.johnholdsworth.bindings.SwiftHelloTest$TestListener.byte2dArrayMethod(byte[][])
