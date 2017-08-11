@@ -11,8 +11,8 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 
 \rm `find . -name '*.class'` 2>/dev/null
 
-$JAVA_HOME/bin/javac org/swiftjava/{*,*/*}.java com/johnholdsworth/bindings/*.java &&
+$JAVA_HOME/bin/javac org/swiftjava/{*,*/*}.java com/johnholdsworth/swiftbindings/*.java &&
 
-$JAVA_HOME/bin/jar cfv ../swiftjava.jar org/swiftjava/{*,*/*}.class  com/johnholdsworth/bindings/*.class &&
+$JAVA_HOME/bin/jar cfv ../swiftjava.jar org/swiftjava/{*,*/*}.class  com/johnholdsworth/swiftbindings/*.class &&
 
 \cp ../swiftjava.jar ~/.swiftjava.jar

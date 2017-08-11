@@ -1,9 +1,11 @@
 
-package com.johnholdsworth.bindings;
+package com.johnholdsworth.swiftbindings;
 
-import com.johnholdsworth.bindings.SwiftHelloTypes.TextListener;
-import com.johnholdsworth.bindings.SwiftHelloTypes.ListenerMap;
-import com.johnholdsworth.bindings.SwiftHelloTypes.ListenerMapList;
+import com.johnholdsworth.swiftbindings.SwiftHelloTypes.TextListener;
+import com.johnholdsworth.swiftbindings.SwiftHelloTypes.ListenerMap;
+import com.johnholdsworth.swiftbindings.SwiftHelloTypes.ListenerMapList;
+import com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMap;
+import com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMapList;
 
 public interface SwiftHelloBinding {
 
@@ -19,6 +21,12 @@ public interface SwiftHelloBinding {
         public void processedMap( ListenerMap map );
 
         public void processedMapList( ListenerMapList map );
+
+        public void processStringMap( StringMap map );
+
+        public void processStringMapList( StringMapList map );
+
+        public double throwException() throws Exception;
 
         public SwiftHelloTest.TestListener testResponder( int loopback );
 
@@ -41,6 +49,10 @@ public interface SwiftHelloBinding {
 
         public void processMapList( ListenerMapList map );
 
+        public void processedStringMap( StringMap map );
+
+        public void processedStringMapList( StringMapList map );
+
         public String[] debug( String msg );
 
         public SwiftHelloTest.TestListener testResponder( int loopback );
@@ -48,3 +60,4 @@ public interface SwiftHelloBinding {
     }
 
 }
+
