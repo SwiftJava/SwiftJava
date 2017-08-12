@@ -1,11 +1,13 @@
 //
 //  genswift.java
-//  SwiftJava
+//  https://github.com/SwiftJava/SwiftJava
+//  $Id: //depot/SwiftJava/src/genswift.java#90 $
 //
 //  Created by John Holdsworth on 14/07/2016.
 //  Copyright (c) 2016 John Holdsworth. All rights reserved.
+//  MIT License
 //
-//  See ../genswift.sh..
+//  See ../genswift.sh for details on invocation.
 //  Code generator for Swift written in the style of a Perl script.
 //
 //  List of classes to be generated received on stdin which is the
@@ -14,7 +16,8 @@
 //  The ordering of frameworks can be specified in argv[0] otherwise
 //  the ordering is found by processing all files then re-processing
 //  after reordering to minimise the number of forward references in
-//  the generated code.
+//  the generated code. argv[1] can be the destination directory for
+/// generated Swift and argv[2] can be the root for Java generation.
 //
 //  For Java classes, a Swift class of the same name is generated in
 //  a framework derived from the first two packages of the classes
@@ -29,7 +32,7 @@
 //  have Swift methods in a subclass called from Java. This is used
 //  in threading and in event processing in Swift. These "Base" classes
 //  are also generated for concrete classes with names ending in "Adapter".
-//  Thes seemingly arbitrary conventions are taken from java.awt & swing.
+//  These seemingly arbitrary conventions are taken from java.awt & swing.
 //
 //  A variation on this forwarding of Java methods into Swift is where
 //  a method is generally a subclasses responsibility to implement such
@@ -37,7 +40,7 @@
 //  be maintained in this source and where one is encountered a "Base"
 //  class is generated allowing the method to be implemented in Swift.
 //
-//  For this proxy of Java methods into Swift support is required on
+//  For this proxy of Java methods into Swift, support is required on
 //  the Java side of the divide. Proxy classes delegating to "native"
 //  implementations of the relevant method are generated and must be
 //  available to the application. On UNIX this is through the jar file
@@ -50,12 +53,15 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.lang.reflect.TypeVariable;
 
 class genswift {
 
     static void print( String s ) {
         System.out.println(s);
+    }
+
+    static void progress( Object o ) {
+            //print( o.toString() );
     }
 
     static int apiVersion = 2;
@@ -67,7 +73,7 @@ class genswift {
     static String repoBase = "https://github.com/SwiftJava/";
 
     boolean isUnclassed( Class<?> type ) {
-        return swiftTypeFor(type, false, true).indexOf(Unclassed) != -1;
+        return notVoid(type) && swiftTypeFor(type, false, true).indexOf(Unclassed) != -1;
     }
 
     static HashMap<String,Boolean> swiftKeywords = new HashMap<String,Boolean>() {
@@ -96,7 +102,6 @@ class genswift {
             put( Object.class.getName(), true );
             put( String.class.getName(), true );
             put( Comparable.class.getName(), true );
-//            put( CharSequence.class.getName(), true );
             put( Error.class.getName(), true );
             put( SecurityException.class.getName(), true );
             put( java.util.Map.class.getName(), true );
@@ -202,13 +207,26 @@ class genswift {
         }
     };
 
-    static HashMap<String,Integer> frameworkLevels = new HashMap<String,Integer>();
+    boolean excludeFromCodeGeneration( Class<?> clazz ) {
+        String className = clazz.getName();
+        return !Modifier.isPublic(clazz.getModifiers())
+                || classPrefix(className).equals("java_util") && className.indexOf('$') != -1
+                || className.equals("java.util.concurrent.CompletableFuture");
+    }
 
-    static boolean forwardReference( String currentFramework, String framework ) {
-        Integer level = frameworkLevels.get( framework );
-        if ( level == null )
-            return true;
-        return level > frameworkLevels.get( currentFramework );
+    boolean supportsProxyCallback( Class<?> clazz ) {
+        if ( false )
+            return clazz.isInterface() && !dontEnforceProtocol( clazz ) && !clazz.getName().startsWith("java.util.") || isAdapter();
+        String clazzName = clazz.getName();
+        while ( clazzName.charAt(className.length()-1) == ']' )
+                clazzName = clazzName.substring(0, clazzName.length()-1 );
+        return clazz == java.lang.Runnable.class || isAdapter() || clazz.isInterface() &&
+                (clazzName.endsWith("Listener") || clazzName.endsWith("Handler")
+                || clazzName.endsWith("Manager"));// || clazzName.indexOf(".swiftbindings.") != -1);
+    }
+
+    boolean isAdapter() {
+        return classSuffix.endsWith("Adapter");
     }
 
     String frameworkImports;
@@ -343,7 +361,7 @@ class genswift {
 
     StringBuilder code = new StringBuilder();
     String pathToClass, className, classSuffix, currentFramework, visibility, classCacheVar;
-    boolean isInterface, isLost, isListener;
+    boolean isInterface, isLost;
     Class<?> clazz, superclazz;
 
     genswift( String pathToClass ) {
@@ -368,17 +386,12 @@ class genswift {
             knownAdditionalFrameworks.put(currentFramework, true);
             additionalFrameworks.add(currentFramework);
         }
-//        if ( !currentFramework.equals("java_lang") )
-//            classTypeFor( java.lang.Object.class, false, false );
 
         frameworkImports = keyClasses.containsKey(className) ? "" : "\nimport java_swift\n";
 
         visibility = "open ";
         superclazz = clazz.getSuperclass();
         isInterface = clazz.isInterface();
-        //if ( !isInterface ) return false;
-
-        isListener = isInterface && supportsProxyCallback( clazz );
 
         code.append("\n/// generated by: "+invocation+" ///\n");
 //        code.append("\n/// JAVA_HOME: "+System.getenv("JAVA_HOME")+" ///\n");
@@ -465,11 +478,10 @@ class genswift {
 
         generateConstructors( pathToClass, classSuffix, false );
 
-        boolean hasSubclassResponsibility = generateMethods( clazz.getDeclaredMethods(), isInterface, fieldsSeen, classSuffix, false );
+        generateMethods( clazz.getDeclaredMethods(), isInterface, fieldsSeen, classSuffix, false );
 
         ArrayList<java.lang.reflect.Method> responsibles = new ArrayList<java.lang.reflect.Method>();
         for ( java.lang.reflect.Method method : clazz.getMethods() ) {
-            //print( "!!"+method.toString() );
             if ( subclassResponsibilities.containsKey(method.toString()) )
                 responsibles.add( method );
         }
@@ -540,7 +552,7 @@ class genswift {
         for (Field field : clazz.getDeclaredFields()) {
             int mods = field.getModifiers();
 
-            print(field.toString());
+            progress(field);
             code.append( "    /// "+field+"\n\n" );
 
             String fieldName = safe(field.getName());
@@ -550,7 +562,7 @@ class genswift {
             boolean skipField = (fieldOverride( field, superclazz)) && isStatic ||
                      !Modifier.isPublic(mods) && !Modifier.isProtected(mods) || fieldsSeen.containsKey(fieldName) ||
                      fieldName.equals(classSuffix) || interfaceMethods.containsKey(fieldName+"()") ||
-                     isStatic && (Modifier.isProtected(mods) ||
+                     isStatic && (Modifier.isProtected(mods) || isInterface || ////
                         superclazz == javax.swing.undo.AbstractUndoableEdit.class ||
                          superclazz != null && superclazz.getSuperclass() == javax.swing.undo.AbstractUndoableEdit.class ||
                          superclazz == javax.swing.plaf.basic.BasicComboBoxRenderer.class ||
@@ -566,9 +578,6 @@ class genswift {
             }
             catch ( NoSuchFieldException e ) {
             }
-
-//            if ( fieldType.isInterface() && fieldType.isArray() )
-//                continue; ////
 
             boolean arrayType = crashesCompilerOnLinx(fieldType);
             if ( arrayType )
@@ -624,11 +633,13 @@ class genswift {
             Constructor<?> constructor = newConstructor( _constructor );
             int mods = constructor.getModifiers();
 
-            print(constructor.toString());
+            progress(constructor);
             code.append( "    /// "+constructor.toString()+"\n\n" );
 
-            String namedSignature = argsFor( constructor, true, true );
-            if (  !Modifier.isPublic(mods) && !Modifier.isProtected(mods) || constructorSeen.containsKey(namedSignature) ||  ambiguousInitialiser( constructor.toString() ) )
+            String namedSignature = argsFor( constructor, true, true, null );
+            if (  !Modifier.isPublic(mods) && !Modifier.isProtected(mods)
+                    || constructorSeen.containsKey(namedSignature)
+                    || ambiguousInitialiser( constructor.toString() ) )
                 continue;
             constructorSeen.put( namedSignature, true );
 
@@ -637,7 +648,6 @@ class genswift {
             boolean canThrow = constructor.getExceptionTypes().length != 0 && constructor.getParameterCount() != 0 &&
                     (overridden == null || overridden.getExceptionTypes().length != 0);
 
-            boolean unnamedOverride = overridden != null;
             if (overridden != null)
                 if ( argumentNamesDiffer( constructor, newConstructor( overridden ) ) )
                     overridden = null;
@@ -653,7 +663,7 @@ class genswift {
             code.append("    private static var "+methodIDVar+": jmethodID?\n\n" );
 
             code.append( "    public "+/*(overridden != null && !isLost && clazz != String.class || isListenerBase ? "override " : "")+*/
-                    "convenience init("+argsFor( constructor, false, true )+")"+(canThrow?" throws":"")+" {\n" );
+                    "convenience init("+argsFor( constructor, false, true, null )+")"+(canThrow?" throws":"")+" {\n" );
             code.append( functionHeader( constructor.getParameters(), null, isListenerBase ? 1 : 0 ) );
 
             String signature = jniArgs(constructor, "", "");
@@ -665,7 +675,7 @@ class genswift {
 
             code.append( "        let __object = JNIMethod.NewObject( className: \""+pathToClass+"\", classCache: &"+
                     classSuffix+"."+classSuffix+"JNIClass, methodSig: \""+signature+"V\", methodCache: &"+classSuffix+"."+methodIDVar+
-                    ", args: &__args, locals: "+(constructor.getParameters().length != 0 || true?"&__locals":"nil")+" )\n" );
+                    ", args: &__args, locals: &__locals )\n" );
 
             if ( canThrow )
                 addThrowCode( constructor );
@@ -677,11 +687,11 @@ class genswift {
             code.append( "        JNI.DeleteLocalRef( __object )\n" );
             code.append( "    }\n" );
 
-            String unnamedSigature = argsFor( constructor, true, false );
+            String unnamedSigature = argsFor( constructor, true, false, null );
             if ( !constructorSeen.containsKey(unnamedSigature) && constructor.getParameters().length != 0 ) {
 
                 code.append( "\n    public "+/*(unnamedOverride && !isLost && clazz != String.class || isListenerBase ? "override " : "")+*/
-                        "convenience init("+argsFor( constructor, false, false )+")"+(canThrow?" throws":"")+" {\n" );
+                        "convenience init("+argsFor( constructor, false, false, null )+")"+(canThrow?" throws":"")+" {\n" );
 
                 code.append( "        "+(canThrow?"try ":"")+"self.init("+passthroughArguments(constructor,null)+" )\n    }\n" );
 
@@ -705,7 +715,7 @@ class genswift {
             boolean isStatic = Modifier.isStatic(mods);
             String methodIdent = method.toString();
 
-            print(method.toString());
+            progress(method);
             code.append( "    /// "+method+"\n\n" );
 
             if ( subclassResponsibilities.containsKey(methodIdent) )
@@ -722,25 +732,30 @@ class genswift {
             unnamedOverride = overridden != null;
 
             String methodName = method.getName();
-            //if ( methodName.equals("clone") ) continue;
             boolean fieldExists = fieldsSeen.containsKey(safe(methodName)) && method.getParameterCount() == 0;
             boolean skipMethod = overridden != null && !isStatic && !isListenerBase
+                        && !(isInterface && clazz.getInterfaces().length != 0 && isUnclassed(clazz.getInterfaces()[0]))
                     || !Modifier.isPublic(mods) && !Modifier.isProtected(mods)
                     || isInterface && (dontEnforceProtocol(clazz)
-                            || awkwardMethodInProtocol(method) || isUnclassed(method.getReturnType()) &&  clazz != java.lang.Runnable.class)
+                    || awkwardMethodInProtocol(method)
+                    || isUnclassed(method.getReturnType()) &&  clazz != java.lang.Runnable.class)
                     || methodName.startsWith("lambda$") || fieldExists;
 
             // argument names differ?
-            if ( skipMethod && !(""+method).equals("public void javax.swing.text.PlainDocument.insertString(int,java.lang.String,javax.swing.text.AttributeSet) throws javax.swing.text.BadLocationException")
-                        &&!(""+method).equals("public java.util.Set java.util.HashMap.keySet()") ) {
-                print(methodName + (overridden != null && !isStatic && !isListenerBase) + (!Modifier.isPublic(mods) && !Modifier.isProtected(mods))
-                        + (isInterface && (dontEnforceProtocol(clazz)
+            String methodString = method.toString();
+            if ( skipMethod && !methodString.equals("public void javax.swing.text.PlainDocument.insertString(int,java.lang.String,javax.swing.text.AttributeSet) throws javax.swing.text.BadLocationException")
+                        && !methodString.equals("public java.util.Set java.util.HashMap.keySet()") ) {
+                print(methodName
+                         + " skipped " + (overridden != null && !isStatic && !isListenerBase)
+                         + " " + (!Modifier.isPublic(mods) && !Modifier.isProtected(mods))
+                         + " " + (isInterface && (dontEnforceProtocol(clazz)
                                 || awkwardMethodInProtocol(method) || isUnclassed(method.getReturnType())))
-                        + methodName.startsWith("lambda$") + fieldExists);
+                         + " " + methodName.startsWith("lambda$")
+                         + " " + fieldExists);
                 continue;
             }
 
-            String namedSignature = swiftSignatureFor( method, isProtocol, true, true);
+            String namedSignature = swiftSignatureFor( method, isProtocol, true, true, null);
             if ( methodsSeen.containsKey(namedSignature) )
                 continue;
             methodsSeen.put(namedSignature, true );
@@ -748,9 +763,9 @@ class genswift {
             Class <?> returnType = method.getReturnType();
             boolean arrayType = crashesCompilerOnLinx( method );
             boolean canThrow = method.getExceptionTypes().length != 0;
-            String unnamedSignature = swiftSignatureFor( method, isProtocol, true, false);
+            String unnamedSignature = swiftSignatureFor( method, isProtocol, true, false, null);
             boolean createsNameless = !methodsSeen.containsKey(unnamedSignature) && !fieldExists &&
-                    !(isInterface && lostType(returnType)) && method.getParameterCount() != 0;
+                    !(isInterface && lostType(returnType)) && method.getParameterCount() != 0 && !isListenerBase;
 
             if ( arrayType )
                 code.append( "    #if !os(Linux)\n");
@@ -798,8 +813,7 @@ class genswift {
                                         "object: javaObject")+
                                 ", methodName: \""+methodName+"\", methodSig: \""+jniSignature(method, "", "")+"\", methodCache: &"+methodIDVarRef;
 
-                        code.append( "JNIMethod.Call"+funcType( returnType, mods )+"Method( "+methodArgs+
-                                ", args: &__args, locals: "+(method.getParameters().length != 0 || true?"&__locals":"nil")+" )\n" );
+                        code.append( "JNIMethod.Call"+funcType( returnType, mods )+"Method( "+methodArgs + ", args: &__args, locals: &__locals )\n" );
 
                         if ( isObjectType( returnType ) ) // || returnType.isArray() && !returnType.getComponentType().isPrimitive() )
                             code.append( "        defer { JNI.DeleteLocalRef( __return ) }\n" );
@@ -893,15 +907,16 @@ class genswift {
             }
 
             if ( rethrow ) {
+                    String dflt = returnType.getName().equals("boolean") ? "0" : defaultReturn(returnType);
                     code.append("    }\n");
                     code.append("    catch let exception as Throwable {\n");
                     code.append("        _ = exception.withJavaObject { JNI.api.Throw( JNI.env, $0 ) }\n");
                     if ( notVoid(returnType) )
-                        code.append("        return "+defaultReturn(returnType)+"\n");
+                        code.append("        return "+dflt+"\n");
                     code.append("    }\n    catch {\n");
                     code.append("        _ = Exception(\"Unknown exception\").withJavaObject { JNI.api.Throw( JNI.env, $0 ) }\n");
                     if ( notVoid(returnType) )
-                        code.append("        return "+defaultReturn(returnType)+"\n");
+                        code.append("        return "+dflt+"\n");
                     code.append("    }\n");
             }
 
@@ -935,7 +950,6 @@ class genswift {
             code.append("\n");
         }
 
-        String jniName = classSuffix + "__finalize";
         code.append("        natives.append( JNINativeMethod( name: strdup(\"__finalize\"), signature: strdup(\"(J)V\")"
                 + ", fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )\n\n");
 
@@ -962,7 +976,7 @@ class genswift {
             code.append("    }\n\n}\n\n");
         }
 
-        code.append("open class " + classSuffix + "Base: " + (isInterface&&false?"JNIObject, ":"") + classSuffix + " {\n\n");
+        code.append("open class " + classSuffix + "Base: " + classSuffix + " {\n\n");
 
         if ( !isInterface ) {
             code.append("    private static var "+classSuffix+"BaseJNIClass: jclass? = "+classSuffix+"Local_.proxyClass()\n\n" );
@@ -990,10 +1004,10 @@ class genswift {
 
         code.append("}\n");
 
-        generateJavaCallbackStub( methods );
+        generateJavaProxyStub( methods );
     }
 
-    void generateJavaCallbackStub( java.lang.reflect.Method methods[] ) throws IOException {
+    void generateJavaProxyStub( java.lang.reflect.Method methods[] ) throws IOException {
         StringBuilder java = new StringBuilder();
 
         java.append("\n/// generated by: "+invocation+" ///\n");
@@ -1084,13 +1098,15 @@ class genswift {
                 "    }\n\n}\n");
 
         String dest = (javaSourceRoot != null ? javaSourceRoot+"/" :
-                pathToWriteSource+"src/")+proxySourcePath+currentFramework;
+                pathToWriteSource+"src/") + proxySourcePath+currentFramework;
         new File( dest ).mkdirs();
-        String javaSource = dest+"/"+classSuffix+"Proxy.java";
+
+        String javaSource = dest + "/" + classSuffix+"Proxy.java";
         FileOutputStream out = new FileOutputStream( javaSource );
         out.write(java.toString().getBytes("UTF-8") );
         out.close();
-        print("Wrote: "+javaSource);
+
+        print("Created: "+javaSource);
     }
 
     void generateInterfaceFields( HashMap<String,Boolean> fieldsSeen, Class<?> intrface ) {
@@ -1107,22 +1123,13 @@ class genswift {
         String args = "";
         for (Parameter param : executable.getParameters()) {
             String javaType = longJavaType( param.getType() );
-//            Class<?> type = ;
-//            String subs = "";
-//            while ( type.isArray() ) {
-//                type = type.getComponentType();
-//                subs += "[]";
-//                javaType = type.getName()+subs;
-//            }
-            args += (args == ""?" ":", ")+javaType+" "+safe(param.getName());
+            args += (args == "" ? " " : ", ")+javaType+" "+safe(param.getName());
         }
         return args == "" ? "" : args + " ";
     }
 
     boolean interfacesChangingReturnTypeInSubclass( Class<?> intrface ) {
-        return /*intrface == java.util.stream.BaseStream.class
-            || intrface == java.util.concurrent.CompletionStage.class
-            ||*/ intrface == java.util.SortedSet.class
+        return intrface == java.util.SortedSet.class
             || intrface == java.util.Iterator.class
             || intrface == java.util.concurrent.BlockingQueue.class
             || intrface == java.util.NavigableSet.class
@@ -1143,25 +1150,27 @@ class genswift {
     }
 
    boolean ambiguousInitialiser( String signature ) {
-        return signature.equals("public java.awt.Dialog(java.awt.Window)")
-                || signature.equals("public java.awt.Window(java.awt.Frame)") //// crashes compiler on Linux
-                || signature.equals("public javax.swing.JDialog(java.awt.Window)")
-                || signature.equals("public javax.swing.JWindow(java.awt.Window)")
-                || signature.equals("public javax.swing.JDialog(java.awt.Window,java.lang.String)");
+       return false;
+//        return signature.equals("public java.awt.Dialog(java.awt.Window)")
+//                || signature.equals("public java.awt.Window(java.awt.Frame)") //// crashes compiler on Linux
+//                || signature.equals("public javax.swing.JDialog(java.awt.Window)")
+//                || signature.equals("public javax.swing.JWindow(java.awt.Window)")
+//                || signature.equals("public javax.swing.JDialog(java.awt.Window,java.lang.String)");
     }
 
     boolean redundantConformance(Class<?> prospectiveInterface, Class<?> interfaces[]) {
         boolean prospectiveUnclassed = isUnclassed(prospectiveInterface);
         for (Class<?> intrface : interfaces)
             if ( prospectiveInterface == intrface || prospectiveUnclassed && isUnclassed(intrface) ||
-                    redundantConformance(prospectiveInterface, intrface.getInterfaces()))
+                    redundantConformance(prospectiveInterface, intrface.getInterfaces()) )
                 return true;
         return false;
     }
 
     boolean skipCallbackMethod( Method method ) {
         return awkwardMethodInProtocol( method ) || Modifier.isFinal(method.getModifiers())
-                || !isInterface && !subclassResponsibilities.containsKey(method.toString()) && !isAdapter();
+                || !isInterface && !subclassResponsibilities.containsKey(method.toString()) && !isAdapter()
+                || isUnclassed(method.getReturnType()) || Modifier.isStatic(method.getModifiers());
     }
 
     HashMap<String,Method> interfaceMethods = new HashMap<String,Method>();
@@ -1193,8 +1202,7 @@ class genswift {
     String functionHeader( Parameter parameters[], Method interfaceMethod, int extra ) {
         StringBuilder setup = new StringBuilder();
         setup.append( "        var __args = [jvalue]( repeating: jvalue(), count: "+Math.max(1,parameters.length+extra)+" )\n" );
-        //if ( parameters.length != 0 )
-            setup.append( "        var __locals = [jobject]()\n" );
+        setup.append( "        var __locals = [jobject]()\n" );
         for ( int i=0 ; i<parameters.length ; i++ ) {
             String name = interfaceMethod!=null ? interfaceMethod.getParameters()[i].getName() : parameters[i].getName();
             setup.append( "        __args["+i+"] = "+encoder( safe(name), parameters[i].getType(), "&__locals" )+"\n" );
@@ -1285,21 +1293,19 @@ class genswift {
         return false;//type.isArray() && !type.getComponentType().isPrimitive();
     }
 
-    String encoder( String var, Class<?> type, String locals ) {
-        if ( type == java.lang.Float.class )
-            return "JNIType.toJavaFloat( value: "+var+", locals: "+locals+" )";
-        boolean isMap  = java.util.Map.class.isAssignableFrom(type);
-        return "JNIType.toJava( value: "+var+/*(isObjectType( type ) &&
-                !type.isInterface() && type.getInterfaces().length != 0 && !isMap && false?
-                        " != nil ? "+var+"! as JNIObject : nil" : "")+*/
-                (isMap ? ", mapClass: \""+type.getName().replace(".", "/")+"\"" : "") +", locals: "+locals+" )";
-    }
-
     String encodeSuffix( Class<?> type ) {
         String jvalueField = jvalueFields.get( type.getName() );
         if ( jvalueField == null )
             jvalueField = "l";
         return "."+jvalueField;
+    }
+
+    String encoder( String var, Class<?> type, String locals ) {
+        if ( type == java.lang.Float.class )
+            return "JNIType.toJavaFloat( value: "+var+", locals: "+locals+" )";
+        boolean isMap  = java.util.Map.class.isAssignableFrom(type);
+        return "JNIType.toJava( value: " + var +
+                (isMap ? ", mapClass: \""+type.getName().replace(".", "/")+"\"" : "") + ", locals: "+locals+" )";
     }
 
     String decoder( String var, Class<?> type ) {
@@ -1313,10 +1319,6 @@ class genswift {
 
     boolean isObjectType( Class<?> type ) {
         return !type.isPrimitive() && type != String.class && !type.isArray();
-    }
-
-    String argsFor( Executable e, boolean anon, boolean named ) {
-        return argsFor( e, anon, named, null );
     }
 
     String argsFor( Executable e, boolean anon, boolean named, Method interfaceMethod ) {
@@ -1339,10 +1341,6 @@ class genswift {
        return (swiftKeywords.containsKey(name)?"_":"")+name.replace('$','_');
     }
 
-    String swiftSignatureFor( Method method, boolean isProtocol, boolean anon, boolean named ) {
-        return swiftSignatureFor( method, isProtocol, anon, named, null );
-    }
-
     String swiftSignatureFor( Method method, boolean isProtocol, boolean anon, boolean named, Method interfaceMethod ) {
         String ret = "";
         if ( method.getExceptionTypes().length != 0 ) {
@@ -1357,6 +1355,149 @@ class genswift {
         boolean isStatic = Modifier.isStatic(method.getModifiers());
         return (isProtocol ? "" : visibility)+(isStatic ? "class ": "")+
                 "func "+safe(method.getName())+"("+argsFor(  method, anon, named, interfaceMethod )+")" + ret;
+    }
+
+    String swiftTypeFor( Class<?> type, boolean isReturn, boolean anon ) {
+        return swiftTypeFor( type, isReturn, anon, true, false, false );
+    }
+
+    String swiftTypeFor( Class<?> type, boolean isReturn, boolean anon, boolean prefix, boolean isArg, boolean addForward ) {
+        String decl = swiftTypes.get(type.getName());
+        if ( decl == null ) {
+            if(type.isArray()) {
+                String left = "[", right = "]";
+                Class<?> elementType = type.getComponentType();
+
+                while ( elementType.isArray() ) {
+                    elementType = elementType.getComponentType();
+                    left += "[";
+                    right += "]";
+                }
+
+                String nativeType = arrayTypes.get( elementType.getName() );
+                if ( nativeType != null )
+                    decl = nativeType;
+                else
+                    decl = classTypeFor( elementType, anon, false );
+
+                if ( addForward && elementType.isInterface() )
+                        decl += "Forward";
+
+                decl = (isReturn || true ? "" : "inout ") + left + decl + right;
+            }
+            else if ( java.util.Map.class.isAssignableFrom(type) ) {
+                    try {
+                        java.lang.reflect.Method method = type.getDeclaredMethod("valueClass");
+                        Class<?> vtype = (Class<?>) method.invoke(type);
+                        decl = "[String:"+swiftTypeFor(vtype, false, anon, true, false, addForward)+"]";
+                    }
+                    catch (Exception e) {
+                        decl = classTypeFor( type, anon, prefix );
+                        if ( addForward && type.isInterface() )
+                                decl += "Forward";
+                    }
+                }
+            else {
+                decl = classTypeFor( type, anon, prefix );
+                if ( addForward && type.isInterface() )
+                        decl += "Forward";
+            }
+        }
+
+        return decl + (isReturn && !type.isPrimitive() ? isArg && type != java.lang.Float.class ? "?" : "!" : "");
+    }
+
+    String classTypeFor( Class<?> type, boolean anon, boolean prefix ) {
+        String typeName = type.getName();
+        String className = classSuffix( typeName );
+        String frameworkPrefix = classPrefix( typeName );
+
+        crossReference( currentFramework, frameworkPrefix );
+
+        if ( lostType( type ) || excludeFromCodeGeneration( type ) ) {
+            unclassedReferences++;
+            return (anon?"":"/* "+typeName+" */ ") + Unclassed + (type.isInterface() ? "Protocol" : "Object");
+        }
+
+        if ( !frameworkPrefix.equals(currentFramework) && !type.isPrimitive() ) {
+            if ( !referencedFrameworks.containsKey( frameworkPrefix ) ) {
+                    if ( !frameworkPrefix.equals("java_swift") )
+                        frameworkImports += "import "+frameworkPrefix+"\n";
+                referencedFrameworks.put(frameworkPrefix, true);
+            }
+            if ( prefix )
+                className = frameworkPrefix + "." + className;
+        }
+        return className;
+    }
+
+    boolean lostType( Class<?> type ) {
+        return !type.isArray() && forwardReference( currentFramework, classPrefix( type.getName() ) );
+    }
+
+    static int prefixLength( String className ) {
+        int firstDot = className.indexOf( '.' );
+        if ( firstDot == -1 )
+            return -1;
+        int secondDot = className.indexOf( '.', firstDot+1 );
+        return secondDot == -1 ? firstDot : secondDot;
+    }
+
+    static String classPrefix( String className ) {
+        int  prefixLength = prefixLength( className );
+        if ( prefixLength == -1 )
+            return "java_lang";
+        if ( keyClasses.containsKey(className) )
+            return "java_swift";
+        return className.substring( 0, prefixLength ).replace( '.', '_' );
+    }
+
+    static HashMap<String,String> allocatedSuffies = new HashMap<String,String>();
+
+    static String classSuffix( String className ) {
+        int suffixIndex = className.lastIndexOf( '.' )+1;
+        String classSuffix = className.substring( suffixIndex ).replace('$', '_');
+
+        if ( swiftReserved.containsKey(className) )
+            classSuffix = "Java" + classSuffix;
+
+        String allocated = allocatedSuffies.get( classSuffix );
+        if ( allocated != null && !allocated.equals(className) ) {
+            int  prefixLength = prefixLength( className );
+            String other = className.substring( prefixLength+1, suffixIndex );
+            return other.replace('.', '_') + classSuffix;
+        }
+
+        if ( allocated == null )
+            allocatedSuffies.put( classSuffix, className );
+        return classSuffix;
+    }
+
+    static HashMap<String,HashMap<String,Integer>> crossReferences = new HashMap<String,HashMap<String,Integer>>();
+    static HashMap<String,Boolean> knownAdditionalFrameworks = new HashMap<String,Boolean>();
+    static HashMap<String,Integer> frameworkLevels = new HashMap<String,Integer>();
+    static ArrayList<String> additionalFrameworks = new ArrayList<String>();
+
+    static boolean forwardReference( String currentFramework, String framework ) {
+        Integer level = frameworkLevels.get( framework );
+        if ( level == null )
+            return true;
+        return level > frameworkLevels.get( currentFramework );
+    }
+
+
+    static void crossReference( String from, String to ) {
+        if ( !crossReferences.containsKey( from ) )
+            crossReferences.put( from, new HashMap<String,Integer>() );
+        if ( !crossReferences.get( from ).containsKey( to ) )
+            crossReferences.get( from ).put( to, 0 );
+        crossReferences.get(from).put(to,crossReferences.get(from).get(to)+1);
+    }
+
+    static int references( String from, String to ) {
+        if ( !crossReferences.containsKey(from) || !crossReferences.get(from).containsKey(to) )
+            return 0;
+        return crossReferences.get(from).get(to);
     }
 
     boolean fieldOverride(Field f, Class<?> superclazz) {
@@ -1376,7 +1517,6 @@ class genswift {
         if (superclazz == null)
             return null;
         Class<?> types[] = c.getParameterTypes();
-        //print(""+types.length);
 
         try {
             switch (types.length) {
@@ -1449,139 +1589,7 @@ class genswift {
         }
     }
 
-    String swiftTypeFor( Class<?> type, boolean isReturn, boolean anon ) {
-        return swiftTypeFor( type, isReturn, anon, true, false, false );
-    }
-
-    String swiftTypeFor( Class<?> type, boolean isReturn, boolean anon, boolean prefix, boolean isArg, boolean addForward ) {
-        String decl = swiftTypes.get(type.getName());
-        if ( decl == null ) {
-            if(type.isArray()) {
-                String left = "[", right = "]";
-                  Class<?> elementType = type.getComponentType();
-                while ( elementType.isArray() ) {
-                    elementType = elementType.getComponentType();
-                    left += "[";
-                    right += "]";
-                }
-                String nativeType = arrayTypes.get( elementType.getName() );
-                if ( nativeType != null )
-                    decl = nativeType;
-                else
-                    decl = classTypeFor( elementType, anon, false );
-
-                if ( addForward && elementType.isInterface() )
-                        decl += "Forward";
-
-                decl = (isReturn || true ? "" : "inout ") + left + decl + right;
-            }
-            else if ( java.util.Map.class.isAssignableFrom(type) ) {
-                    try {
-                        java.lang.reflect.Method method = type.getDeclaredMethod("valueClass");
-                        Class<?> vtype = (Class<?>) method.invoke(type);
-                        decl = "[String:"+swiftTypeFor(vtype, false, anon, true, false, addForward)+"]";
-                    }
-                    catch (Exception e) {
-//                        e.printStackTrace();
-                        decl = classTypeFor( type, anon, prefix );
-                    if ( addForward && type.isInterface() )
-                            decl += "Forward";
-                    }
-                }
-            else {
-                decl = classTypeFor( type, anon, prefix );
-                if ( addForward && type.isInterface() )
-                        decl += "Forward";
-            }
-        }
-
-        return decl + (isReturn && !type.isPrimitive() /*&& !isListener*/ ? isArg && type != java.lang.Float.class ? "?" : "!" : "");
-    }
-
-    String classTypeFor( Class<?> type, boolean anon, boolean prefix ) {
-        String typeName = type.getName();
-        String className = classSuffix( typeName );
-        String frameworkPrefix = classPrefix( typeName );
-
-        crossReference( currentFramework, frameworkPrefix );
-
-        if ( lostType( type ) || excludeFromCodeGeneration( type ) /*||
-                currentFramework.equals("java_swift") && !frameworkPrefix.equals("java_swift")*/ ) {
-            unclassedReferences++;
-            return (anon?"":"/* "+typeName+" */ ") + Unclassed + (type.isInterface()?"Protocol":"Object");
-        }
-
-        if ( !frameworkPrefix.equals(currentFramework) && !type.isPrimitive() ) {
-            if ( !referencedFrameworks.containsKey( frameworkPrefix ) ) {
-                    if ( !frameworkPrefix.equals("java_swift") )
-                        frameworkImports += "import "+frameworkPrefix+"\n";
-                referencedFrameworks.put(frameworkPrefix, true);
-            }
-            if ( prefix )
-                className = frameworkPrefix + "." + className;
-        }
-        return className;
-    }
-
-    boolean lostType( Class<?> type ) {
-        return !type.isArray() && forwardReference( currentFramework, classPrefix( type.getName() ) );
-    }
-
-    static int prefixLength( String className ) {
-        int firstDot = className.indexOf( '.' );
-        if ( firstDot == -1 )
-            return -1;
-        int secondDot = className.indexOf( '.', firstDot+1 );
-        return secondDot == -1 ? firstDot : secondDot;
-    }
-
-    static String classPrefix( String className ) {
-        int  prefixLength = prefixLength( className );
-        if ( prefixLength == -1 )
-            return "java_lang";
-        if ( keyClasses.containsKey(className) )
-            return "java_swift";
-        return className.substring( 0, prefixLength ).replace( '.', '_' );
-    }
-
-    static HashMap<String,String> allocatedSuffies = new HashMap<String,String>();
-
-    static String classSuffix( String className ) {
-        int suffixIndex = className.lastIndexOf( '.' )+1;
-        String classSuffix = className.substring( suffixIndex ).replace('$', '_');
-
-        if ( swiftReserved.containsKey(className) )
-            classSuffix = "Java" + classSuffix;
-
-        String allocated = allocatedSuffies.get( classSuffix );
-        if ( allocated != null && !allocated.equals(className) ) {
-            int  prefixLength = prefixLength( className );
-            String other = className.substring( prefixLength+1, suffixIndex );
-            return other.replace('.', '_') + classSuffix;
-        }
-
-        if ( allocated == null )
-            allocatedSuffies.put( classSuffix, className );
-        return classSuffix;
-    }
-
-    static HashMap<String,HashMap<String,Integer>> crossReferences = new HashMap<String,HashMap<String,Integer>>();
-    static HashMap<String,Boolean> knownAdditionalFrameworks = new HashMap<String,Boolean>();
-    static ArrayList<String> additionalFrameworks = new ArrayList<String>();
-
-    static void crossReference( String from, String to ) {
-        if ( !crossReferences.containsKey( from ) )
-            crossReferences.put( from, new HashMap<String,Integer>() );
-        if ( !crossReferences.get( from ).containsKey( to ) )
-            crossReferences.get( from ).put( to, 0 );
-        crossReferences.get(from).put(to,crossReferences.get(from).get(to)+1);
-    }
-
-    static int references( String from, String to ) {
-        if ( !crossReferences.containsKey(from) || !crossReferences.get(from).containsKey(to) )
-            return 0;
-        return crossReferences.get(from).get(to);
-    }
+    // for compatibility with JDK < 1.8
 
     static class Parameter {
         Executable executable;
@@ -1662,6 +1670,7 @@ class genswift {
         }
     }
 
+    @SuppressWarnings("rawtypes")
     static Constructor<?> newConstructor( java.lang.reflect.Constructor<?> constructor ) {
         if ( constructor == null )
             return null;
@@ -1690,23 +1699,4 @@ class genswift {
         return proxy;
     }
 
-    boolean excludeFromCodeGeneration( Class<?> clazz ) {
-        String className = clazz.getName();
-    return !Modifier.isPublic(clazz.getModifiers()) || className.equals("java.util.concurrent.CompletableFuture")
-           || classPrefix(className).equals("java_util") && className.indexOf('$') != -1;
-    }
-
-    boolean supportsProxyCallback( Class<?> clazz ) {
-        String clazzName = clazz.getName();
-        while ( clazzName.charAt(className.length()-1) == ']' )
-                clazzName = clazzName.substring(0, clazzName.length()-1 );
-        return clazz == java.lang.Runnable.class || isAdapter()
-                || clazz.isInterface() && (clazzName.endsWith("Listener") || clazzName.endsWith("Handler") || clazzName.endsWith("Manager"));
-    }
-
-    boolean isAdapter() {
-        return classSuffix.endsWith("Adapter") && clazz != java.awt.dnd.DropTargetAdapter.class; // missing drop()?
-    }
-
 }
-
