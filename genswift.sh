@@ -20,6 +20,6 @@ TARGET_JAR=${2:-$JAVA_HOME/jre/lib/rt.jar}
 
 PACKAGE_ORDER=${3:-java/lang|java/util|java/sql|java/awt|javax/swing}
 
-cd "$(dirname "$0")/src" && $JAVA_HOME/bin/javac -d ../bin genswift.java && cd - &&
+cd "$(dirname "$0")/src" && $JAVA_HOME/bin/javac -d ../bin genswift.java && cd "$(dirname "$0")" &&
 
 $JAVA_HOME/bin/jar tf "$TARGET_JAR" | egrep "^($FILTER)" | sed "s@\\.class\$@@" | $JAVA_HOME/bin/java -cp "$TARGET_JAR:bin" genswift "$PACKAGE_ORDER"

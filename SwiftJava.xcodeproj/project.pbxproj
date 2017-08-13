@@ -36,14 +36,6 @@
 		BBCCEF9A1F3C83440084F9E3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BBCCEF991F3C83440084F9E3 /* LICENSE */; };
 		BBF280D91D64BC6100A7AF5D /* src in Resources */ = {isa = PBXBuildFile; fileRef = BBF280D81D64BC6100A7AF5D /* src */; };
 		CE3185101F368D6B002046A6 /* SwiftHelloTypes_TextListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31850E1F368D44002046A6 /* SwiftHelloTypes_TextListener.swift */; };
-		CE4A25031F34B37C003AF384 /* JNIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A24FB1F34B37C003AF384 /* JNIMethod.swift */; };
-		CE4A25041F34B37C003AF384 /* JNIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A24FC1F34B37C003AF384 /* JNIType.swift */; };
-		CE4A25051F34B37C003AF384 /* JNICore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A24FD1F34B37C003AF384 /* JNICore.swift */; };
-		CE4A25061F34B37C003AF384 /* JavaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A24FE1F34B37C003AF384 /* JavaClass.swift */; };
-		CE4A25071F34B37C003AF384 /* JNIObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A24FF1F34B37C003AF384 /* JNIObject.swift */; };
-		CE4A25081F34B37C003AF384 /* Runnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A25001F34B37C003AF384 /* Runnable.swift */; };
-		CE4A25091F34B37C003AF384 /* JavaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A25011F34B37C003AF384 /* JavaObject.swift */; };
-		CE4A250A1F34B37C003AF384 /* JNIField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A25021F34B37C003AF384 /* JNIField.swift */; };
 		CE4A250B1F34B3E0003AF384 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCD66ED1D36A03F00DF5E47 /* JavaVM.framework */; };
 		CE4A25101F3555CA003AF384 /* com_johnholdsworth in Resources */ = {isa = PBXBuildFile; fileRef = CE4A250F1F3555CA003AF384 /* com_johnholdsworth */; };
 		CE4A25191F355910003AF384 /* SwiftHelloTest_SwiftTestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A25151F355902003AF384 /* SwiftHelloTest_SwiftTestListener.swift */; };
@@ -51,17 +43,9 @@
 		CE4A251B1F355918003AF384 /* SwiftHelloTestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A25131F355902003AF384 /* SwiftHelloTestImpl.swift */; };
 		CE4A25211F355CAC003AF384 /* SwiftHelloTest_TestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A251F1F355CA6003AF384 /* SwiftHelloTest_TestListener.swift */; };
 		CE4A25241F3563AB003AF384 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCD66ED1D36A03F00DF5E47 /* JavaVM.framework */; };
-		CE649E311F39E88200C5B7FE /* SwiftHelloTypes.java in Sources */ = {isa = PBXBuildFile; fileRef = CE649E2D1F39E88200C5B7FE /* SwiftHelloTypes.java */; };
-		CE649E321F39E88200C5B7FE /* SwiftHelloBinding.java in Sources */ = {isa = PBXBuildFile; fileRef = CE649E2F1F39E88200C5B7FE /* SwiftHelloBinding.java */; };
-		CE649E331F39E88200C5B7FE /* SwiftHelloTest.java in Sources */ = {isa = PBXBuildFile; fileRef = CE649E301F39E88200C5B7FE /* SwiftHelloTest.java */; };
 		CE6BB1D81F33E59900CA6A8F /* java_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC13E821D4996AE0035A039 /* java_swift.framework */; };
 		CE6BB1D91F33E5AD00CA6A8F /* CJavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC13E601D49954A0035A039 /* CJavaVM.framework */; };
 		CE81023A1F3693510069563B /* MainActivity.kt in Resources */ = {isa = PBXBuildFile; fileRef = CE8102391F3693510069563B /* MainActivity.kt */; };
-		CE81023C1F3693790069563B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81023B1F3693790069563B /* main.swift */; };
-		CE81023E1F369D8D0069563B /* SwiftHello.java in Sources */ = {isa = PBXBuildFile; fileRef = CE81023D1F369D8D0069563B /* SwiftHello.java */; };
-		CE85B31C1F3655DD0014857D /* JavaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85B3191F3655DD0014857D /* JavaMap.swift */; };
-		CE85B31D1F3655DD0014857D /* HashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85B31A1F3655DD0014857D /* HashMap.swift */; };
-		CE85B31E1F3655DD0014857D /* JavaSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85B31B1F3655DD0014857D /* JavaSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -640,7 +624,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9V5A8WE85E;
 						DevelopmentTeamName = "John Holdsworth";
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					BB8AC4611D3F11E600BD5B0F = {
@@ -654,6 +638,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9V5A8WE85E;
 						DevelopmentTeamName = "John Holdsworth";
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -805,23 +790,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE649E331F39E88200C5B7FE /* SwiftHelloTest.java in Sources */,
-				CE85B31C1F3655DD0014857D /* JavaMap.swift in Sources */,
-				CE4A25041F34B37C003AF384 /* JNIType.swift in Sources */,
-				CE4A25031F34B37C003AF384 /* JNIMethod.swift in Sources */,
-				CE4A25051F34B37C003AF384 /* JNICore.swift in Sources */,
 				BB5ACFDF1D35B09900E2386A /* AppDelegate.swift in Sources */,
-				CE649E321F39E88200C5B7FE /* SwiftHelloBinding.java in Sources */,
-				CE4A25091F34B37C003AF384 /* JavaObject.swift in Sources */,
-				CE85B31E1F3655DD0014857D /* JavaSet.swift in Sources */,
-				CE81023C1F3693790069563B /* main.swift in Sources */,
-				CE85B31D1F3655DD0014857D /* HashMap.swift in Sources */,
-				CE4A250A1F34B37C003AF384 /* JNIField.swift in Sources */,
-				CE4A25071F34B37C003AF384 /* JNIObject.swift in Sources */,
-				CE4A25061F34B37C003AF384 /* JavaClass.swift in Sources */,
-				CE4A25081F34B37C003AF384 /* Runnable.swift in Sources */,
-				CE649E311F39E88200C5B7FE /* SwiftHelloTypes.java in Sources */,
-				CE81023E1F369D8D0069563B /* SwiftHello.java in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBBF3A691D4BCE36004142AE /* main.swift in Sources */,
 				BBBF3A591D4A8B88004142AE /* ImageCanvas.swift in Sources */,
 				BBBF3A571D4A8B45004142AE /* SimpleEx.swift in Sources */,
 				BBBF3A5B1D4A8C27004142AE /* FocusTest.swift in Sources */,
@@ -836,7 +806,6 @@
 				BBBF3A631D4AC26B004142AE /* JComboBox.swift in Sources */,
 				BBBF3A551D4A8ADD004142AE /* SimpleJTreeExample.swift in Sources */,
 				BBBF3A531D4A8A68004142AE /* PhilosophersJList.swift in Sources */,
-				BBBF3A691D4BCE36004142AE /* main.swift in Sources */,
 				BBBF3A671D4B1B95004142AE /* PopupTest.swift in Sources */,
 				BBBF3A611D4AC24F004142AE /* TableColumnColor.swift in Sources */,
 				BBBF3A731D4BF8CF004142AE /* AWTGraphicsDemo.swift in Sources */,
@@ -849,10 +818,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC13DB91D48FDCE0035A039 /* org_swiftjava.swift in Sources */,
 				CE4A25211F355CAC003AF384 /* SwiftHelloTest_TestListener.swift in Sources */,
 				CE4A25191F355910003AF384 /* SwiftHelloTest_SwiftTestListener.swift in Sources */,
 				BBC13DC21D4900AA0035A039 /* SwiftTest.swift in Sources */,
-				BBC13DB91D48FDCE0035A039 /* org_swiftjava.swift in Sources */,
 				CE3185101F368D6B002046A6 /* SwiftHelloTypes_TextListener.swift in Sources */,
 				CE4A251A1F355914003AF384 /* SwiftHelloTest_TestResponderAdapter.swift in Sources */,
 				CE4A251B1F355918003AF384 /* SwiftHelloTestImpl.swift in Sources */,

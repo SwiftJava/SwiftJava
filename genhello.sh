@@ -17,7 +17,7 @@ export COMPANY=johnholdsworth
 \rm -rf ../{swift-android-samples,swift-android-kotlin}/*/src/main/java/org/swiftjava/com_$COMPANY
 
 # compile bindings and package them into for jar for genswift.sh
-$JAVA_HOME/bin/javac -parameters com/$COMPANY/swiftbindings/*.java &&
+$JAVA_HOME/bin/javac -Xlint:unchecked -parameters com/$COMPANY/swiftbindings/*.java &&
 
 $JAVA_HOME/bin/jar cf /tmp/swifthello.jar com/$COMPANY/swiftbindings/*.class &&
 
