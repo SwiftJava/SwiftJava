@@ -1,7 +1,7 @@
 //
 //  genswift.java
 //  https://github.com/SwiftJava/SwiftJava
-//  $Id: //depot/SwiftJava/src/genswift.java#90 $
+//  $Id: //depot/SwiftJava/src/genswift.java#94 $
 //
 //  Created by John Holdsworth on 14/07/2016.
 //  Copyright (c) 2016 John Holdsworth. All rights reserved.
@@ -9,6 +9,8 @@
 //
 //  See ../genswift.sh for details on invocation.
 //  Code generator for Swift written in the style of a Perl script.
+//
+//  Requires https://github.com/SwiftJava/java_swift release 2.1.0+
 //
 //  List of classes to be generated received on stdin which is the
 //  output of a grep on the target jar for the classes of interest.
@@ -46,11 +48,32 @@
 //  available to the application. On UNIX this is through the jar file
 //  ~/.swiftjava.jar built from these generated sources using ../genjar.sh.
 //
+//
+//  MIT License
+//
+//  Copyright (c) 2016-7, John Holdsworth
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this
+//  software and associated documentation files (the "Software"), to deal in the Software
+//  without restriction, including without limitation the rights to use, copy, modify, merge,
+//  publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+//  to whom the Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies
+//  or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+//  PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+//  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
 
 import java.io.*;
 import java.util.HashMap;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -66,14 +89,15 @@ class genswift {
 
     static int apiVersion = 2;
 
-    static String Unclassed = "Unclassed";
+    static String Unavailable = "Unavailable";
     static String pathToWriteSource = "./";
     static String organisation = "org.swiftjava.";
     static String proxySourcePath = organisation.replace('.', '/');
     static String repoBase = "https://github.com/SwiftJava/";
+    static boolean sortMembers = true, convertEnums = true, returnImplicitlyUnwrapped = true;
 
-    boolean isUnclassed( Class<?> type ) {
-        return notVoid(type) && swiftTypeFor(type, false, true).indexOf(Unclassed) != -1;
+    boolean isUnavailable( Class<?> type ) {
+        return notVoid(type) && swiftTypeFor(type, false, true).indexOf(Unavailable) != -1;
     }
 
     static HashMap<String,Boolean> swiftKeywords = new HashMap<String,Boolean>() {
@@ -100,6 +124,7 @@ class genswift {
             put( Double.class.getName(), true );
             put( Class.class.getName(), true );
             put( Object.class.getName(), true );
+            put( Enum.class.getName(), true );
             put( String.class.getName(), true );
             put( Comparable.class.getName(), true );
             put( Error.class.getName(), true );
@@ -118,6 +143,7 @@ class genswift {
         {
             put( Object.class.getName(), true );
             put( Class.class.getName(), true );
+            put( Enum.class.getName(), true );
             put( Runnable.class.getName(), true );
             put( Throwable.class.getName(), true );
             put( Exception.class.getName(), true );
@@ -235,7 +261,7 @@ class genswift {
 
     static int filesWritten = 0;
     static int frameworkLevel = 0;
-    static int unclassedReferences = 0;
+    static int UnavailableReferences = 0;
 
     static String invocation = "genswift.java", packageOrder, swiftSourceRoot, javaSourceRoot;
 
@@ -334,8 +360,8 @@ class genswift {
                     catch ( IOException e ) {}
                 }
 
-                int beforeReorder = unclassedReferences;
-                unclassedReferences = 0;
+                int beforeReorder = UnavailableReferences;
+                UnavailableReferences = 0;
 
                 for ( int i=0; i<paths.size(); i++ ) {
                     pathToClass = paths.get(i);
@@ -349,7 +375,7 @@ class genswift {
                     }
                 }
 
-                print( "Reorder "+beforeReorder+" -> "+unclassedReferences );
+                print( "Reorder "+beforeReorder+" -> "+UnavailableReferences );
             }
         }
         catch ( IOException e ) {
@@ -361,7 +387,7 @@ class genswift {
 
     StringBuilder code = new StringBuilder();
     String pathToClass, className, classSuffix, currentFramework, visibility, classCacheVar;
-    boolean isInterface, isLost;
+    boolean isInterface, isEnum, isLost;
     Class<?> clazz, superclazz;
 
     genswift( String pathToClass ) {
@@ -392,19 +418,20 @@ class genswift {
         visibility = "open ";
         superclazz = clazz.getSuperclass();
         isInterface = clazz.isInterface();
+        isEnum = isEnum( clazz );
 
         code.append("\n/// generated by: "+invocation+" ///\n");
 //        code.append("\n/// JAVA_HOME: "+System.getenv("JAVA_HOME")+" ///\n");
 //        code.append("/// "+new java.util.Date()+" ///\n");
 
         code.append("\n/// "+clazz+" ///\n");
-
+        
         isLost = false;
         String derivedFrom = "";
 
         if (superclazz != null) {
             String sname = classTypeFor(superclazz, false, true);
-            isLost = sname.indexOf(Unclassed+"Object") != -1;
+            isLost = sname.indexOf(Unavailable+"Object") != -1;
             derivedFrom += ": " + sname;
         } else if (!isInterface)
             derivedFrom += ": JNIObject";
@@ -416,7 +443,7 @@ class genswift {
             supr = supr.getSuperclass();
         }
 
-        boolean hasUnclassed = false;
+        boolean hasUnavailable = false;
         for (Class<?> intrface : clazz.getInterfaces()) {
             if ( interfacesChangingReturnTypeInSubclass( intrface ) )
                 continue;
@@ -427,12 +454,12 @@ class genswift {
             interfacesSoFar.add( intrface );
 
             String name = classTypeFor(intrface, false, true);
-            boolean isUnclassed = name.indexOf(Unclassed+"Protocol") != -1;
-            if ( isUnclassed )
-                if ( hasUnclassed )
+            boolean isUnavailable = name.indexOf(Unavailable+"Protocol") != -1;
+            if ( isUnavailable )
+                if ( hasUnavailable )
                     continue;
                 else
-                    hasUnclassed = true;
+                    hasUnavailable = true;
 
             if (derivedFrom == "")
                 derivedFrom += ": ";
@@ -445,10 +472,28 @@ class genswift {
         if (isInterface && derivedFrom == "")
             derivedFrom += ": JavaProtocol";
 
-        code.append("\n"+(isInterface ? "public protocol" : "open class") + " " +
-                classSuffix+(isInterface?"" : "") + derivedFrom + " {\n\n");
+        code.append("\n"+(isEnum ? "public enum" : isInterface ? "public protocol" : "open class") + " " +
+                classSuffix+(isInterface?"" : "") + (isEnum ? ": Int, JNIObjectProtocol, JNIObjectInit" : derivedFrom) + " {\n\n");
 
-        if ( !isInterface ) {
+        if ( isEnum ) {
+    			String cases = "";
+    			for ( Object constant : clazz.getEnumConstants() )
+    				cases += (cases == "" ? "" : ", ") + ((Enum<?>)constant).name();
+    			code.append("    case "+cases+"\n\n");
+    			
+    			code.append("    static let enumConstants = try! JavaClass.forName(\""+clazz.getName()+"\")\n" +
+    	    			"        .getEnumConstants()!.map { "+classSuffix+"Forward( javaObject: $0.javaObject ) }\n\n");
+    			
+    			code.append("    public func underlier() -> "+classSuffix+"Forward"+" {\n");
+    			code.append("        return "+classSuffix+".enumConstants[self.rawValue]\n    }\n\n");
+    			
+    			code.append("    public func localJavaObject(_ locals: UnsafeMutablePointer<[jobject]>) -> jobject? {\n");
+    			code.append("        return underlier().localJavaObject( locals )\n    }\n\n");
+
+    			code.append("    public init( javaObject: jobject? ) {\n");
+    			code.append("        self = "+classSuffix+"( rawValue: JavaEnum( javaObject: javaObject ).ordinal() )!\n    }\n\n");
+        }
+        else if ( !isInterface ) {
             code.append("    public convenience init?( casting object: "+swiftTypeFor( java.lang.Object.class, false, true )+", _ file: StaticString = #file, _ line: Int = #line ) {\n");
             code.append("        self.init( javaObject: nil )\n" );
             if ( frameworkImports.indexOf("import java_lang") != -1 ) {
@@ -463,20 +508,21 @@ class genswift {
         }
 
         classCacheVar = classSuffix+"JNIClass";
-        if ( !isInterface )
+        if ( !isInterface && !isEnum )
             code.append( "    private static var "+classCacheVar+": jclass?\n\n" );
 
         HashMap<String,Boolean> fieldsSeen = new HashMap<String,Boolean>();
         findInterfaceMethods( clazz );
 
-        generateFields( fieldsSeen, isInterface, clazz );
+        if ( !isEnum ) {
+        		generateFields( fieldsSeen, isInterface, clazz );
 
-        if ( !isInterface )
-            for ( Class<?> intrface : interfacesSoFar.toArray( new Class<?>[ interfacesSoFar.size() ] ) )
-                generateInterfaceFields( fieldsSeen, intrface );
+        		if ( !isInterface )
+        			for ( Class<?> intrface : interfacesSoFar.toArray( new Class<?>[ interfacesSoFar.size() ] ) )
+        				generateInterfaceFields( fieldsSeen, intrface );
 
-
-        generateConstructors( pathToClass, classSuffix, false );
+        		generateConstructors( pathToClass, classSuffix, false );
+        }
 
         generateMethods( clazz.getDeclaredMethods(), isInterface, fieldsSeen, classSuffix, false );
 
@@ -486,30 +532,31 @@ class genswift {
                 responsibles.add( method );
         }
 
-        if ( !isInterface )
+        if ( !isInterface && !isEnum )
             addAnyMethodsDeclaredInProtocolsButNotDefined( isInterface, fieldsSeen, classSuffix );
 
         code.append("}\n\n");
 
-        if ( isInterface ) {
+        if ( isInterface || isEnum ) {
             String superProtocol = "JNIObjectForward";
             if ( clazz.getInterfaces().length != 0 )
                 superProtocol = classTypeFor( clazz.getInterfaces()[0], false, true )+"Forward";
-            code.append( "\nopen class "+classSuffix+"Forward: "+superProtocol+", "+classSuffix+" {\n\n" );
+            code.append( "\nopen class "+classSuffix+"Forward: "+superProtocol+(isEnum ? "" : ", "+classSuffix)+" {\n\n" );
             code.append( "    private static var "+classCacheVar+": jclass?\n\n" );
 
-            findInterfaceMethods( clazz );
+            	findInterfaceMethods( clazz );
 
-            fieldsSeen = new HashMap<String,Boolean>();
-            generateFields( fieldsSeen, false, clazz );
+            	fieldsSeen = new HashMap<String,Boolean>();
+            	generateFields( fieldsSeen, false, clazz );
 
             boolean subinterface = clazz.getInterfaces().length == 1 && clazz.getDeclaredMethods().length == 0;
-            if ( !subinterface ) {
+            if ( !subinterface || isEnum ) {
+            		isEnum = false;
                 generateMethods( clazz.getMethods(), false, fieldsSeen, classSuffix+"Forward", false );
                 addAnyMethodsDeclaredInProtocolsButNotDefined( false, fieldsSeen, classSuffix+"Forward" );
             }
 
-            code.append( "}\n\n\n" );
+            code.append( "}\n\n" );
         }
 
         if ( isInterface && supportsProxyCallback( clazz ) || isAdapter() || !responsibles.isEmpty() )
@@ -549,26 +596,40 @@ class genswift {
     int idcount = 0;
 
     void generateFields( HashMap<String,Boolean> fieldsSeen, boolean isInterface, Class<?> clazz ) {
-        for (Field field : clazz.getDeclaredFields()) {
-            int mods = field.getModifiers();
+    		Field fields[] = clazz.getDeclaredFields();
+    		
+    		if ( sortMembers )
+    	        java.util.Arrays.sort( fields, new Comparator<Field>() {
+    				@Override
+    				public int compare(Field o1, Field o2) {
+    					int statics = compareStatic( o1.getModifiers(), o2.getModifiers() );
+    					return statics != 0 ? statics : o1.getName().compareTo(o2.getName());
+    				}
+    			} );
+
+        for (Field field : fields) {
 
             progress(field);
             code.append( "    /// "+field+"\n\n" );
 
+            int mods = field.getModifiers();
             String fieldName = safe(field.getName());
             boolean isFinal = Modifier.isFinal(mods);
             boolean isStatic = Modifier.isStatic(mods);
-
-            boolean skipField = (fieldOverride( field, superclazz)) && isStatic ||
-                     !Modifier.isPublic(mods) && !Modifier.isProtected(mods) || fieldsSeen.containsKey(fieldName) ||
-                     fieldName.equals(classSuffix) || interfaceMethods.containsKey(fieldName+"()") ||
-                     isStatic && (Modifier.isProtected(mods) || isInterface || ////
-                        superclazz == javax.swing.undo.AbstractUndoableEdit.class ||
-                         superclazz != null && superclazz.getSuperclass() == javax.swing.undo.AbstractUndoableEdit.class ||
-                         superclazz == javax.swing.plaf.basic.BasicComboBoxRenderer.class ||
-                         superclazz == javax.swing.border.TitledBorder.class);
-            if ( skipField )
-                continue;
+            
+            if ( skipBecause( "field", field, new boolean [] {
+            		!Modifier.isPublic(mods) && !Modifier.isProtected(mods),
+            		fieldOverride( field, superclazz) && isStatic,
+            		fieldsSeen.containsKey(fieldName),
+            		fieldName.equals(classSuffix),
+            		interfaceMethods.containsKey(fieldName+"()"),
+            		isStatic && (Modifier.isProtected(mods) || isInterface /*|| ////
+                            superclazz == javax.swing.undo.AbstractUndoableEdit.class ||
+                             superclazz != null && superclazz.getSuperclass() == javax.swing.undo.AbstractUndoableEdit.class ||
+                             superclazz == javax.swing.plaf.basic.BasicComboBoxRenderer.class ||
+                             superclazz == javax.swing.border.TitledBorder.class*/)
+            } ) )
+            		continue;
 
             fieldsSeen.put(fieldName, true);
             Class<?> fieldType = field.getType();
@@ -604,15 +665,15 @@ class genswift {
 
                 code.append( " {\n" );
                 code.append( "        get {\n" );
-                if ( !isStatic )
-                    code.append("            var __locals = [jobject]()\n");
-                code.append( "            let __value = JNIField.Get"+funcType( fieldType, mods )+"Field( "+fieldArgs+(isStatic?"":", locals: &__locals")+" )\n" );
-                code.append( "            return "+decoder( "__value", fieldType )+"\n" );
+                code.append( "            let __value = JNIField.Get"+funcType( fieldType, mods )+"Field( "+fieldArgs+" )\n" );
+                if ( isObjectType( fieldType ) )
+                    code.append( "            defer { JNI.DeleteLocalRef( __value ) }\n" );
+                code.append( "            return "+decoder( "__value", fieldType, "" )+"\n" );
                 code.append( "        }\n" );
                 if (!isFinal) {
                     code.append("        set(newValue) {\n");
                     code.append("            var __locals = [jobject]()\n");
-                    code.append("            let __value = " + encoder("newValue", fieldType, "&__locals") + "\n");
+                    code.append("            let __value = " + encoder("newValue", fieldType) + "\n");
                     code.append("            JNIField.Set" + funcType(fieldType, mods) + "Field( " + fieldArgs
                             + ", value: __value" + encodeSuffix(fieldType) + ", locals: &__locals )\n");
                     code.append("        }\n");
@@ -628,19 +689,33 @@ class genswift {
 
     void generateConstructors( String pathToClass, String classSuffix, boolean isListenerBase ) {
         HashMap<String,Boolean> constructorSeen = new HashMap<String,Boolean>();
+      
+        java.lang.reflect.Constructor<?> constructors[] = clazz.getDeclaredConstructors();
 
-        for (java.lang.reflect.Constructor<?> _constructor : clazz.getDeclaredConstructors()) {
+		if ( sortMembers )
+			java.util.Arrays.sort( constructors, new Comparator<java.lang.reflect.Constructor<?>>() {
+				@Override
+				public int compare(java.lang.reflect.Constructor<?> o1, java.lang.reflect.Constructor<?> o2) {
+					return argsFor( newConstructor(o1), true, true, null )
+							.compareTo(argsFor( newConstructor(o2), true, true, null ));
+				}
+			} );
+
+        for (java.lang.reflect.Constructor<?> _constructor : constructors) {
             Constructor<?> constructor = newConstructor( _constructor );
             int mods = constructor.getModifiers();
 
             progress(constructor);
-            code.append( "    /// "+constructor.toString()+"\n\n" );
+            code.append( "    /// "+constructor+"\n\n" );
 
             String namedSignature = argsFor( constructor, true, true, null );
-            if (  !Modifier.isPublic(mods) && !Modifier.isProtected(mods)
-                    || constructorSeen.containsKey(namedSignature)
-                    || ambiguousInitialiser( constructor.toString() ) )
+            if ( skipBecause( "init", constructor.constructor, new boolean [] {
+            		!Modifier.isPublic(mods) && !Modifier.isProtected(mods),
+            		constructorSeen.containsKey(namedSignature),
+            		ambiguousInitialiser( constructor.toString() )
+            } ) )
                 continue;
+            
             constructorSeen.put( namedSignature, true );
 
             String methodIDVar = "new_MethodID_"+(++idcount);
@@ -693,7 +768,7 @@ class genswift {
                 code.append( "\n    public "+/*(unnamedOverride && !isLost && clazz != String.class || isListenerBase ? "override " : "")+*/
                         "convenience init("+argsFor( constructor, false, false, null )+")"+(canThrow?" throws":"")+" {\n" );
 
-                code.append( "        "+(canThrow?"try ":"")+"self.init("+passthroughArguments(constructor,null)+" )\n    }\n" );
+                code.append( "        "+(canThrow?"try ":"")+"self.init("+passthroughArguments(constructor,null, "_")+" )\n    }\n" );
 
                 constructorSeen.put( unnamedSigature, true );
             }
@@ -708,17 +783,26 @@ class genswift {
 
         HashMap<String,Boolean> methodsSeen = new HashMap<String,Boolean>();
         boolean hasSubclassResponsibility = false;
+        
+        if ( sortMembers )
+            java.util.Arrays.sort( methods, new Comparator<java.lang.reflect.Method>() {
+            		@Override
+            		public int compare(java.lang.reflect.Method o1, java.lang.reflect.Method o2) {
+    					int statics = compareStatic( o1.getModifiers(), o2.getModifiers() );
+    					return statics != 0 ? statics : swiftSignatureFor( newMethod(o1), isProtocol, true, true, null)
+    							.compareTo(swiftSignatureFor( newMethod(o2), isProtocol, true, true, null));
+            		}
+            } );
 
         for (java.lang.reflect.Method _method : methods ) {
             Method method = newMethod( _method );
             int mods = method.getModifiers();
             boolean isStatic = Modifier.isStatic(mods);
-            String methodIdent = method.toString();
 
             progress(method);
             code.append( "    /// "+method+"\n\n" );
 
-            if ( subclassResponsibilities.containsKey(methodIdent) )
+            if ( subclassResponsibilities.containsKey(method.toString()) )
                 hasSubclassResponsibility = true;
 
             java.lang.reflect.Method overridden = funcOverride(method.method, superclazz);
@@ -732,29 +816,23 @@ class genswift {
             unnamedOverride = overridden != null;
 
             String methodName = method.getName();
-            boolean fieldExists = fieldsSeen.containsKey(safe(methodName)) && method.getParameterCount() == 0;
-            boolean skipMethod = overridden != null && !isStatic && !isListenerBase
-                        && !(isInterface && clazz.getInterfaces().length != 0 && isUnclassed(clazz.getInterfaces()[0]))
-                    || !Modifier.isPublic(mods) && !Modifier.isProtected(mods)
-                    || isInterface && (dontEnforceProtocol(clazz)
-                    || awkwardMethodInProtocol(method)
-                    || isUnclassed(method.getReturnType()) &&  clazz != java.lang.Runnable.class)
-                    || methodName.startsWith("lambda$") || fieldExists;
-
-            // argument names differ?
             String methodString = method.toString();
-            if ( skipMethod && !methodString.equals("public void javax.swing.text.PlainDocument.insertString(int,java.lang.String,javax.swing.text.AttributeSet) throws javax.swing.text.BadLocationException")
-                        && !methodString.equals("public java.util.Set java.util.HashMap.keySet()") ) {
-                print(methodName
-                         + " skipped " + (overridden != null && !isStatic && !isListenerBase)
-                         + " " + (!Modifier.isPublic(mods) && !Modifier.isProtected(mods))
-                         + " " + (isInterface && (dontEnforceProtocol(clazz)
-                                || awkwardMethodInProtocol(method) || isUnclassed(method.getReturnType())))
-                         + " " + methodName.startsWith("lambda$")
-                         + " " + fieldExists);
-                continue;
-            }
+            boolean fieldExists = fieldsSeen.containsKey(safe(methodName)) && method.getParameterCount() == 0;
 
+            if ( skipBecause( "method", method.method, new boolean [] {
+                    !Modifier.isPublic(mods) && !Modifier.isProtected(mods),
+                    overridden != null && !isStatic && !isListenerBase && !isUnavailable(superclazz)
+                        && !(isInterface && clazz.getInterfaces().length != 0
+                        					&& isUnavailable(clazz.getInterfaces()[0])),
+                    isInterface && (dontEnforceProtocol(clazz)
+                    		|| awkwardMethodInProtocol(method) 
+                    		|| isUnavailable(method.getReturnType())),
+                    methodName.startsWith("lambda$"),
+                    fieldExists
+            } ) && !methodString.equals("public void javax.swing.text.PlainDocument.insertString(int,java.lang.String,javax.swing.text.AttributeSet) throws javax.swing.text.BadLocationException")
+                && !methodString.equals("public java.util.Set java.util.HashMap.keySet()") )
+            		continue;
+            
             String namedSignature = swiftSignatureFor( method, isProtocol, true, true, null);
             if ( methodsSeen.containsKey(namedSignature) )
                 continue;
@@ -797,6 +875,10 @@ class genswift {
 
                 if (isProtocol)
                     code.append("\n");
+                else if (isEnum) {
+                    code.append(" {\n        return "+(canThrow?"try ":"")+(isStatic ? classSuffix+"Forward." : "underlier()."));
+                    code.append(safe(method.getName()) + "("+passthroughArguments(method, interfaceMethod, "")+" )\n    }\n");
+                }
                 else {
                     code.append(" {\n");
 
@@ -815,14 +897,14 @@ class genswift {
 
                         code.append( "JNIMethod.Call"+funcType( returnType, mods )+"Method( "+methodArgs + ", args: &__args, locals: &__locals )\n" );
 
-                        if ( isObjectType( returnType ) ) // || returnType.isArray() && !returnType.getComponentType().isPrimitive() )
+                        if ( isObjectType( returnType ) )
                             code.append( "        defer { JNI.DeleteLocalRef( __return ) }\n" );
 
                         if ( canThrow )
                             addThrowCode( method );
 
                         if ( notVoid )
-                            code.append("        return "+decoder( "__return", returnType)+"\n");
+                            code.append("        return "+decoder( "__return", returnType, "")+"\n");
                     }
                     else if ( notVoid(returnType) ) {
                         String passthrough = "";
@@ -852,7 +934,7 @@ class genswift {
                 else {
                     code.append(" {\n");
                     code.append("        "+(notVoid?"return ":"") + (canThrow?"try ":"") +
-                                safe(method.getName()) + "("+passthroughArguments(method, interfaceMethod)+" )\n");
+                                safe(method.getName()) + "("+passthroughArguments(method, interfaceMethod, "_")+" )\n");
                     code.append("    }\n" );
                 }
             }
@@ -871,6 +953,16 @@ class genswift {
         java.lang.reflect.Method methods[] = responsibles.length != 0 ? responsibles : clazz.getMethods();
         ArrayList<java.lang.reflect.Method> methodsCallingBack = new ArrayList<java.lang.reflect.Method>();
 
+        if ( sortMembers )
+            java.util.Arrays.sort( methods, new Comparator<java.lang.reflect.Method>() {
+            		@Override
+            		public int compare(java.lang.reflect.Method o1, java.lang.reflect.Method o2) {
+    					int statics = compareStatic( o1.getModifiers(), o2.getModifiers() );
+    					return statics != 0 ? statics : swiftSignatureFor( newMethod(o1), true, true, true, null)
+    							.compareTo(swiftSignatureFor( newMethod(o2), true, true, true, null));
+            		}
+            } );
+
         for (int i = 0; i < methods.length; i++) {
             Method method = newMethod( methods[i] );
             if ( skipCallbackMethod( method ) )
@@ -887,23 +979,26 @@ class genswift {
             String passthrough = "";
             for (Parameter param : method.getParameters())
                 passthrough += (passthrough == ""?" ":", ") + safe(param.getName())+": " +/////
-                        decoder( safe(param.getName()), param.getType() );//+(!p.getType().isPrimitive()?"!":"");
+                        decoder( safe(param.getName()), param.getType(), ", consume: false" );//+(!p.getType().isPrimitive()?"!":"");
             String call = classSuffix + "Local_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject )."
                     + method.getName() + "(" + passthrough + " )";
             boolean rethrow = method.getExceptionTypes().length != 0;
+            String indent = "";
             if ( rethrow ) {
                 call = "try " + call;
-                    code.append("    do {\n");
+                code.append("    do {\n");
+                indent = "    ";
             }
 
             Class<?> returnType = method.getReturnType();
-            if ( notVoid(returnType) )
+            boolean notVoid = notVoid(returnType);
+            if ( notVoid )
                 call = "let __return = "+call;
-            code.append("    JNI.inNative = true;\n    " + call + "\n    JNI.inNative = false;\n");
-            if ( notVoid(returnType) ) {
-                code.append("    var locals = [jobject]()\n");
-                code.append("    return JNI.check( "+(
-                        encoder("__return", returnType, "&locals") + encodeSuffix(returnType))+", &locals, removeLast: true )\n");
+            code.append(indent+"    "+call+"\n");
+            if ( notVoid ) {
+                code.append(indent+"    var __locals = [jobject]()\n");
+                code.append(indent+"    return JNI.check( "+(
+                        encoder("__return", returnType) + encodeSuffix(returnType))+", &__locals, removeLast: true )\n");
             }
 
             if ( rethrow ) {
@@ -911,11 +1006,11 @@ class genswift {
                     code.append("    }\n");
                     code.append("    catch let exception as Throwable {\n");
                     code.append("        _ = exception.withJavaObject { JNI.api.Throw( JNI.env, $0 ) }\n");
-                    if ( notVoid(returnType) )
+                    if ( notVoid )
                         code.append("        return "+dflt+"\n");
                     code.append("    }\n    catch {\n");
                     code.append("        _ = Exception(\"Unknown exception\").withJavaObject { JNI.api.Throw( JNI.env, $0 ) }\n");
-                    if ( notVoid(returnType) )
+                    if ( notVoid )
                         code.append("        return "+dflt+"\n");
                     code.append("    }\n");
             }
@@ -1075,7 +1170,7 @@ class genswift {
                 args += (args == ""?" ":", ")+safe(param.getName());
             argsSwift = " __swiftObject"+(args==""?" ":",")+args;
 
-            if ( !isInterface ) {
+            if ( !isInterface && !Modifier.isAbstract(method.getModifiers()) ) {
                 java.append("        if ( !"+enteredName+" ) {\n");
                 java.append("            "+enteredName+" = true;\n");
                 java.append("            "+assign+"__"+methodName+"("+argsSwift+");\n");
@@ -1127,6 +1222,11 @@ class genswift {
         }
         return args == "" ? "" : args + " ";
     }
+    
+    int compareStatic( int m1, int m2 ) {
+    		return Modifier.isStatic( m1 ) && !Modifier.isStatic( m2 ) ? -1 :
+    			Modifier.isStatic( m1 ) == Modifier.isStatic( m2 ) ? 0 : 1;
+    }
 
     boolean interfacesChangingReturnTypeInSubclass( Class<?> intrface ) {
         return intrface == java.util.SortedSet.class
@@ -1159,9 +1259,9 @@ class genswift {
     }
 
     boolean redundantConformance(Class<?> prospectiveInterface, Class<?> interfaces[]) {
-        boolean prospectiveUnclassed = isUnclassed(prospectiveInterface);
+        boolean prospectiveUnavailable = isUnavailable(prospectiveInterface);
         for (Class<?> intrface : interfaces)
-            if ( prospectiveInterface == intrface || prospectiveUnclassed && isUnclassed(intrface) ||
+            if ( prospectiveInterface == intrface || prospectiveUnavailable && isUnavailable(intrface) ||
                     redundantConformance(prospectiveInterface, intrface.getInterfaces()) )
                 return true;
         return false;
@@ -1170,7 +1270,7 @@ class genswift {
     boolean skipCallbackMethod( Method method ) {
         return awkwardMethodInProtocol( method ) || Modifier.isFinal(method.getModifiers())
                 || !isInterface && !subclassResponsibilities.containsKey(method.toString()) && !isAdapter()
-                || isUnclassed(method.getReturnType()) || Modifier.isStatic(method.getModifiers());
+                || isUnavailable(method.getReturnType()) || Modifier.isStatic(method.getModifiers());
     }
 
     HashMap<String,Method> interfaceMethods = new HashMap<String,Method>();
@@ -1201,17 +1301,18 @@ class genswift {
 
     String functionHeader( Parameter parameters[], Method interfaceMethod, int extra ) {
         StringBuilder setup = new StringBuilder();
-        setup.append( "        var __args = [jvalue]( repeating: jvalue(), count: "+Math.max(1,parameters.length+extra)+" )\n" );
         setup.append( "        var __locals = [jobject]()\n" );
+        setup.append( "        var __args = [jvalue]( repeating: jvalue(), count: "+Math.max(1,parameters.length+extra)+" )\n" );
         for ( int i=0 ; i<parameters.length ; i++ ) {
             String name = interfaceMethod!=null ? interfaceMethod.getParameters()[i].getName() : parameters[i].getName();
-            setup.append( "        __args["+i+"] = "+encoder( safe(name), parameters[i].getType(), "&__locals" )+"\n" );
+            setup.append( "        __args["+i+"] = "+encoder( safe(name), parameters[i].getType() )+"\n" );
         }
         return setup.toString();
     }
 
     void addThrowCode( Executable executable ) {
         code.append( "        if let throwable = JNI.ExceptionCheck() {\n" );
+        code.append( "            defer { JNI.DeleteLocalRef( throwable ) }\n" );
         code.append( "            throw "+swiftTypeFor(executable.getExceptionTypes()[0], false, false)+"( javaObject: throwable )\n        }\n" );
     }
 
@@ -1271,14 +1372,28 @@ class genswift {
         return false;
     }
 
-    String passthroughArguments( Executable executable, Method interfaceMethod ) {
+    String passthroughArguments( Executable executable, Method interfaceMethod, String underscore ) {
         String passthrough = "";
         Parameter parameters[] = executable.getParameters();
         for ( int i=0 ; i<parameters.length ; i++ ) {
             String name = safe(interfaceMethod!=null ? interfaceMethod.getParameters()[i].getName() : parameters[i].getName());
-            passthrough += (passthrough == "" ? " " : ", ")+name+": _"+name;
+            passthrough += (passthrough == "" ? " " : ", ")+name+": "+underscore+name;
         }
         return passthrough;
+    }
+    
+    boolean skipBecause( String category, java.lang.reflect.Member member, boolean reasons[] ) {
+    		if ( Modifier.isPrivate(member.getModifiers()) )
+    			return true;
+    		for ( boolean reason : reasons )
+    			if ( reason ) {
+    				String out = "    // Skipping " + category + ": ";
+    	    			for ( boolean value : reasons )
+    	    				out += value + " ";
+    	    			code.append( out + "\n\n" );
+    	    			return true;
+    			}
+    		return false;
     }
 
     boolean crashesCompilerOnLinx( Method method ) {
@@ -1300,25 +1415,43 @@ class genswift {
         return "."+jvalueField;
     }
 
-    String encoder( String var, Class<?> type, String locals ) {
+    String encoder( String var, Class<?> type ) {
         if ( type == java.lang.Float.class )
-            return "JNIType.toJavaFloat( value: "+var+", locals: "+locals+" )";
-        boolean isMap  = java.util.Map.class.isAssignableFrom(type);
-        return "JNIType.toJava( value: " + var +
-                (isMap ? ", mapClass: \""+type.getName().replace(".", "/")+"\"" : "") + ", locals: "+locals+" )";
+            return "JNIType.toJavaFloat( value: "+var+", locals: &__locals )";
+        String typeName = type.getName();
+        if ( type.isPrimitive() ) {
+            if ( typeName.equals("boolean") )
+        			var = "jboolean("+var+" ? JNI_TRUE : JNI_FALSE)";
+            if ( typeName.equals("int") )
+        			var = "jint("+var+")";
+            return "jvalue( "+jvalueFields.get( typeName )+": "+var+" )";
+        }
+        return "JNIType.toJava( value: " + var + (java.util.Map.class.isAssignableFrom(type) ?
+        		", mapClass: \""+typeName.replace(".", "/")+"\"" : "") + ", locals: &__locals )";
     }
 
-    String decoder( String var, Class<?> type ) {
+    String decoder( String var, Class<?> type, String consume ) {
         if ( type == java.lang.Float.class )
-            return "JNIType.toSwiftFloat( from: "+var+" )";
+            return "JNIType.toSwiftFloat( from: "+var+consume+" )";
+        if ( type.isPrimitive() ) {
+            if ( type.getName().equals("boolean") )
+        			return var+" != jboolean(JNI_FALSE)";
+            if ( type.getName().equals("int") )
+        			return "Int("+var+")";
+        		return var;
+        }
         String swiftType = swiftTypeFor(type, false, false, true, false, true);
-        return isObjectType( type ) && !java.util.Map.class.isAssignableFrom(type) ?
-                var + " != nil ? " + swiftType+"( javaObject: " + var + " ) : nil" :
-            "JNIType.toSwift( type: "+swiftType+"(), from: " + var + " )";
+        return isObjectType( type ) ?
+        		var + " != nil ? " + swiftType + "( javaObject: "+var+" ) : nil" :
+            "JNIType.toSwift( type: "+swiftType+".self, from: "+var+consume+" )";
     }
 
     boolean isObjectType( Class<?> type ) {
-        return !type.isPrimitive() && type != String.class && !type.isArray();
+        return !type.isPrimitive() && !type.isArray() && !java.util.Map.class.isAssignableFrom(type);
+    }
+    
+    boolean isEnum( Class<?> type ) {
+    		return convertEnums && type.isEnum() && !isUnavailable( type );
     }
 
     String argsFor( Executable e, boolean anon, boolean named, Method interfaceMethod ) {
@@ -1353,7 +1486,7 @@ class genswift {
         if ( notVoid( returnType ) && !anon )
             ret += " -> " + swiftTypeFor( returnType, true, false );
         boolean isStatic = Modifier.isStatic(method.getModifiers());
-        return (isProtocol ? "" : visibility)+(isStatic ? "class ": "")+
+        return (isProtocol ? "" : isEnum ? "public " : visibility)+(isStatic ? isEnum ? "static " : "class ": "")+
                 "func "+safe(method.getName())+"("+argsFor(  method, anon, named, interfaceMethod )+")" + ret;
     }
 
@@ -1404,7 +1537,8 @@ class genswift {
             }
         }
 
-        return decl + (isReturn && !type.isPrimitive() ? isArg && type != java.lang.Float.class ? "?" : "!" : "");
+        return decl + (isReturn && !type.isPrimitive() ?
+        		isArg && type != java.lang.Float.class || !returnImplicitlyUnwrapped ? "?" : "!" : "");
     }
 
     String classTypeFor( Class<?> type, boolean anon, boolean prefix ) {
@@ -1415,8 +1549,8 @@ class genswift {
         crossReference( currentFramework, frameworkPrefix );
 
         if ( lostType( type ) || excludeFromCodeGeneration( type ) ) {
-            unclassedReferences++;
-            return (anon?"":"/* "+typeName+" */ ") + Unclassed + (type.isInterface() ? "Protocol" : "Object");
+            UnavailableReferences++;
+            return (anon?"":"/* "+type+" */ ") + Unavailable + (type.isEnum() ? "Enum" : type.isInterface() ? "Protocol" : "Object");
         }
 
         if ( !frameworkPrefix.equals(currentFramework) && !type.isPrimitive() ) {

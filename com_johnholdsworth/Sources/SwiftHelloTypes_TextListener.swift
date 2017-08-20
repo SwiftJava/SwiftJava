@@ -23,24 +23,22 @@ open class SwiftHelloTypes_TextListenerForward: JNIObjectForward, SwiftHelloType
     private static var getText_MethodID_2: jmethodID?
 
     open func getText() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getText", methodSig: "()Ljava/lang/String;", methodCache: &SwiftHelloTypes_TextListenerForward.getText_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
 
 }
 
-
 private typealias SwiftHelloTypes_TextListener_getText_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jobject?
 
 private func SwiftHelloTypes_TextListener_getText_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jobject? {
-    JNI.inNative = true;
     let __return = SwiftHelloTypes_TextListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).getText( )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
 fileprivate class SwiftHelloTypes_TextListenerLocal_: JNILocalProxy<SwiftHelloTypes_TextListener, Any> {

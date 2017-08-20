@@ -12,6 +12,7 @@
 		BB5ACFDF1D35B09900E2386A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5ACFDE1D35B09900E2386A /* AppDelegate.swift */; };
 		BB5ACFE11D35B09900E2386A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB5ACFE01D35B09900E2386A /* Assets.xcassets */; };
 		BB5ACFE41D35B09900E2386A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5ACFE21D35B09900E2386A /* MainMenu.xib */; };
+		BB643B321F4873F7003E849E /* swift-android-gradle in Resources */ = {isa = PBXBuildFile; fileRef = BB643B311F4873F7003E849E /* swift-android-gradle */; };
 		BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */ = {isa = PBXBuildFile; fileRef = BB6651301F2E39F6004EFD5F /* swift-android-kotlin */; };
 		BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */ = {isa = PBXBuildFile; fileRef = BB6651351F2E3F50004EFD5F /* android_toolchain */; };
 		BB9CF8931D619D1C004781B9 /* genhello.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8921D619D1C004781B9 /* genhello.sh */; };
@@ -223,6 +224,7 @@
 		BB5ACFE01D35B09900E2386A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB5ACFE31D35B09900E2386A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BB5ACFE51D35B09900E2386A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB643B311F4873F7003E849E /* swift-android-gradle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-gradle"; sourceTree = "<group>"; };
 		BB6651301F2E39F6004EFD5F /* swift-android-kotlin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-kotlin"; sourceTree = "<group>"; };
 		BB6651351F2E3F50004EFD5F /* android_toolchain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = android_toolchain; sourceTree = "<group>"; };
 		BB8AC4391D3F035700BD5B0F /* libswiftCore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCore.tbd; path = System/Library/PrivateFrameworks/Swift/libswiftCore.tbd; sourceTree = SDKROOT; };
@@ -267,14 +269,6 @@
 		BBCD9F871D3CD05900DF5E47 /* genswift.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genswift.sh; sourceTree = "<group>"; };
 		BBF280D81D64BC6100A7AF5D /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		CE31850E1F368D44002046A6 /* SwiftHelloTypes_TextListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHelloTypes_TextListener.swift; path = com_johnholdsworth/Sources/SwiftHelloTypes_TextListener.swift; sourceTree = SOURCE_ROOT; };
-		CE4A24FB1F34B37C003AF384 /* JNIMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JNIMethod.swift; path = java_swift/Sources/JNIMethod.swift; sourceTree = SOURCE_ROOT; };
-		CE4A24FC1F34B37C003AF384 /* JNIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JNIType.swift; path = java_swift/Sources/JNIType.swift; sourceTree = SOURCE_ROOT; };
-		CE4A24FD1F34B37C003AF384 /* JNICore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JNICore.swift; path = java_swift/Sources/JNICore.swift; sourceTree = SOURCE_ROOT; };
-		CE4A24FE1F34B37C003AF384 /* JavaClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaClass.swift; path = java_swift/Sources/JavaClass.swift; sourceTree = SOURCE_ROOT; };
-		CE4A24FF1F34B37C003AF384 /* JNIObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JNIObject.swift; path = java_swift/Sources/JNIObject.swift; sourceTree = SOURCE_ROOT; };
-		CE4A25001F34B37C003AF384 /* Runnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Runnable.swift; path = java_swift/Sources/Runnable.swift; sourceTree = SOURCE_ROOT; };
-		CE4A25011F34B37C003AF384 /* JavaObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaObject.swift; path = java_swift/Sources/JavaObject.swift; sourceTree = SOURCE_ROOT; };
-		CE4A25021F34B37C003AF384 /* JNIField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JNIField.swift; path = java_swift/Sources/JNIField.swift; sourceTree = SOURCE_ROOT; };
 		CE4A250F1F3555CA003AF384 /* com_johnholdsworth */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com_johnholdsworth; sourceTree = "<group>"; };
 		CE4A25131F355902003AF384 /* SwiftHelloTestImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHelloTestImpl.swift; path = com_johnholdsworth/Sources/SwiftHelloTestImpl.swift; sourceTree = SOURCE_ROOT; };
 		CE4A25141F355902003AF384 /* SwiftHelloTest_TestResponderAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHelloTest_TestResponderAdapter.swift; path = com_johnholdsworth/Sources/SwiftHelloTest_TestResponderAdapter.swift; sourceTree = SOURCE_ROOT; };
@@ -288,9 +282,6 @@
 		CE8102391F3693510069563B /* MainActivity.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MainActivity.kt; path = "swift-android-kotlin/app/src/main/java/com/example/user/myapplication/MainActivity.kt"; sourceTree = "<group>"; };
 		CE81023B1F3693790069563B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "swift-android-kotlin/app/src/main/swift/Sources/main.swift"; sourceTree = "<group>"; };
 		CE81023D1F369D8D0069563B /* SwiftHello.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; name = SwiftHello.java; path = "swift-android-samples/swifthello/src/main/java/net/zhuoweizhang/swifthello/SwiftHello.java"; sourceTree = "<group>"; };
-		CE85B3191F3655DD0014857D /* JavaMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaMap.swift; path = java_swift/Sources/JavaMap.swift; sourceTree = SOURCE_ROOT; };
-		CE85B31A1F3655DD0014857D /* HashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashMap.swift; path = java_swift/Sources/HashMap.swift; sourceTree = SOURCE_ROOT; };
-		CE85B31B1F3655DD0014857D /* JavaSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaSet.swift; path = java_swift/Sources/JavaSet.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,8 +337,9 @@
 				BBF280D81D64BC6100A7AF5D /* src */,
 				CE4A250F1F3555CA003AF384 /* com_johnholdsworth */,
 				BB6651351F2E3F50004EFD5F /* android_toolchain */,
-				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
+				BB643B311F4873F7003E849E /* swift-android-gradle */,
 				BB9CF8971D61BAF4004781B9 /* swift-android-samples */,
+				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
 				BB5ACFDC1D35B09900E2386A /* Products */,
 				BBCD66EC1D36A03F00DF5E47 /* Frameworks */,
 			);
@@ -448,17 +440,6 @@
 				BBC13DC11D4900AA0035A039 /* SwiftTest.swift */,
 				BBC13DB81D48FDCE0035A039 /* org_swiftjava.swift */,
 				BBC13DC51D490B160035A039 /* test_body.swift */,
-				CE4A24FD1F34B37C003AF384 /* JNICore.swift */,
-				CE4A24FF1F34B37C003AF384 /* JNIObject.swift */,
-				CE4A25021F34B37C003AF384 /* JNIField.swift */,
-				CE4A24FB1F34B37C003AF384 /* JNIMethod.swift */,
-				CE4A24FC1F34B37C003AF384 /* JNIType.swift */,
-				CE4A24FE1F34B37C003AF384 /* JavaClass.swift */,
-				CE4A25011F34B37C003AF384 /* JavaObject.swift */,
-				CE85B31A1F3655DD0014857D /* HashMap.swift */,
-				CE85B31B1F3655DD0014857D /* JavaSet.swift */,
-				CE85B3191F3655DD0014857D /* JavaMap.swift */,
-				CE4A25001F34B37C003AF384 /* Runnable.swift */,
 				BBC13DBA1D48FDCE0035A039 /* Info.plist */,
 			);
 			path = org_swiftjava;
@@ -769,6 +750,7 @@
 				BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */,
 				BB31E20F1D4FF13400779860 /* genpkg.sh in Resources */,
 				BBF280D91D64BC6100A7AF5D /* src in Resources */,
+				BB643B321F4873F7003E849E /* swift-android-gradle in Resources */,
 				BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */,
 				BB5ACFE41D35B09900E2386A /* MainMenu.xib in Resources */,
 				CE81023A1F3693510069563B /* MainActivity.kt in Resources */,

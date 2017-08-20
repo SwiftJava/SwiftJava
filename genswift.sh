@@ -12,14 +12,14 @@
 
 export JAVA_HOME=${JAVA_HOME?-Please export JAVA_HOME}
 
-FILTER=${1:-java/lang|java/util|java/sql|java/awt|javax/swing}
+FILTER="${1:-java/lang|java/util|java/sql|java/awt|javax/swing}"
 
-FILTER=$(echo $FILTER | sed s@[._]@/@)
+FILTER="$(echo "$FILTER" | sed 's@[._]@/@g' | sed 's@\$@\\$@g')"
 
 TARGET_JAR=${2:-$JAVA_HOME/jre/lib/rt.jar}
 
 PACKAGE_ORDER=${3:-java/lang|java/util|java/sql|java/awt|javax/swing}
 
-cd "$(dirname "$0")/src" && $JAVA_HOME/bin/javac -d ../bin genswift.java && cd "$(dirname "$0")" &&
+cd "$(dirname "$0")/src" && $JAVA_HOME/bin/javac -d ../bin genswift.java && cd .. &&
 
 $JAVA_HOME/bin/jar tf "$TARGET_JAR" | egrep "^($FILTER)" | sed "s@\\.class\$@@" | $JAVA_HOME/bin/java -cp "$TARGET_JAR:bin" genswift "$PACKAGE_ORDER"

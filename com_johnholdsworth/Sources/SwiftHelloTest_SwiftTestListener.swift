@@ -18,14 +18,16 @@ open class SwiftHelloTest_SwiftTestListener: SwiftHelloTest_TestResponderAdapter
 
     /// static int com.johnholdsworth.swiftbindings.SwiftHelloTest$SwiftTestListener.tcount
 
+    // Skipping field: true false false false false false 
+
     /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.loopback
 
     private static var loopback_FieldID: jfieldID?
 
     override open var loopback: SwiftHelloTest_TestListener! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftHelloTest_SwiftTestListener.loopback_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftHelloTest_SwiftTestListener.loopback_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? SwiftHelloTest_TestListenerForward( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -40,8 +42,8 @@ open class SwiftHelloTest_SwiftTestListener: SwiftHelloTest_TestResponderAdapter
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "com/johnholdsworth/swiftbindings/SwiftHelloTest$SwiftTestListener", classCache: &SwiftHelloTest_SwiftTestListener.SwiftHelloTest_SwiftTestListenerJNIClass, methodSig: "()V", methodCache: &SwiftHelloTest_SwiftTestListener.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -52,8 +54,8 @@ open class SwiftHelloTest_SwiftTestListener: SwiftHelloTest_TestResponderAdapter
     private static var respond_MethodID_2: jmethodID?
 
     open func respond( responder: SwiftHelloTest_TestListener? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: responder, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "respond", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)V", methodCache: &SwiftHelloTest_SwiftTestListener.respond_MethodID_2, args: &__args, locals: &__locals )
     }

@@ -11,7 +11,7 @@ XCODEBUILD=/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild
 export JAVA_HOME=${JAVA_HOME:-/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home}
 
 for i in $*; do
-    "$PWD/genswift.sh" $i $JAVA_HOME/jre/lib/rt.jar &&
+    ./genswift.sh $i $JAVA_HOME/jre/lib/rt.jar &&
     ./overrides.pl $i &&
     while true; do
         ($XCODEBUILD SYMROOT=/tmp -config Debug -target examples -project SwiftJava.xcodeproj; STATUS=$?) | tee -a $i/build.log
@@ -21,3 +21,4 @@ for i in $*; do
         fi
     done
 done
+

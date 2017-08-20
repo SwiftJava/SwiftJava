@@ -7,17 +7,17 @@ import java_swift
 
 public protocol SwiftHelloBinding_Listener: JavaProtocol {
 
-    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
-
-    func throwException() throws /* java.lang.Exception */ -> Double
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.setCacheDir(java.lang.String)
-
-    func setCacheDir( cacheDir: String? )
-
     /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processNumber(double)
 
     func processNumber( number: Double )
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+
+    func processStringMap( map: [String:String]? )
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
+
+    func processStringMapList( map: [String:[String]]? )
 
     /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processText(java.lang.String)
 
@@ -31,17 +31,17 @@ public protocol SwiftHelloBinding_Listener: JavaProtocol {
 
     func processedMapList( map: [String:[SwiftHelloTypes_TextListener]]? )
 
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.setCacheDir(java.lang.String)
 
-    func processStringMap( map: [String:String]? )
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
-
-    func processStringMapList( map: [String:[String]]? )
+    func setCacheDir( cacheDir: String? )
 
     /// public abstract com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.testResponder(int)
 
     func testResponder( loopback: Int ) -> SwiftHelloTest_TestListener!
+
+    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
+
+    func throwException() throws /* java.lang.Exception */ -> Double
 
 }
 
@@ -50,49 +50,49 @@ open class SwiftHelloBinding_ListenerForward: JNIObjectForward, SwiftHelloBindin
 
     private static var SwiftHelloBinding_ListenerJNIClass: jclass?
 
-    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
-
-    private static var throwException_MethodID_10: jmethodID?
-
-    open func throwException() throws /* java.lang.Exception */ -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "throwException", methodSig: "()D", methodCache: &SwiftHelloBinding_ListenerForward.throwException_MethodID_10, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_swift.Exception( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.setCacheDir(java.lang.String)
-
-    private static var setCacheDir_MethodID_11: jmethodID?
-
-    open func setCacheDir( cacheDir: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: cacheDir, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCacheDir", methodSig: "(Ljava/lang/String;)V", methodCache: &SwiftHelloBinding_ListenerForward.setCacheDir_MethodID_11, args: &__args, locals: &__locals )
-    }
-
-    open func setCacheDir( _ _cacheDir: String? ) {
-        setCacheDir( cacheDir: _cacheDir )
-    }
-
     /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processNumber(double)
 
-    private static var processNumber_MethodID_12: jmethodID?
+    private static var processNumber_MethodID_10: jmethodID?
 
     open func processNumber( number: Double ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: number, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "processNumber", methodSig: "(D)V", methodCache: &SwiftHelloBinding_ListenerForward.processNumber_MethodID_12, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: number )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "processNumber", methodSig: "(D)V", methodCache: &SwiftHelloBinding_ListenerForward.processNumber_MethodID_10, args: &__args, locals: &__locals )
     }
 
     open func processNumber( _ _number: Double ) {
         processNumber( number: _number )
+    }
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+
+    private static var processStringMap_MethodID_11: jmethodID?
+
+    open func processStringMap( map: [String:String]? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: map, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMap", locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "processStringMap", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMap;)V", methodCache: &SwiftHelloBinding_ListenerForward.processStringMap_MethodID_11, args: &__args, locals: &__locals )
+    }
+
+    open func processStringMap( _ _map: [String:String]? ) {
+        processStringMap( map: _map )
+    }
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
+
+    private static var processStringMapList_MethodID_12: jmethodID?
+
+    open func processStringMapList( map: [String:[String]]? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: map, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList", locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "processStringMapList", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList;)V", methodCache: &SwiftHelloBinding_ListenerForward.processStringMapList_MethodID_12, args: &__args, locals: &__locals )
+    }
+
+    open func processStringMapList( _ _map: [String:[String]]? ) {
+        processStringMapList( map: _map )
     }
 
     /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processText(java.lang.String)
@@ -100,8 +100,8 @@ open class SwiftHelloBinding_ListenerForward: JNIObjectForward, SwiftHelloBindin
     private static var processText_MethodID_13: jmethodID?
 
     open func processText( text: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: text, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "processText", methodSig: "(Ljava/lang/String;)V", methodCache: &SwiftHelloBinding_ListenerForward.processText_MethodID_13, args: &__args, locals: &__locals )
     }
@@ -115,8 +115,8 @@ open class SwiftHelloBinding_ListenerForward: JNIObjectForward, SwiftHelloBindin
     private static var processedMap_MethodID_14: jmethodID?
 
     open func processedMap( map: [String:SwiftHelloTypes_TextListener]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: map, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap", locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "processedMap", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;)V", methodCache: &SwiftHelloBinding_ListenerForward.processedMap_MethodID_14, args: &__args, locals: &__locals )
     }
@@ -130,8 +130,8 @@ open class SwiftHelloBinding_ListenerForward: JNIObjectForward, SwiftHelloBindin
     private static var processedMapList_MethodID_15: jmethodID?
 
     open func processedMapList( map: [String:[SwiftHelloTypes_TextListener]]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: map, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList", locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "processedMapList", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;)V", methodCache: &SwiftHelloBinding_ListenerForward.processedMapList_MethodID_15, args: &__args, locals: &__locals )
     }
@@ -140,45 +140,30 @@ open class SwiftHelloBinding_ListenerForward: JNIObjectForward, SwiftHelloBindin
         processedMapList( map: _map )
     }
 
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.setCacheDir(java.lang.String)
 
-    private static var processStringMap_MethodID_16: jmethodID?
+    private static var setCacheDir_MethodID_16: jmethodID?
 
-    open func processStringMap( map: [String:String]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func setCacheDir( cacheDir: String? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: map, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMap", locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "processStringMap", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMap;)V", methodCache: &SwiftHelloBinding_ListenerForward.processStringMap_MethodID_16, args: &__args, locals: &__locals )
-    }
-
-    open func processStringMap( _ _map: [String:String]? ) {
-        processStringMap( map: _map )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
-
-    private static var processStringMapList_MethodID_17: jmethodID?
-
-    open func processStringMapList( map: [String:[String]]? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: map, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList", locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "processStringMapList", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList;)V", methodCache: &SwiftHelloBinding_ListenerForward.processStringMapList_MethodID_17, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: cacheDir, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCacheDir", methodSig: "(Ljava/lang/String;)V", methodCache: &SwiftHelloBinding_ListenerForward.setCacheDir_MethodID_16, args: &__args, locals: &__locals )
     }
 
-    open func processStringMapList( _ _map: [String:[String]]? ) {
-        processStringMapList( map: _map )
+    open func setCacheDir( _ _cacheDir: String? ) {
+        setCacheDir( cacheDir: _cacheDir )
     }
 
     /// public abstract com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.testResponder(int)
 
-    private static var testResponder_MethodID_18: jmethodID?
+    private static var testResponder_MethodID_17: jmethodID?
 
     open func testResponder( loopback: Int ) -> SwiftHelloTest_TestListener! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: loopback, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "testResponder", methodSig: "(I)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloBinding_ListenerForward.testResponder_MethodID_18, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(loopback) )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "testResponder", methodSig: "(I)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloBinding_ListenerForward.testResponder_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SwiftHelloTest_TestListenerForward( javaObject: __return ) : nil
     }
@@ -187,18 +172,81 @@ open class SwiftHelloBinding_ListenerForward: JNIObjectForward, SwiftHelloBindin
         return testResponder( loopback: _loopback )
     }
 
+    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
+
+    private static var throwException_MethodID_18: jmethodID?
+
+    open func throwException() throws /* java.lang.Exception */ -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "throwException", methodSig: "()D", methodCache: &SwiftHelloBinding_ListenerForward.throwException_MethodID_18, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw java_swift.Exception( javaObject: throwable )
+        }
+        return __return
+    }
+
+
 }
 
+private typealias SwiftHelloBinding_Listener_processNumber_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jdouble ) -> ()
 
-private typealias SwiftHelloBinding_Listener_throwException_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jdouble
+private func SwiftHelloBinding_Listener_processNumber_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ number: jdouble ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processNumber( number: number )
+}
 
-private func SwiftHelloBinding_Listener_throwException_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jdouble {
+private typealias SwiftHelloBinding_Listener_processStringMap_1_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloBinding_Listener_processStringMap_1( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processStringMap( map: JNIType.toSwift( type: [String:String].self, from: map, consume: false ) )
+}
+
+private typealias SwiftHelloBinding_Listener_processStringMapList_2_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloBinding_Listener_processStringMapList_2( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processStringMapList( map: JNIType.toSwift( type: [String:[String]].self, from: map, consume: false ) )
+}
+
+private typealias SwiftHelloBinding_Listener_processText_3_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloBinding_Listener_processText_3( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ text: jobject? ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processText( text: text != nil ? String( javaObject: text ) : nil )
+}
+
+private typealias SwiftHelloBinding_Listener_processedMap_4_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloBinding_Listener_processedMap_4( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processedMap( map: JNIType.toSwift( type: [String:SwiftHelloTypes_TextListenerForward].self, from: map, consume: false ) )
+}
+
+private typealias SwiftHelloBinding_Listener_processedMapList_5_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloBinding_Listener_processedMapList_5( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processedMapList( map: JNIType.toSwift( type: [String:[SwiftHelloTypes_TextListenerForward]].self, from: map, consume: false ) )
+}
+
+private typealias SwiftHelloBinding_Listener_setCacheDir_6_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloBinding_Listener_setCacheDir_6( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ cacheDir: jobject? ) -> () {
+    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).setCacheDir( cacheDir: cacheDir != nil ? String( javaObject: cacheDir ) : nil )
+}
+
+private typealias SwiftHelloBinding_Listener_testResponder_7_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint ) -> jobject?
+
+private func SwiftHelloBinding_Listener_testResponder_7( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ loopback: jint ) -> jobject? {
+    let __return = SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).testResponder( loopback: Int(loopback) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloBinding_Listener_throwException_8_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jdouble
+
+private func SwiftHelloBinding_Listener_throwException_8( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jdouble {
     do {
-    JNI.inNative = true;
-    let __return = try SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).throwException( )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).d, &locals, removeLast: true )
+        let __return = try SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).throwException( )
+        var __locals = [jobject]()
+        return JNI.check( jvalue( d: __return ).d, &__locals, removeLast: true )
     }
     catch let exception as Throwable {
         _ = exception.withJavaObject { JNI.api.Throw( JNI.env, $0 ) }
@@ -210,85 +258,19 @@ private func SwiftHelloBinding_Listener_throwException_0( _ __env: UnsafeMutable
     }
 }
 
-private typealias SwiftHelloBinding_Listener_setCacheDir_1_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
-
-private func SwiftHelloBinding_Listener_setCacheDir_1( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ cacheDir: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).setCacheDir( cacheDir: JNIType.toSwift( type: String(), from: cacheDir ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_processNumber_2_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jdouble ) -> ()
-
-private func SwiftHelloBinding_Listener_processNumber_2( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ number: jdouble ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processNumber( number: JNIType.toSwift( type: Double(), from: number ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_processText_3_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
-
-private func SwiftHelloBinding_Listener_processText_3( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ text: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processText( text: JNIType.toSwift( type: String(), from: text ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_processedMap_4_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
-
-private func SwiftHelloBinding_Listener_processedMap_4( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processedMap( map: JNIType.toSwift( type: [String:SwiftHelloTypes_TextListenerForward](), from: map ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_processedMapList_5_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
-
-private func SwiftHelloBinding_Listener_processedMapList_5( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processedMapList( map: JNIType.toSwift( type: [String:[SwiftHelloTypes_TextListenerForward]](), from: map ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_processStringMap_6_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
-
-private func SwiftHelloBinding_Listener_processStringMap_6( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processStringMap( map: JNIType.toSwift( type: [String:String](), from: map ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_processStringMapList_7_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
-
-private func SwiftHelloBinding_Listener_processStringMapList_7( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ map: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).processStringMapList( map: JNIType.toSwift( type: [String:[String]](), from: map ) )
-    JNI.inNative = false;
-}
-
-private typealias SwiftHelloBinding_Listener_testResponder_8_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint ) -> jobject?
-
-private func SwiftHelloBinding_Listener_testResponder_8( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ loopback: jint ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloBinding_ListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).testResponder( loopback: JNIType.toSwift( type: Int(), from: loopback ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
 fileprivate class SwiftHelloBinding_ListenerLocal_: JNILocalProxy<SwiftHelloBinding_Listener, Any> {
 
     fileprivate static let _proxyClass: jclass = {
         var natives = [JNINativeMethod]()
 
-        let SwiftHelloBinding_Listener_throwException_0_thunk: SwiftHelloBinding_Listener_throwException_0_type = SwiftHelloBinding_Listener_throwException_0
-        natives.append( JNINativeMethod( name: strdup("__throwException"), signature: strdup("(J)D"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_throwException_0_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloBinding_Listener_processNumber_0_thunk: SwiftHelloBinding_Listener_processNumber_0_type = SwiftHelloBinding_Listener_processNumber_0
+        natives.append( JNINativeMethod( name: strdup("__processNumber"), signature: strdup("(JD)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processNumber_0_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloBinding_Listener_setCacheDir_1_thunk: SwiftHelloBinding_Listener_setCacheDir_1_type = SwiftHelloBinding_Listener_setCacheDir_1
-        natives.append( JNINativeMethod( name: strdup("__setCacheDir"), signature: strdup("(JLjava/lang/String;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_setCacheDir_1_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloBinding_Listener_processStringMap_1_thunk: SwiftHelloBinding_Listener_processStringMap_1_type = SwiftHelloBinding_Listener_processStringMap_1
+        natives.append( JNINativeMethod( name: strdup("__processStringMap"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMap;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processStringMap_1_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloBinding_Listener_processNumber_2_thunk: SwiftHelloBinding_Listener_processNumber_2_type = SwiftHelloBinding_Listener_processNumber_2
-        natives.append( JNINativeMethod( name: strdup("__processNumber"), signature: strdup("(JD)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processNumber_2_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloBinding_Listener_processStringMapList_2_thunk: SwiftHelloBinding_Listener_processStringMapList_2_type = SwiftHelloBinding_Listener_processStringMapList_2
+        natives.append( JNINativeMethod( name: strdup("__processStringMapList"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processStringMapList_2_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
         let SwiftHelloBinding_Listener_processText_3_thunk: SwiftHelloBinding_Listener_processText_3_type = SwiftHelloBinding_Listener_processText_3
         natives.append( JNINativeMethod( name: strdup("__processText"), signature: strdup("(JLjava/lang/String;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processText_3_thunk, to: UnsafeMutableRawPointer.self ) ) )
@@ -299,14 +281,14 @@ fileprivate class SwiftHelloBinding_ListenerLocal_: JNILocalProxy<SwiftHelloBind
         let SwiftHelloBinding_Listener_processedMapList_5_thunk: SwiftHelloBinding_Listener_processedMapList_5_type = SwiftHelloBinding_Listener_processedMapList_5
         natives.append( JNINativeMethod( name: strdup("__processedMapList"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processedMapList_5_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloBinding_Listener_processStringMap_6_thunk: SwiftHelloBinding_Listener_processStringMap_6_type = SwiftHelloBinding_Listener_processStringMap_6
-        natives.append( JNINativeMethod( name: strdup("__processStringMap"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMap;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processStringMap_6_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloBinding_Listener_setCacheDir_6_thunk: SwiftHelloBinding_Listener_setCacheDir_6_type = SwiftHelloBinding_Listener_setCacheDir_6
+        natives.append( JNINativeMethod( name: strdup("__setCacheDir"), signature: strdup("(JLjava/lang/String;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_setCacheDir_6_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloBinding_Listener_processStringMapList_7_thunk: SwiftHelloBinding_Listener_processStringMapList_7_type = SwiftHelloBinding_Listener_processStringMapList_7
-        natives.append( JNINativeMethod( name: strdup("__processStringMapList"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList;)V"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_processStringMapList_7_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloBinding_Listener_testResponder_7_thunk: SwiftHelloBinding_Listener_testResponder_7_type = SwiftHelloBinding_Listener_testResponder_7
+        natives.append( JNINativeMethod( name: strdup("__testResponder"), signature: strdup("(JI)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_testResponder_7_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloBinding_Listener_testResponder_8_thunk: SwiftHelloBinding_Listener_testResponder_8_type = SwiftHelloBinding_Listener_testResponder_8
-        natives.append( JNINativeMethod( name: strdup("__testResponder"), signature: strdup("(JI)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_testResponder_8_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloBinding_Listener_throwException_8_thunk: SwiftHelloBinding_Listener_throwException_8_type = SwiftHelloBinding_Listener_throwException_8
+        natives.append( JNINativeMethod( name: strdup("__throwException"), signature: strdup("(J)D"), fnPtr: unsafeBitCast( SwiftHelloBinding_Listener_throwException_8_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
         natives.append( JNINativeMethod( name: strdup("__finalize"), signature: strdup("(J)V"), fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
@@ -339,10 +321,39 @@ open class SwiftHelloBinding_ListenerBase: SwiftHelloBinding_Listener {
 
     public init() {}
 
-    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processNumber(double)
 
-    open func throwException() throws /* java.lang.Exception */ -> Double /**/ {
-        return 0
+    open func processNumber( number: Double ) /**/ {
+    }
+
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+
+    open func processStringMap( map: [String:String]? ) /**/ {
+    }
+
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
+
+    open func processStringMapList( map: [String:[String]]? ) /**/ {
+    }
+
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processText(java.lang.String)
+
+    open func processText( text: String? ) /**/ {
+    }
+
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processedMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$ListenerMap)
+
+    open func processedMap( map: [String:SwiftHelloTypes_TextListener]? ) /**/ {
+    }
+
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processedMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$ListenerMapList)
+
+    open func processedMapList( map: [String:[SwiftHelloTypes_TextListener]]? ) /**/ {
     }
 
 
@@ -351,63 +362,6 @@ open class SwiftHelloBinding_ListenerBase: SwiftHelloBinding_Listener {
     open func setCacheDir( cacheDir: String? ) /**/ {
     }
 
-    open func setCacheDir( _ _cacheDir: String? ) /**/ {
-        setCacheDir( cacheDir: _cacheDir )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processNumber(double)
-
-    open func processNumber( number: Double ) /**/ {
-    }
-
-    open func processNumber( _ _number: Double ) /**/ {
-        processNumber( number: _number )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processText(java.lang.String)
-
-    open func processText( text: String? ) /**/ {
-    }
-
-    open func processText( _ _text: String? ) /**/ {
-        processText( text: _text )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processedMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$ListenerMap)
-
-    open func processedMap( map: [String:SwiftHelloTypes_TextListener]? ) /**/ {
-    }
-
-    open func processedMap( _ _map: [String:SwiftHelloTypes_TextListener]? ) /**/ {
-        processedMap( map: _map )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processedMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$ListenerMapList)
-
-    open func processedMapList( map: [String:[SwiftHelloTypes_TextListener]]? ) /**/ {
-    }
-
-    open func processedMapList( _ _map: [String:[SwiftHelloTypes_TextListener]]? ) /**/ {
-        processedMapList( map: _map )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
-
-    open func processStringMap( map: [String:String]? ) /**/ {
-    }
-
-    open func processStringMap( _ _map: [String:String]? ) /**/ {
-        processStringMap( map: _map )
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
-
-    open func processStringMapList( map: [String:[String]]? ) /**/ {
-    }
-
-    open func processStringMapList( _ _map: [String:[String]]? ) /**/ {
-        processStringMapList( map: _map )
-    }
 
     /// public abstract com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.testResponder(int)
 
@@ -415,8 +369,12 @@ open class SwiftHelloBinding_ListenerBase: SwiftHelloBinding_Listener {
         return nil
     }
 
-    open func testResponder( _ _loopback: Int ) -> SwiftHelloTest_TestListener! /**/ {
-        return testResponder( loopback: _loopback )
+
+    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
+
+    open func throwException() throws /* java.lang.Exception */ -> Double /**/ {
+        return 0
     }
+
 
 }

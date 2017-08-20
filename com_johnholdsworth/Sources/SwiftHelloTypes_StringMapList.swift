@@ -16,43 +16,71 @@ open class SwiftHelloTypes_StringMapList: java_swift.HashMap {
 
     private static var SwiftHelloTypes_StringMapListJNIClass: jclass?
 
-    /// private static final long java.util.HashMap.serialVersionUID
-
     /// static final int java.util.HashMap.DEFAULT_INITIAL_CAPACITY
 
-    /// static final int java.util.HashMap.MAXIMUM_CAPACITY
+    // Skipping field: true false false false false false 
 
     /// static final float java.util.HashMap.DEFAULT_LOAD_FACTOR
 
-    /// static final int java.util.HashMap.TREEIFY_THRESHOLD
+    // Skipping field: true false false false false false 
 
-    /// static final int java.util.HashMap.UNTREEIFY_THRESHOLD
+    /// static final int java.util.HashMap.MAXIMUM_CAPACITY
+
+    // Skipping field: true false false false false false 
 
     /// static final int java.util.HashMap.MIN_TREEIFY_CAPACITY
 
-    /// transient java.util.HashMap$Node[] java.util.HashMap.table
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.HashMap.TREEIFY_THRESHOLD
+
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.HashMap.UNTREEIFY_THRESHOLD
+
+    // Skipping field: true false false false false false 
+
+    /// private static final long java.util.HashMap.serialVersionUID
 
     /// transient java.util.Set java.util.HashMap.entrySet
 
-    /// transient int java.util.HashMap.size
-
-    /// transient int java.util.HashMap.modCount
-
-    /// int java.util.HashMap.threshold
+    // Skipping field: true false false false false false 
 
     /// final float java.util.HashMap.loadFactor
 
+    // Skipping field: true false false false false false 
+
+    /// transient int java.util.HashMap.modCount
+
+    // Skipping field: true false false false false false 
+
+    /// transient int java.util.HashMap.size
+
+    // Skipping field: true false false false false false 
+
+    /// transient java.util.HashMap$Node[] java.util.HashMap.table
+
+    // Skipping field: true false false false false false 
+
+    /// int java.util.HashMap.threshold
+
+    // Skipping field: true false false false false false 
+
     /// transient java.util.Set java.util.AbstractMap.keySet
 
+    // Skipping field: true false false false false false 
+
     /// transient java.util.Collection java.util.AbstractMap.values
+
+    // Skipping field: true false false false false false 
 
     /// public com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList", classCache: &SwiftHelloTypes_StringMapList.SwiftHelloTypes_StringMapListJNIClass, methodSig: "()V", methodCache: &SwiftHelloTypes_StringMapList.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -63,8 +91,8 @@ open class SwiftHelloTypes_StringMapList: java_swift.HashMap {
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( map: java_swift.JavaMap? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: map, mapClass: "java/util/Map", locals: &__locals )
         let __object = JNIMethod.NewObject( className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList", classCache: &SwiftHelloTypes_StringMapList.SwiftHelloTypes_StringMapListJNIClass, methodSig: "(Ljava/util/Map;)V", methodCache: &SwiftHelloTypes_StringMapList.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -80,8 +108,8 @@ open class SwiftHelloTypes_StringMapList: java_swift.HashMap {
     private static var valueClass_MethodID_3: jmethodID?
 
     open class func valueClass() -> java_swift.JavaClass! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$StringMapList", classCache: &SwiftHelloTypes_StringMapListJNIClass, methodName: "valueClass", methodSig: "()Ljava/lang/Class;", methodCache: &valueClass_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaClass( javaObject: __return ) : nil

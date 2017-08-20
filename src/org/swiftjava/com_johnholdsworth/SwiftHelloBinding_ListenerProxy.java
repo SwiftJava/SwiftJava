@@ -15,28 +15,28 @@ public class SwiftHelloBinding_ListenerProxy implements com.johnholdsworth.swift
         this.__swiftObject = __swiftObject;
     }
 
-    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
-
-    public native double __throwException( long __swiftObject );
-
-    public double throwException() throws java.lang.Exception {
-        return __throwException( __swiftObject  );
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.setCacheDir(java.lang.String)
-
-    public native void __setCacheDir( long __swiftObject, java.lang.String cacheDir );
-
-    public void setCacheDir( java.lang.String cacheDir ) {
-        __setCacheDir( __swiftObject, cacheDir );
-    }
-
     /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processNumber(double)
 
     public native void __processNumber( long __swiftObject, double number );
 
     public void processNumber( double number ) {
         __processNumber( __swiftObject, number );
+    }
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+
+    public native void __processStringMap( long __swiftObject, com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMap map );
+
+    public void processStringMap( com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMap map ) {
+        __processStringMap( __swiftObject, map );
+    }
+
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
+
+    public native void __processStringMapList( long __swiftObject, com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMapList map );
+
+    public void processStringMapList( com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMapList map ) {
+        __processStringMapList( __swiftObject, map );
     }
 
     /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processText(java.lang.String)
@@ -63,20 +63,12 @@ public class SwiftHelloBinding_ListenerProxy implements com.johnholdsworth.swift
         __processedMapList( __swiftObject, map );
     }
 
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMap)
+    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.setCacheDir(java.lang.String)
 
-    public native void __processStringMap( long __swiftObject, com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMap map );
+    public native void __setCacheDir( long __swiftObject, java.lang.String cacheDir );
 
-    public void processStringMap( com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMap map ) {
-        __processStringMap( __swiftObject, map );
-    }
-
-    /// public abstract void com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.processStringMapList(com.johnholdsworth.swiftbindings.SwiftHelloTypes$StringMapList)
-
-    public native void __processStringMapList( long __swiftObject, com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMapList map );
-
-    public void processStringMapList( com.johnholdsworth.swiftbindings.SwiftHelloTypes.StringMapList map ) {
-        __processStringMapList( __swiftObject, map );
+    public void setCacheDir( java.lang.String cacheDir ) {
+        __setCacheDir( __swiftObject, cacheDir );
     }
 
     /// public abstract com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.testResponder(int)
@@ -85,6 +77,14 @@ public class SwiftHelloBinding_ListenerProxy implements com.johnholdsworth.swift
 
     public com.johnholdsworth.swiftbindings.SwiftHelloTest.TestListener testResponder( int loopback ) {
         return __testResponder( __swiftObject, loopback );
+    }
+
+    /// public abstract double com.johnholdsworth.swiftbindings.SwiftHelloBinding$Listener.throwException() throws java.lang.Exception
+
+    public native double __throwException( long __swiftObject );
+
+    public double throwException() throws java.lang.Exception {
+        return __throwException( __swiftObject  );
     }
 
     public native void __finalize( long __swiftObject );

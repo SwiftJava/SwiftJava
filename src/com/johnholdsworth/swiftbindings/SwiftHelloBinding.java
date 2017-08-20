@@ -53,6 +53,8 @@ public interface SwiftHelloBinding {
 
         public void processedStringMapList( StringMapList map );
 
+        public double throwException() throws Exception;
+
         public String[] debug( String msg );
 
         public SwiftHelloTest.TestListener testResponder( int loopback );

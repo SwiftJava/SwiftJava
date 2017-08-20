@@ -16,845 +16,19 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var SwiftTestJNIClass: jclass?
 
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.loopback
+    /// public static java.lang.String[][] org.swiftjava.SwiftTest.String2dArrayFieldStatic
 
-    private static var loopback_FieldID: jfieldID?
+    private static var String2dArrayFieldStatic_FieldID: jfieldID?
 
-    open var loopback: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
+    open static var String2dArrayFieldStatic: [[String]]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.loopback_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward( javaObject: __value ) : nil
+            let __value = JNIField.GetStaticObjectField( fieldName: "String2dArrayFieldStatic", fieldType: "[[Ljava/lang/String;", fieldCache: &String2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[String]].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.loopback_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static boolean org.swiftjava.SwiftTest.booleanFieldStatic
-
-    private static var booleanFieldStatic_FieldID: jfieldID?
-
-    open static var booleanFieldStatic: Bool {
-        get {
-            let __value = JNIField.GetStaticBooleanField( fieldName: "booleanFieldStatic", fieldType: "Z", fieldCache: &booleanFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Bool(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticBooleanField( fieldName: "booleanFieldStatic", fieldType: "Z", fieldCache: &booleanFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.z, locals: &__locals )
-        }
-    }
-
-    /// public boolean org.swiftjava.SwiftTest.booleanField
-
-    private static var booleanField_FieldID: jfieldID?
-
-    open var booleanField: Bool {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetBooleanField( fieldName: "booleanField", fieldType: "Z", fieldCache: &SwiftTest.booleanField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Bool(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetBooleanField( fieldName: "booleanField", fieldType: "Z", fieldCache: &SwiftTest.booleanField_FieldID, object: javaObject, value: __value.z, locals: &__locals )
-        }
-    }
-
-    /// public static boolean[] org.swiftjava.SwiftTest.booleanArrayFieldStatic
-
-    private static var booleanArrayFieldStatic_FieldID: jfieldID?
-
-    open static var booleanArrayFieldStatic: [Bool]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "booleanArrayFieldStatic", fieldType: "[Z", fieldCache: &booleanArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Bool](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "booleanArrayFieldStatic", fieldType: "[Z", fieldCache: &booleanArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public boolean[] org.swiftjava.SwiftTest.booleanArrayField
-
-    private static var booleanArrayField_FieldID: jfieldID?
-
-    open var booleanArrayField: [Bool]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "booleanArrayField", fieldType: "[Z", fieldCache: &SwiftTest.booleanArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Bool](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "booleanArrayField", fieldType: "[Z", fieldCache: &SwiftTest.booleanArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static boolean[][] org.swiftjava.SwiftTest.boolean2dArrayFieldStatic
-
-    private static var boolean2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var boolean2dArrayFieldStatic: [[Bool]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "boolean2dArrayFieldStatic", fieldType: "[[Z", fieldCache: &boolean2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Bool]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "boolean2dArrayFieldStatic", fieldType: "[[Z", fieldCache: &boolean2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public boolean[][] org.swiftjava.SwiftTest.boolean2dArrayField
-
-    private static var boolean2dArrayField_FieldID: jfieldID?
-
-    open var boolean2dArrayField: [[Bool]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "boolean2dArrayField", fieldType: "[[Z", fieldCache: &SwiftTest.boolean2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Bool]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "boolean2dArrayField", fieldType: "[[Z", fieldCache: &SwiftTest.boolean2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static byte org.swiftjava.SwiftTest.byteFieldStatic
-
-    private static var byteFieldStatic_FieldID: jfieldID?
-
-    open static var byteFieldStatic: Int8 {
-        get {
-            let __value = JNIField.GetStaticByteField( fieldName: "byteFieldStatic", fieldType: "B", fieldCache: &byteFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Int8(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticByteField( fieldName: "byteFieldStatic", fieldType: "B", fieldCache: &byteFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.b, locals: &__locals )
-        }
-    }
-
-    /// public byte org.swiftjava.SwiftTest.byteField
-
-    private static var byteField_FieldID: jfieldID?
-
-    open var byteField: Int8 {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetByteField( fieldName: "byteField", fieldType: "B", fieldCache: &SwiftTest.byteField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int8(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetByteField( fieldName: "byteField", fieldType: "B", fieldCache: &SwiftTest.byteField_FieldID, object: javaObject, value: __value.b, locals: &__locals )
-        }
-    }
-
-    /// public static byte[] org.swiftjava.SwiftTest.byteArrayFieldStatic
-
-    private static var byteArrayFieldStatic_FieldID: jfieldID?
-
-    open static var byteArrayFieldStatic: [Int8]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "byteArrayFieldStatic", fieldType: "[B", fieldCache: &byteArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Int8](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "byteArrayFieldStatic", fieldType: "[B", fieldCache: &byteArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public byte[] org.swiftjava.SwiftTest.byteArrayField
-
-    private static var byteArrayField_FieldID: jfieldID?
-
-    open var byteArrayField: [Int8]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "byteArrayField", fieldType: "[B", fieldCache: &SwiftTest.byteArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int8](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "byteArrayField", fieldType: "[B", fieldCache: &SwiftTest.byteArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static byte[][] org.swiftjava.SwiftTest.byte2dArrayFieldStatic
-
-    private static var byte2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var byte2dArrayFieldStatic: [[Int8]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "byte2dArrayFieldStatic", fieldType: "[[B", fieldCache: &byte2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Int8]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "byte2dArrayFieldStatic", fieldType: "[[B", fieldCache: &byte2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public byte[][] org.swiftjava.SwiftTest.byte2dArrayField
-
-    private static var byte2dArrayField_FieldID: jfieldID?
-
-    open var byte2dArrayField: [[Int8]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "byte2dArrayField", fieldType: "[[B", fieldCache: &SwiftTest.byte2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Int8]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "byte2dArrayField", fieldType: "[[B", fieldCache: &SwiftTest.byte2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static char org.swiftjava.SwiftTest.charFieldStatic
-
-    private static var charFieldStatic_FieldID: jfieldID?
-
-    open static var charFieldStatic: UInt16 {
-        get {
-            let __value = JNIField.GetStaticCharField( fieldName: "charFieldStatic", fieldType: "C", fieldCache: &charFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: UInt16(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticCharField( fieldName: "charFieldStatic", fieldType: "C", fieldCache: &charFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.c, locals: &__locals )
-        }
-    }
-
-    /// public char org.swiftjava.SwiftTest.charField
-
-    private static var charField_FieldID: jfieldID?
-
-    open var charField: UInt16 {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetCharField( fieldName: "charField", fieldType: "C", fieldCache: &SwiftTest.charField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: UInt16(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetCharField( fieldName: "charField", fieldType: "C", fieldCache: &SwiftTest.charField_FieldID, object: javaObject, value: __value.c, locals: &__locals )
-        }
-    }
-
-    /// public static char[] org.swiftjava.SwiftTest.charArrayFieldStatic
-
-    private static var charArrayFieldStatic_FieldID: jfieldID?
-
-    open static var charArrayFieldStatic: [UInt16]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "charArrayFieldStatic", fieldType: "[C", fieldCache: &charArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [UInt16](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "charArrayFieldStatic", fieldType: "[C", fieldCache: &charArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public char[] org.swiftjava.SwiftTest.charArrayField
-
-    private static var charArrayField_FieldID: jfieldID?
-
-    open var charArrayField: [UInt16]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "charArrayField", fieldType: "[C", fieldCache: &SwiftTest.charArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [UInt16](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "charArrayField", fieldType: "[C", fieldCache: &SwiftTest.charArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static char[][] org.swiftjava.SwiftTest.char2dArrayFieldStatic
-
-    private static var char2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var char2dArrayFieldStatic: [[UInt16]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "char2dArrayFieldStatic", fieldType: "[[C", fieldCache: &char2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[UInt16]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "char2dArrayFieldStatic", fieldType: "[[C", fieldCache: &char2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public char[][] org.swiftjava.SwiftTest.char2dArrayField
-
-    private static var char2dArrayField_FieldID: jfieldID?
-
-    open var char2dArrayField: [[UInt16]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "char2dArrayField", fieldType: "[[C", fieldCache: &SwiftTest.char2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[UInt16]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "char2dArrayField", fieldType: "[[C", fieldCache: &SwiftTest.char2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static short org.swiftjava.SwiftTest.shortFieldStatic
-
-    private static var shortFieldStatic_FieldID: jfieldID?
-
-    open static var shortFieldStatic: Int16 {
-        get {
-            let __value = JNIField.GetStaticShortField( fieldName: "shortFieldStatic", fieldType: "S", fieldCache: &shortFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Int16(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticShortField( fieldName: "shortFieldStatic", fieldType: "S", fieldCache: &shortFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.s, locals: &__locals )
-        }
-    }
-
-    /// public short org.swiftjava.SwiftTest.shortField
-
-    private static var shortField_FieldID: jfieldID?
-
-    open var shortField: Int16 {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetShortField( fieldName: "shortField", fieldType: "S", fieldCache: &SwiftTest.shortField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int16(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetShortField( fieldName: "shortField", fieldType: "S", fieldCache: &SwiftTest.shortField_FieldID, object: javaObject, value: __value.s, locals: &__locals )
-        }
-    }
-
-    /// public static short[] org.swiftjava.SwiftTest.shortArrayFieldStatic
-
-    private static var shortArrayFieldStatic_FieldID: jfieldID?
-
-    open static var shortArrayFieldStatic: [Int16]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "shortArrayFieldStatic", fieldType: "[S", fieldCache: &shortArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Int16](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "shortArrayFieldStatic", fieldType: "[S", fieldCache: &shortArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public short[] org.swiftjava.SwiftTest.shortArrayField
-
-    private static var shortArrayField_FieldID: jfieldID?
-
-    open var shortArrayField: [Int16]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "shortArrayField", fieldType: "[S", fieldCache: &SwiftTest.shortArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int16](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "shortArrayField", fieldType: "[S", fieldCache: &SwiftTest.shortArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static short[][] org.swiftjava.SwiftTest.short2dArrayFieldStatic
-
-    private static var short2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var short2dArrayFieldStatic: [[Int16]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "short2dArrayFieldStatic", fieldType: "[[S", fieldCache: &short2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Int16]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "short2dArrayFieldStatic", fieldType: "[[S", fieldCache: &short2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public short[][] org.swiftjava.SwiftTest.short2dArrayField
-
-    private static var short2dArrayField_FieldID: jfieldID?
-
-    open var short2dArrayField: [[Int16]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "short2dArrayField", fieldType: "[[S", fieldCache: &SwiftTest.short2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Int16]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "short2dArrayField", fieldType: "[[S", fieldCache: &SwiftTest.short2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static int org.swiftjava.SwiftTest.intFieldStatic
-
-    private static var intFieldStatic_FieldID: jfieldID?
-
-    open static var intFieldStatic: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "intFieldStatic", fieldType: "I", fieldCache: &intFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticIntField( fieldName: "intFieldStatic", fieldType: "I", fieldCache: &intFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.i, locals: &__locals )
-        }
-    }
-
-    /// public int org.swiftjava.SwiftTest.intField
-
-    private static var intField_FieldID: jfieldID?
-
-    open var intField: Int {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "intField", fieldType: "I", fieldCache: &SwiftTest.intField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetIntField( fieldName: "intField", fieldType: "I", fieldCache: &SwiftTest.intField_FieldID, object: javaObject, value: __value.i, locals: &__locals )
-        }
-    }
-
-    /// public static int[] org.swiftjava.SwiftTest.intArrayFieldStatic
-
-    private static var intArrayFieldStatic_FieldID: jfieldID?
-
-    open static var intArrayFieldStatic: [Int32]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "intArrayFieldStatic", fieldType: "[I", fieldCache: &intArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Int32](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "intArrayFieldStatic", fieldType: "[I", fieldCache: &intArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public int[] org.swiftjava.SwiftTest.intArrayField
-
-    private static var intArrayField_FieldID: jfieldID?
-
-    open var intArrayField: [Int32]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "intArrayField", fieldType: "[I", fieldCache: &SwiftTest.intArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int32](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "intArrayField", fieldType: "[I", fieldCache: &SwiftTest.intArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static int[][] org.swiftjava.SwiftTest.int2dArrayFieldStatic
-
-    private static var int2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var int2dArrayFieldStatic: [[Int32]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "int2dArrayFieldStatic", fieldType: "[[I", fieldCache: &int2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Int32]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "int2dArrayFieldStatic", fieldType: "[[I", fieldCache: &int2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public int[][] org.swiftjava.SwiftTest.int2dArrayField
-
-    private static var int2dArrayField_FieldID: jfieldID?
-
-    open var int2dArrayField: [[Int32]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "int2dArrayField", fieldType: "[[I", fieldCache: &SwiftTest.int2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Int32]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "int2dArrayField", fieldType: "[[I", fieldCache: &SwiftTest.int2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static long org.swiftjava.SwiftTest.longFieldStatic
-
-    private static var longFieldStatic_FieldID: jfieldID?
-
-    open static var longFieldStatic: Int64 {
-        get {
-            let __value = JNIField.GetStaticLongField( fieldName: "longFieldStatic", fieldType: "J", fieldCache: &longFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Int64(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticLongField( fieldName: "longFieldStatic", fieldType: "J", fieldCache: &longFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.j, locals: &__locals )
-        }
-    }
-
-    /// public long org.swiftjava.SwiftTest.longField
-
-    private static var longField_FieldID: jfieldID?
-
-    open var longField: Int64 {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetLongField( fieldName: "longField", fieldType: "J", fieldCache: &SwiftTest.longField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int64(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetLongField( fieldName: "longField", fieldType: "J", fieldCache: &SwiftTest.longField_FieldID, object: javaObject, value: __value.j, locals: &__locals )
-        }
-    }
-
-    /// public static long[] org.swiftjava.SwiftTest.longArrayFieldStatic
-
-    private static var longArrayFieldStatic_FieldID: jfieldID?
-
-    open static var longArrayFieldStatic: [Int64]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "longArrayFieldStatic", fieldType: "[J", fieldCache: &longArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Int64](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "longArrayFieldStatic", fieldType: "[J", fieldCache: &longArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public long[] org.swiftjava.SwiftTest.longArrayField
-
-    private static var longArrayField_FieldID: jfieldID?
-
-    open var longArrayField: [Int64]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "longArrayField", fieldType: "[J", fieldCache: &SwiftTest.longArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int64](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "longArrayField", fieldType: "[J", fieldCache: &SwiftTest.longArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static long[][] org.swiftjava.SwiftTest.long2dArrayFieldStatic
-
-    private static var long2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var long2dArrayFieldStatic: [[Int64]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "long2dArrayFieldStatic", fieldType: "[[J", fieldCache: &long2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Int64]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "long2dArrayFieldStatic", fieldType: "[[J", fieldCache: &long2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public long[][] org.swiftjava.SwiftTest.long2dArrayField
-
-    private static var long2dArrayField_FieldID: jfieldID?
-
-    open var long2dArrayField: [[Int64]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "long2dArrayField", fieldType: "[[J", fieldCache: &SwiftTest.long2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Int64]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "long2dArrayField", fieldType: "[[J", fieldCache: &SwiftTest.long2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static float org.swiftjava.SwiftTest.floatFieldStatic
-
-    private static var floatFieldStatic_FieldID: jfieldID?
-
-    open static var floatFieldStatic: Float {
-        get {
-            let __value = JNIField.GetStaticFloatField( fieldName: "floatFieldStatic", fieldType: "F", fieldCache: &floatFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Float(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticFloatField( fieldName: "floatFieldStatic", fieldType: "F", fieldCache: &floatFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.f, locals: &__locals )
-        }
-    }
-
-    /// public float org.swiftjava.SwiftTest.floatField
-
-    private static var floatField_FieldID: jfieldID?
-
-    open var floatField: Float {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetFloatField( fieldName: "floatField", fieldType: "F", fieldCache: &SwiftTest.floatField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Float(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetFloatField( fieldName: "floatField", fieldType: "F", fieldCache: &SwiftTest.floatField_FieldID, object: javaObject, value: __value.f, locals: &__locals )
-        }
-    }
-
-    /// public static float[] org.swiftjava.SwiftTest.floatArrayFieldStatic
-
-    private static var floatArrayFieldStatic_FieldID: jfieldID?
-
-    open static var floatArrayFieldStatic: [Float]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "floatArrayFieldStatic", fieldType: "[F", fieldCache: &floatArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Float](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "floatArrayFieldStatic", fieldType: "[F", fieldCache: &floatArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public float[] org.swiftjava.SwiftTest.floatArrayField
-
-    private static var floatArrayField_FieldID: jfieldID?
-
-    open var floatArrayField: [Float]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "floatArrayField", fieldType: "[F", fieldCache: &SwiftTest.floatArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Float](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "floatArrayField", fieldType: "[F", fieldCache: &SwiftTest.floatArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static float[][] org.swiftjava.SwiftTest.float2dArrayFieldStatic
-
-    private static var float2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var float2dArrayFieldStatic: [[Float]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "float2dArrayFieldStatic", fieldType: "[[F", fieldCache: &float2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Float]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "float2dArrayFieldStatic", fieldType: "[[F", fieldCache: &float2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public float[][] org.swiftjava.SwiftTest.float2dArrayField
-
-    private static var float2dArrayField_FieldID: jfieldID?
-
-    open var float2dArrayField: [[Float]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "float2dArrayField", fieldType: "[[F", fieldCache: &SwiftTest.float2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Float]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "float2dArrayField", fieldType: "[[F", fieldCache: &SwiftTest.float2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static double org.swiftjava.SwiftTest.doubleFieldStatic
-
-    private static var doubleFieldStatic_FieldID: jfieldID?
-
-    open static var doubleFieldStatic: Double {
-        get {
-            let __value = JNIField.GetStaticDoubleField( fieldName: "doubleFieldStatic", fieldType: "D", fieldCache: &doubleFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: Double(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticDoubleField( fieldName: "doubleFieldStatic", fieldType: "D", fieldCache: &doubleFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.d, locals: &__locals )
-        }
-    }
-
-    /// public double org.swiftjava.SwiftTest.doubleField
-
-    private static var doubleField_FieldID: jfieldID?
-
-    open var doubleField: Double {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetDoubleField( fieldName: "doubleField", fieldType: "D", fieldCache: &SwiftTest.doubleField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Double(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetDoubleField( fieldName: "doubleField", fieldType: "D", fieldCache: &SwiftTest.doubleField_FieldID, object: javaObject, value: __value.d, locals: &__locals )
-        }
-    }
-
-    /// public static double[] org.swiftjava.SwiftTest.doubleArrayFieldStatic
-
-    private static var doubleArrayFieldStatic_FieldID: jfieldID?
-
-    open static var doubleArrayFieldStatic: [Double]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "doubleArrayFieldStatic", fieldType: "[D", fieldCache: &doubleArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [Double](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "doubleArrayFieldStatic", fieldType: "[D", fieldCache: &doubleArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public double[] org.swiftjava.SwiftTest.doubleArrayField
-
-    private static var doubleArrayField_FieldID: jfieldID?
-
-    open var doubleArrayField: [Double]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "doubleArrayField", fieldType: "[D", fieldCache: &SwiftTest.doubleArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Double](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "doubleArrayField", fieldType: "[D", fieldCache: &SwiftTest.doubleArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static double[][] org.swiftjava.SwiftTest.double2dArrayFieldStatic
-
-    private static var double2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var double2dArrayFieldStatic: [[Double]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "double2dArrayFieldStatic", fieldType: "[[D", fieldCache: &double2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[Double]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "double2dArrayFieldStatic", fieldType: "[[D", fieldCache: &double2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public double[][] org.swiftjava.SwiftTest.double2dArrayField
-
-    private static var double2dArrayField_FieldID: jfieldID?
-
-    open var double2dArrayField: [[Double]]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "double2dArrayField", fieldType: "[[D", fieldCache: &SwiftTest.double2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[Double]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "double2dArrayField", fieldType: "[[D", fieldCache: &SwiftTest.double2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static java.lang.String org.swiftjava.SwiftTest.StringFieldStatic
-
-    private static var StringFieldStatic_FieldID: jfieldID?
-
-    open static var StringFieldStatic: String! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "StringFieldStatic", fieldType: "Ljava/lang/String;", fieldCache: &StringFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: String(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "StringFieldStatic", fieldType: "Ljava/lang/String;", fieldCache: &StringFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public java.lang.String org.swiftjava.SwiftTest.StringField
-
-    private static var StringField_FieldID: jfieldID?
-
-    open var StringField: String! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "StringField", fieldType: "Ljava/lang/String;", fieldCache: &SwiftTest.StringField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: String(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "StringField", fieldType: "Ljava/lang/String;", fieldCache: &SwiftTest.StringField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "String2dArrayFieldStatic", fieldType: "[[Ljava/lang/String;", fieldCache: &String2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
         }
     }
 
@@ -865,7 +39,7 @@ open class SwiftTest: java_swift.JavaObject {
     open static var StringArrayFieldStatic: [String]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "StringArrayFieldStatic", fieldType: "[Ljava/lang/String;", fieldCache: &StringArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [String](), from: __value )
+            return JNIType.toSwift( type: [String].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -874,36 +48,453 @@ open class SwiftTest: java_swift.JavaObject {
         }
     }
 
-    /// public java.lang.String[] org.swiftjava.SwiftTest.StringArrayField
+    /// public static java.lang.String org.swiftjava.SwiftTest.StringFieldStatic
 
-    private static var StringArrayField_FieldID: jfieldID?
+    private static var StringFieldStatic_FieldID: jfieldID?
 
-    open var StringArrayField: [String]! {
+    open static var StringFieldStatic: String! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "StringArrayField", fieldType: "[Ljava/lang/String;", fieldCache: &SwiftTest.StringArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [String](), from: __value )
+            let __value = JNIField.GetStaticObjectField( fieldName: "StringFieldStatic", fieldType: "Ljava/lang/String;", fieldCache: &StringFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? String( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "StringArrayField", fieldType: "[Ljava/lang/String;", fieldCache: &SwiftTest.StringArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "StringFieldStatic", fieldType: "Ljava/lang/String;", fieldCache: &StringFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
         }
     }
 
-    /// public static java.lang.String[][] org.swiftjava.SwiftTest.String2dArrayFieldStatic
+    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] org.swiftjava.SwiftTest.TestListener2dArrayFieldStatic
 
-    private static var String2dArrayFieldStatic_FieldID: jfieldID?
+    private static var TestListener2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var String2dArrayFieldStatic: [[String]]! {
+    open static var TestListener2dArrayFieldStatic: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
         get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "String2dArrayFieldStatic", fieldType: "[[Ljava/lang/String;", fieldCache: &String2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[String]](), from: __value )
+            let __value = JNIField.GetStaticObjectField( fieldName: "TestListener2dArrayFieldStatic", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListener2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward]].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "String2dArrayFieldStatic", fieldType: "[[Ljava/lang/String;", fieldCache: &String2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "TestListener2dArrayFieldStatic", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListener2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayFieldStatic
+
+    private static var TestListenerArrayFieldStatic_FieldID: jfieldID?
+
+    open static var TestListenerArrayFieldStatic: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "TestListenerArrayFieldStatic", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "TestListenerArrayFieldStatic", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerFieldStatic
+
+    private static var TestListenerFieldStatic_FieldID: jfieldID?
+
+    open static var TestListenerFieldStatic: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "TestListenerFieldStatic", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward( javaObject: __value ) : nil
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "TestListenerFieldStatic", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static boolean[][] org.swiftjava.SwiftTest.boolean2dArrayFieldStatic
+
+    private static var boolean2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var boolean2dArrayFieldStatic: [[Bool]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "boolean2dArrayFieldStatic", fieldType: "[[Z", fieldCache: &boolean2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Bool]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "boolean2dArrayFieldStatic", fieldType: "[[Z", fieldCache: &boolean2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static boolean[] org.swiftjava.SwiftTest.booleanArrayFieldStatic
+
+    private static var booleanArrayFieldStatic_FieldID: jfieldID?
+
+    open static var booleanArrayFieldStatic: [Bool]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "booleanArrayFieldStatic", fieldType: "[Z", fieldCache: &booleanArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Bool].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "booleanArrayFieldStatic", fieldType: "[Z", fieldCache: &booleanArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static boolean org.swiftjava.SwiftTest.booleanFieldStatic
+
+    private static var booleanFieldStatic_FieldID: jfieldID?
+
+    open static var booleanFieldStatic: Bool {
+        get {
+            let __value = JNIField.GetStaticBooleanField( fieldName: "booleanFieldStatic", fieldType: "Z", fieldCache: &booleanFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value != jboolean(JNI_FALSE)
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
+            JNIField.SetStaticBooleanField( fieldName: "booleanFieldStatic", fieldType: "Z", fieldCache: &booleanFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.z, locals: &__locals )
+        }
+    }
+
+    /// public static byte[][] org.swiftjava.SwiftTest.byte2dArrayFieldStatic
+
+    private static var byte2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var byte2dArrayFieldStatic: [[Int8]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "byte2dArrayFieldStatic", fieldType: "[[B", fieldCache: &byte2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Int8]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "byte2dArrayFieldStatic", fieldType: "[[B", fieldCache: &byte2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static byte[] org.swiftjava.SwiftTest.byteArrayFieldStatic
+
+    private static var byteArrayFieldStatic_FieldID: jfieldID?
+
+    open static var byteArrayFieldStatic: [Int8]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "byteArrayFieldStatic", fieldType: "[B", fieldCache: &byteArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "byteArrayFieldStatic", fieldType: "[B", fieldCache: &byteArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static byte org.swiftjava.SwiftTest.byteFieldStatic
+
+    private static var byteFieldStatic_FieldID: jfieldID?
+
+    open static var byteFieldStatic: Int8 {
+        get {
+            let __value = JNIField.GetStaticByteField( fieldName: "byteFieldStatic", fieldType: "B", fieldCache: &byteFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( b: newValue )
+            JNIField.SetStaticByteField( fieldName: "byteFieldStatic", fieldType: "B", fieldCache: &byteFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.b, locals: &__locals )
+        }
+    }
+
+    /// public static char[][] org.swiftjava.SwiftTest.char2dArrayFieldStatic
+
+    private static var char2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var char2dArrayFieldStatic: [[UInt16]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "char2dArrayFieldStatic", fieldType: "[[C", fieldCache: &char2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[UInt16]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "char2dArrayFieldStatic", fieldType: "[[C", fieldCache: &char2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static char[] org.swiftjava.SwiftTest.charArrayFieldStatic
+
+    private static var charArrayFieldStatic_FieldID: jfieldID?
+
+    open static var charArrayFieldStatic: [UInt16]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "charArrayFieldStatic", fieldType: "[C", fieldCache: &charArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [UInt16].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "charArrayFieldStatic", fieldType: "[C", fieldCache: &charArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static char org.swiftjava.SwiftTest.charFieldStatic
+
+    private static var charFieldStatic_FieldID: jfieldID?
+
+    open static var charFieldStatic: UInt16 {
+        get {
+            let __value = JNIField.GetStaticCharField( fieldName: "charFieldStatic", fieldType: "C", fieldCache: &charFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( c: newValue )
+            JNIField.SetStaticCharField( fieldName: "charFieldStatic", fieldType: "C", fieldCache: &charFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.c, locals: &__locals )
+        }
+    }
+
+    /// public static double[][] org.swiftjava.SwiftTest.double2dArrayFieldStatic
+
+    private static var double2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var double2dArrayFieldStatic: [[Double]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "double2dArrayFieldStatic", fieldType: "[[D", fieldCache: &double2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Double]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "double2dArrayFieldStatic", fieldType: "[[D", fieldCache: &double2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static double[] org.swiftjava.SwiftTest.doubleArrayFieldStatic
+
+    private static var doubleArrayFieldStatic_FieldID: jfieldID?
+
+    open static var doubleArrayFieldStatic: [Double]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "doubleArrayFieldStatic", fieldType: "[D", fieldCache: &doubleArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Double].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "doubleArrayFieldStatic", fieldType: "[D", fieldCache: &doubleArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static double org.swiftjava.SwiftTest.doubleFieldStatic
+
+    private static var doubleFieldStatic_FieldID: jfieldID?
+
+    open static var doubleFieldStatic: Double {
+        get {
+            let __value = JNIField.GetStaticDoubleField( fieldName: "doubleFieldStatic", fieldType: "D", fieldCache: &doubleFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( d: newValue )
+            JNIField.SetStaticDoubleField( fieldName: "doubleFieldStatic", fieldType: "D", fieldCache: &doubleFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.d, locals: &__locals )
+        }
+    }
+
+    /// public static float[][] org.swiftjava.SwiftTest.float2dArrayFieldStatic
+
+    private static var float2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var float2dArrayFieldStatic: [[Float]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "float2dArrayFieldStatic", fieldType: "[[F", fieldCache: &float2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Float]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "float2dArrayFieldStatic", fieldType: "[[F", fieldCache: &float2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static float[] org.swiftjava.SwiftTest.floatArrayFieldStatic
+
+    private static var floatArrayFieldStatic_FieldID: jfieldID?
+
+    open static var floatArrayFieldStatic: [Float]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "floatArrayFieldStatic", fieldType: "[F", fieldCache: &floatArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Float].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "floatArrayFieldStatic", fieldType: "[F", fieldCache: &floatArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static float org.swiftjava.SwiftTest.floatFieldStatic
+
+    private static var floatFieldStatic_FieldID: jfieldID?
+
+    open static var floatFieldStatic: Float {
+        get {
+            let __value = JNIField.GetStaticFloatField( fieldName: "floatFieldStatic", fieldType: "F", fieldCache: &floatFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( f: newValue )
+            JNIField.SetStaticFloatField( fieldName: "floatFieldStatic", fieldType: "F", fieldCache: &floatFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.f, locals: &__locals )
+        }
+    }
+
+    /// public static int[][] org.swiftjava.SwiftTest.int2dArrayFieldStatic
+
+    private static var int2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var int2dArrayFieldStatic: [[Int32]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "int2dArrayFieldStatic", fieldType: "[[I", fieldCache: &int2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Int32]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "int2dArrayFieldStatic", fieldType: "[[I", fieldCache: &int2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static int[] org.swiftjava.SwiftTest.intArrayFieldStatic
+
+    private static var intArrayFieldStatic_FieldID: jfieldID?
+
+    open static var intArrayFieldStatic: [Int32]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "intArrayFieldStatic", fieldType: "[I", fieldCache: &intArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Int32].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "intArrayFieldStatic", fieldType: "[I", fieldCache: &intArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static int org.swiftjava.SwiftTest.intFieldStatic
+
+    private static var intFieldStatic_FieldID: jfieldID?
+
+    open static var intFieldStatic: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "intFieldStatic", fieldType: "I", fieldCache: &intFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return Int(__value)
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( i: jint(newValue) )
+            JNIField.SetStaticIntField( fieldName: "intFieldStatic", fieldType: "I", fieldCache: &intFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.i, locals: &__locals )
+        }
+    }
+
+    /// public static long[][] org.swiftjava.SwiftTest.long2dArrayFieldStatic
+
+    private static var long2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var long2dArrayFieldStatic: [[Int64]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "long2dArrayFieldStatic", fieldType: "[[J", fieldCache: &long2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Int64]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "long2dArrayFieldStatic", fieldType: "[[J", fieldCache: &long2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static long[] org.swiftjava.SwiftTest.longArrayFieldStatic
+
+    private static var longArrayFieldStatic_FieldID: jfieldID?
+
+    open static var longArrayFieldStatic: [Int64]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "longArrayFieldStatic", fieldType: "[J", fieldCache: &longArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Int64].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "longArrayFieldStatic", fieldType: "[J", fieldCache: &longArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static long org.swiftjava.SwiftTest.longFieldStatic
+
+    private static var longFieldStatic_FieldID: jfieldID?
+
+    open static var longFieldStatic: Int64 {
+        get {
+            let __value = JNIField.GetStaticLongField( fieldName: "longFieldStatic", fieldType: "J", fieldCache: &longFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( j: newValue )
+            JNIField.SetStaticLongField( fieldName: "longFieldStatic", fieldType: "J", fieldCache: &longFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.j, locals: &__locals )
+        }
+    }
+
+    /// public static short[][] org.swiftjava.SwiftTest.short2dArrayFieldStatic
+
+    private static var short2dArrayFieldStatic_FieldID: jfieldID?
+
+    open static var short2dArrayFieldStatic: [[Int16]]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "short2dArrayFieldStatic", fieldType: "[[S", fieldCache: &short2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [[Int16]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "short2dArrayFieldStatic", fieldType: "[[S", fieldCache: &short2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static short[] org.swiftjava.SwiftTest.shortArrayFieldStatic
+
+    private static var shortArrayFieldStatic_FieldID: jfieldID?
+
+    open static var shortArrayFieldStatic: [Int16]! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "shortArrayFieldStatic", fieldType: "[S", fieldCache: &shortArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return JNIType.toSwift( type: [Int16].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetStaticObjectField( fieldName: "shortArrayFieldStatic", fieldType: "[S", fieldCache: &shortArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public static short org.swiftjava.SwiftTest.shortFieldStatic
+
+    private static var shortFieldStatic_FieldID: jfieldID?
+
+    open static var shortFieldStatic: Int16 {
+        get {
+            let __value = JNIField.GetStaticShortField( fieldName: "shortFieldStatic", fieldType: "S", fieldCache: &shortFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( s: newValue )
+            JNIField.SetStaticShortField( fieldName: "shortFieldStatic", fieldType: "S", fieldCache: &shortFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.s, locals: &__locals )
         }
     }
 
@@ -913,9 +504,8 @@ open class SwiftTest: java_swift.JavaObject {
 
     open var String2dArrayField: [[String]]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "String2dArrayField", fieldType: "[[Ljava/lang/String;", fieldCache: &SwiftTest.String2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[String]](), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "String2dArrayField", fieldType: "[[Ljava/lang/String;", fieldCache: &SwiftTest.String2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[String]].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -924,85 +514,36 @@ open class SwiftTest: java_swift.JavaObject {
         }
     }
 
-    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerFieldStatic
+    /// public java.lang.String[] org.swiftjava.SwiftTest.StringArrayField
 
-    private static var TestListenerFieldStatic_FieldID: jfieldID?
+    private static var StringArrayField_FieldID: jfieldID?
 
-    open static var TestListenerFieldStatic: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
+    open var StringArrayField: [String]! {
         get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "TestListenerFieldStatic", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return __value != nil ? /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "StringArrayField", fieldType: "[Ljava/lang/String;", fieldCache: &SwiftTest.StringArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [String].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "TestListenerFieldStatic", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "StringArrayField", fieldType: "[Ljava/lang/String;", fieldCache: &SwiftTest.StringArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
 
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerField
+    /// public java.lang.String org.swiftjava.SwiftTest.StringField
 
-    private static var TestListenerField_FieldID: jfieldID?
+    private static var StringField_FieldID: jfieldID?
 
-    open var TestListenerField: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
+    open var StringField: String! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "TestListenerField", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerField_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "StringField", fieldType: "Ljava/lang/String;", fieldCache: &SwiftTest.StringField_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? String( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "TestListenerField", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayFieldStatic
-
-    private static var TestListenerArrayFieldStatic_FieldID: jfieldID?
-
-    open static var TestListenerArrayFieldStatic: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "TestListenerArrayFieldStatic", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "TestListenerArrayFieldStatic", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayField
-
-    private static var TestListenerArrayField_FieldID: jfieldID?
-
-    open var TestListenerArrayField: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "TestListenerArrayField", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "TestListenerArrayField", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
-    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] org.swiftjava.SwiftTest.TestListener2dArrayFieldStatic
-
-    private static var TestListener2dArrayFieldStatic_FieldID: jfieldID?
-
-    open static var TestListener2dArrayFieldStatic: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "TestListener2dArrayFieldStatic", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListener2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
-            return JNIType.toSwift( type: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward]](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetStaticObjectField( fieldName: "TestListener2dArrayFieldStatic", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListener2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, value: __value.l, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "StringField", fieldType: "Ljava/lang/String;", fieldCache: &SwiftTest.StringField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
 
@@ -1010,11 +551,10 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var TestListener2dArrayField_FieldID: jfieldID?
 
-    open var TestListener2dArrayField: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]! {
+    open var TestListener2dArrayField: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "TestListener2dArrayField", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListener2dArrayField_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward]](), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "TestListener2dArrayField", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListener2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward]].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -1023,978 +563,1414 @@ open class SwiftTest: java_swift.JavaObject {
         }
     }
 
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayField
+
+    private static var TestListenerArrayField_FieldID: jfieldID?
+
+    open var TestListenerArrayField: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "TestListenerArrayField", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "TestListenerArrayField", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerField
+
+    private static var TestListenerField_FieldID: jfieldID?
+
+    open var TestListenerField: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "TestListenerField", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerField_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward( javaObject: __value ) : nil
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "TestListenerField", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.TestListenerField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public boolean[][] org.swiftjava.SwiftTest.boolean2dArrayField
+
+    private static var boolean2dArrayField_FieldID: jfieldID?
+
+    open var boolean2dArrayField: [[Bool]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "boolean2dArrayField", fieldType: "[[Z", fieldCache: &SwiftTest.boolean2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Bool]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "boolean2dArrayField", fieldType: "[[Z", fieldCache: &SwiftTest.boolean2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public boolean[] org.swiftjava.SwiftTest.booleanArrayField
+
+    private static var booleanArrayField_FieldID: jfieldID?
+
+    open var booleanArrayField: [Bool]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "booleanArrayField", fieldType: "[Z", fieldCache: &SwiftTest.booleanArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Bool].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "booleanArrayField", fieldType: "[Z", fieldCache: &SwiftTest.booleanArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public boolean org.swiftjava.SwiftTest.booleanField
+
+    private static var booleanField_FieldID: jfieldID?
+
+    open var booleanField: Bool {
+        get {
+            let __value = JNIField.GetBooleanField( fieldName: "booleanField", fieldType: "Z", fieldCache: &SwiftTest.booleanField_FieldID, object: javaObject )
+            return __value != jboolean(JNI_FALSE)
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
+            JNIField.SetBooleanField( fieldName: "booleanField", fieldType: "Z", fieldCache: &SwiftTest.booleanField_FieldID, object: javaObject, value: __value.z, locals: &__locals )
+        }
+    }
+
+    /// public byte[][] org.swiftjava.SwiftTest.byte2dArrayField
+
+    private static var byte2dArrayField_FieldID: jfieldID?
+
+    open var byte2dArrayField: [[Int8]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "byte2dArrayField", fieldType: "[[B", fieldCache: &SwiftTest.byte2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Int8]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "byte2dArrayField", fieldType: "[[B", fieldCache: &SwiftTest.byte2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public byte[] org.swiftjava.SwiftTest.byteArrayField
+
+    private static var byteArrayField_FieldID: jfieldID?
+
+    open var byteArrayField: [Int8]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "byteArrayField", fieldType: "[B", fieldCache: &SwiftTest.byteArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "byteArrayField", fieldType: "[B", fieldCache: &SwiftTest.byteArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public byte org.swiftjava.SwiftTest.byteField
+
+    private static var byteField_FieldID: jfieldID?
+
+    open var byteField: Int8 {
+        get {
+            let __value = JNIField.GetByteField( fieldName: "byteField", fieldType: "B", fieldCache: &SwiftTest.byteField_FieldID, object: javaObject )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( b: newValue )
+            JNIField.SetByteField( fieldName: "byteField", fieldType: "B", fieldCache: &SwiftTest.byteField_FieldID, object: javaObject, value: __value.b, locals: &__locals )
+        }
+    }
+
+    /// public char[][] org.swiftjava.SwiftTest.char2dArrayField
+
+    private static var char2dArrayField_FieldID: jfieldID?
+
+    open var char2dArrayField: [[UInt16]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "char2dArrayField", fieldType: "[[C", fieldCache: &SwiftTest.char2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[UInt16]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "char2dArrayField", fieldType: "[[C", fieldCache: &SwiftTest.char2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public char[] org.swiftjava.SwiftTest.charArrayField
+
+    private static var charArrayField_FieldID: jfieldID?
+
+    open var charArrayField: [UInt16]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "charArrayField", fieldType: "[C", fieldCache: &SwiftTest.charArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [UInt16].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "charArrayField", fieldType: "[C", fieldCache: &SwiftTest.charArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public char org.swiftjava.SwiftTest.charField
+
+    private static var charField_FieldID: jfieldID?
+
+    open var charField: UInt16 {
+        get {
+            let __value = JNIField.GetCharField( fieldName: "charField", fieldType: "C", fieldCache: &SwiftTest.charField_FieldID, object: javaObject )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( c: newValue )
+            JNIField.SetCharField( fieldName: "charField", fieldType: "C", fieldCache: &SwiftTest.charField_FieldID, object: javaObject, value: __value.c, locals: &__locals )
+        }
+    }
+
+    /// public double[][] org.swiftjava.SwiftTest.double2dArrayField
+
+    private static var double2dArrayField_FieldID: jfieldID?
+
+    open var double2dArrayField: [[Double]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "double2dArrayField", fieldType: "[[D", fieldCache: &SwiftTest.double2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Double]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "double2dArrayField", fieldType: "[[D", fieldCache: &SwiftTest.double2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public double[] org.swiftjava.SwiftTest.doubleArrayField
+
+    private static var doubleArrayField_FieldID: jfieldID?
+
+    open var doubleArrayField: [Double]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "doubleArrayField", fieldType: "[D", fieldCache: &SwiftTest.doubleArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Double].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "doubleArrayField", fieldType: "[D", fieldCache: &SwiftTest.doubleArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public double org.swiftjava.SwiftTest.doubleField
+
+    private static var doubleField_FieldID: jfieldID?
+
+    open var doubleField: Double {
+        get {
+            let __value = JNIField.GetDoubleField( fieldName: "doubleField", fieldType: "D", fieldCache: &SwiftTest.doubleField_FieldID, object: javaObject )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( d: newValue )
+            JNIField.SetDoubleField( fieldName: "doubleField", fieldType: "D", fieldCache: &SwiftTest.doubleField_FieldID, object: javaObject, value: __value.d, locals: &__locals )
+        }
+    }
+
+    /// public float[][] org.swiftjava.SwiftTest.float2dArrayField
+
+    private static var float2dArrayField_FieldID: jfieldID?
+
+    open var float2dArrayField: [[Float]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "float2dArrayField", fieldType: "[[F", fieldCache: &SwiftTest.float2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Float]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "float2dArrayField", fieldType: "[[F", fieldCache: &SwiftTest.float2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public float[] org.swiftjava.SwiftTest.floatArrayField
+
+    private static var floatArrayField_FieldID: jfieldID?
+
+    open var floatArrayField: [Float]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "floatArrayField", fieldType: "[F", fieldCache: &SwiftTest.floatArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Float].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "floatArrayField", fieldType: "[F", fieldCache: &SwiftTest.floatArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public float org.swiftjava.SwiftTest.floatField
+
+    private static var floatField_FieldID: jfieldID?
+
+    open var floatField: Float {
+        get {
+            let __value = JNIField.GetFloatField( fieldName: "floatField", fieldType: "F", fieldCache: &SwiftTest.floatField_FieldID, object: javaObject )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( f: newValue )
+            JNIField.SetFloatField( fieldName: "floatField", fieldType: "F", fieldCache: &SwiftTest.floatField_FieldID, object: javaObject, value: __value.f, locals: &__locals )
+        }
+    }
+
+    /// public int[][] org.swiftjava.SwiftTest.int2dArrayField
+
+    private static var int2dArrayField_FieldID: jfieldID?
+
+    open var int2dArrayField: [[Int32]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "int2dArrayField", fieldType: "[[I", fieldCache: &SwiftTest.int2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Int32]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "int2dArrayField", fieldType: "[[I", fieldCache: &SwiftTest.int2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public int[] org.swiftjava.SwiftTest.intArrayField
+
+    private static var intArrayField_FieldID: jfieldID?
+
+    open var intArrayField: [Int32]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "intArrayField", fieldType: "[I", fieldCache: &SwiftTest.intArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int32].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "intArrayField", fieldType: "[I", fieldCache: &SwiftTest.intArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public int org.swiftjava.SwiftTest.intField
+
+    private static var intField_FieldID: jfieldID?
+
+    open var intField: Int {
+        get {
+            let __value = JNIField.GetIntField( fieldName: "intField", fieldType: "I", fieldCache: &SwiftTest.intField_FieldID, object: javaObject )
+            return Int(__value)
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( i: jint(newValue) )
+            JNIField.SetIntField( fieldName: "intField", fieldType: "I", fieldCache: &SwiftTest.intField_FieldID, object: javaObject, value: __value.i, locals: &__locals )
+        }
+    }
+
+    /// public long[][] org.swiftjava.SwiftTest.long2dArrayField
+
+    private static var long2dArrayField_FieldID: jfieldID?
+
+    open var long2dArrayField: [[Int64]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "long2dArrayField", fieldType: "[[J", fieldCache: &SwiftTest.long2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Int64]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "long2dArrayField", fieldType: "[[J", fieldCache: &SwiftTest.long2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public long[] org.swiftjava.SwiftTest.longArrayField
+
+    private static var longArrayField_FieldID: jfieldID?
+
+    open var longArrayField: [Int64]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "longArrayField", fieldType: "[J", fieldCache: &SwiftTest.longArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int64].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "longArrayField", fieldType: "[J", fieldCache: &SwiftTest.longArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public long org.swiftjava.SwiftTest.longField
+
+    private static var longField_FieldID: jfieldID?
+
+    open var longField: Int64 {
+        get {
+            let __value = JNIField.GetLongField( fieldName: "longField", fieldType: "J", fieldCache: &SwiftTest.longField_FieldID, object: javaObject )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( j: newValue )
+            JNIField.SetLongField( fieldName: "longField", fieldType: "J", fieldCache: &SwiftTest.longField_FieldID, object: javaObject, value: __value.j, locals: &__locals )
+        }
+    }
+
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.loopback
+
+    private static var loopback_FieldID: jfieldID?
+
+    open var loopback: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.loopback_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward( javaObject: __value ) : nil
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftTest.loopback_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public short[][] org.swiftjava.SwiftTest.short2dArrayField
+
+    private static var short2dArrayField_FieldID: jfieldID?
+
+    open var short2dArrayField: [[Int16]]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "short2dArrayField", fieldType: "[[S", fieldCache: &SwiftTest.short2dArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [[Int16]].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "short2dArrayField", fieldType: "[[S", fieldCache: &SwiftTest.short2dArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public short[] org.swiftjava.SwiftTest.shortArrayField
+
+    private static var shortArrayField_FieldID: jfieldID?
+
+    open var shortArrayField: [Int16]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "shortArrayField", fieldType: "[S", fieldCache: &SwiftTest.shortArrayField_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int16].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "shortArrayField", fieldType: "[S", fieldCache: &SwiftTest.shortArrayField_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// public short org.swiftjava.SwiftTest.shortField
+
+    private static var shortField_FieldID: jfieldID?
+
+    open var shortField: Int16 {
+        get {
+            let __value = JNIField.GetShortField( fieldName: "shortField", fieldType: "S", fieldCache: &SwiftTest.shortField_FieldID, object: javaObject )
+            return __value
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( s: newValue )
+            JNIField.SetShortField( fieldName: "shortField", fieldType: "S", fieldCache: &SwiftTest.shortField_FieldID, object: javaObject, value: __value.s, locals: &__locals )
+        }
+    }
+
     /// public org.swiftjava.SwiftTest()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "org/swiftjava/SwiftTest", classCache: &SwiftTest.SwiftTestJNIClass, methodSig: "()V", methodCache: &SwiftTest.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    /// public static boolean org.swiftjava.SwiftTest.booleanMethodStatic(boolean)
-
-    private static var booleanMethodStatic_MethodID_2: jmethodID?
-
-    open class func booleanMethodStatic( arg0: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticBooleanMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "booleanMethodStatic", methodSig: "(Z)Z", methodCache: &booleanMethodStatic_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open class func booleanMethodStatic( _ _arg0: Bool ) -> Bool {
-        return booleanMethodStatic( arg0: _arg0 )
-    }
-
-    /// public boolean org.swiftjava.SwiftTest.booleanMethod(boolean)
-
-    private static var booleanMethod_MethodID_3: jmethodID?
-
-    open func booleanMethod( arg0: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "booleanMethod", methodSig: "(Z)Z", methodCache: &SwiftTest.booleanMethod_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func booleanMethod( _ _arg0: Bool ) -> Bool {
-        return booleanMethod( arg0: _arg0 )
-    }
-
-    /// public static boolean[] org.swiftjava.SwiftTest.booleanArrayMethodStatic(boolean[])
-
-    private static var booleanArrayMethodStatic_MethodID_4: jmethodID?
-
-    open class func booleanArrayMethodStatic( arg0: [Bool]? ) -> [Bool]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "booleanArrayMethodStatic", methodSig: "([Z)[Z", methodCache: &booleanArrayMethodStatic_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Bool](), from: __return )
-    }
-
-    open class func booleanArrayMethodStatic( _ _arg0: [Bool]? ) -> [Bool]! {
-        return booleanArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public boolean[] org.swiftjava.SwiftTest.booleanArrayMethod(boolean[])
-
-    private static var booleanArrayMethod_MethodID_5: jmethodID?
-
-    open func booleanArrayMethod( arg0: [Bool]? ) -> [Bool]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "booleanArrayMethod", methodSig: "([Z)[Z", methodCache: &SwiftTest.booleanArrayMethod_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Bool](), from: __return )
-    }
-
-    open func booleanArrayMethod( _ _arg0: [Bool]? ) -> [Bool]! {
-        return booleanArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static boolean[][] org.swiftjava.SwiftTest.boolean2dArrayMethodStatic(boolean[][])
-
-    private static var boolean2dArrayMethodStatic_MethodID_6: jmethodID?
-
-    open class func boolean2dArrayMethodStatic( arg0: [[Bool]]? ) -> [[Bool]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "boolean2dArrayMethodStatic", methodSig: "([[Z)[[Z", methodCache: &boolean2dArrayMethodStatic_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Bool]](), from: __return )
-    }
-
-    open class func boolean2dArrayMethodStatic( _ _arg0: [[Bool]]? ) -> [[Bool]]! {
-        return boolean2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public boolean[][] org.swiftjava.SwiftTest.boolean2dArrayMethod(boolean[][])
-
-    private static var boolean2dArrayMethod_MethodID_7: jmethodID?
-
-    open func boolean2dArrayMethod( arg0: [[Bool]]? ) -> [[Bool]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "boolean2dArrayMethod", methodSig: "([[Z)[[Z", methodCache: &SwiftTest.boolean2dArrayMethod_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Bool]](), from: __return )
-    }
-
-    open func boolean2dArrayMethod( _ _arg0: [[Bool]]? ) -> [[Bool]]! {
-        return boolean2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static byte org.swiftjava.SwiftTest.byteMethodStatic(byte)
-
-    private static var byteMethodStatic_MethodID_8: jmethodID?
-
-    open class func byteMethodStatic( arg0: Int8 ) -> Int8 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticByteMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "byteMethodStatic", methodSig: "(B)B", methodCache: &byteMethodStatic_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int8(), from: __return )
-    }
-
-    open class func byteMethodStatic( _ _arg0: Int8 ) -> Int8 {
-        return byteMethodStatic( arg0: _arg0 )
-    }
-
-    /// public byte org.swiftjava.SwiftTest.byteMethod(byte)
-
-    private static var byteMethod_MethodID_9: jmethodID?
-
-    open func byteMethod( arg0: Int8 ) -> Int8 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "byteMethod", methodSig: "(B)B", methodCache: &SwiftTest.byteMethod_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int8(), from: __return )
-    }
-
-    open func byteMethod( _ _arg0: Int8 ) -> Int8 {
-        return byteMethod( arg0: _arg0 )
-    }
-
-    /// public static byte[] org.swiftjava.SwiftTest.byteArrayMethodStatic(byte[])
-
-    private static var byteArrayMethodStatic_MethodID_10: jmethodID?
-
-    open class func byteArrayMethodStatic( arg0: [Int8]? ) -> [Int8]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "byteArrayMethodStatic", methodSig: "([B)[B", methodCache: &byteArrayMethodStatic_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int8](), from: __return )
-    }
-
-    open class func byteArrayMethodStatic( _ _arg0: [Int8]? ) -> [Int8]! {
-        return byteArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public byte[] org.swiftjava.SwiftTest.byteArrayMethod(byte[])
-
-    private static var byteArrayMethod_MethodID_11: jmethodID?
-
-    open func byteArrayMethod( arg0: [Int8]? ) -> [Int8]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byteArrayMethod", methodSig: "([B)[B", methodCache: &SwiftTest.byteArrayMethod_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int8](), from: __return )
-    }
-
-    open func byteArrayMethod( _ _arg0: [Int8]? ) -> [Int8]! {
-        return byteArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static byte[][] org.swiftjava.SwiftTest.byte2dArrayMethodStatic(byte[][])
-
-    private static var byte2dArrayMethodStatic_MethodID_12: jmethodID?
-
-    open class func byte2dArrayMethodStatic( arg0: [[Int8]]? ) -> [[Int8]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "byte2dArrayMethodStatic", methodSig: "([[B)[[B", methodCache: &byte2dArrayMethodStatic_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int8]](), from: __return )
-    }
-
-    open class func byte2dArrayMethodStatic( _ _arg0: [[Int8]]? ) -> [[Int8]]! {
-        return byte2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public byte[][] org.swiftjava.SwiftTest.byte2dArrayMethod(byte[][])
-
-    private static var byte2dArrayMethod_MethodID_13: jmethodID?
-
-    open func byte2dArrayMethod( arg0: [[Int8]]? ) -> [[Int8]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byte2dArrayMethod", methodSig: "([[B)[[B", methodCache: &SwiftTest.byte2dArrayMethod_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int8]](), from: __return )
-    }
-
-    open func byte2dArrayMethod( _ _arg0: [[Int8]]? ) -> [[Int8]]! {
-        return byte2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static char org.swiftjava.SwiftTest.charMethodStatic(char)
-
-    private static var charMethodStatic_MethodID_14: jmethodID?
-
-    open class func charMethodStatic( arg0: UInt16 ) -> UInt16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticCharMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "charMethodStatic", methodSig: "(C)C", methodCache: &charMethodStatic_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: UInt16(), from: __return )
-    }
-
-    open class func charMethodStatic( _ _arg0: UInt16 ) -> UInt16 {
-        return charMethodStatic( arg0: _arg0 )
-    }
-
-    /// public char org.swiftjava.SwiftTest.charMethod(char)
-
-    private static var charMethod_MethodID_15: jmethodID?
-
-    open func charMethod( arg0: UInt16 ) -> UInt16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallCharMethod( object: javaObject, methodName: "charMethod", methodSig: "(C)C", methodCache: &SwiftTest.charMethod_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: UInt16(), from: __return )
-    }
-
-    open func charMethod( _ _arg0: UInt16 ) -> UInt16 {
-        return charMethod( arg0: _arg0 )
-    }
-
-    /// public static char[] org.swiftjava.SwiftTest.charArrayMethodStatic(char[])
-
-    private static var charArrayMethodStatic_MethodID_16: jmethodID?
-
-    open class func charArrayMethodStatic( arg0: [UInt16]? ) -> [UInt16]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "charArrayMethodStatic", methodSig: "([C)[C", methodCache: &charArrayMethodStatic_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [UInt16](), from: __return )
-    }
-
-    open class func charArrayMethodStatic( _ _arg0: [UInt16]? ) -> [UInt16]! {
-        return charArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public char[] org.swiftjava.SwiftTest.charArrayMethod(char[])
-
-    private static var charArrayMethod_MethodID_17: jmethodID?
-
-    open func charArrayMethod( arg0: [UInt16]? ) -> [UInt16]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "charArrayMethod", methodSig: "([C)[C", methodCache: &SwiftTest.charArrayMethod_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [UInt16](), from: __return )
-    }
-
-    open func charArrayMethod( _ _arg0: [UInt16]? ) -> [UInt16]! {
-        return charArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static char[][] org.swiftjava.SwiftTest.char2dArrayMethodStatic(char[][])
-
-    private static var char2dArrayMethodStatic_MethodID_18: jmethodID?
-
-    open class func char2dArrayMethodStatic( arg0: [[UInt16]]? ) -> [[UInt16]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "char2dArrayMethodStatic", methodSig: "([[C)[[C", methodCache: &char2dArrayMethodStatic_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[UInt16]](), from: __return )
-    }
-
-    open class func char2dArrayMethodStatic( _ _arg0: [[UInt16]]? ) -> [[UInt16]]! {
-        return char2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public char[][] org.swiftjava.SwiftTest.char2dArrayMethod(char[][])
-
-    private static var char2dArrayMethod_MethodID_19: jmethodID?
-
-    open func char2dArrayMethod( arg0: [[UInt16]]? ) -> [[UInt16]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "char2dArrayMethod", methodSig: "([[C)[[C", methodCache: &SwiftTest.char2dArrayMethod_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[UInt16]](), from: __return )
-    }
-
-    open func char2dArrayMethod( _ _arg0: [[UInt16]]? ) -> [[UInt16]]! {
-        return char2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static short org.swiftjava.SwiftTest.shortMethodStatic(short)
-
-    private static var shortMethodStatic_MethodID_20: jmethodID?
-
-    open class func shortMethodStatic( arg0: Int16 ) -> Int16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticShortMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "shortMethodStatic", methodSig: "(S)S", methodCache: &shortMethodStatic_MethodID_20, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int16(), from: __return )
-    }
-
-    open class func shortMethodStatic( _ _arg0: Int16 ) -> Int16 {
-        return shortMethodStatic( arg0: _arg0 )
-    }
-
-    /// public short org.swiftjava.SwiftTest.shortMethod(short)
-
-    private static var shortMethod_MethodID_21: jmethodID?
-
-    open func shortMethod( arg0: Int16 ) -> Int16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "shortMethod", methodSig: "(S)S", methodCache: &SwiftTest.shortMethod_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int16(), from: __return )
-    }
-
-    open func shortMethod( _ _arg0: Int16 ) -> Int16 {
-        return shortMethod( arg0: _arg0 )
-    }
-
-    /// public static short[] org.swiftjava.SwiftTest.shortArrayMethodStatic(short[])
-
-    private static var shortArrayMethodStatic_MethodID_22: jmethodID?
-
-    open class func shortArrayMethodStatic( arg0: [Int16]? ) -> [Int16]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "shortArrayMethodStatic", methodSig: "([S)[S", methodCache: &shortArrayMethodStatic_MethodID_22, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int16](), from: __return )
-    }
-
-    open class func shortArrayMethodStatic( _ _arg0: [Int16]? ) -> [Int16]! {
-        return shortArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public short[] org.swiftjava.SwiftTest.shortArrayMethod(short[])
-
-    private static var shortArrayMethod_MethodID_23: jmethodID?
-
-    open func shortArrayMethod( arg0: [Int16]? ) -> [Int16]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shortArrayMethod", methodSig: "([S)[S", methodCache: &SwiftTest.shortArrayMethod_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int16](), from: __return )
-    }
-
-    open func shortArrayMethod( _ _arg0: [Int16]? ) -> [Int16]! {
-        return shortArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static short[][] org.swiftjava.SwiftTest.short2dArrayMethodStatic(short[][])
-
-    private static var short2dArrayMethodStatic_MethodID_24: jmethodID?
-
-    open class func short2dArrayMethodStatic( arg0: [[Int16]]? ) -> [[Int16]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "short2dArrayMethodStatic", methodSig: "([[S)[[S", methodCache: &short2dArrayMethodStatic_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int16]](), from: __return )
-    }
-
-    open class func short2dArrayMethodStatic( _ _arg0: [[Int16]]? ) -> [[Int16]]! {
-        return short2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public short[][] org.swiftjava.SwiftTest.short2dArrayMethod(short[][])
-
-    private static var short2dArrayMethod_MethodID_25: jmethodID?
-
-    open func short2dArrayMethod( arg0: [[Int16]]? ) -> [[Int16]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "short2dArrayMethod", methodSig: "([[S)[[S", methodCache: &SwiftTest.short2dArrayMethod_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int16]](), from: __return )
-    }
-
-    open func short2dArrayMethod( _ _arg0: [[Int16]]? ) -> [[Int16]]! {
-        return short2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static int org.swiftjava.SwiftTest.intMethodStatic(int)
-
-    private static var intMethodStatic_MethodID_26: jmethodID?
-
-    open class func intMethodStatic( arg0: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticIntMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "intMethodStatic", methodSig: "(I)I", methodCache: &intMethodStatic_MethodID_26, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open class func intMethodStatic( _ _arg0: Int ) -> Int {
-        return intMethodStatic( arg0: _arg0 )
-    }
-
-    /// public int org.swiftjava.SwiftTest.intMethod(int)
-
-    private static var intMethod_MethodID_27: jmethodID?
-
-    open func intMethod( arg0: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intMethod", methodSig: "(I)I", methodCache: &SwiftTest.intMethod_MethodID_27, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func intMethod( _ _arg0: Int ) -> Int {
-        return intMethod( arg0: _arg0 )
-    }
-
-    /// public static int[] org.swiftjava.SwiftTest.intArrayMethodStatic(int[])
-
-    private static var intArrayMethodStatic_MethodID_28: jmethodID?
-
-    open class func intArrayMethodStatic( arg0: [Int32]? ) -> [Int32]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "intArrayMethodStatic", methodSig: "([I)[I", methodCache: &intArrayMethodStatic_MethodID_28, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int32](), from: __return )
-    }
-
-    open class func intArrayMethodStatic( _ _arg0: [Int32]? ) -> [Int32]! {
-        return intArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public int[] org.swiftjava.SwiftTest.intArrayMethod(int[])
-
-    private static var intArrayMethod_MethodID_29: jmethodID?
-
-    open func intArrayMethod( arg0: [Int32]? ) -> [Int32]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "intArrayMethod", methodSig: "([I)[I", methodCache: &SwiftTest.intArrayMethod_MethodID_29, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int32](), from: __return )
-    }
-
-    open func intArrayMethod( _ _arg0: [Int32]? ) -> [Int32]! {
-        return intArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static int[][] org.swiftjava.SwiftTest.int2dArrayMethodStatic(int[][])
-
-    private static var int2dArrayMethodStatic_MethodID_30: jmethodID?
-
-    open class func int2dArrayMethodStatic( arg0: [[Int32]]? ) -> [[Int32]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "int2dArrayMethodStatic", methodSig: "([[I)[[I", methodCache: &int2dArrayMethodStatic_MethodID_30, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int32]](), from: __return )
-    }
-
-    open class func int2dArrayMethodStatic( _ _arg0: [[Int32]]? ) -> [[Int32]]! {
-        return int2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public int[][] org.swiftjava.SwiftTest.int2dArrayMethod(int[][])
-
-    private static var int2dArrayMethod_MethodID_31: jmethodID?
-
-    open func int2dArrayMethod( arg0: [[Int32]]? ) -> [[Int32]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "int2dArrayMethod", methodSig: "([[I)[[I", methodCache: &SwiftTest.int2dArrayMethod_MethodID_31, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int32]](), from: __return )
-    }
-
-    open func int2dArrayMethod( _ _arg0: [[Int32]]? ) -> [[Int32]]! {
-        return int2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static long org.swiftjava.SwiftTest.longMethodStatic(long)
-
-    private static var longMethodStatic_MethodID_32: jmethodID?
-
-    open class func longMethodStatic( arg0: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticLongMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "longMethodStatic", methodSig: "(J)J", methodCache: &longMethodStatic_MethodID_32, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open class func longMethodStatic( _ _arg0: Int64 ) -> Int64 {
-        return longMethodStatic( arg0: _arg0 )
-    }
-
-    /// public long org.swiftjava.SwiftTest.longMethod(long)
-
-    private static var longMethod_MethodID_33: jmethodID?
-
-    open func longMethod( arg0: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "longMethod", methodSig: "(J)J", methodCache: &SwiftTest.longMethod_MethodID_33, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func longMethod( _ _arg0: Int64 ) -> Int64 {
-        return longMethod( arg0: _arg0 )
-    }
-
-    /// public static long[] org.swiftjava.SwiftTest.longArrayMethodStatic(long[])
-
-    private static var longArrayMethodStatic_MethodID_34: jmethodID?
-
-    open class func longArrayMethodStatic( arg0: [Int64]? ) -> [Int64]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "longArrayMethodStatic", methodSig: "([J)[J", methodCache: &longArrayMethodStatic_MethodID_34, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int64](), from: __return )
-    }
-
-    open class func longArrayMethodStatic( _ _arg0: [Int64]? ) -> [Int64]! {
-        return longArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public long[] org.swiftjava.SwiftTest.longArrayMethod(long[])
-
-    private static var longArrayMethod_MethodID_35: jmethodID?
-
-    open func longArrayMethod( arg0: [Int64]? ) -> [Int64]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longArrayMethod", methodSig: "([J)[J", methodCache: &SwiftTest.longArrayMethod_MethodID_35, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int64](), from: __return )
-    }
-
-    open func longArrayMethod( _ _arg0: [Int64]? ) -> [Int64]! {
-        return longArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static long[][] org.swiftjava.SwiftTest.long2dArrayMethodStatic(long[][])
-
-    private static var long2dArrayMethodStatic_MethodID_36: jmethodID?
-
-    open class func long2dArrayMethodStatic( arg0: [[Int64]]? ) -> [[Int64]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "long2dArrayMethodStatic", methodSig: "([[J)[[J", methodCache: &long2dArrayMethodStatic_MethodID_36, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int64]](), from: __return )
-    }
-
-    open class func long2dArrayMethodStatic( _ _arg0: [[Int64]]? ) -> [[Int64]]! {
-        return long2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public long[][] org.swiftjava.SwiftTest.long2dArrayMethod(long[][])
-
-    private static var long2dArrayMethod_MethodID_37: jmethodID?
-
-    open func long2dArrayMethod( arg0: [[Int64]]? ) -> [[Int64]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "long2dArrayMethod", methodSig: "([[J)[[J", methodCache: &SwiftTest.long2dArrayMethod_MethodID_37, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int64]](), from: __return )
-    }
-
-    open func long2dArrayMethod( _ _arg0: [[Int64]]? ) -> [[Int64]]! {
-        return long2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static float org.swiftjava.SwiftTest.floatMethodStatic(float)
-
-    private static var floatMethodStatic_MethodID_38: jmethodID?
-
-    open class func floatMethodStatic( arg0: Float ) -> Float {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticFloatMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "floatMethodStatic", methodSig: "(F)F", methodCache: &floatMethodStatic_MethodID_38, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Float(), from: __return )
-    }
-
-    open class func floatMethodStatic( _ _arg0: Float ) -> Float {
-        return floatMethodStatic( arg0: _arg0 )
-    }
-
-    /// public float org.swiftjava.SwiftTest.floatMethod(float)
-
-    private static var floatMethod_MethodID_39: jmethodID?
-
-    open func floatMethod( arg0: Float ) -> Float {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "floatMethod", methodSig: "(F)F", methodCache: &SwiftTest.floatMethod_MethodID_39, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Float(), from: __return )
-    }
-
-    open func floatMethod( _ _arg0: Float ) -> Float {
-        return floatMethod( arg0: _arg0 )
-    }
-
-    /// public static float[] org.swiftjava.SwiftTest.floatArrayMethodStatic(float[])
-
-    private static var floatArrayMethodStatic_MethodID_40: jmethodID?
-
-    open class func floatArrayMethodStatic( arg0: [Float]? ) -> [Float]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "floatArrayMethodStatic", methodSig: "([F)[F", methodCache: &floatArrayMethodStatic_MethodID_40, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Float](), from: __return )
-    }
-
-    open class func floatArrayMethodStatic( _ _arg0: [Float]? ) -> [Float]! {
-        return floatArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public float[] org.swiftjava.SwiftTest.floatArrayMethod(float[])
-
-    private static var floatArrayMethod_MethodID_41: jmethodID?
-
-    open func floatArrayMethod( arg0: [Float]? ) -> [Float]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floatArrayMethod", methodSig: "([F)[F", methodCache: &SwiftTest.floatArrayMethod_MethodID_41, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Float](), from: __return )
-    }
-
-    open func floatArrayMethod( _ _arg0: [Float]? ) -> [Float]! {
-        return floatArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static float[][] org.swiftjava.SwiftTest.float2dArrayMethodStatic(float[][])
-
-    private static var float2dArrayMethodStatic_MethodID_42: jmethodID?
-
-    open class func float2dArrayMethodStatic( arg0: [[Float]]? ) -> [[Float]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "float2dArrayMethodStatic", methodSig: "([[F)[[F", methodCache: &float2dArrayMethodStatic_MethodID_42, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Float]](), from: __return )
-    }
-
-    open class func float2dArrayMethodStatic( _ _arg0: [[Float]]? ) -> [[Float]]! {
-        return float2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public float[][] org.swiftjava.SwiftTest.float2dArrayMethod(float[][])
-
-    private static var float2dArrayMethod_MethodID_43: jmethodID?
-
-    open func float2dArrayMethod( arg0: [[Float]]? ) -> [[Float]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "float2dArrayMethod", methodSig: "([[F)[[F", methodCache: &SwiftTest.float2dArrayMethod_MethodID_43, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Float]](), from: __return )
-    }
-
-    open func float2dArrayMethod( _ _arg0: [[Float]]? ) -> [[Float]]! {
-        return float2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static double org.swiftjava.SwiftTest.doubleMethodStatic(double)
-
-    private static var doubleMethodStatic_MethodID_44: jmethodID?
-
-    open class func doubleMethodStatic( arg0: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticDoubleMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "doubleMethodStatic", methodSig: "(D)D", methodCache: &doubleMethodStatic_MethodID_44, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
-    open class func doubleMethodStatic( _ _arg0: Double ) -> Double {
-        return doubleMethodStatic( arg0: _arg0 )
-    }
-
-    /// public double org.swiftjava.SwiftTest.doubleMethod(double)
-
-    private static var doubleMethod_MethodID_45: jmethodID?
-
-    open func doubleMethod( arg0: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "doubleMethod", methodSig: "(D)D", methodCache: &SwiftTest.doubleMethod_MethodID_45, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
-    open func doubleMethod( _ _arg0: Double ) -> Double {
-        return doubleMethod( arg0: _arg0 )
-    }
-
-    /// public static double[] org.swiftjava.SwiftTest.doubleArrayMethodStatic(double[])
-
-    private static var doubleArrayMethodStatic_MethodID_46: jmethodID?
-
-    open class func doubleArrayMethodStatic( arg0: [Double]? ) -> [Double]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "doubleArrayMethodStatic", methodSig: "([D)[D", methodCache: &doubleArrayMethodStatic_MethodID_46, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Double](), from: __return )
-    }
-
-    open class func doubleArrayMethodStatic( _ _arg0: [Double]? ) -> [Double]! {
-        return doubleArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public double[] org.swiftjava.SwiftTest.doubleArrayMethod(double[])
-
-    private static var doubleArrayMethod_MethodID_47: jmethodID?
-
-    open func doubleArrayMethod( arg0: [Double]? ) -> [Double]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubleArrayMethod", methodSig: "([D)[D", methodCache: &SwiftTest.doubleArrayMethod_MethodID_47, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Double](), from: __return )
-    }
-
-    open func doubleArrayMethod( _ _arg0: [Double]? ) -> [Double]! {
-        return doubleArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static double[][] org.swiftjava.SwiftTest.double2dArrayMethodStatic(double[][])
-
-    private static var double2dArrayMethodStatic_MethodID_48: jmethodID?
-
-    open class func double2dArrayMethodStatic( arg0: [[Double]]? ) -> [[Double]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "double2dArrayMethodStatic", methodSig: "([[D)[[D", methodCache: &double2dArrayMethodStatic_MethodID_48, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Double]](), from: __return )
-    }
-
-    open class func double2dArrayMethodStatic( _ _arg0: [[Double]]? ) -> [[Double]]! {
-        return double2dArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public double[][] org.swiftjava.SwiftTest.double2dArrayMethod(double[][])
-
-    private static var double2dArrayMethod_MethodID_49: jmethodID?
-
-    open func double2dArrayMethod( arg0: [[Double]]? ) -> [[Double]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "double2dArrayMethod", methodSig: "([[D)[[D", methodCache: &SwiftTest.double2dArrayMethod_MethodID_49, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Double]](), from: __return )
-    }
-
-    open func double2dArrayMethod( _ _arg0: [[Double]]? ) -> [[Double]]! {
-        return double2dArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static java.lang.String org.swiftjava.SwiftTest.StringMethodStatic(java.lang.String)
-
-    private static var StringMethodStatic_MethodID_50: jmethodID?
-
-    open class func StringMethodStatic( arg0: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "StringMethodStatic", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &StringMethodStatic_MethodID_50, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open class func StringMethodStatic( _ _arg0: String? ) -> String! {
-        return StringMethodStatic( arg0: _arg0 )
-    }
-
-    /// public java.lang.String org.swiftjava.SwiftTest.StringMethod(java.lang.String)
-
-    private static var StringMethod_MethodID_51: jmethodID?
-
-    open func StringMethod( arg0: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringMethod", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &SwiftTest.StringMethod_MethodID_51, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func StringMethod( _ _arg0: String? ) -> String! {
-        return StringMethod( arg0: _arg0 )
-    }
-
-    /// public static java.lang.String[] org.swiftjava.SwiftTest.StringArrayMethodStatic(java.lang.String[])
-
-    private static var StringArrayMethodStatic_MethodID_52: jmethodID?
-
-    open class func StringArrayMethodStatic( arg0: [String]? ) -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "StringArrayMethodStatic", methodSig: "([Ljava/lang/String;)[Ljava/lang/String;", methodCache: &StringArrayMethodStatic_MethodID_52, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-    open class func StringArrayMethodStatic( _ _arg0: [String]? ) -> [String]! {
-        return StringArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public java.lang.String[] org.swiftjava.SwiftTest.StringArrayMethod(java.lang.String[])
-
-    private static var StringArrayMethod_MethodID_53: jmethodID?
-
-    open func StringArrayMethod( arg0: [String]? ) -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringArrayMethod", methodSig: "([Ljava/lang/String;)[Ljava/lang/String;", methodCache: &SwiftTest.StringArrayMethod_MethodID_53, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-    open func StringArrayMethod( _ _arg0: [String]? ) -> [String]! {
-        return StringArrayMethod( arg0: _arg0 )
-    }
-
     /// public static java.lang.String[][] org.swiftjava.SwiftTest.String2dArrayMethodStatic(java.lang.String[][])
 
-    private static var String2dArrayMethodStatic_MethodID_54: jmethodID?
+    private static var String2dArrayMethodStatic_MethodID_2: jmethodID?
 
     open class func String2dArrayMethodStatic( arg0: [[String]]? ) -> [[String]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "String2dArrayMethodStatic", methodSig: "([[Ljava/lang/String;)[[Ljava/lang/String;", methodCache: &String2dArrayMethodStatic_MethodID_54, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[String]](), from: __return )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "String2dArrayMethodStatic", methodSig: "([[Ljava/lang/String;)[[Ljava/lang/String;", methodCache: &String2dArrayMethodStatic_MethodID_2, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[String]].self, from: __return )
     }
 
     open class func String2dArrayMethodStatic( _ _arg0: [[String]]? ) -> [[String]]! {
         return String2dArrayMethodStatic( arg0: _arg0 )
     }
 
+    /// public static java.lang.String[] org.swiftjava.SwiftTest.StringArrayMethodStatic(java.lang.String[])
+
+    private static var StringArrayMethodStatic_MethodID_3: jmethodID?
+
+    open class func StringArrayMethodStatic( arg0: [String]? ) -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "StringArrayMethodStatic", methodSig: "([Ljava/lang/String;)[Ljava/lang/String;", methodCache: &StringArrayMethodStatic_MethodID_3, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+    open class func StringArrayMethodStatic( _ _arg0: [String]? ) -> [String]! {
+        return StringArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static java.lang.String org.swiftjava.SwiftTest.StringMethodStatic(java.lang.String)
+
+    private static var StringMethodStatic_MethodID_4: jmethodID?
+
+    open class func StringMethodStatic( arg0: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "StringMethodStatic", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &StringMethodStatic_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open class func StringMethodStatic( _ _arg0: String? ) -> String! {
+        return StringMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] org.swiftjava.SwiftTest.TestListener2dArrayMethodStatic(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][])
+
+    private static var TestListener2dArrayMethodStatic_MethodID_5: jmethodID?
+
+    open class func TestListener2dArrayMethodStatic( arg0: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]? ) -> [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "TestListener2dArrayMethodStatic", methodSig: "([[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &TestListener2dArrayMethodStatic_MethodID_5, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward]].self, from: __return )
+    }
+
+    open class func TestListener2dArrayMethodStatic( _ _arg0: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]? ) -> [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
+        return TestListener2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayMethodStatic(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[])
+
+    private static var TestListenerArrayMethodStatic_MethodID_6: jmethodID?
+
+    open class func TestListenerArrayMethodStatic( arg0: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]? ) -> [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "TestListenerArrayMethodStatic", methodSig: "([Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &TestListenerArrayMethodStatic_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward].self, from: __return )
+    }
+
+    open class func TestListenerArrayMethodStatic( _ _arg0: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]? ) -> [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+        return TestListenerArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerMethodStatic(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
+
+    private static var TestListenerMethodStatic_MethodID_7: jmethodID?
+
+    open class func TestListenerMethodStatic( arg0: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol? ) -> /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "TestListenerMethodStatic", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &TestListenerMethodStatic_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward( javaObject: __return ) : nil
+    }
+
+    open class func TestListenerMethodStatic( _ _arg0: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol? ) -> /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        return TestListenerMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static boolean[][] org.swiftjava.SwiftTest.boolean2dArrayMethodStatic(boolean[][])
+
+    private static var boolean2dArrayMethodStatic_MethodID_8: jmethodID?
+
+    open class func boolean2dArrayMethodStatic( arg0: [[Bool]]? ) -> [[Bool]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "boolean2dArrayMethodStatic", methodSig: "([[Z)[[Z", methodCache: &boolean2dArrayMethodStatic_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Bool]].self, from: __return )
+    }
+
+    open class func boolean2dArrayMethodStatic( _ _arg0: [[Bool]]? ) -> [[Bool]]! {
+        return boolean2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static boolean[] org.swiftjava.SwiftTest.booleanArrayMethodStatic(boolean[])
+
+    private static var booleanArrayMethodStatic_MethodID_9: jmethodID?
+
+    open class func booleanArrayMethodStatic( arg0: [Bool]? ) -> [Bool]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "booleanArrayMethodStatic", methodSig: "([Z)[Z", methodCache: &booleanArrayMethodStatic_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Bool].self, from: __return )
+    }
+
+    open class func booleanArrayMethodStatic( _ _arg0: [Bool]? ) -> [Bool]! {
+        return booleanArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static boolean org.swiftjava.SwiftTest.booleanMethodStatic(boolean)
+
+    private static var booleanMethodStatic_MethodID_10: jmethodID?
+
+    open class func booleanMethodStatic( arg0: Bool ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(arg0 ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticBooleanMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "booleanMethodStatic", methodSig: "(Z)Z", methodCache: &booleanMethodStatic_MethodID_10, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open class func booleanMethodStatic( _ _arg0: Bool ) -> Bool {
+        return booleanMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static byte[][] org.swiftjava.SwiftTest.byte2dArrayMethodStatic(byte[][])
+
+    private static var byte2dArrayMethodStatic_MethodID_11: jmethodID?
+
+    open class func byte2dArrayMethodStatic( arg0: [[Int8]]? ) -> [[Int8]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "byte2dArrayMethodStatic", methodSig: "([[B)[[B", methodCache: &byte2dArrayMethodStatic_MethodID_11, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int8]].self, from: __return )
+    }
+
+    open class func byte2dArrayMethodStatic( _ _arg0: [[Int8]]? ) -> [[Int8]]! {
+        return byte2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static byte[] org.swiftjava.SwiftTest.byteArrayMethodStatic(byte[])
+
+    private static var byteArrayMethodStatic_MethodID_12: jmethodID?
+
+    open class func byteArrayMethodStatic( arg0: [Int8]? ) -> [Int8]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "byteArrayMethodStatic", methodSig: "([B)[B", methodCache: &byteArrayMethodStatic_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+
+    open class func byteArrayMethodStatic( _ _arg0: [Int8]? ) -> [Int8]! {
+        return byteArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static byte org.swiftjava.SwiftTest.byteMethodStatic(byte)
+
+    private static var byteMethodStatic_MethodID_13: jmethodID?
+
+    open class func byteMethodStatic( arg0: Int8 ) -> Int8 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( b: arg0 )
+        let __return = JNIMethod.CallStaticByteMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "byteMethodStatic", methodSig: "(B)B", methodCache: &byteMethodStatic_MethodID_13, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open class func byteMethodStatic( _ _arg0: Int8 ) -> Int8 {
+        return byteMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static char[][] org.swiftjava.SwiftTest.char2dArrayMethodStatic(char[][])
+
+    private static var char2dArrayMethodStatic_MethodID_14: jmethodID?
+
+    open class func char2dArrayMethodStatic( arg0: [[UInt16]]? ) -> [[UInt16]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "char2dArrayMethodStatic", methodSig: "([[C)[[C", methodCache: &char2dArrayMethodStatic_MethodID_14, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[UInt16]].self, from: __return )
+    }
+
+    open class func char2dArrayMethodStatic( _ _arg0: [[UInt16]]? ) -> [[UInt16]]! {
+        return char2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static char[] org.swiftjava.SwiftTest.charArrayMethodStatic(char[])
+
+    private static var charArrayMethodStatic_MethodID_15: jmethodID?
+
+    open class func charArrayMethodStatic( arg0: [UInt16]? ) -> [UInt16]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "charArrayMethodStatic", methodSig: "([C)[C", methodCache: &charArrayMethodStatic_MethodID_15, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [UInt16].self, from: __return )
+    }
+
+    open class func charArrayMethodStatic( _ _arg0: [UInt16]? ) -> [UInt16]! {
+        return charArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static char org.swiftjava.SwiftTest.charMethodStatic(char)
+
+    private static var charMethodStatic_MethodID_16: jmethodID?
+
+    open class func charMethodStatic( arg0: UInt16 ) -> UInt16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( c: arg0 )
+        let __return = JNIMethod.CallStaticCharMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "charMethodStatic", methodSig: "(C)C", methodCache: &charMethodStatic_MethodID_16, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open class func charMethodStatic( _ _arg0: UInt16 ) -> UInt16 {
+        return charMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static double[][] org.swiftjava.SwiftTest.double2dArrayMethodStatic(double[][])
+
+    private static var double2dArrayMethodStatic_MethodID_17: jmethodID?
+
+    open class func double2dArrayMethodStatic( arg0: [[Double]]? ) -> [[Double]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "double2dArrayMethodStatic", methodSig: "([[D)[[D", methodCache: &double2dArrayMethodStatic_MethodID_17, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Double]].self, from: __return )
+    }
+
+    open class func double2dArrayMethodStatic( _ _arg0: [[Double]]? ) -> [[Double]]! {
+        return double2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static double[] org.swiftjava.SwiftTest.doubleArrayMethodStatic(double[])
+
+    private static var doubleArrayMethodStatic_MethodID_18: jmethodID?
+
+    open class func doubleArrayMethodStatic( arg0: [Double]? ) -> [Double]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "doubleArrayMethodStatic", methodSig: "([D)[D", methodCache: &doubleArrayMethodStatic_MethodID_18, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Double].self, from: __return )
+    }
+
+    open class func doubleArrayMethodStatic( _ _arg0: [Double]? ) -> [Double]! {
+        return doubleArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static double org.swiftjava.SwiftTest.doubleMethodStatic(double)
+
+    private static var doubleMethodStatic_MethodID_19: jmethodID?
+
+    open class func doubleMethodStatic( arg0: Double ) -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: arg0 )
+        let __return = JNIMethod.CallStaticDoubleMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "doubleMethodStatic", methodSig: "(D)D", methodCache: &doubleMethodStatic_MethodID_19, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open class func doubleMethodStatic( _ _arg0: Double ) -> Double {
+        return doubleMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static float[][] org.swiftjava.SwiftTest.float2dArrayMethodStatic(float[][])
+
+    private static var float2dArrayMethodStatic_MethodID_20: jmethodID?
+
+    open class func float2dArrayMethodStatic( arg0: [[Float]]? ) -> [[Float]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "float2dArrayMethodStatic", methodSig: "([[F)[[F", methodCache: &float2dArrayMethodStatic_MethodID_20, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Float]].self, from: __return )
+    }
+
+    open class func float2dArrayMethodStatic( _ _arg0: [[Float]]? ) -> [[Float]]! {
+        return float2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static float[] org.swiftjava.SwiftTest.floatArrayMethodStatic(float[])
+
+    private static var floatArrayMethodStatic_MethodID_21: jmethodID?
+
+    open class func floatArrayMethodStatic( arg0: [Float]? ) -> [Float]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "floatArrayMethodStatic", methodSig: "([F)[F", methodCache: &floatArrayMethodStatic_MethodID_21, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Float].self, from: __return )
+    }
+
+    open class func floatArrayMethodStatic( _ _arg0: [Float]? ) -> [Float]! {
+        return floatArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static float org.swiftjava.SwiftTest.floatMethodStatic(float)
+
+    private static var floatMethodStatic_MethodID_22: jmethodID?
+
+    open class func floatMethodStatic( arg0: Float ) -> Float {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( f: arg0 )
+        let __return = JNIMethod.CallStaticFloatMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "floatMethodStatic", methodSig: "(F)F", methodCache: &floatMethodStatic_MethodID_22, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open class func floatMethodStatic( _ _arg0: Float ) -> Float {
+        return floatMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static int[][] org.swiftjava.SwiftTest.int2dArrayMethodStatic(int[][])
+
+    private static var int2dArrayMethodStatic_MethodID_23: jmethodID?
+
+    open class func int2dArrayMethodStatic( arg0: [[Int32]]? ) -> [[Int32]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "int2dArrayMethodStatic", methodSig: "([[I)[[I", methodCache: &int2dArrayMethodStatic_MethodID_23, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int32]].self, from: __return )
+    }
+
+    open class func int2dArrayMethodStatic( _ _arg0: [[Int32]]? ) -> [[Int32]]! {
+        return int2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static int[] org.swiftjava.SwiftTest.intArrayMethodStatic(int[])
+
+    private static var intArrayMethodStatic_MethodID_24: jmethodID?
+
+    open class func intArrayMethodStatic( arg0: [Int32]? ) -> [Int32]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "intArrayMethodStatic", methodSig: "([I)[I", methodCache: &intArrayMethodStatic_MethodID_24, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int32].self, from: __return )
+    }
+
+    open class func intArrayMethodStatic( _ _arg0: [Int32]? ) -> [Int32]! {
+        return intArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static int org.swiftjava.SwiftTest.intMethodStatic(int)
+
+    private static var intMethodStatic_MethodID_25: jmethodID?
+
+    open class func intMethodStatic( arg0: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(arg0) )
+        let __return = JNIMethod.CallStaticIntMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "intMethodStatic", methodSig: "(I)I", methodCache: &intMethodStatic_MethodID_25, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open class func intMethodStatic( _ _arg0: Int ) -> Int {
+        return intMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static long[][] org.swiftjava.SwiftTest.long2dArrayMethodStatic(long[][])
+
+    private static var long2dArrayMethodStatic_MethodID_26: jmethodID?
+
+    open class func long2dArrayMethodStatic( arg0: [[Int64]]? ) -> [[Int64]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "long2dArrayMethodStatic", methodSig: "([[J)[[J", methodCache: &long2dArrayMethodStatic_MethodID_26, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int64]].self, from: __return )
+    }
+
+    open class func long2dArrayMethodStatic( _ _arg0: [[Int64]]? ) -> [[Int64]]! {
+        return long2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static long[] org.swiftjava.SwiftTest.longArrayMethodStatic(long[])
+
+    private static var longArrayMethodStatic_MethodID_27: jmethodID?
+
+    open class func longArrayMethodStatic( arg0: [Int64]? ) -> [Int64]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "longArrayMethodStatic", methodSig: "([J)[J", methodCache: &longArrayMethodStatic_MethodID_27, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int64].self, from: __return )
+    }
+
+    open class func longArrayMethodStatic( _ _arg0: [Int64]? ) -> [Int64]! {
+        return longArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static long org.swiftjava.SwiftTest.longMethodStatic(long)
+
+    private static var longMethodStatic_MethodID_28: jmethodID?
+
+    open class func longMethodStatic( arg0: Int64 ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: arg0 )
+        let __return = JNIMethod.CallStaticLongMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "longMethodStatic", methodSig: "(J)J", methodCache: &longMethodStatic_MethodID_28, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open class func longMethodStatic( _ _arg0: Int64 ) -> Int64 {
+        return longMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static short[][] org.swiftjava.SwiftTest.short2dArrayMethodStatic(short[][])
+
+    private static var short2dArrayMethodStatic_MethodID_29: jmethodID?
+
+    open class func short2dArrayMethodStatic( arg0: [[Int16]]? ) -> [[Int16]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "short2dArrayMethodStatic", methodSig: "([[S)[[S", methodCache: &short2dArrayMethodStatic_MethodID_29, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int16]].self, from: __return )
+    }
+
+    open class func short2dArrayMethodStatic( _ _arg0: [[Int16]]? ) -> [[Int16]]! {
+        return short2dArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static short[] org.swiftjava.SwiftTest.shortArrayMethodStatic(short[])
+
+    private static var shortArrayMethodStatic_MethodID_30: jmethodID?
+
+    open class func shortArrayMethodStatic( arg0: [Int16]? ) -> [Int16]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "shortArrayMethodStatic", methodSig: "([S)[S", methodCache: &shortArrayMethodStatic_MethodID_30, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int16].self, from: __return )
+    }
+
+    open class func shortArrayMethodStatic( _ _arg0: [Int16]? ) -> [Int16]! {
+        return shortArrayMethodStatic( arg0: _arg0 )
+    }
+
+    /// public static short org.swiftjava.SwiftTest.shortMethodStatic(short)
+
+    private static var shortMethodStatic_MethodID_31: jmethodID?
+
+    open class func shortMethodStatic( arg0: Int16 ) -> Int16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( s: arg0 )
+        let __return = JNIMethod.CallStaticShortMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "shortMethodStatic", methodSig: "(S)S", methodCache: &shortMethodStatic_MethodID_31, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open class func shortMethodStatic( _ _arg0: Int16 ) -> Int16 {
+        return shortMethodStatic( arg0: _arg0 )
+    }
+
     /// public java.lang.String[][] org.swiftjava.SwiftTest.String2dArrayMethod(java.lang.String[][])
 
-    private static var String2dArrayMethod_MethodID_55: jmethodID?
+    private static var String2dArrayMethod_MethodID_32: jmethodID?
 
     open func String2dArrayMethod( arg0: [[String]]? ) -> [[String]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "String2dArrayMethod", methodSig: "([[Ljava/lang/String;)[[Ljava/lang/String;", methodCache: &SwiftTest.String2dArrayMethod_MethodID_55, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[String]](), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "String2dArrayMethod", methodSig: "([[Ljava/lang/String;)[[Ljava/lang/String;", methodCache: &SwiftTest.String2dArrayMethod_MethodID_32, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[String]].self, from: __return )
     }
 
     open func String2dArrayMethod( _ _arg0: [[String]]? ) -> [[String]]! {
         return String2dArrayMethod( arg0: _arg0 )
     }
 
-    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerMethodStatic(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
+    /// public java.lang.String[] org.swiftjava.SwiftTest.StringArrayMethod(java.lang.String[])
 
-    private static var TestListenerMethodStatic_MethodID_56: jmethodID?
+    private static var StringArrayMethod_MethodID_33: jmethodID?
 
-    open class func TestListenerMethodStatic( arg0: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol? ) -> /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func StringArrayMethod( arg0: [String]? ) -> [String]! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "TestListenerMethodStatic", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &TestListenerMethodStatic_MethodID_56, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringArrayMethod", methodSig: "([Ljava/lang/String;)[Ljava/lang/String;", methodCache: &SwiftTest.StringArrayMethod_MethodID_33, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+    open func StringArrayMethod( _ _arg0: [String]? ) -> [String]! {
+        return StringArrayMethod( arg0: _arg0 )
+    }
+
+    /// public java.lang.String org.swiftjava.SwiftTest.StringMethod(java.lang.String)
+
+    private static var StringMethod_MethodID_34: jmethodID?
+
+    open func StringMethod( arg0: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringMethod", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &SwiftTest.StringMethod_MethodID_34, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward( javaObject: __return ) : nil
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
-    open class func TestListenerMethodStatic( _ _arg0: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol? ) -> /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
-        return TestListenerMethodStatic( arg0: _arg0 )
-    }
-
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
-
-    private static var TestListenerMethod_MethodID_57: jmethodID?
-
-    open func TestListenerMethod( arg0: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol? ) -> /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerMethod", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftTest.TestListenerMethod_MethodID_57, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward( javaObject: __return ) : nil
-    }
-
-    open func TestListenerMethod( _ _arg0: /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol? ) -> /* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol! {
-        return TestListenerMethod( arg0: _arg0 )
-    }
-
-    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayMethodStatic(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[])
-
-    private static var TestListenerArrayMethodStatic_MethodID_58: jmethodID?
-
-    open class func TestListenerArrayMethodStatic( arg0: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]? ) -> [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "TestListenerArrayMethodStatic", methodSig: "([Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &TestListenerArrayMethodStatic_MethodID_58, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward](), from: __return )
-    }
-
-    open class func TestListenerArrayMethodStatic( _ _arg0: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]? ) -> [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]! {
-        return TestListenerArrayMethodStatic( arg0: _arg0 )
-    }
-
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[])
-
-    private static var TestListenerArrayMethod_MethodID_59: jmethodID?
-
-    open func TestListenerArrayMethod( arg0: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]? ) -> [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerArrayMethod", methodSig: "([Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftTest.TestListenerArrayMethod_MethodID_59, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward](), from: __return )
-    }
-
-    open func TestListenerArrayMethod( _ _arg0: [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]? ) -> [/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]! {
-        return TestListenerArrayMethod( arg0: _arg0 )
-    }
-
-    /// public static com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] org.swiftjava.SwiftTest.TestListener2dArrayMethodStatic(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][])
-
-    private static var TestListener2dArrayMethodStatic_MethodID_60: jmethodID?
-
-    open class func TestListener2dArrayMethodStatic( arg0: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]? ) -> [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass, methodName: "TestListener2dArrayMethodStatic", methodSig: "([[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &TestListener2dArrayMethodStatic_MethodID_60, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward]](), from: __return )
-    }
-
-    open class func TestListener2dArrayMethodStatic( _ _arg0: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]? ) -> [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]! {
-        return TestListener2dArrayMethodStatic( arg0: _arg0 )
+    open func StringMethod( _ _arg0: String? ) -> String! {
+        return StringMethod( arg0: _arg0 )
     }
 
     /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] org.swiftjava.SwiftTest.TestListener2dArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][])
 
-    private static var TestListener2dArrayMethod_MethodID_61: jmethodID?
+    private static var TestListener2dArrayMethod_MethodID_35: jmethodID?
 
-    open func TestListener2dArrayMethod( arg0: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]? ) -> [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func TestListener2dArrayMethod( arg0: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]? ) -> [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListener2dArrayMethod", methodSig: "([[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftTest.TestListener2dArrayMethod_MethodID_61, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocolForward]](), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListener2dArrayMethod", methodSig: "([[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftTest.TestListener2dArrayMethod_MethodID_35, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward]].self, from: __return )
     }
 
-    open func TestListener2dArrayMethod( _ _arg0: [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]? ) -> [[/* com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnclassedProtocol]]! {
+    open func TestListener2dArrayMethod( _ _arg0: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]? ) -> [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
         return TestListener2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] org.swiftjava.SwiftTest.TestListenerArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[])
+
+    private static var TestListenerArrayMethod_MethodID_36: jmethodID?
+
+    open func TestListenerArrayMethod( arg0: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]? ) -> [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerArrayMethod", methodSig: "([Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftTest.TestListenerArrayMethod_MethodID_36, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward].self, from: __return )
+    }
+
+    open func TestListenerArrayMethod( _ _arg0: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]? ) -> [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+        return TestListenerArrayMethod( arg0: _arg0 )
+    }
+
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener org.swiftjava.SwiftTest.TestListenerMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
+
+    private static var TestListenerMethod_MethodID_37: jmethodID?
+
+    open func TestListenerMethod( arg0: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol? ) -> /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerMethod", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftTest.TestListenerMethod_MethodID_37, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward( javaObject: __return ) : nil
+    }
+
+    open func TestListenerMethod( _ _arg0: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol? ) -> /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+        return TestListenerMethod( arg0: _arg0 )
+    }
+
+    /// public boolean[][] org.swiftjava.SwiftTest.boolean2dArrayMethod(boolean[][])
+
+    private static var boolean2dArrayMethod_MethodID_38: jmethodID?
+
+    open func boolean2dArrayMethod( arg0: [[Bool]]? ) -> [[Bool]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "boolean2dArrayMethod", methodSig: "([[Z)[[Z", methodCache: &SwiftTest.boolean2dArrayMethod_MethodID_38, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Bool]].self, from: __return )
+    }
+
+    open func boolean2dArrayMethod( _ _arg0: [[Bool]]? ) -> [[Bool]]! {
+        return boolean2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public boolean[] org.swiftjava.SwiftTest.booleanArrayMethod(boolean[])
+
+    private static var booleanArrayMethod_MethodID_39: jmethodID?
+
+    open func booleanArrayMethod( arg0: [Bool]? ) -> [Bool]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "booleanArrayMethod", methodSig: "([Z)[Z", methodCache: &SwiftTest.booleanArrayMethod_MethodID_39, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Bool].self, from: __return )
+    }
+
+    open func booleanArrayMethod( _ _arg0: [Bool]? ) -> [Bool]! {
+        return booleanArrayMethod( arg0: _arg0 )
+    }
+
+    /// public boolean org.swiftjava.SwiftTest.booleanMethod(boolean)
+
+    private static var booleanMethod_MethodID_40: jmethodID?
+
+    open func booleanMethod( arg0: Bool ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(arg0 ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "booleanMethod", methodSig: "(Z)Z", methodCache: &SwiftTest.booleanMethod_MethodID_40, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func booleanMethod( _ _arg0: Bool ) -> Bool {
+        return booleanMethod( arg0: _arg0 )
+    }
+
+    /// public byte[][] org.swiftjava.SwiftTest.byte2dArrayMethod(byte[][])
+
+    private static var byte2dArrayMethod_MethodID_41: jmethodID?
+
+    open func byte2dArrayMethod( arg0: [[Int8]]? ) -> [[Int8]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byte2dArrayMethod", methodSig: "([[B)[[B", methodCache: &SwiftTest.byte2dArrayMethod_MethodID_41, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int8]].self, from: __return )
+    }
+
+    open func byte2dArrayMethod( _ _arg0: [[Int8]]? ) -> [[Int8]]! {
+        return byte2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public byte[] org.swiftjava.SwiftTest.byteArrayMethod(byte[])
+
+    private static var byteArrayMethod_MethodID_42: jmethodID?
+
+    open func byteArrayMethod( arg0: [Int8]? ) -> [Int8]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byteArrayMethod", methodSig: "([B)[B", methodCache: &SwiftTest.byteArrayMethod_MethodID_42, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+
+    open func byteArrayMethod( _ _arg0: [Int8]? ) -> [Int8]! {
+        return byteArrayMethod( arg0: _arg0 )
+    }
+
+    /// public byte org.swiftjava.SwiftTest.byteMethod(byte)
+
+    private static var byteMethod_MethodID_43: jmethodID?
+
+    open func byteMethod( arg0: Int8 ) -> Int8 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( b: arg0 )
+        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "byteMethod", methodSig: "(B)B", methodCache: &SwiftTest.byteMethod_MethodID_43, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func byteMethod( _ _arg0: Int8 ) -> Int8 {
+        return byteMethod( arg0: _arg0 )
+    }
+
+    /// public char[][] org.swiftjava.SwiftTest.char2dArrayMethod(char[][])
+
+    private static var char2dArrayMethod_MethodID_44: jmethodID?
+
+    open func char2dArrayMethod( arg0: [[UInt16]]? ) -> [[UInt16]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "char2dArrayMethod", methodSig: "([[C)[[C", methodCache: &SwiftTest.char2dArrayMethod_MethodID_44, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[UInt16]].self, from: __return )
+    }
+
+    open func char2dArrayMethod( _ _arg0: [[UInt16]]? ) -> [[UInt16]]! {
+        return char2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public char[] org.swiftjava.SwiftTest.charArrayMethod(char[])
+
+    private static var charArrayMethod_MethodID_45: jmethodID?
+
+    open func charArrayMethod( arg0: [UInt16]? ) -> [UInt16]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "charArrayMethod", methodSig: "([C)[C", methodCache: &SwiftTest.charArrayMethod_MethodID_45, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [UInt16].self, from: __return )
+    }
+
+    open func charArrayMethod( _ _arg0: [UInt16]? ) -> [UInt16]! {
+        return charArrayMethod( arg0: _arg0 )
+    }
+
+    /// public char org.swiftjava.SwiftTest.charMethod(char)
+
+    private static var charMethod_MethodID_46: jmethodID?
+
+    open func charMethod( arg0: UInt16 ) -> UInt16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( c: arg0 )
+        let __return = JNIMethod.CallCharMethod( object: javaObject, methodName: "charMethod", methodSig: "(C)C", methodCache: &SwiftTest.charMethod_MethodID_46, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func charMethod( _ _arg0: UInt16 ) -> UInt16 {
+        return charMethod( arg0: _arg0 )
+    }
+
+    /// public double[][] org.swiftjava.SwiftTest.double2dArrayMethod(double[][])
+
+    private static var double2dArrayMethod_MethodID_47: jmethodID?
+
+    open func double2dArrayMethod( arg0: [[Double]]? ) -> [[Double]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "double2dArrayMethod", methodSig: "([[D)[[D", methodCache: &SwiftTest.double2dArrayMethod_MethodID_47, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Double]].self, from: __return )
+    }
+
+    open func double2dArrayMethod( _ _arg0: [[Double]]? ) -> [[Double]]! {
+        return double2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public double[] org.swiftjava.SwiftTest.doubleArrayMethod(double[])
+
+    private static var doubleArrayMethod_MethodID_48: jmethodID?
+
+    open func doubleArrayMethod( arg0: [Double]? ) -> [Double]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubleArrayMethod", methodSig: "([D)[D", methodCache: &SwiftTest.doubleArrayMethod_MethodID_48, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Double].self, from: __return )
+    }
+
+    open func doubleArrayMethod( _ _arg0: [Double]? ) -> [Double]! {
+        return doubleArrayMethod( arg0: _arg0 )
+    }
+
+    /// public double org.swiftjava.SwiftTest.doubleMethod(double)
+
+    private static var doubleMethod_MethodID_49: jmethodID?
+
+    open func doubleMethod( arg0: Double ) -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: arg0 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "doubleMethod", methodSig: "(D)D", methodCache: &SwiftTest.doubleMethod_MethodID_49, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func doubleMethod( _ _arg0: Double ) -> Double {
+        return doubleMethod( arg0: _arg0 )
+    }
+
+    /// public float[][] org.swiftjava.SwiftTest.float2dArrayMethod(float[][])
+
+    private static var float2dArrayMethod_MethodID_50: jmethodID?
+
+    open func float2dArrayMethod( arg0: [[Float]]? ) -> [[Float]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "float2dArrayMethod", methodSig: "([[F)[[F", methodCache: &SwiftTest.float2dArrayMethod_MethodID_50, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Float]].self, from: __return )
+    }
+
+    open func float2dArrayMethod( _ _arg0: [[Float]]? ) -> [[Float]]! {
+        return float2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public float[] org.swiftjava.SwiftTest.floatArrayMethod(float[])
+
+    private static var floatArrayMethod_MethodID_51: jmethodID?
+
+    open func floatArrayMethod( arg0: [Float]? ) -> [Float]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floatArrayMethod", methodSig: "([F)[F", methodCache: &SwiftTest.floatArrayMethod_MethodID_51, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Float].self, from: __return )
+    }
+
+    open func floatArrayMethod( _ _arg0: [Float]? ) -> [Float]! {
+        return floatArrayMethod( arg0: _arg0 )
+    }
+
+    /// public float org.swiftjava.SwiftTest.floatMethod(float)
+
+    private static var floatMethod_MethodID_52: jmethodID?
+
+    open func floatMethod( arg0: Float ) -> Float {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( f: arg0 )
+        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "floatMethod", methodSig: "(F)F", methodCache: &SwiftTest.floatMethod_MethodID_52, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func floatMethod( _ _arg0: Float ) -> Float {
+        return floatMethod( arg0: _arg0 )
+    }
+
+    /// public int[][] org.swiftjava.SwiftTest.int2dArrayMethod(int[][])
+
+    private static var int2dArrayMethod_MethodID_53: jmethodID?
+
+    open func int2dArrayMethod( arg0: [[Int32]]? ) -> [[Int32]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "int2dArrayMethod", methodSig: "([[I)[[I", methodCache: &SwiftTest.int2dArrayMethod_MethodID_53, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int32]].self, from: __return )
+    }
+
+    open func int2dArrayMethod( _ _arg0: [[Int32]]? ) -> [[Int32]]! {
+        return int2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public int[] org.swiftjava.SwiftTest.intArrayMethod(int[])
+
+    private static var intArrayMethod_MethodID_54: jmethodID?
+
+    open func intArrayMethod( arg0: [Int32]? ) -> [Int32]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "intArrayMethod", methodSig: "([I)[I", methodCache: &SwiftTest.intArrayMethod_MethodID_54, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int32].self, from: __return )
+    }
+
+    open func intArrayMethod( _ _arg0: [Int32]? ) -> [Int32]! {
+        return intArrayMethod( arg0: _arg0 )
+    }
+
+    /// public int org.swiftjava.SwiftTest.intMethod(int)
+
+    private static var intMethod_MethodID_55: jmethodID?
+
+    open func intMethod( arg0: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(arg0) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intMethod", methodSig: "(I)I", methodCache: &SwiftTest.intMethod_MethodID_55, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func intMethod( _ _arg0: Int ) -> Int {
+        return intMethod( arg0: _arg0 )
+    }
+
+    /// public long[][] org.swiftjava.SwiftTest.long2dArrayMethod(long[][])
+
+    private static var long2dArrayMethod_MethodID_56: jmethodID?
+
+    open func long2dArrayMethod( arg0: [[Int64]]? ) -> [[Int64]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "long2dArrayMethod", methodSig: "([[J)[[J", methodCache: &SwiftTest.long2dArrayMethod_MethodID_56, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int64]].self, from: __return )
+    }
+
+    open func long2dArrayMethod( _ _arg0: [[Int64]]? ) -> [[Int64]]! {
+        return long2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public long[] org.swiftjava.SwiftTest.longArrayMethod(long[])
+
+    private static var longArrayMethod_MethodID_57: jmethodID?
+
+    open func longArrayMethod( arg0: [Int64]? ) -> [Int64]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longArrayMethod", methodSig: "([J)[J", methodCache: &SwiftTest.longArrayMethod_MethodID_57, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int64].self, from: __return )
+    }
+
+    open func longArrayMethod( _ _arg0: [Int64]? ) -> [Int64]! {
+        return longArrayMethod( arg0: _arg0 )
+    }
+
+    /// public long org.swiftjava.SwiftTest.longMethod(long)
+
+    private static var longMethod_MethodID_58: jmethodID?
+
+    open func longMethod( arg0: Int64 ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: arg0 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "longMethod", methodSig: "(J)J", methodCache: &SwiftTest.longMethod_MethodID_58, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func longMethod( _ _arg0: Int64 ) -> Int64 {
+        return longMethod( arg0: _arg0 )
+    }
+
+    /// public short[][] org.swiftjava.SwiftTest.short2dArrayMethod(short[][])
+
+    private static var short2dArrayMethod_MethodID_59: jmethodID?
+
+    open func short2dArrayMethod( arg0: [[Int16]]? ) -> [[Int16]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "short2dArrayMethod", methodSig: "([[S)[[S", methodCache: &SwiftTest.short2dArrayMethod_MethodID_59, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int16]].self, from: __return )
+    }
+
+    open func short2dArrayMethod( _ _arg0: [[Int16]]? ) -> [[Int16]]! {
+        return short2dArrayMethod( arg0: _arg0 )
+    }
+
+    /// public short[] org.swiftjava.SwiftTest.shortArrayMethod(short[])
+
+    private static var shortArrayMethod_MethodID_60: jmethodID?
+
+    open func shortArrayMethod( arg0: [Int16]? ) -> [Int16]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shortArrayMethod", methodSig: "([S)[S", methodCache: &SwiftTest.shortArrayMethod_MethodID_60, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int16].self, from: __return )
+    }
+
+    open func shortArrayMethod( _ _arg0: [Int16]? ) -> [Int16]! {
+        return shortArrayMethod( arg0: _arg0 )
+    }
+
+    /// public short org.swiftjava.SwiftTest.shortMethod(short)
+
+    private static var shortMethod_MethodID_61: jmethodID?
+
+    open func shortMethod( arg0: Int16 ) -> Int16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( s: arg0 )
+        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "shortMethod", methodSig: "(S)S", methodCache: &SwiftTest.shortMethod_MethodID_61, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func shortMethod( _ _arg0: Int16 ) -> Int16 {
+        return shortMethod( arg0: _arg0 )
     }
 
 }

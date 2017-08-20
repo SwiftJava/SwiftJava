@@ -22,8 +22,8 @@ open class SwiftHelloTest_TestResponderAdapter: java_swift.JavaObject, SwiftHell
 
     open var loopback: SwiftHelloTest_TestListener! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftHelloTest_TestResponderAdapter.loopback_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "loopback", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &SwiftHelloTest_TestResponderAdapter.loopback_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? SwiftHelloTest_TestListenerForward( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -38,469 +38,103 @@ open class SwiftHelloTest_TestResponderAdapter: java_swift.JavaObject, SwiftHell
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "com/johnholdsworth/swiftbindings/SwiftHelloTest$TestResponderAdapter", classCache: &SwiftHelloTest_TestResponderAdapter.SwiftHelloTest_TestResponderAdapterJNIClass, methodSig: "()V", methodCache: &SwiftHelloTest_TestResponderAdapter.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    /// public void com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.setLoopback(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
-
-    private static var setLoopback_MethodID_2: jmethodID?
-
-    open func setLoopback( loopback: SwiftHelloTest_TestListener? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: loopback, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLoopback", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)V", methodCache: &SwiftHelloTest_TestResponderAdapter.setLoopback_MethodID_2, args: &__args, locals: &__locals )
-    }
-
-    open func setLoopback( _ _loopback: SwiftHelloTest_TestListener? ) {
-        setLoopback( loopback: _loopback )
-    }
-
-    /// public boolean com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.booleanMethod(boolean)
-
-    private static var booleanMethod_MethodID_3: jmethodID?
-
-    open func booleanMethod( arg: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "booleanMethod", methodSig: "(Z)Z", methodCache: &SwiftHelloTest_TestResponderAdapter.booleanMethod_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func booleanMethod( _ _arg: Bool ) -> Bool {
-        return booleanMethod( arg: _arg )
-    }
-
-    /// public boolean[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.booleanArrayMethod(boolean[])
-
-    private static var booleanArrayMethod_MethodID_4: jmethodID?
-
-    open func booleanArrayMethod( arg: [Bool]? ) -> [Bool]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "booleanArrayMethod", methodSig: "([Z)[Z", methodCache: &SwiftHelloTest_TestResponderAdapter.booleanArrayMethod_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Bool](), from: __return )
-    }
-
-    open func booleanArrayMethod( _ _arg: [Bool]? ) -> [Bool]! {
-        return booleanArrayMethod( arg: _arg )
-    }
-
-    /// public boolean[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.boolean2dArrayMethod(boolean[][])
-
-    private static var boolean2dArrayMethod_MethodID_5: jmethodID?
-
-    open func boolean2dArrayMethod( arg: [[Bool]]? ) -> [[Bool]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "boolean2dArrayMethod", methodSig: "([[Z)[[Z", methodCache: &SwiftHelloTest_TestResponderAdapter.boolean2dArrayMethod_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Bool]](), from: __return )
-    }
-
-    open func boolean2dArrayMethod( _ _arg: [[Bool]]? ) -> [[Bool]]! {
-        return boolean2dArrayMethod( arg: _arg )
-    }
-
-    /// public byte com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.byteMethod(byte)
-
-    private static var byteMethod_MethodID_6: jmethodID?
-
-    open func byteMethod( arg: Int8 ) -> Int8 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "byteMethod", methodSig: "(B)B", methodCache: &SwiftHelloTest_TestResponderAdapter.byteMethod_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int8(), from: __return )
-    }
-
-    open func byteMethod( _ _arg: Int8 ) -> Int8 {
-        return byteMethod( arg: _arg )
-    }
-
-    /// public byte[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.byteArrayMethod(byte[])
-
-    private static var byteArrayMethod_MethodID_7: jmethodID?
-
-    open func byteArrayMethod( arg: [Int8]? ) -> [Int8]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byteArrayMethod", methodSig: "([B)[B", methodCache: &SwiftHelloTest_TestResponderAdapter.byteArrayMethod_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int8](), from: __return )
-    }
-
-    open func byteArrayMethod( _ _arg: [Int8]? ) -> [Int8]! {
-        return byteArrayMethod( arg: _arg )
-    }
-
-    /// public byte[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.byte2dArrayMethod(byte[][])
-
-    private static var byte2dArrayMethod_MethodID_8: jmethodID?
-
-    open func byte2dArrayMethod( arg: [[Int8]]? ) -> [[Int8]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byte2dArrayMethod", methodSig: "([[B)[[B", methodCache: &SwiftHelloTest_TestResponderAdapter.byte2dArrayMethod_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int8]](), from: __return )
-    }
-
-    open func byte2dArrayMethod( _ _arg: [[Int8]]? ) -> [[Int8]]! {
-        return byte2dArrayMethod( arg: _arg )
-    }
-
-    /// public char com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.charMethod(char)
-
-    private static var charMethod_MethodID_9: jmethodID?
-
-    open func charMethod( arg: UInt16 ) -> UInt16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallCharMethod( object: javaObject, methodName: "charMethod", methodSig: "(C)C", methodCache: &SwiftHelloTest_TestResponderAdapter.charMethod_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: UInt16(), from: __return )
-    }
-
-    open func charMethod( _ _arg: UInt16 ) -> UInt16 {
-        return charMethod( arg: _arg )
-    }
-
-    /// public char[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.charArrayMethod(char[])
-
-    private static var charArrayMethod_MethodID_10: jmethodID?
-
-    open func charArrayMethod( arg: [UInt16]? ) -> [UInt16]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "charArrayMethod", methodSig: "([C)[C", methodCache: &SwiftHelloTest_TestResponderAdapter.charArrayMethod_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [UInt16](), from: __return )
-    }
-
-    open func charArrayMethod( _ _arg: [UInt16]? ) -> [UInt16]! {
-        return charArrayMethod( arg: _arg )
-    }
-
-    /// public char[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.char2dArrayMethod(char[][])
-
-    private static var char2dArrayMethod_MethodID_11: jmethodID?
-
-    open func char2dArrayMethod( arg: [[UInt16]]? ) -> [[UInt16]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "char2dArrayMethod", methodSig: "([[C)[[C", methodCache: &SwiftHelloTest_TestResponderAdapter.char2dArrayMethod_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[UInt16]](), from: __return )
-    }
-
-    open func char2dArrayMethod( _ _arg: [[UInt16]]? ) -> [[UInt16]]! {
-        return char2dArrayMethod( arg: _arg )
-    }
-
-    /// public short com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.shortMethod(short)
-
-    private static var shortMethod_MethodID_12: jmethodID?
-
-    open func shortMethod( arg: Int16 ) -> Int16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "shortMethod", methodSig: "(S)S", methodCache: &SwiftHelloTest_TestResponderAdapter.shortMethod_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int16(), from: __return )
-    }
-
-    open func shortMethod( _ _arg: Int16 ) -> Int16 {
-        return shortMethod( arg: _arg )
-    }
-
-    /// public short[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.shortArrayMethod(short[])
-
-    private static var shortArrayMethod_MethodID_13: jmethodID?
-
-    open func shortArrayMethod( arg: [Int16]? ) -> [Int16]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shortArrayMethod", methodSig: "([S)[S", methodCache: &SwiftHelloTest_TestResponderAdapter.shortArrayMethod_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int16](), from: __return )
-    }
-
-    open func shortArrayMethod( _ _arg: [Int16]? ) -> [Int16]! {
-        return shortArrayMethod( arg: _arg )
-    }
-
-    /// public short[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.short2dArrayMethod(short[][])
-
-    private static var short2dArrayMethod_MethodID_14: jmethodID?
-
-    open func short2dArrayMethod( arg: [[Int16]]? ) -> [[Int16]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "short2dArrayMethod", methodSig: "([[S)[[S", methodCache: &SwiftHelloTest_TestResponderAdapter.short2dArrayMethod_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int16]](), from: __return )
-    }
-
-    open func short2dArrayMethod( _ _arg: [[Int16]]? ) -> [[Int16]]! {
-        return short2dArrayMethod( arg: _arg )
-    }
-
-    /// public int com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.intMethod(int)
-
-    private static var intMethod_MethodID_15: jmethodID?
-
-    open func intMethod( arg: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intMethod", methodSig: "(I)I", methodCache: &SwiftHelloTest_TestResponderAdapter.intMethod_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func intMethod( _ _arg: Int ) -> Int {
-        return intMethod( arg: _arg )
-    }
-
-    /// public int[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.intArrayMethod(int[])
-
-    private static var intArrayMethod_MethodID_16: jmethodID?
-
-    open func intArrayMethod( arg: [Int32]? ) -> [Int32]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "intArrayMethod", methodSig: "([I)[I", methodCache: &SwiftHelloTest_TestResponderAdapter.intArrayMethod_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int32](), from: __return )
-    }
-
-    open func intArrayMethod( _ _arg: [Int32]? ) -> [Int32]! {
-        return intArrayMethod( arg: _arg )
-    }
-
-    /// public int[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.int2dArrayMethod(int[][])
-
-    private static var int2dArrayMethod_MethodID_17: jmethodID?
-
-    open func int2dArrayMethod( arg: [[Int32]]? ) -> [[Int32]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "int2dArrayMethod", methodSig: "([[I)[[I", methodCache: &SwiftHelloTest_TestResponderAdapter.int2dArrayMethod_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int32]](), from: __return )
-    }
-
-    open func int2dArrayMethod( _ _arg: [[Int32]]? ) -> [[Int32]]! {
-        return int2dArrayMethod( arg: _arg )
-    }
-
-    /// public long com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.longMethod(long)
-
-    private static var longMethod_MethodID_18: jmethodID?
-
-    open func longMethod( arg: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "longMethod", methodSig: "(J)J", methodCache: &SwiftHelloTest_TestResponderAdapter.longMethod_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func longMethod( _ _arg: Int64 ) -> Int64 {
-        return longMethod( arg: _arg )
-    }
-
-    /// public long[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.longArrayMethod(long[])
-
-    private static var longArrayMethod_MethodID_19: jmethodID?
-
-    open func longArrayMethod( arg: [Int64]? ) -> [Int64]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longArrayMethod", methodSig: "([J)[J", methodCache: &SwiftHelloTest_TestResponderAdapter.longArrayMethod_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int64](), from: __return )
-    }
-
-    open func longArrayMethod( _ _arg: [Int64]? ) -> [Int64]! {
-        return longArrayMethod( arg: _arg )
-    }
-
-    /// public long[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.long2dArrayMethod(long[][])
-
-    private static var long2dArrayMethod_MethodID_20: jmethodID?
-
-    open func long2dArrayMethod( arg: [[Int64]]? ) -> [[Int64]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "long2dArrayMethod", methodSig: "([[J)[[J", methodCache: &SwiftHelloTest_TestResponderAdapter.long2dArrayMethod_MethodID_20, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Int64]](), from: __return )
-    }
-
-    open func long2dArrayMethod( _ _arg: [[Int64]]? ) -> [[Int64]]! {
-        return long2dArrayMethod( arg: _arg )
-    }
-
-    /// public float com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.floatMethod(float)
-
-    private static var floatMethod_MethodID_21: jmethodID?
-
-    open func floatMethod( arg: Float ) -> Float {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "floatMethod", methodSig: "(F)F", methodCache: &SwiftHelloTest_TestResponderAdapter.floatMethod_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Float(), from: __return )
-    }
-
-    open func floatMethod( _ _arg: Float ) -> Float {
-        return floatMethod( arg: _arg )
-    }
-
-    /// public float[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.floatArrayMethod(float[])
-
-    private static var floatArrayMethod_MethodID_22: jmethodID?
-
-    open func floatArrayMethod( arg: [Float]? ) -> [Float]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floatArrayMethod", methodSig: "([F)[F", methodCache: &SwiftHelloTest_TestResponderAdapter.floatArrayMethod_MethodID_22, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Float](), from: __return )
-    }
-
-    open func floatArrayMethod( _ _arg: [Float]? ) -> [Float]! {
-        return floatArrayMethod( arg: _arg )
-    }
-
-    /// public float[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.float2dArrayMethod(float[][])
-
-    private static var float2dArrayMethod_MethodID_23: jmethodID?
-
-    open func float2dArrayMethod( arg: [[Float]]? ) -> [[Float]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "float2dArrayMethod", methodSig: "([[F)[[F", methodCache: &SwiftHelloTest_TestResponderAdapter.float2dArrayMethod_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Float]](), from: __return )
-    }
-
-    open func float2dArrayMethod( _ _arg: [[Float]]? ) -> [[Float]]! {
-        return float2dArrayMethod( arg: _arg )
-    }
-
-    /// public double com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.doubleMethod(double)
-
-    private static var doubleMethod_MethodID_24: jmethodID?
-
-    open func doubleMethod( arg: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "doubleMethod", methodSig: "(D)D", methodCache: &SwiftHelloTest_TestResponderAdapter.doubleMethod_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
-    open func doubleMethod( _ _arg: Double ) -> Double {
-        return doubleMethod( arg: _arg )
-    }
-
-    /// public double[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.doubleArrayMethod(double[])
-
-    private static var doubleArrayMethod_MethodID_25: jmethodID?
-
-    open func doubleArrayMethod( arg: [Double]? ) -> [Double]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubleArrayMethod", methodSig: "([D)[D", methodCache: &SwiftHelloTest_TestResponderAdapter.doubleArrayMethod_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Double](), from: __return )
-    }
-
-    open func doubleArrayMethod( _ _arg: [Double]? ) -> [Double]! {
-        return doubleArrayMethod( arg: _arg )
-    }
-
-    /// public double[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.double2dArrayMethod(double[][])
-
-    private static var double2dArrayMethod_MethodID_26: jmethodID?
-
-    open func double2dArrayMethod( arg: [[Double]]? ) -> [[Double]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "double2dArrayMethod", methodSig: "([[D)[[D", methodCache: &SwiftHelloTest_TestResponderAdapter.double2dArrayMethod_MethodID_26, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[Double]](), from: __return )
-    }
-
-    open func double2dArrayMethod( _ _arg: [[Double]]? ) -> [[Double]]! {
-        return double2dArrayMethod( arg: _arg )
-    }
-
-    /// public java.lang.String com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.StringMethod(java.lang.String)
-
-    private static var StringMethod_MethodID_27: jmethodID?
-
-    open func StringMethod( arg: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringMethod", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &SwiftHelloTest_TestResponderAdapter.StringMethod_MethodID_27, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func StringMethod( _ _arg: String? ) -> String! {
-        return StringMethod( arg: _arg )
-    }
-
-    /// public java.lang.String[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.StringArrayMethod(java.lang.String[])
-
-    private static var StringArrayMethod_MethodID_28: jmethodID?
-
-    open func StringArrayMethod( arg: [String]? ) -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringArrayMethod", methodSig: "([Ljava/lang/String;)[Ljava/lang/String;", methodCache: &SwiftHelloTest_TestResponderAdapter.StringArrayMethod_MethodID_28, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-    open func StringArrayMethod( _ _arg: [String]? ) -> [String]! {
-        return StringArrayMethod( arg: _arg )
-    }
-
     /// public java.lang.String[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.String2dArrayMethod(java.lang.String[][])
 
-    private static var String2dArrayMethod_MethodID_29: jmethodID?
+    private static var String2dArrayMethod_MethodID_2: jmethodID?
 
     open func String2dArrayMethod( arg: [[String]]? ) -> [[String]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "String2dArrayMethod", methodSig: "([[Ljava/lang/String;)[[Ljava/lang/String;", methodCache: &SwiftHelloTest_TestResponderAdapter.String2dArrayMethod_MethodID_29, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[String]](), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "String2dArrayMethod", methodSig: "([[Ljava/lang/String;)[[Ljava/lang/String;", methodCache: &SwiftHelloTest_TestResponderAdapter.String2dArrayMethod_MethodID_2, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[String]].self, from: __return )
     }
 
     open func String2dArrayMethod( _ _arg: [[String]]? ) -> [[String]]! {
         return String2dArrayMethod( arg: _arg )
     }
 
+    /// public java.lang.String[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.StringArrayMethod(java.lang.String[])
+
+    private static var StringArrayMethod_MethodID_3: jmethodID?
+
+    open func StringArrayMethod( arg: [String]? ) -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringArrayMethod", methodSig: "([Ljava/lang/String;)[Ljava/lang/String;", methodCache: &SwiftHelloTest_TestResponderAdapter.StringArrayMethod_MethodID_3, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+    open func StringArrayMethod( _ _arg: [String]? ) -> [String]! {
+        return StringArrayMethod( arg: _arg )
+    }
+
+    /// public java.lang.String com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.StringMethod(java.lang.String)
+
+    private static var StringMethod_MethodID_4: jmethodID?
+
+    open func StringMethod( arg: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "StringMethod", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &SwiftHelloTest_TestResponderAdapter.StringMethod_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func StringMethod( _ _arg: String? ) -> String! {
+        return StringMethod( arg: _arg )
+    }
+
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.TestListener2dArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][])
+
+    private static var TestListener2dArrayMethod_MethodID_5: jmethodID?
+
+    open func TestListener2dArrayMethod( arg: [[SwiftHelloTest_TestListener]]? ) -> [[SwiftHelloTest_TestListener]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListener2dArrayMethod", methodSig: "([[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloTest_TestResponderAdapter.TestListener2dArrayMethod_MethodID_5, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[SwiftHelloTest_TestListenerForward]].self, from: __return )
+    }
+
+    open func TestListener2dArrayMethod( _ _arg: [[SwiftHelloTest_TestListener]]? ) -> [[SwiftHelloTest_TestListener]]! {
+        return TestListener2dArrayMethod( arg: _arg )
+    }
+
+    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.TestListenerArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[])
+
+    private static var TestListenerArrayMethod_MethodID_6: jmethodID?
+
+    open func TestListenerArrayMethod( arg: [SwiftHelloTest_TestListener]? ) -> [SwiftHelloTest_TestListener]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerArrayMethod", methodSig: "([Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloTest_TestResponderAdapter.TestListenerArrayMethod_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [SwiftHelloTest_TestListenerForward].self, from: __return )
+    }
+
+    open func TestListenerArrayMethod( _ _arg: [SwiftHelloTest_TestListener]? ) -> [SwiftHelloTest_TestListener]! {
+        return TestListenerArrayMethod( arg: _arg )
+    }
+
     /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.TestListenerMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
 
-    private static var TestListenerMethod_MethodID_30: jmethodID?
+    private static var TestListenerMethod_MethodID_7: jmethodID?
 
     open func TestListenerMethod( arg: SwiftHelloTest_TestListener? ) -> SwiftHelloTest_TestListener! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerMethod", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloTest_TestResponderAdapter.TestListenerMethod_MethodID_30, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerMethod", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloTest_TestResponderAdapter.TestListenerMethod_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SwiftHelloTest_TestListenerForward( javaObject: __return ) : nil
     }
@@ -509,36 +143,403 @@ open class SwiftHelloTest_TestResponderAdapter: java_swift.JavaObject, SwiftHell
         return TestListenerMethod( arg: _arg )
     }
 
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.TestListenerArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[])
+    /// public boolean[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.boolean2dArrayMethod(boolean[][])
 
-    private static var TestListenerArrayMethod_MethodID_31: jmethodID?
+    private static var boolean2dArrayMethod_MethodID_8: jmethodID?
 
-    open func TestListenerArrayMethod( arg: [SwiftHelloTest_TestListener]? ) -> [SwiftHelloTest_TestListener]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func boolean2dArrayMethod( arg: [[Bool]]? ) -> [[Bool]]! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListenerArrayMethod", methodSig: "([Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloTest_TestResponderAdapter.TestListenerArrayMethod_MethodID_31, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [SwiftHelloTest_TestListenerForward](), from: __return )
-    }
-
-    open func TestListenerArrayMethod( _ _arg: [SwiftHelloTest_TestListener]? ) -> [SwiftHelloTest_TestListener]! {
-        return TestListenerArrayMethod( arg: _arg )
-    }
-
-    /// public com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.TestListener2dArrayMethod(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener[][])
-
-    private static var TestListener2dArrayMethod_MethodID_32: jmethodID?
-
-    open func TestListener2dArrayMethod( arg: [[SwiftHelloTest_TestListener]]? ) -> [[SwiftHelloTest_TestListener]]! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "TestListener2dArrayMethod", methodSig: "([[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", methodCache: &SwiftHelloTest_TestResponderAdapter.TestListener2dArrayMethod_MethodID_32, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [[SwiftHelloTest_TestListenerForward]](), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "boolean2dArrayMethod", methodSig: "([[Z)[[Z", methodCache: &SwiftHelloTest_TestResponderAdapter.boolean2dArrayMethod_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Bool]].self, from: __return )
     }
 
-    open func TestListener2dArrayMethod( _ _arg: [[SwiftHelloTest_TestListener]]? ) -> [[SwiftHelloTest_TestListener]]! {
-        return TestListener2dArrayMethod( arg: _arg )
+    open func boolean2dArrayMethod( _ _arg: [[Bool]]? ) -> [[Bool]]! {
+        return boolean2dArrayMethod( arg: _arg )
+    }
+
+    /// public boolean[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.booleanArrayMethod(boolean[])
+
+    private static var booleanArrayMethod_MethodID_9: jmethodID?
+
+    open func booleanArrayMethod( arg: [Bool]? ) -> [Bool]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "booleanArrayMethod", methodSig: "([Z)[Z", methodCache: &SwiftHelloTest_TestResponderAdapter.booleanArrayMethod_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Bool].self, from: __return )
+    }
+
+    open func booleanArrayMethod( _ _arg: [Bool]? ) -> [Bool]! {
+        return booleanArrayMethod( arg: _arg )
+    }
+
+    /// public boolean com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.booleanMethod(boolean)
+
+    private static var booleanMethod_MethodID_10: jmethodID?
+
+    open func booleanMethod( arg: Bool ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(arg ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "booleanMethod", methodSig: "(Z)Z", methodCache: &SwiftHelloTest_TestResponderAdapter.booleanMethod_MethodID_10, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func booleanMethod( _ _arg: Bool ) -> Bool {
+        return booleanMethod( arg: _arg )
+    }
+
+    /// public byte[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.byte2dArrayMethod(byte[][])
+
+    private static var byte2dArrayMethod_MethodID_11: jmethodID?
+
+    open func byte2dArrayMethod( arg: [[Int8]]? ) -> [[Int8]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byte2dArrayMethod", methodSig: "([[B)[[B", methodCache: &SwiftHelloTest_TestResponderAdapter.byte2dArrayMethod_MethodID_11, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int8]].self, from: __return )
+    }
+
+    open func byte2dArrayMethod( _ _arg: [[Int8]]? ) -> [[Int8]]! {
+        return byte2dArrayMethod( arg: _arg )
+    }
+
+    /// public byte[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.byteArrayMethod(byte[])
+
+    private static var byteArrayMethod_MethodID_12: jmethodID?
+
+    open func byteArrayMethod( arg: [Int8]? ) -> [Int8]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "byteArrayMethod", methodSig: "([B)[B", methodCache: &SwiftHelloTest_TestResponderAdapter.byteArrayMethod_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+
+    open func byteArrayMethod( _ _arg: [Int8]? ) -> [Int8]! {
+        return byteArrayMethod( arg: _arg )
+    }
+
+    /// public byte com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.byteMethod(byte)
+
+    private static var byteMethod_MethodID_13: jmethodID?
+
+    open func byteMethod( arg: Int8 ) -> Int8 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( b: arg )
+        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "byteMethod", methodSig: "(B)B", methodCache: &SwiftHelloTest_TestResponderAdapter.byteMethod_MethodID_13, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func byteMethod( _ _arg: Int8 ) -> Int8 {
+        return byteMethod( arg: _arg )
+    }
+
+    /// public char[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.char2dArrayMethod(char[][])
+
+    private static var char2dArrayMethod_MethodID_14: jmethodID?
+
+    open func char2dArrayMethod( arg: [[UInt16]]? ) -> [[UInt16]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "char2dArrayMethod", methodSig: "([[C)[[C", methodCache: &SwiftHelloTest_TestResponderAdapter.char2dArrayMethod_MethodID_14, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[UInt16]].self, from: __return )
+    }
+
+    open func char2dArrayMethod( _ _arg: [[UInt16]]? ) -> [[UInt16]]! {
+        return char2dArrayMethod( arg: _arg )
+    }
+
+    /// public char[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.charArrayMethod(char[])
+
+    private static var charArrayMethod_MethodID_15: jmethodID?
+
+    open func charArrayMethod( arg: [UInt16]? ) -> [UInt16]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "charArrayMethod", methodSig: "([C)[C", methodCache: &SwiftHelloTest_TestResponderAdapter.charArrayMethod_MethodID_15, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [UInt16].self, from: __return )
+    }
+
+    open func charArrayMethod( _ _arg: [UInt16]? ) -> [UInt16]! {
+        return charArrayMethod( arg: _arg )
+    }
+
+    /// public char com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.charMethod(char)
+
+    private static var charMethod_MethodID_16: jmethodID?
+
+    open func charMethod( arg: UInt16 ) -> UInt16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( c: arg )
+        let __return = JNIMethod.CallCharMethod( object: javaObject, methodName: "charMethod", methodSig: "(C)C", methodCache: &SwiftHelloTest_TestResponderAdapter.charMethod_MethodID_16, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func charMethod( _ _arg: UInt16 ) -> UInt16 {
+        return charMethod( arg: _arg )
+    }
+
+    /// public double[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.double2dArrayMethod(double[][])
+
+    private static var double2dArrayMethod_MethodID_17: jmethodID?
+
+    open func double2dArrayMethod( arg: [[Double]]? ) -> [[Double]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "double2dArrayMethod", methodSig: "([[D)[[D", methodCache: &SwiftHelloTest_TestResponderAdapter.double2dArrayMethod_MethodID_17, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Double]].self, from: __return )
+    }
+
+    open func double2dArrayMethod( _ _arg: [[Double]]? ) -> [[Double]]! {
+        return double2dArrayMethod( arg: _arg )
+    }
+
+    /// public double[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.doubleArrayMethod(double[])
+
+    private static var doubleArrayMethod_MethodID_18: jmethodID?
+
+    open func doubleArrayMethod( arg: [Double]? ) -> [Double]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubleArrayMethod", methodSig: "([D)[D", methodCache: &SwiftHelloTest_TestResponderAdapter.doubleArrayMethod_MethodID_18, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Double].self, from: __return )
+    }
+
+    open func doubleArrayMethod( _ _arg: [Double]? ) -> [Double]! {
+        return doubleArrayMethod( arg: _arg )
+    }
+
+    /// public double com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.doubleMethod(double)
+
+    private static var doubleMethod_MethodID_19: jmethodID?
+
+    open func doubleMethod( arg: Double ) -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: arg )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "doubleMethod", methodSig: "(D)D", methodCache: &SwiftHelloTest_TestResponderAdapter.doubleMethod_MethodID_19, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func doubleMethod( _ _arg: Double ) -> Double {
+        return doubleMethod( arg: _arg )
+    }
+
+    /// public float[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.float2dArrayMethod(float[][])
+
+    private static var float2dArrayMethod_MethodID_20: jmethodID?
+
+    open func float2dArrayMethod( arg: [[Float]]? ) -> [[Float]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "float2dArrayMethod", methodSig: "([[F)[[F", methodCache: &SwiftHelloTest_TestResponderAdapter.float2dArrayMethod_MethodID_20, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Float]].self, from: __return )
+    }
+
+    open func float2dArrayMethod( _ _arg: [[Float]]? ) -> [[Float]]! {
+        return float2dArrayMethod( arg: _arg )
+    }
+
+    /// public float[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.floatArrayMethod(float[])
+
+    private static var floatArrayMethod_MethodID_21: jmethodID?
+
+    open func floatArrayMethod( arg: [Float]? ) -> [Float]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floatArrayMethod", methodSig: "([F)[F", methodCache: &SwiftHelloTest_TestResponderAdapter.floatArrayMethod_MethodID_21, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Float].self, from: __return )
+    }
+
+    open func floatArrayMethod( _ _arg: [Float]? ) -> [Float]! {
+        return floatArrayMethod( arg: _arg )
+    }
+
+    /// public float com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.floatMethod(float)
+
+    private static var floatMethod_MethodID_22: jmethodID?
+
+    open func floatMethod( arg: Float ) -> Float {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( f: arg )
+        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "floatMethod", methodSig: "(F)F", methodCache: &SwiftHelloTest_TestResponderAdapter.floatMethod_MethodID_22, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func floatMethod( _ _arg: Float ) -> Float {
+        return floatMethod( arg: _arg )
+    }
+
+    /// public int[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.int2dArrayMethod(int[][])
+
+    private static var int2dArrayMethod_MethodID_23: jmethodID?
+
+    open func int2dArrayMethod( arg: [[Int32]]? ) -> [[Int32]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "int2dArrayMethod", methodSig: "([[I)[[I", methodCache: &SwiftHelloTest_TestResponderAdapter.int2dArrayMethod_MethodID_23, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int32]].self, from: __return )
+    }
+
+    open func int2dArrayMethod( _ _arg: [[Int32]]? ) -> [[Int32]]! {
+        return int2dArrayMethod( arg: _arg )
+    }
+
+    /// public int[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.intArrayMethod(int[])
+
+    private static var intArrayMethod_MethodID_24: jmethodID?
+
+    open func intArrayMethod( arg: [Int32]? ) -> [Int32]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "intArrayMethod", methodSig: "([I)[I", methodCache: &SwiftHelloTest_TestResponderAdapter.intArrayMethod_MethodID_24, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int32].self, from: __return )
+    }
+
+    open func intArrayMethod( _ _arg: [Int32]? ) -> [Int32]! {
+        return intArrayMethod( arg: _arg )
+    }
+
+    /// public int com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.intMethod(int)
+
+    private static var intMethod_MethodID_25: jmethodID?
+
+    open func intMethod( arg: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(arg) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intMethod", methodSig: "(I)I", methodCache: &SwiftHelloTest_TestResponderAdapter.intMethod_MethodID_25, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func intMethod( _ _arg: Int ) -> Int {
+        return intMethod( arg: _arg )
+    }
+
+    /// public long[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.long2dArrayMethod(long[][])
+
+    private static var long2dArrayMethod_MethodID_26: jmethodID?
+
+    open func long2dArrayMethod( arg: [[Int64]]? ) -> [[Int64]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "long2dArrayMethod", methodSig: "([[J)[[J", methodCache: &SwiftHelloTest_TestResponderAdapter.long2dArrayMethod_MethodID_26, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int64]].self, from: __return )
+    }
+
+    open func long2dArrayMethod( _ _arg: [[Int64]]? ) -> [[Int64]]! {
+        return long2dArrayMethod( arg: _arg )
+    }
+
+    /// public long[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.longArrayMethod(long[])
+
+    private static var longArrayMethod_MethodID_27: jmethodID?
+
+    open func longArrayMethod( arg: [Int64]? ) -> [Int64]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longArrayMethod", methodSig: "([J)[J", methodCache: &SwiftHelloTest_TestResponderAdapter.longArrayMethod_MethodID_27, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int64].self, from: __return )
+    }
+
+    open func longArrayMethod( _ _arg: [Int64]? ) -> [Int64]! {
+        return longArrayMethod( arg: _arg )
+    }
+
+    /// public long com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.longMethod(long)
+
+    private static var longMethod_MethodID_28: jmethodID?
+
+    open func longMethod( arg: Int64 ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: arg )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "longMethod", methodSig: "(J)J", methodCache: &SwiftHelloTest_TestResponderAdapter.longMethod_MethodID_28, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func longMethod( _ _arg: Int64 ) -> Int64 {
+        return longMethod( arg: _arg )
+    }
+
+    /// public void com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.setLoopback(com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener)
+
+    private static var setLoopback_MethodID_29: jmethodID?
+
+    open func setLoopback( loopback: SwiftHelloTest_TestListener? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: loopback, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLoopback", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)V", methodCache: &SwiftHelloTest_TestResponderAdapter.setLoopback_MethodID_29, args: &__args, locals: &__locals )
+    }
+
+    open func setLoopback( _ _loopback: SwiftHelloTest_TestListener? ) {
+        setLoopback( loopback: _loopback )
+    }
+
+    /// public short[][] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.short2dArrayMethod(short[][])
+
+    private static var short2dArrayMethod_MethodID_30: jmethodID?
+
+    open func short2dArrayMethod( arg: [[Int16]]? ) -> [[Int16]]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "short2dArrayMethod", methodSig: "([[S)[[S", methodCache: &SwiftHelloTest_TestResponderAdapter.short2dArrayMethod_MethodID_30, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [[Int16]].self, from: __return )
+    }
+
+    open func short2dArrayMethod( _ _arg: [[Int16]]? ) -> [[Int16]]! {
+        return short2dArrayMethod( arg: _arg )
+    }
+
+    /// public short[] com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.shortArrayMethod(short[])
+
+    private static var shortArrayMethod_MethodID_31: jmethodID?
+
+    open func shortArrayMethod( arg: [Int16]? ) -> [Int16]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shortArrayMethod", methodSig: "([S)[S", methodCache: &SwiftHelloTest_TestResponderAdapter.shortArrayMethod_MethodID_31, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int16].self, from: __return )
+    }
+
+    open func shortArrayMethod( _ _arg: [Int16]? ) -> [Int16]! {
+        return shortArrayMethod( arg: _arg )
+    }
+
+    /// public short com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.shortMethod(short)
+
+    private static var shortMethod_MethodID_32: jmethodID?
+
+    open func shortMethod( arg: Int16 ) -> Int16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( s: arg )
+        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "shortMethod", methodSig: "(S)S", methodCache: &SwiftHelloTest_TestResponderAdapter.shortMethod_MethodID_32, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func shortMethod( _ _arg: Int16 ) -> Int16 {
+        return shortMethod( arg: _arg )
     }
 
     /// public com.johnholdsworth.swiftbindings.SwiftHelloTypes$ListenerMap com.johnholdsworth.swiftbindings.SwiftHelloTest$TestResponderAdapter.testMap(com.johnholdsworth.swiftbindings.SwiftHelloTypes$ListenerMap)
@@ -546,12 +547,11 @@ open class SwiftHelloTest_TestResponderAdapter: java_swift.JavaObject, SwiftHell
     private static var testMap_MethodID_33: jmethodID?
 
     open func testMap( arg: [String:SwiftHelloTypes_TextListener]? ) -> [String:SwiftHelloTypes_TextListener]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap", locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "testMap", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;", methodCache: &SwiftHelloTest_TestResponderAdapter.testMap_MethodID_33, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: [String:SwiftHelloTypes_TextListenerForward](), from: __return )
+        return JNIType.toSwift( type: [String:SwiftHelloTypes_TextListenerForward].self, from: __return )
     }
 
     open func testMap( _ _arg: [String:SwiftHelloTypes_TextListener]? ) -> [String:SwiftHelloTypes_TextListener]! {
@@ -563,12 +563,11 @@ open class SwiftHelloTest_TestResponderAdapter: java_swift.JavaObject, SwiftHell
     private static var testMapList_MethodID_34: jmethodID?
 
     open func testMapList( arg: [String:[SwiftHelloTypes_TextListener]]? ) -> [String:[SwiftHelloTypes_TextListener]]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList", locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "testMapList", methodSig: "(Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;", methodCache: &SwiftHelloTest_TestResponderAdapter.testMapList_MethodID_34, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: [String:[SwiftHelloTypes_TextListenerForward]](), from: __return )
+        return JNIType.toSwift( type: [String:[SwiftHelloTypes_TextListenerForward]].self, from: __return )
     }
 
     open func testMapList( _ _arg: [String:[SwiftHelloTypes_TextListener]]? ) -> [String:[SwiftHelloTypes_TextListener]]! {
@@ -577,362 +576,290 @@ open class SwiftHelloTest_TestResponderAdapter: java_swift.JavaObject, SwiftHell
 
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_setLoopback_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+private typealias SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_setLoopback_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ loopback: jobject? ) -> () {
-    JNI.inNative = true;
-    SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).setLoopback( loopback: loopback != nil ? SwiftHelloTest_TestListenerForward( javaObject: loopback ) : nil )
-    JNI.inNative = false;
+private func SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).String2dArrayMethod( arg: JNIType.toSwift( type: [[String]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_booleanMethod_1_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jboolean ) -> jboolean
+private typealias SwiftHelloTest_TestResponderAdapter_StringArrayMethod_1_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_booleanMethod_1( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jboolean ) -> jboolean {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).booleanMethod( arg: JNIType.toSwift( type: Bool(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).z, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_StringArrayMethod_1( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).StringArrayMethod( arg: JNIType.toSwift( type: [String].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_2_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_StringMethod_2_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_2( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).booleanArrayMethod( arg: JNIType.toSwift( type: [Bool](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_StringMethod_2( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).StringMethod( arg: arg != nil ? String( javaObject: arg ) : nil )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_3_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_3_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_3( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).boolean2dArrayMethod( arg: JNIType.toSwift( type: [[Bool]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_3( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).TestListener2dArrayMethod( arg: JNIType.toSwift( type: [[SwiftHelloTest_TestListenerForward]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_byteMethod_4_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jbyte ) -> jbyte
+private typealias SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_4_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_byteMethod_4( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jbyte ) -> jbyte {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).byteMethod( arg: JNIType.toSwift( type: Int8(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).b, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_4( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).TestListenerArrayMethod( arg: JNIType.toSwift( type: [SwiftHelloTest_TestListenerForward].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_byteArrayMethod_5_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_TestListenerMethod_5_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_byteArrayMethod_5( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).byteArrayMethod( arg: JNIType.toSwift( type: [Int8](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_TestListenerMethod_5( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).TestListenerMethod( arg: arg != nil ? SwiftHelloTest_TestListenerForward( javaObject: arg ) : nil )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_6_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_6_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_6( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).byte2dArrayMethod( arg: JNIType.toSwift( type: [[Int8]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_6( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).boolean2dArrayMethod( arg: JNIType.toSwift( type: [[Bool]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_charMethod_7_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jchar ) -> jchar
+private typealias SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_7_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_charMethod_7( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jchar ) -> jchar {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).charMethod( arg: JNIType.toSwift( type: UInt16(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).c, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_7( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).booleanArrayMethod( arg: JNIType.toSwift( type: [Bool].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_charArrayMethod_8_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_booleanMethod_8_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jboolean ) -> jboolean
 
-private func SwiftHelloTest_TestResponderAdapter_charArrayMethod_8( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).charArrayMethod( arg: JNIType.toSwift( type: [UInt16](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_booleanMethod_8( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jboolean ) -> jboolean {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).booleanMethod( arg: arg != jboolean(JNI_FALSE) )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( z: jboolean(__return ? JNI_TRUE : JNI_FALSE) ).z, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_9_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_9_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_9( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).char2dArrayMethod( arg: JNIType.toSwift( type: [[UInt16]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_9( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).byte2dArrayMethod( arg: JNIType.toSwift( type: [[Int8]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_shortMethod_10_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jshort ) -> jshort
+private typealias SwiftHelloTest_TestResponderAdapter_byteArrayMethod_10_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_shortMethod_10( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jshort ) -> jshort {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).shortMethod( arg: JNIType.toSwift( type: Int16(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).s, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_byteArrayMethod_10( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).byteArrayMethod( arg: JNIType.toSwift( type: [Int8].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_shortArrayMethod_11_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_byteMethod_11_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jbyte ) -> jbyte
 
-private func SwiftHelloTest_TestResponderAdapter_shortArrayMethod_11( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).shortArrayMethod( arg: JNIType.toSwift( type: [Int16](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_byteMethod_11( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jbyte ) -> jbyte {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).byteMethod( arg: arg )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( b: __return ).b, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_12_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_12_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_12( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).short2dArrayMethod( arg: JNIType.toSwift( type: [[Int16]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_12( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).char2dArrayMethod( arg: JNIType.toSwift( type: [[UInt16]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_intMethod_13_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint ) -> jint
+private typealias SwiftHelloTest_TestResponderAdapter_charArrayMethod_13_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_intMethod_13( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jint ) -> jint {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).intMethod( arg: JNIType.toSwift( type: Int(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).i, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_charArrayMethod_13( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).charArrayMethod( arg: JNIType.toSwift( type: [UInt16].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_intArrayMethod_14_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_charMethod_14_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jchar ) -> jchar
 
-private func SwiftHelloTest_TestResponderAdapter_intArrayMethod_14( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).intArrayMethod( arg: JNIType.toSwift( type: [Int32](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_charMethod_14( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jchar ) -> jchar {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).charMethod( arg: arg )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( c: __return ).c, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_15_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_15_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_15( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).int2dArrayMethod( arg: JNIType.toSwift( type: [[Int32]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_15( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).double2dArrayMethod( arg: JNIType.toSwift( type: [[Double]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_longMethod_16_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jlong ) -> jlong
+private typealias SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_16_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_longMethod_16( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jlong ) -> jlong {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).longMethod( arg: JNIType.toSwift( type: Int64(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).j, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_16( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).doubleArrayMethod( arg: JNIType.toSwift( type: [Double].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_longArrayMethod_17_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_doubleMethod_17_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jdouble ) -> jdouble
 
-private func SwiftHelloTest_TestResponderAdapter_longArrayMethod_17( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).longArrayMethod( arg: JNIType.toSwift( type: [Int64](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_doubleMethod_17( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jdouble ) -> jdouble {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).doubleMethod( arg: arg )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( d: __return ).d, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_18_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_equals_18_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jboolean
 
-private func SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_18( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).long2dArrayMethod( arg: JNIType.toSwift( type: [[Int64]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_equals_18( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg0: jobject? ) -> jboolean {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).equals( arg0: arg0 != nil ? java_swift.JavaObject( javaObject: arg0 ) : nil )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( z: jboolean(__return ? JNI_TRUE : JNI_FALSE) ).z, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_floatMethod_19_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jfloat ) -> jfloat
+private typealias SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_19_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
-private func SwiftHelloTest_TestResponderAdapter_floatMethod_19( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jfloat ) -> jfloat {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).floatMethod( arg: JNIType.toSwift( type: Float(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).f, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_19( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).float2dArrayMethod( arg: JNIType.toSwift( type: [[Float]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
 private typealias SwiftHelloTest_TestResponderAdapter_floatArrayMethod_20_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
 
 private func SwiftHelloTest_TestResponderAdapter_floatArrayMethod_20( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).floatArrayMethod( arg: JNIType.toSwift( type: [Float](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).floatArrayMethod( arg: JNIType.toSwift( type: [Float].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_21_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+private typealias SwiftHelloTest_TestResponderAdapter_floatMethod_21_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jfloat ) -> jfloat
 
-private func SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_21( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).float2dArrayMethod( arg: JNIType.toSwift( type: [[Float]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
+private func SwiftHelloTest_TestResponderAdapter_floatMethod_21( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jfloat ) -> jfloat {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).floatMethod( arg: arg )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( f: __return ).f, &__locals, removeLast: true )
 }
 
-private typealias SwiftHelloTest_TestResponderAdapter_doubleMethod_22_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jdouble ) -> jdouble
+private typealias SwiftHelloTest_TestResponderAdapter_hashCode_23_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jint
 
-private func SwiftHelloTest_TestResponderAdapter_doubleMethod_22( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jdouble ) -> jdouble {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).doubleMethod( arg: JNIType.toSwift( type: Double(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).d, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_23_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_23( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).doubleArrayMethod( arg: JNIType.toSwift( type: [Double](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_24_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_24( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).double2dArrayMethod( arg: JNIType.toSwift( type: [[Double]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_StringMethod_25_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_StringMethod_25( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).StringMethod( arg: JNIType.toSwift( type: String(), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_StringArrayMethod_26_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_StringArrayMethod_26( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).StringArrayMethod( arg: JNIType.toSwift( type: [String](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_27_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_27( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).String2dArrayMethod( arg: JNIType.toSwift( type: [[String]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_TestListenerMethod_28_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_TestListenerMethod_28( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).TestListenerMethod( arg: arg != nil ? SwiftHelloTest_TestListenerForward( javaObject: arg ) : nil )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_29_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_29( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).TestListenerArrayMethod( arg: JNIType.toSwift( type: [SwiftHelloTest_TestListenerForward](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_30_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_30( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).TestListener2dArrayMethod( arg: JNIType.toSwift( type: [[SwiftHelloTest_TestListenerForward]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_testMap_31_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_testMap_31( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).testMap( arg: JNIType.toSwift( type: [String:SwiftHelloTypes_TextListenerForward](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap", locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_testMapList_32_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_testMapList_32( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).testMapList( arg: JNIType.toSwift( type: [String:[SwiftHelloTypes_TextListenerForward]](), from: arg ) )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList", locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_equals_36_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jboolean
-
-private func SwiftHelloTest_TestResponderAdapter_equals_36( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg0: jobject? ) -> jboolean {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).equals( arg0: arg0 != nil ? java_swift.JavaObject( javaObject: arg0 ) : nil )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).z, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_toString_37_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jobject?
-
-private func SwiftHelloTest_TestResponderAdapter_toString_37( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jobject? {
-    JNI.inNative = true;
-    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).toString( )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).l, &locals, removeLast: true )
-}
-
-private typealias SwiftHelloTest_TestResponderAdapter_hashCode_38_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jint
-
-private func SwiftHelloTest_TestResponderAdapter_hashCode_38( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jint {
-    JNI.inNative = true;
+private func SwiftHelloTest_TestResponderAdapter_hashCode_23( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jint {
     let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).hashCode( )
-    JNI.inNative = false;
-    var locals = [jobject]()
-    return JNI.check( JNIType.toJava( value: __return, locals: &locals ).i, &locals, removeLast: true )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( i: jint(__return) ).i, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_24_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_24( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).int2dArrayMethod( arg: JNIType.toSwift( type: [[Int32]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_intArrayMethod_25_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_intArrayMethod_25( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).intArrayMethod( arg: JNIType.toSwift( type: [Int32].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_intMethod_26_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jint ) -> jint
+
+private func SwiftHelloTest_TestResponderAdapter_intMethod_26( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jint ) -> jint {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).intMethod( arg: Int(arg) )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( i: jint(__return) ).i, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_27_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_27( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).long2dArrayMethod( arg: JNIType.toSwift( type: [[Int64]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_longArrayMethod_28_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_longArrayMethod_28( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).longArrayMethod( arg: JNIType.toSwift( type: [Int64].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_longMethod_29_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jlong ) -> jlong
+
+private func SwiftHelloTest_TestResponderAdapter_longMethod_29( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jlong ) -> jlong {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).longMethod( arg: arg )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( j: __return ).j, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_setLoopback_32_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
+
+private func SwiftHelloTest_TestResponderAdapter_setLoopback_32( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ loopback: jobject? ) -> () {
+    SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).setLoopback( loopback: loopback != nil ? SwiftHelloTest_TestListenerForward( javaObject: loopback ) : nil )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_33_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_33( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).short2dArrayMethod( arg: JNIType.toSwift( type: [[Int16]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_shortArrayMethod_34_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_shortArrayMethod_34( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).shortArrayMethod( arg: JNIType.toSwift( type: [Int16].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_shortMethod_35_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jshort ) -> jshort
+
+private func SwiftHelloTest_TestResponderAdapter_shortMethod_35( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jshort ) -> jshort {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).shortMethod( arg: arg )
+    var __locals = [jobject]()
+    return JNI.check( jvalue( s: __return ).s, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_testMap_36_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_testMap_36( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).testMap( arg: JNIType.toSwift( type: [String:SwiftHelloTypes_TextListenerForward].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap", locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_testMapList_37_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_testMapList_37( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ arg: jobject? ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).testMapList( arg: JNIType.toSwift( type: [String:[SwiftHelloTypes_TextListenerForward]].self, from: arg, consume: false ) )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, mapClass: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList", locals: &__locals ).l, &__locals, removeLast: true )
+}
+
+private typealias SwiftHelloTest_TestResponderAdapter_toString_38_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong ) -> jobject?
+
+private func SwiftHelloTest_TestResponderAdapter_toString_38( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong ) -> jobject? {
+    let __return = SwiftHelloTest_TestResponderAdapterLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).toString( )
+    var __locals = [jobject]()
+    return JNI.check( JNIType.toJava( value: __return, locals: &__locals ).l, &__locals, removeLast: true )
 }
 
 fileprivate class SwiftHelloTest_TestResponderAdapterLocal_: JNIObjectProxy<SwiftHelloTest_TestResponderAdapter> {
@@ -940,113 +867,113 @@ fileprivate class SwiftHelloTest_TestResponderAdapterLocal_: JNIObjectProxy<Swif
     fileprivate static let _proxyClass: jclass = {
         var natives = [JNINativeMethod]()
 
-        let SwiftHelloTest_TestResponderAdapter_setLoopback_0_thunk: SwiftHelloTest_TestResponderAdapter_setLoopback_0_type = SwiftHelloTest_TestResponderAdapter_setLoopback_0
-        natives.append( JNINativeMethod( name: strdup("__setLoopback"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)V"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_setLoopback_0_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_0_thunk: SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_0_type = SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_0
+        natives.append( JNINativeMethod( name: strdup("__String2dArrayMethod"), signature: strdup("(J[[Ljava/lang/String;)[[Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_0_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_booleanMethod_1_thunk: SwiftHelloTest_TestResponderAdapter_booleanMethod_1_type = SwiftHelloTest_TestResponderAdapter_booleanMethod_1
-        natives.append( JNINativeMethod( name: strdup("__booleanMethod"), signature: strdup("(JZ)Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_booleanMethod_1_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_StringArrayMethod_1_thunk: SwiftHelloTest_TestResponderAdapter_StringArrayMethod_1_type = SwiftHelloTest_TestResponderAdapter_StringArrayMethod_1
+        natives.append( JNINativeMethod( name: strdup("__StringArrayMethod"), signature: strdup("(J[Ljava/lang/String;)[Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_StringArrayMethod_1_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_2_thunk: SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_2_type = SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_2
-        natives.append( JNINativeMethod( name: strdup("__booleanArrayMethod"), signature: strdup("(J[Z)[Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_2_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_StringMethod_2_thunk: SwiftHelloTest_TestResponderAdapter_StringMethod_2_type = SwiftHelloTest_TestResponderAdapter_StringMethod_2
+        natives.append( JNINativeMethod( name: strdup("__StringMethod"), signature: strdup("(JLjava/lang/String;)Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_StringMethod_2_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_3_thunk: SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_3_type = SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_3
-        natives.append( JNINativeMethod( name: strdup("__boolean2dArrayMethod"), signature: strdup("(J[[Z)[[Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_3_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_3_thunk: SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_3_type = SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_3
+        natives.append( JNINativeMethod( name: strdup("__TestListener2dArrayMethod"), signature: strdup("(J[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_3_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_byteMethod_4_thunk: SwiftHelloTest_TestResponderAdapter_byteMethod_4_type = SwiftHelloTest_TestResponderAdapter_byteMethod_4
-        natives.append( JNINativeMethod( name: strdup("__byteMethod"), signature: strdup("(JB)B"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_byteMethod_4_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_4_thunk: SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_4_type = SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_4
+        natives.append( JNINativeMethod( name: strdup("__TestListenerArrayMethod"), signature: strdup("(J[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_4_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_byteArrayMethod_5_thunk: SwiftHelloTest_TestResponderAdapter_byteArrayMethod_5_type = SwiftHelloTest_TestResponderAdapter_byteArrayMethod_5
-        natives.append( JNINativeMethod( name: strdup("__byteArrayMethod"), signature: strdup("(J[B)[B"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_byteArrayMethod_5_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_TestListenerMethod_5_thunk: SwiftHelloTest_TestResponderAdapter_TestListenerMethod_5_type = SwiftHelloTest_TestResponderAdapter_TestListenerMethod_5
+        natives.append( JNINativeMethod( name: strdup("__TestListenerMethod"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_TestListenerMethod_5_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_6_thunk: SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_6_type = SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_6
-        natives.append( JNINativeMethod( name: strdup("__byte2dArrayMethod"), signature: strdup("(J[[B)[[B"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_6_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_6_thunk: SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_6_type = SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_6
+        natives.append( JNINativeMethod( name: strdup("__boolean2dArrayMethod"), signature: strdup("(J[[Z)[[Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_boolean2dArrayMethod_6_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_charMethod_7_thunk: SwiftHelloTest_TestResponderAdapter_charMethod_7_type = SwiftHelloTest_TestResponderAdapter_charMethod_7
-        natives.append( JNINativeMethod( name: strdup("__charMethod"), signature: strdup("(JC)C"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_charMethod_7_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_7_thunk: SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_7_type = SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_7
+        natives.append( JNINativeMethod( name: strdup("__booleanArrayMethod"), signature: strdup("(J[Z)[Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_booleanArrayMethod_7_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_charArrayMethod_8_thunk: SwiftHelloTest_TestResponderAdapter_charArrayMethod_8_type = SwiftHelloTest_TestResponderAdapter_charArrayMethod_8
-        natives.append( JNINativeMethod( name: strdup("__charArrayMethod"), signature: strdup("(J[C)[C"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_charArrayMethod_8_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_booleanMethod_8_thunk: SwiftHelloTest_TestResponderAdapter_booleanMethod_8_type = SwiftHelloTest_TestResponderAdapter_booleanMethod_8
+        natives.append( JNINativeMethod( name: strdup("__booleanMethod"), signature: strdup("(JZ)Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_booleanMethod_8_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_9_thunk: SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_9_type = SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_9
-        natives.append( JNINativeMethod( name: strdup("__char2dArrayMethod"), signature: strdup("(J[[C)[[C"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_9_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_9_thunk: SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_9_type = SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_9
+        natives.append( JNINativeMethod( name: strdup("__byte2dArrayMethod"), signature: strdup("(J[[B)[[B"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_byte2dArrayMethod_9_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_shortMethod_10_thunk: SwiftHelloTest_TestResponderAdapter_shortMethod_10_type = SwiftHelloTest_TestResponderAdapter_shortMethod_10
-        natives.append( JNINativeMethod( name: strdup("__shortMethod"), signature: strdup("(JS)S"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_shortMethod_10_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_byteArrayMethod_10_thunk: SwiftHelloTest_TestResponderAdapter_byteArrayMethod_10_type = SwiftHelloTest_TestResponderAdapter_byteArrayMethod_10
+        natives.append( JNINativeMethod( name: strdup("__byteArrayMethod"), signature: strdup("(J[B)[B"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_byteArrayMethod_10_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_shortArrayMethod_11_thunk: SwiftHelloTest_TestResponderAdapter_shortArrayMethod_11_type = SwiftHelloTest_TestResponderAdapter_shortArrayMethod_11
-        natives.append( JNINativeMethod( name: strdup("__shortArrayMethod"), signature: strdup("(J[S)[S"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_shortArrayMethod_11_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_byteMethod_11_thunk: SwiftHelloTest_TestResponderAdapter_byteMethod_11_type = SwiftHelloTest_TestResponderAdapter_byteMethod_11
+        natives.append( JNINativeMethod( name: strdup("__byteMethod"), signature: strdup("(JB)B"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_byteMethod_11_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_12_thunk: SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_12_type = SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_12
-        natives.append( JNINativeMethod( name: strdup("__short2dArrayMethod"), signature: strdup("(J[[S)[[S"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_12_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_12_thunk: SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_12_type = SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_12
+        natives.append( JNINativeMethod( name: strdup("__char2dArrayMethod"), signature: strdup("(J[[C)[[C"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_char2dArrayMethod_12_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_intMethod_13_thunk: SwiftHelloTest_TestResponderAdapter_intMethod_13_type = SwiftHelloTest_TestResponderAdapter_intMethod_13
-        natives.append( JNINativeMethod( name: strdup("__intMethod"), signature: strdup("(JI)I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_intMethod_13_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_charArrayMethod_13_thunk: SwiftHelloTest_TestResponderAdapter_charArrayMethod_13_type = SwiftHelloTest_TestResponderAdapter_charArrayMethod_13
+        natives.append( JNINativeMethod( name: strdup("__charArrayMethod"), signature: strdup("(J[C)[C"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_charArrayMethod_13_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_intArrayMethod_14_thunk: SwiftHelloTest_TestResponderAdapter_intArrayMethod_14_type = SwiftHelloTest_TestResponderAdapter_intArrayMethod_14
-        natives.append( JNINativeMethod( name: strdup("__intArrayMethod"), signature: strdup("(J[I)[I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_intArrayMethod_14_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_charMethod_14_thunk: SwiftHelloTest_TestResponderAdapter_charMethod_14_type = SwiftHelloTest_TestResponderAdapter_charMethod_14
+        natives.append( JNINativeMethod( name: strdup("__charMethod"), signature: strdup("(JC)C"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_charMethod_14_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_15_thunk: SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_15_type = SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_15
-        natives.append( JNINativeMethod( name: strdup("__int2dArrayMethod"), signature: strdup("(J[[I)[[I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_15_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_15_thunk: SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_15_type = SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_15
+        natives.append( JNINativeMethod( name: strdup("__double2dArrayMethod"), signature: strdup("(J[[D)[[D"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_15_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_longMethod_16_thunk: SwiftHelloTest_TestResponderAdapter_longMethod_16_type = SwiftHelloTest_TestResponderAdapter_longMethod_16
-        natives.append( JNINativeMethod( name: strdup("__longMethod"), signature: strdup("(JJ)J"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_longMethod_16_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_16_thunk: SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_16_type = SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_16
+        natives.append( JNINativeMethod( name: strdup("__doubleArrayMethod"), signature: strdup("(J[D)[D"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_16_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_longArrayMethod_17_thunk: SwiftHelloTest_TestResponderAdapter_longArrayMethod_17_type = SwiftHelloTest_TestResponderAdapter_longArrayMethod_17
-        natives.append( JNINativeMethod( name: strdup("__longArrayMethod"), signature: strdup("(J[J)[J"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_longArrayMethod_17_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_doubleMethod_17_thunk: SwiftHelloTest_TestResponderAdapter_doubleMethod_17_type = SwiftHelloTest_TestResponderAdapter_doubleMethod_17
+        natives.append( JNINativeMethod( name: strdup("__doubleMethod"), signature: strdup("(JD)D"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_doubleMethod_17_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_18_thunk: SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_18_type = SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_18
-        natives.append( JNINativeMethod( name: strdup("__long2dArrayMethod"), signature: strdup("(J[[J)[[J"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_18_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_equals_18_thunk: SwiftHelloTest_TestResponderAdapter_equals_18_type = SwiftHelloTest_TestResponderAdapter_equals_18
+        natives.append( JNINativeMethod( name: strdup("__equals"), signature: strdup("(JLjava/lang/Object;)Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_equals_18_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_floatMethod_19_thunk: SwiftHelloTest_TestResponderAdapter_floatMethod_19_type = SwiftHelloTest_TestResponderAdapter_floatMethod_19
-        natives.append( JNINativeMethod( name: strdup("__floatMethod"), signature: strdup("(JF)F"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_floatMethod_19_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_19_thunk: SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_19_type = SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_19
+        natives.append( JNINativeMethod( name: strdup("__float2dArrayMethod"), signature: strdup("(J[[F)[[F"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_19_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
         let SwiftHelloTest_TestResponderAdapter_floatArrayMethod_20_thunk: SwiftHelloTest_TestResponderAdapter_floatArrayMethod_20_type = SwiftHelloTest_TestResponderAdapter_floatArrayMethod_20
         natives.append( JNINativeMethod( name: strdup("__floatArrayMethod"), signature: strdup("(J[F)[F"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_floatArrayMethod_20_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_21_thunk: SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_21_type = SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_21
-        natives.append( JNINativeMethod( name: strdup("__float2dArrayMethod"), signature: strdup("(J[[F)[[F"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_float2dArrayMethod_21_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_floatMethod_21_thunk: SwiftHelloTest_TestResponderAdapter_floatMethod_21_type = SwiftHelloTest_TestResponderAdapter_floatMethod_21
+        natives.append( JNINativeMethod( name: strdup("__floatMethod"), signature: strdup("(JF)F"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_floatMethod_21_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_doubleMethod_22_thunk: SwiftHelloTest_TestResponderAdapter_doubleMethod_22_type = SwiftHelloTest_TestResponderAdapter_doubleMethod_22
-        natives.append( JNINativeMethod( name: strdup("__doubleMethod"), signature: strdup("(JD)D"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_doubleMethod_22_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_hashCode_23_thunk: SwiftHelloTest_TestResponderAdapter_hashCode_23_type = SwiftHelloTest_TestResponderAdapter_hashCode_23
+        natives.append( JNINativeMethod( name: strdup("__hashCode"), signature: strdup("(J)I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_hashCode_23_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_23_thunk: SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_23_type = SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_23
-        natives.append( JNINativeMethod( name: strdup("__doubleArrayMethod"), signature: strdup("(J[D)[D"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_doubleArrayMethod_23_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_24_thunk: SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_24_type = SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_24
+        natives.append( JNINativeMethod( name: strdup("__int2dArrayMethod"), signature: strdup("(J[[I)[[I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_int2dArrayMethod_24_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_24_thunk: SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_24_type = SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_24
-        natives.append( JNINativeMethod( name: strdup("__double2dArrayMethod"), signature: strdup("(J[[D)[[D"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_double2dArrayMethod_24_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_intArrayMethod_25_thunk: SwiftHelloTest_TestResponderAdapter_intArrayMethod_25_type = SwiftHelloTest_TestResponderAdapter_intArrayMethod_25
+        natives.append( JNINativeMethod( name: strdup("__intArrayMethod"), signature: strdup("(J[I)[I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_intArrayMethod_25_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_StringMethod_25_thunk: SwiftHelloTest_TestResponderAdapter_StringMethod_25_type = SwiftHelloTest_TestResponderAdapter_StringMethod_25
-        natives.append( JNINativeMethod( name: strdup("__StringMethod"), signature: strdup("(JLjava/lang/String;)Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_StringMethod_25_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_intMethod_26_thunk: SwiftHelloTest_TestResponderAdapter_intMethod_26_type = SwiftHelloTest_TestResponderAdapter_intMethod_26
+        natives.append( JNINativeMethod( name: strdup("__intMethod"), signature: strdup("(JI)I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_intMethod_26_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_StringArrayMethod_26_thunk: SwiftHelloTest_TestResponderAdapter_StringArrayMethod_26_type = SwiftHelloTest_TestResponderAdapter_StringArrayMethod_26
-        natives.append( JNINativeMethod( name: strdup("__StringArrayMethod"), signature: strdup("(J[Ljava/lang/String;)[Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_StringArrayMethod_26_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_27_thunk: SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_27_type = SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_27
+        natives.append( JNINativeMethod( name: strdup("__long2dArrayMethod"), signature: strdup("(J[[J)[[J"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_long2dArrayMethod_27_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_27_thunk: SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_27_type = SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_27
-        natives.append( JNINativeMethod( name: strdup("__String2dArrayMethod"), signature: strdup("(J[[Ljava/lang/String;)[[Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_String2dArrayMethod_27_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_longArrayMethod_28_thunk: SwiftHelloTest_TestResponderAdapter_longArrayMethod_28_type = SwiftHelloTest_TestResponderAdapter_longArrayMethod_28
+        natives.append( JNINativeMethod( name: strdup("__longArrayMethod"), signature: strdup("(J[J)[J"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_longArrayMethod_28_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_TestListenerMethod_28_thunk: SwiftHelloTest_TestResponderAdapter_TestListenerMethod_28_type = SwiftHelloTest_TestResponderAdapter_TestListenerMethod_28
-        natives.append( JNINativeMethod( name: strdup("__TestListenerMethod"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_TestListenerMethod_28_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_longMethod_29_thunk: SwiftHelloTest_TestResponderAdapter_longMethod_29_type = SwiftHelloTest_TestResponderAdapter_longMethod_29
+        natives.append( JNINativeMethod( name: strdup("__longMethod"), signature: strdup("(JJ)J"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_longMethod_29_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_29_thunk: SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_29_type = SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_29
-        natives.append( JNINativeMethod( name: strdup("__TestListenerArrayMethod"), signature: strdup("(J[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_TestListenerArrayMethod_29_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_setLoopback_32_thunk: SwiftHelloTest_TestResponderAdapter_setLoopback_32_type = SwiftHelloTest_TestResponderAdapter_setLoopback_32
+        natives.append( JNINativeMethod( name: strdup("__setLoopback"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)V"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_setLoopback_32_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_30_thunk: SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_30_type = SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_30
-        natives.append( JNINativeMethod( name: strdup("__TestListener2dArrayMethod"), signature: strdup("(J[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;)[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_TestListener2dArrayMethod_30_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_33_thunk: SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_33_type = SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_33
+        natives.append( JNINativeMethod( name: strdup("__short2dArrayMethod"), signature: strdup("(J[[S)[[S"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_short2dArrayMethod_33_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_testMap_31_thunk: SwiftHelloTest_TestResponderAdapter_testMap_31_type = SwiftHelloTest_TestResponderAdapter_testMap_31
-        natives.append( JNINativeMethod( name: strdup("__testMap"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_testMap_31_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_shortArrayMethod_34_thunk: SwiftHelloTest_TestResponderAdapter_shortArrayMethod_34_type = SwiftHelloTest_TestResponderAdapter_shortArrayMethod_34
+        natives.append( JNINativeMethod( name: strdup("__shortArrayMethod"), signature: strdup("(J[S)[S"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_shortArrayMethod_34_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_testMapList_32_thunk: SwiftHelloTest_TestResponderAdapter_testMapList_32_type = SwiftHelloTest_TestResponderAdapter_testMapList_32
-        natives.append( JNINativeMethod( name: strdup("__testMapList"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_testMapList_32_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_shortMethod_35_thunk: SwiftHelloTest_TestResponderAdapter_shortMethod_35_type = SwiftHelloTest_TestResponderAdapter_shortMethod_35
+        natives.append( JNINativeMethod( name: strdup("__shortMethod"), signature: strdup("(JS)S"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_shortMethod_35_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_equals_36_thunk: SwiftHelloTest_TestResponderAdapter_equals_36_type = SwiftHelloTest_TestResponderAdapter_equals_36
-        natives.append( JNINativeMethod( name: strdup("__equals"), signature: strdup("(JLjava/lang/Object;)Z"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_equals_36_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_testMap_36_thunk: SwiftHelloTest_TestResponderAdapter_testMap_36_type = SwiftHelloTest_TestResponderAdapter_testMap_36
+        natives.append( JNINativeMethod( name: strdup("__testMap"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMap;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_testMap_36_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_toString_37_thunk: SwiftHelloTest_TestResponderAdapter_toString_37_type = SwiftHelloTest_TestResponderAdapter_toString_37
-        natives.append( JNINativeMethod( name: strdup("__toString"), signature: strdup("(J)Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_toString_37_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_testMapList_37_thunk: SwiftHelloTest_TestResponderAdapter_testMapList_37_type = SwiftHelloTest_TestResponderAdapter_testMapList_37
+        natives.append( JNINativeMethod( name: strdup("__testMapList"), signature: strdup("(JLcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;)Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$ListenerMapList;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_testMapList_37_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
-        let SwiftHelloTest_TestResponderAdapter_hashCode_38_thunk: SwiftHelloTest_TestResponderAdapter_hashCode_38_type = SwiftHelloTest_TestResponderAdapter_hashCode_38
-        natives.append( JNINativeMethod( name: strdup("__hashCode"), signature: strdup("(J)I"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_hashCode_38_thunk, to: UnsafeMutableRawPointer.self ) ) )
+        let SwiftHelloTest_TestResponderAdapter_toString_38_thunk: SwiftHelloTest_TestResponderAdapter_toString_38_type = SwiftHelloTest_TestResponderAdapter_toString_38
+        natives.append( JNINativeMethod( name: strdup("__toString"), signature: strdup("(J)Ljava/lang/String;"), fnPtr: unsafeBitCast( SwiftHelloTest_TestResponderAdapter_toString_38_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
         natives.append( JNINativeMethod( name: strdup("__finalize"), signature: strdup("(J)V"), fnPtr: unsafeBitCast( JNIReleasableProxy__finalize_thunk, to: UnsafeMutableRawPointer.self ) ) )
 
@@ -1089,8 +1016,8 @@ open class SwiftHelloTest_TestResponderAdapterBase: SwiftHelloTest_TestResponder
     private static var new_MethodID_35: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
 
         self.init( javaObject: nil )
         __args[0] = __local!.swiftValue()
