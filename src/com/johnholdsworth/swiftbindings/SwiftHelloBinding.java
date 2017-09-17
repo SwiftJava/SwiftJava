@@ -57,6 +57,8 @@ public interface SwiftHelloBinding {
 
         public String[] debug( String msg );
 
+        public void onMainThread( Runnable runnable );
+
         public SwiftHelloTest.TestListener testResponder( int loopback );
 
     }
