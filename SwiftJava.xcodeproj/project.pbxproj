@@ -217,6 +217,8 @@
 /* Begin PBXFileReference section */
 		BB0543FE1D41F38C00F9B367 /* libjvm.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjvm.dylib; path = "../../../../usr/local/jvm/openjdk-1.8.0-internal/jre/lib/server/libjvm.dylib"; sourceTree = "<group>"; };
 		BB0544041D42D55200F9B367 /* genjar.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genjar.sh; sourceTree = "<group>"; };
+		BB0AB6B31F7559C700B60EC0 /* Injection4Android */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Injection4Android; sourceTree = "<group>"; };
+		BB0AB6B71F755A5A00B60EC0 /* swift-android-injection */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-injection"; sourceTree = "<group>"; };
 		BB19B4411D673986002F5586 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BB31E20E1D4FF13400779860 /* genpkg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genpkg.sh; sourceTree = "<group>"; };
 		BB5ACFDB1D35B09900E2386A /* JDBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +342,8 @@
 				BB643B311F4873F7003E849E /* swift-android-gradle */,
 				BB9CF8971D61BAF4004781B9 /* swift-android-samples */,
 				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
+				BB0AB6B71F755A5A00B60EC0 /* swift-android-injection */,
+				BB0AB6B31F7559C700B60EC0 /* Injection4Android */,
 				BB5ACFDC1D35B09900E2386A /* Products */,
 				BBCD66EC1D36A03F00DF5E47 /* Frameworks */,
 			);

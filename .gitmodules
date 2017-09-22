@@ -37,3 +37,9 @@
 [submodule "android_toolchain"]
 	path = android_toolchain
 	url = https://github.com/SwiftJava/android_toolchain
+[submodule "swift-android-injection"]
+	path = swift-android-injection
+	url = https://github.com/SwiftJava/swift-android-injection.git
+[submodule "Injection4Android"]
+	path = Injection4Android
+	url = https://github.com/SwiftJava/Injection4Android.git
