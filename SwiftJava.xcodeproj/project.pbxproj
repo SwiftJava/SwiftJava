@@ -12,6 +12,7 @@
 		BB5ACFDF1D35B09900E2386A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5ACFDE1D35B09900E2386A /* AppDelegate.swift */; };
 		BB5ACFE11D35B09900E2386A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB5ACFE01D35B09900E2386A /* Assets.xcassets */; };
 		BB5ACFE41D35B09900E2386A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB5ACFE21D35B09900E2386A /* MainMenu.xib */; };
+		BB63C9E51F7970F00048D83B /* Fortify.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB63C9E41F7970EE0048D83B /* Fortify.swift */; };
 		BB643B321F4873F7003E849E /* swift-android-gradle in Resources */ = {isa = PBXBuildFile; fileRef = BB643B311F4873F7003E849E /* swift-android-gradle */; };
 		BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */ = {isa = PBXBuildFile; fileRef = BB6651301F2E39F6004EFD5F /* swift-android-kotlin */; };
 		BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */ = {isa = PBXBuildFile; fileRef = BB6651351F2E3F50004EFD5F /* android_toolchain */; };
@@ -226,6 +227,7 @@
 		BB5ACFE01D35B09900E2386A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB5ACFE31D35B09900E2386A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BB5ACFE51D35B09900E2386A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB63C9E41F7970EE0048D83B /* Fortify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fortify.swift; sourceTree = "<group>"; };
 		BB643B311F4873F7003E849E /* swift-android-gradle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-gradle"; sourceTree = "<group>"; };
 		BB6651301F2E39F6004EFD5F /* swift-android-kotlin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-kotlin"; sourceTree = "<group>"; };
 		BB6651351F2E3F50004EFD5F /* android_toolchain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = android_toolchain; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 		BBC13DB71D48FDCE0035A039 /* org_swiftjava */ = {
 			isa = PBXGroup;
 			children = (
+				BB63C9E41F7970EE0048D83B /* Fortify.swift */,
 				CE4A251C1F355B0A003AF384 /* SwiftTest.java */,
 				CE31850E1F368D44002046A6 /* SwiftHelloTypes_TextListener.swift */,
 				CE4A25141F355902003AF384 /* SwiftHelloTest_TestResponderAdapter.swift */,
@@ -807,6 +810,7 @@
 				BBC13DB91D48FDCE0035A039 /* org_swiftjava.swift in Sources */,
 				CE4A25211F355CAC003AF384 /* SwiftHelloTest_TestListener.swift in Sources */,
 				CE4A25191F355910003AF384 /* SwiftHelloTest_SwiftTestListener.swift in Sources */,
+				BB63C9E51F7970F00048D83B /* Fortify.swift in Sources */,
 				BBC13DC21D4900AA0035A039 /* SwiftTest.swift in Sources */,
 				CE3185101F368D6B002046A6 /* SwiftHelloTypes_TextListener.swift in Sources */,
 				CE4A251A1F355914003AF384 /* SwiftHelloTest_TestResponderAdapter.swift in Sources */,

@@ -25,10 +25,21 @@ class org_swiftjava: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
 //        SwiftHelloTest_TestListenerLocal_.proxyClass()
-        let instance = SwiftHelloTest_TestResponderAdapter()
 
-        instance.loopback = SwiftTestListener()
-        instance.loopback.setLoopback(loopback: SwiftHelloTest_TestResponderAdapter())
+        // You'll get an assertion failure if
+        // you comment the following line out.
+        Fortify.disableExclusivityChecking()
+
+        let dest = SwiftTestListener()
+
+        let bounce2 = SwiftHelloTest_TestResponderAdapter()
+        bounce2.setLoopback(loopback: dest)
+
+        let bounce1 = SwiftTestListener()
+        bounce1.loopback = bounce2
+
+        let instance = SwiftHelloTest_TestResponderAdapter()
+        instance.setLoopback(loopback: bounce1)
 
         if true {
             let reference: Bool = true
