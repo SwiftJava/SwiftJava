@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTab
         }
 
         // Use Thread class to run in background to get the correct class loader & classpath
-        Thread( {
+        JavaThread( {
 
             do {
                 if try JavaClass.forName( self.driverClass.stringValue ) == nil {

@@ -1,7 +1,7 @@
 //
 //  genswift.java
 //  https://github.com/SwiftJava/SwiftJava
-//  $Id: //depot/SwiftJava/src/genswift.java#94 $
+//  $Id: //depot/SwiftJava/src/genswift.java#95 $
 //
 //  Created by John Holdsworth on 14/07/2016.
 //  Copyright (c) 2016 John Holdsworth. All rights reserved.
@@ -125,6 +125,7 @@ class genswift {
             put( Class.class.getName(), true );
             put( Object.class.getName(), true );
             put( Enum.class.getName(), true );
+            put( Thread.class.getName(), true );
             put( String.class.getName(), true );
             put( Comparable.class.getName(), true );
             put( Error.class.getName(), true );
@@ -144,6 +145,7 @@ class genswift {
             put( Object.class.getName(), true );
             put( Class.class.getName(), true );
             put( Enum.class.getName(), true );
+            put( Thread.class.getName(), true );
             put( Runnable.class.getName(), true );
             put( Throwable.class.getName(), true );
             put( Exception.class.getName(), true );
@@ -481,7 +483,7 @@ class genswift {
     				cases += (cases == "" ? "" : ", ") + ((Enum<?>)constant).name();
     			code.append("    case "+cases+"\n\n");
     			
-    			code.append("    static let enumConstants = try! JavaClass.forName(\""+clazz.getName()+"\")\n" +
+                code.append("    static let enumConstants = JavaClass(loading: \""+clazz.getName()+"\")\n" +
     	    			"        .getEnumConstants()!.map { "+classSuffix+"Forward( javaObject: $0.javaObject ) }\n\n");
     			
     			code.append("    public func underlier() -> "+classSuffix+"Forward"+" {\n");
@@ -1051,9 +1053,9 @@ class genswift {
         String proxyClass = "org/swiftjava/" + currentFramework + "/" + classSuffix + "Proxy";
         code.append("        let clazz = JNI.FindClass( proxyClassName() )\n");
 
-        code.append("        withUnsafePointer(to: &natives[0]) {\n");
+        code.append("        natives.withUnsafeBufferPointer {\n");
         code.append("            nativesPtr in\n");
-        code.append("            if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr, jint(natives.count) ) != jint(JNI_OK) {\n");
+        code.append("            if JNI.api.RegisterNatives( JNI.env, clazz, nativesPtr.baseAddress, jint(nativesPtr.count) ) != jint(JNI_OK) {\n");
         code.append("                JNI.report( \"Unable to register java natives\" )\n");
         code.append("            }\n");
         code.append("        }\n\n");
