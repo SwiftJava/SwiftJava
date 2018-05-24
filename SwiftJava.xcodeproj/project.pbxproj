@@ -36,6 +36,7 @@
 		BBC13DB91D48FDCE0035A039 /* org_swiftjava.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC13DB81D48FDCE0035A039 /* org_swiftjava.swift */; };
 		BBC13DC21D4900AA0035A039 /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC13DC11D4900AA0035A039 /* SwiftTest.swift */; };
 		BBCCEF9A1F3C83440084F9E3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BBCCEF991F3C83440084F9E3 /* LICENSE */; };
+		BBE0F86F20B733FE00332AC6 /* swift-android-Clibadder in Resources */ = {isa = PBXBuildFile; fileRef = BBE0F86E20B733FC00332AC6 /* swift-android-Clibadder */; };
 		BBF280D91D64BC6100A7AF5D /* src in Resources */ = {isa = PBXBuildFile; fileRef = BBF280D81D64BC6100A7AF5D /* src */; };
 		CE3185101F368D6B002046A6 /* SwiftHelloTypes_TextListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31850E1F368D44002046A6 /* SwiftHelloTypes_TextListener.swift */; };
 		CE4A250B1F34B3E0003AF384 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCD66ED1D36A03F00DF5E47 /* JavaVM.framework */; };
@@ -271,6 +272,7 @@
 		BBCD6EBC1D383E3700DF5E47 /* genswift.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; name = genswift.java; path = src/genswift.java; sourceTree = "<group>"; };
 		BBCD75371D38DC4200DF5E47 /* overrides.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = overrides.pl; sourceTree = "<group>"; };
 		BBCD9F871D3CD05900DF5E47 /* genswift.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genswift.sh; sourceTree = "<group>"; };
+		BBE0F86E20B733FC00332AC6 /* swift-android-Clibadder */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-Clibadder"; sourceTree = "<group>"; };
 		BBF280D81D64BC6100A7AF5D /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		CE31850E1F368D44002046A6 /* SwiftHelloTypes_TextListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHelloTypes_TextListener.swift; path = com_johnholdsworth/Sources/SwiftHelloTypes_TextListener.swift; sourceTree = SOURCE_ROOT; };
 		CE4A250F1F3555CA003AF384 /* com_johnholdsworth */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com_johnholdsworth; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				BB9CF8971D61BAF4004781B9 /* swift-android-samples */,
 				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
 				BB0AB6B71F755A5A00B60EC0 /* swift-android-injection */,
+				BBE0F86E20B733FC00332AC6 /* swift-android-Clibadder */,
 				BB0AB6B31F7559C700B60EC0 /* Injection4Android */,
 				BB5ACFDC1D35B09900E2386A /* Products */,
 				BBCD66EC1D36A03F00DF5E47 /* Frameworks */,
@@ -752,6 +755,7 @@
 				CE4A25101F3555CA003AF384 /* com_johnholdsworth in Resources */,
 				BBCCEF9A1F3C83440084F9E3 /* LICENSE in Resources */,
 				BB5ACFE11D35B09900E2386A /* Assets.xcassets in Resources */,
+				BBE0F86F20B733FE00332AC6 /* swift-android-Clibadder in Resources */,
 				BBAD3EE41D5A84700091D139 /* genall.sh in Resources */,
 				BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */,
 				BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */,

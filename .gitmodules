@@ -43,3 +43,6 @@
 [submodule "Injection4Android"]
 	path = Injection4Android
 	url = https://github.com/SwiftJava/Injection4Android.git
+[submodule "swift-android-Clibadder"]
+	path = swift-android-Clibadder
+	url = https://github.com/SwiftJava/swift-android-Clibadder
