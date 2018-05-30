@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BB31E20F1D4FF13400779860 /* genpkg.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB31E20E1D4FF13400779860 /* genpkg.sh */; };
+		BB408A1420BF101A00B57CFB /* swift-android-zlib in Resources */ = {isa = PBXBuildFile; fileRef = BB408A1220BF101900B57CFB /* swift-android-zlib */; };
+		BB408A1620BF102A00B57CFB /* swift-android-opengl in Resources */ = {isa = PBXBuildFile; fileRef = BB408A1520BF102900B57CFB /* swift-android-opengl */; };
 		BB4AF49E1D4C1F80001DCA63 /* java_sql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBF2E8E1D49A0C3004142AE /* java_sql.framework */; };
 		BB5ACFDF1D35B09900E2386A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5ACFDE1D35B09900E2386A /* AppDelegate.swift */; };
 		BB5ACFE11D35B09900E2386A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB5ACFE01D35B09900E2386A /* Assets.xcassets */; };
@@ -223,6 +225,8 @@
 		BB0AB6B71F755A5A00B60EC0 /* swift-android-injection */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-injection"; sourceTree = "<group>"; };
 		BB19B4411D673986002F5586 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BB31E20E1D4FF13400779860 /* genpkg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genpkg.sh; sourceTree = "<group>"; };
+		BB408A1220BF101900B57CFB /* swift-android-zlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-zlib"; sourceTree = "<group>"; };
+		BB408A1520BF102900B57CFB /* swift-android-opengl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-opengl"; sourceTree = "<group>"; };
 		BB5ACFDB1D35B09900E2386A /* JDBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5ACFDE1D35B09900E2386A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB5ACFE01D35B09900E2386A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
 				BB0AB6B71F755A5A00B60EC0 /* swift-android-injection */,
 				BBE0F86E20B733FC00332AC6 /* swift-android-Clibadder */,
+				BB408A1520BF102900B57CFB /* swift-android-opengl */,
+				BB408A1220BF101900B57CFB /* swift-android-zlib */,
 				BB0AB6B31F7559C700B60EC0 /* Injection4Android */,
 				BB5ACFDC1D35B09900E2386A /* Products */,
 				BBCD66EC1D36A03F00DF5E47 /* Frameworks */,
@@ -753,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4A25101F3555CA003AF384 /* com_johnholdsworth in Resources */,
+				BB408A1620BF102A00B57CFB /* swift-android-opengl in Resources */,
 				BBCCEF9A1F3C83440084F9E3 /* LICENSE in Resources */,
 				BB5ACFE11D35B09900E2386A /* Assets.xcassets in Resources */,
 				BBE0F86F20B733FE00332AC6 /* swift-android-Clibadder in Resources */,
@@ -760,6 +767,7 @@
 				BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */,
 				BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */,
 				BB31E20F1D4FF13400779860 /* genpkg.sh in Resources */,
+				BB408A1420BF101A00B57CFB /* swift-android-zlib in Resources */,
 				BBF280D91D64BC6100A7AF5D /* src in Resources */,
 				BB643B321F4873F7003E849E /* swift-android-gradle in Resources */,
 				BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */,

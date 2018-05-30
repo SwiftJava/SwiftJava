@@ -46,3 +46,9 @@
 [submodule "swift-android-Clibadder"]
 	path = swift-android-Clibadder
 	url = https://github.com/SwiftJava/swift-android-Clibadder
+[submodule "swift-android-opengl"]
+	path = swift-android-opengl
+	url = https://github.com/SwiftJava/swift-android-opengl
+[submodule "swift-android-zlib"]
+	path = swift-android-zlib
+	url = https://github.com/SwiftJava/swift-android-zlib
