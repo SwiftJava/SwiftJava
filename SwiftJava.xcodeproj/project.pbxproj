@@ -18,6 +18,8 @@
 		BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */ = {isa = PBXBuildFile; fileRef = BB6651351F2E3F50004EFD5F /* android_toolchain */; };
 		BB9CF8931D619D1C004781B9 /* genhello.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8921D619D1C004781B9 /* genhello.sh */; };
 		BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8971D61BAF4004781B9 /* swift-android-samples */; };
+		BBA81B3B20BE319300C7ADB4 /* swift-android-opengl in Resources */ = {isa = PBXBuildFile; fileRef = BBA81B3920BE319300C7ADB4 /* swift-android-opengl */; };
+		BBA81B3D20BE319E00C7ADB4 /* swift-android-zlib in Resources */ = {isa = PBXBuildFile; fileRef = BBA81B3C20BE319D00C7ADB4 /* swift-android-zlib */; };
 		BBAD3EDA1D59DDBC0091D139 /* TableColorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD3ED91D59DDBC0091D139 /* TableColorSelection.swift */; };
 		BBAD3EE41D5A84700091D139 /* genall.sh in Resources */ = {isa = PBXBuildFile; fileRef = BBAD3EE31D5A84700091D139 /* genall.sh */; };
 		BBBF387E1D49A344004142AE /* javax_swing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBF322F1D49A247004142AE /* javax_swing.framework */; };
@@ -237,6 +239,8 @@
 		BB8AC46E1D3F217D00BD5B0F /* libjvm.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjvm.dylib; path = ../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/server/libjvm.dylib; sourceTree = "<group>"; };
 		BB9CF8921D619D1C004781B9 /* genhello.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genhello.sh; sourceTree = "<group>"; };
 		BB9CF8971D61BAF4004781B9 /* swift-android-samples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-samples"; sourceTree = "<group>"; };
+		BBA81B3920BE319300C7ADB4 /* swift-android-opengl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-opengl"; sourceTree = "<group>"; };
+		BBA81B3C20BE319D00C7ADB4 /* swift-android-zlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swift-android-zlib"; sourceTree = "<group>"; };
 		BBAD3ED91D59DDBC0091D139 /* TableColorSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableColorSelection.swift; path = Sources/TableColorSelection.swift; sourceTree = "<group>"; };
 		BBAD3EE31D5A84700091D139 /* genall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genall.sh; sourceTree = "<group>"; };
 		BBBF2E891D49A0C3004142AE /* java_sql.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = java_sql.xcodeproj; path = java_sql/java_sql.xcodeproj; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 				BB6651301F2E39F6004EFD5F /* swift-android-kotlin */,
 				BB0AB6B71F755A5A00B60EC0 /* swift-android-injection */,
 				BBE0F86E20B733FC00332AC6 /* swift-android-Clibadder */,
+				BBA81B3920BE319300C7ADB4 /* swift-android-opengl */,
+				BBA81B3C20BE319D00C7ADB4 /* swift-android-zlib */,
 				BB0AB6B31F7559C700B60EC0 /* Injection4Android */,
 				BB5ACFDC1D35B09900E2386A /* Products */,
 				BBCD66EC1D36A03F00DF5E47 /* Frameworks */,
@@ -761,7 +767,9 @@
 				BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */,
 				BB31E20F1D4FF13400779860 /* genpkg.sh in Resources */,
 				BBF280D91D64BC6100A7AF5D /* src in Resources */,
+				BBA81B3B20BE319300C7ADB4 /* swift-android-opengl in Resources */,
 				BB643B321F4873F7003E849E /* swift-android-gradle in Resources */,
+				BBA81B3D20BE319E00C7ADB4 /* swift-android-zlib in Resources */,
 				BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */,
 				BB5ACFE41D35B09900E2386A /* MainMenu.xib in Resources */,
 				CE81023A1F3693510069563B /* MainActivity.kt in Resources */,
