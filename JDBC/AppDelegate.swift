@@ -114,7 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource, NSTab
 
                     for i in 0..<model.columnNames.count {
                         let columnName = model.columnNames[i]
-                        let column = NSTableColumn(identifier: columnName)
+                        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: columnName))
                         column.title = columnName
                         model.indexByColumn[column] = i
                         self.tableView.addTableColumn(column)

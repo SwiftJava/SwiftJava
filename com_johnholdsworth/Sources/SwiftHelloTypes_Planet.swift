@@ -91,7 +91,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var EARTH_FieldID: jfieldID?
 
-    open static var EARTH: SwiftHelloTypes_Planet! {
+    public static var EARTH: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "EARTH", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &EARTH_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -103,7 +103,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var G_FieldID: jfieldID?
 
-    open static var G: Double {
+    public static var G: Double {
         get {
             let __value = JNIField.GetStaticDoubleField( fieldName: "G", fieldType: "D", fieldCache: &G_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             return __value
@@ -114,7 +114,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var JUPITER_FieldID: jfieldID?
 
-    open static var JUPITER: SwiftHelloTypes_Planet! {
+    public static var JUPITER: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "JUPITER", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &JUPITER_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -126,7 +126,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var MARS_FieldID: jfieldID?
 
-    open static var MARS: SwiftHelloTypes_Planet! {
+    public static var MARS: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MARS", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &MARS_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -138,7 +138,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var MERCURY_FieldID: jfieldID?
 
-    open static var MERCURY: SwiftHelloTypes_Planet! {
+    public static var MERCURY: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MERCURY", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &MERCURY_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -150,7 +150,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var NEPTUNE_FieldID: jfieldID?
 
-    open static var NEPTUNE: SwiftHelloTypes_Planet! {
+    public static var NEPTUNE: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "NEPTUNE", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &NEPTUNE_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -162,7 +162,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var SATURN_FieldID: jfieldID?
 
-    open static var SATURN: SwiftHelloTypes_Planet! {
+    public static var SATURN: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "SATURN", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &SATURN_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -174,7 +174,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var URANUS_FieldID: jfieldID?
 
-    open static var URANUS: SwiftHelloTypes_Planet! {
+    public static var URANUS: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "URANUS", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &URANUS_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -186,7 +186,7 @@ open class SwiftHelloTypes_PlanetForward: JNIObjectForward {
 
     private static var VENUS_FieldID: jfieldID?
 
-    open static var VENUS: SwiftHelloTypes_Planet! {
+    public static var VENUS: SwiftHelloTypes_Planet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "VENUS", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet;", fieldCache: &VENUS_FieldID, className: "com/johnholdsworth/swiftbindings/SwiftHelloTypes$Planet", classCache: &SwiftHelloTypes_PlanetJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

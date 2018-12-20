@@ -20,7 +20,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var String2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var String2dArrayFieldStatic: [[String]]! {
+    public static var String2dArrayFieldStatic: [[String]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "String2dArrayFieldStatic", fieldType: "[[Ljava/lang/String;", fieldCache: &String2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[String]].self, from: __value )
@@ -36,7 +36,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var StringArrayFieldStatic_FieldID: jfieldID?
 
-    open static var StringArrayFieldStatic: [String]! {
+    public static var StringArrayFieldStatic: [String]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "StringArrayFieldStatic", fieldType: "[Ljava/lang/String;", fieldCache: &StringArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [String].self, from: __value )
@@ -52,7 +52,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var StringFieldStatic_FieldID: jfieldID?
 
-    open static var StringFieldStatic: String! {
+    public static var StringFieldStatic: String! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "StringFieldStatic", fieldType: "Ljava/lang/String;", fieldCache: &StringFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -69,7 +69,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var TestListener2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var TestListener2dArrayFieldStatic: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
+    public static var TestListener2dArrayFieldStatic: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "TestListener2dArrayFieldStatic", fieldType: "[[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListener2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward]].self, from: __value )
@@ -85,7 +85,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var TestListenerArrayFieldStatic_FieldID: jfieldID?
 
-    open static var TestListenerArrayFieldStatic: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
+    public static var TestListenerArrayFieldStatic: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "TestListenerArrayFieldStatic", fieldType: "[Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [/* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocolForward].self, from: __value )
@@ -101,7 +101,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var TestListenerFieldStatic_FieldID: jfieldID?
 
-    open static var TestListenerFieldStatic: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
+    public static var TestListenerFieldStatic: /* interface com.johnholdsworth.swiftbindings.SwiftHelloTest$TestListener */ UnavailableProtocol! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "TestListenerFieldStatic", fieldType: "Lcom/johnholdsworth/swiftbindings/SwiftHelloTest$TestListener;", fieldCache: &TestListenerFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -118,7 +118,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var boolean2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var boolean2dArrayFieldStatic: [[Bool]]! {
+    public static var boolean2dArrayFieldStatic: [[Bool]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "boolean2dArrayFieldStatic", fieldType: "[[Z", fieldCache: &boolean2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Bool]].self, from: __value )
@@ -134,7 +134,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var booleanArrayFieldStatic_FieldID: jfieldID?
 
-    open static var booleanArrayFieldStatic: [Bool]! {
+    public static var booleanArrayFieldStatic: [Bool]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "booleanArrayFieldStatic", fieldType: "[Z", fieldCache: &booleanArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Bool].self, from: __value )
@@ -150,7 +150,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var booleanFieldStatic_FieldID: jfieldID?
 
-    open static var booleanFieldStatic: Bool {
+    public static var booleanFieldStatic: Bool {
         get {
             let __value = JNIField.GetStaticBooleanField( fieldName: "booleanFieldStatic", fieldType: "Z", fieldCache: &booleanFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value != jboolean(JNI_FALSE)
@@ -166,7 +166,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var byte2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var byte2dArrayFieldStatic: [[Int8]]! {
+    public static var byte2dArrayFieldStatic: [[Int8]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "byte2dArrayFieldStatic", fieldType: "[[B", fieldCache: &byte2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Int8]].self, from: __value )
@@ -182,7 +182,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var byteArrayFieldStatic_FieldID: jfieldID?
 
-    open static var byteArrayFieldStatic: [Int8]! {
+    public static var byteArrayFieldStatic: [Int8]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "byteArrayFieldStatic", fieldType: "[B", fieldCache: &byteArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Int8].self, from: __value )
@@ -198,7 +198,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var byteFieldStatic_FieldID: jfieldID?
 
-    open static var byteFieldStatic: Int8 {
+    public static var byteFieldStatic: Int8 {
         get {
             let __value = JNIField.GetStaticByteField( fieldName: "byteFieldStatic", fieldType: "B", fieldCache: &byteFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value
@@ -214,7 +214,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var char2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var char2dArrayFieldStatic: [[UInt16]]! {
+    public static var char2dArrayFieldStatic: [[UInt16]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "char2dArrayFieldStatic", fieldType: "[[C", fieldCache: &char2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[UInt16]].self, from: __value )
@@ -230,7 +230,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var charArrayFieldStatic_FieldID: jfieldID?
 
-    open static var charArrayFieldStatic: [UInt16]! {
+    public static var charArrayFieldStatic: [UInt16]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "charArrayFieldStatic", fieldType: "[C", fieldCache: &charArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [UInt16].self, from: __value )
@@ -246,7 +246,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var charFieldStatic_FieldID: jfieldID?
 
-    open static var charFieldStatic: UInt16 {
+    public static var charFieldStatic: UInt16 {
         get {
             let __value = JNIField.GetStaticCharField( fieldName: "charFieldStatic", fieldType: "C", fieldCache: &charFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value
@@ -262,7 +262,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var double2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var double2dArrayFieldStatic: [[Double]]! {
+    public static var double2dArrayFieldStatic: [[Double]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "double2dArrayFieldStatic", fieldType: "[[D", fieldCache: &double2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Double]].self, from: __value )
@@ -278,7 +278,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var doubleArrayFieldStatic_FieldID: jfieldID?
 
-    open static var doubleArrayFieldStatic: [Double]! {
+    public static var doubleArrayFieldStatic: [Double]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "doubleArrayFieldStatic", fieldType: "[D", fieldCache: &doubleArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Double].self, from: __value )
@@ -294,7 +294,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var doubleFieldStatic_FieldID: jfieldID?
 
-    open static var doubleFieldStatic: Double {
+    public static var doubleFieldStatic: Double {
         get {
             let __value = JNIField.GetStaticDoubleField( fieldName: "doubleFieldStatic", fieldType: "D", fieldCache: &doubleFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value
@@ -310,7 +310,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var float2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var float2dArrayFieldStatic: [[Float]]! {
+    public static var float2dArrayFieldStatic: [[Float]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "float2dArrayFieldStatic", fieldType: "[[F", fieldCache: &float2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Float]].self, from: __value )
@@ -326,7 +326,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var floatArrayFieldStatic_FieldID: jfieldID?
 
-    open static var floatArrayFieldStatic: [Float]! {
+    public static var floatArrayFieldStatic: [Float]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "floatArrayFieldStatic", fieldType: "[F", fieldCache: &floatArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Float].self, from: __value )
@@ -342,7 +342,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var floatFieldStatic_FieldID: jfieldID?
 
-    open static var floatFieldStatic: Float {
+    public static var floatFieldStatic: Float {
         get {
             let __value = JNIField.GetStaticFloatField( fieldName: "floatFieldStatic", fieldType: "F", fieldCache: &floatFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value
@@ -358,7 +358,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var int2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var int2dArrayFieldStatic: [[Int32]]! {
+    public static var int2dArrayFieldStatic: [[Int32]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "int2dArrayFieldStatic", fieldType: "[[I", fieldCache: &int2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Int32]].self, from: __value )
@@ -374,7 +374,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var intArrayFieldStatic_FieldID: jfieldID?
 
-    open static var intArrayFieldStatic: [Int32]! {
+    public static var intArrayFieldStatic: [Int32]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "intArrayFieldStatic", fieldType: "[I", fieldCache: &intArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Int32].self, from: __value )
@@ -390,7 +390,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var intFieldStatic_FieldID: jfieldID?
 
-    open static var intFieldStatic: Int {
+    public static var intFieldStatic: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "intFieldStatic", fieldType: "I", fieldCache: &intFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return Int(__value)
@@ -406,7 +406,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var long2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var long2dArrayFieldStatic: [[Int64]]! {
+    public static var long2dArrayFieldStatic: [[Int64]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "long2dArrayFieldStatic", fieldType: "[[J", fieldCache: &long2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Int64]].self, from: __value )
@@ -422,7 +422,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var longArrayFieldStatic_FieldID: jfieldID?
 
-    open static var longArrayFieldStatic: [Int64]! {
+    public static var longArrayFieldStatic: [Int64]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "longArrayFieldStatic", fieldType: "[J", fieldCache: &longArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Int64].self, from: __value )
@@ -438,7 +438,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var longFieldStatic_FieldID: jfieldID?
 
-    open static var longFieldStatic: Int64 {
+    public static var longFieldStatic: Int64 {
         get {
             let __value = JNIField.GetStaticLongField( fieldName: "longFieldStatic", fieldType: "J", fieldCache: &longFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value
@@ -454,7 +454,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var short2dArrayFieldStatic_FieldID: jfieldID?
 
-    open static var short2dArrayFieldStatic: [[Int16]]! {
+    public static var short2dArrayFieldStatic: [[Int16]]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "short2dArrayFieldStatic", fieldType: "[[S", fieldCache: &short2dArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [[Int16]].self, from: __value )
@@ -470,7 +470,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var shortArrayFieldStatic_FieldID: jfieldID?
 
-    open static var shortArrayFieldStatic: [Int16]! {
+    public static var shortArrayFieldStatic: [Int16]! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "shortArrayFieldStatic", fieldType: "[S", fieldCache: &shortArrayFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return JNIType.toSwift( type: [Int16].self, from: __value )
@@ -486,7 +486,7 @@ open class SwiftTest: java_swift.JavaObject {
 
     private static var shortFieldStatic_FieldID: jfieldID?
 
-    open static var shortFieldStatic: Int16 {
+    public static var shortFieldStatic: Int16 {
         get {
             let __value = JNIField.GetStaticShortField( fieldName: "shortFieldStatic", fieldType: "S", fieldCache: &shortFieldStatic_FieldID, className: "org/swiftjava/SwiftTest", classCache: &SwiftTestJNIClass )
             return __value
