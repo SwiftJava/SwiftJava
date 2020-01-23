@@ -18,7 +18,6 @@
 		BB643B321F4873F7003E849E /* swift-android-gradle in Resources */ = {isa = PBXBuildFile; fileRef = BB643B311F4873F7003E849E /* swift-android-gradle */; };
 		BB6651321F2E39F7004EFD5F /* swift-android-kotlin in Resources */ = {isa = PBXBuildFile; fileRef = BB6651301F2E39F6004EFD5F /* swift-android-kotlin */; };
 		BB6651361F2E3F51004EFD5F /* android_toolchain in Resources */ = {isa = PBXBuildFile; fileRef = BB6651351F2E3F50004EFD5F /* android_toolchain */; };
-		BB88CEC821CC388700B79BD9 /* swifthello.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB88CEC721CC388400B79BD9 /* swifthello.swift */; };
 		BB9CF8931D619D1C004781B9 /* genhello.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8921D619D1C004781B9 /* genhello.sh */; };
 		BB9CF8981D61BAF4004781B9 /* swift-android-samples in Resources */ = {isa = PBXBuildFile; fileRef = BB9CF8971D61BAF4004781B9 /* swift-android-samples */; };
 		BBAD3EDA1D59DDBC0091D139 /* TableColorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD3ED91D59DDBC0091D139 /* TableColorSelection.swift */; };
@@ -646,6 +645,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -792,7 +792,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB88CEC821CC388700B79BD9 /* swifthello.swift in Sources */,
 				BB5ACFDF1D35B09900E2386A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
